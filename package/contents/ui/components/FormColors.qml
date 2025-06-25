@@ -566,8 +566,8 @@ Kirigami.FormLayout {
         property int index: 0
         text: i18n("Horizontal")
         ButtonGroup.group: gradientOrientationBtnGroup
-        checked: root.config.gradient.orientation === index
-        visible: root.supportsGradient && gradientRadio.checked
+        checked: root.config.colorsOrientation === index
+        visible: root.config.sourceType > 1
     }
 
     RadioButton {
@@ -575,8 +575,8 @@ Kirigami.FormLayout {
         property int index: 1
         text: i18n("Vertical")
         ButtonGroup.group: gradientOrientationBtnGroup
-        checked: root.config.gradient.orientation === index
-        visible: root.supportsGradient && gradientRadio.checked
+        checked: root.config.colorsOrientation === index
+        visible: root.config.sourceType > 1
     }
 
     ButtonGroup {
@@ -584,33 +584,20 @@ Kirigami.FormLayout {
 
         onCheckedButtonChanged: {
             if (checkedButton) {
-                root.config.gradient.orientation = checkedButton.index;
+                root.config.colorsOrientation = checkedButton.index;
                 root.updateConfig();
             }
         }
     }
 
-    ColumnLayout {
-        visible: root.supportsGradient && gradientRadio.checked
-        Kirigami.FormData.label: i18n("Gradient steps:")
-
-        Loader {
-            asynchronous: true
-            sourceComponent: gradientRadio.checked ? pickerGradientList : null
-            onLoaded: {
-                item.stopsList = root.config.gradient.stops;
-                item.onColorsChanged.connect(stopsList => {
-                    config.gradient.stops = stopsList;
-                    root.updateConfig();
-                });
-            }
+    CheckBox {
+        Kirigami.FormData.label: i18n("Gradient:")
+        checked: root.config.smoothGradient
+        onCheckedChanged: {
+            root.config.smoothGradient = checked;
+            root.updateConfig();
         }
-
-        Component {
-            id: pickerGradientList
-
-            ColorPickerGradientList {}
-        }
+        visible: root.config.sourceType > 1
     }
 
     RowLayout {

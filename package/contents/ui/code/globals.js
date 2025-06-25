@@ -28,10 +28,8 @@ const baseBarColors = {
   saturationEnabled: false,
   lightnessEnabled: false,
   sourceType: 1,
-  gradient: {
-    stops: baseGradientList,
-    orientation: 0
-  },
+  smoothGradient: true,
+  colorsOrientation: 0,
   image: {
     source: "",
     fillMode: 2

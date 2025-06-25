@@ -24,6 +24,7 @@ KCM.SimpleKCM {
     property alias cfg_hideWhenIdle: hideWhenIdleCheckbox.checked
     property int cfg_visualizerStyle
     property string cfg_barColors
+    property alias cfg_fillWave: fillWaveCheckbox.checked
 
     ColumnLayout {
 
@@ -60,6 +61,11 @@ KCM.SimpleKCM {
                 Component.onCompleted: {
                     currentIndex = indexOfValue(root.cfg_visualizerStyle);
                 }
+            }
+
+            CheckBox {
+                id: fillWaveCheckbox
+                Kirigami.FormData.label: i18n("Fill wave:")
             }
 
             CheckBox {

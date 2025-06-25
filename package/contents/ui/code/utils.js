@@ -68,3 +68,24 @@ function hexToQtColor(hex) {
   let rgb = hexToRgb(hex);
   return rgbToQtColor(rgb);
 }
+
+function buildCanvasGradient(ctx, smooth, gradientStops, orientation, height, width) {
+  let gradient;
+  if (orientation === 0) {
+    gradient = ctx.createLinearGradient(0, 0, width, 0);
+  } else {
+    gradient = ctx.createLinearGradient(0, 0, 0, height);
+  }
+  for (let i = 0; i < gradientStops.length; i++) {
+    const stop = gradientStops[i];
+    let color = stop.color ?? stop;
+    let position = stop.position ?? (1 / gradientStops.length) * i;
+    gradient.addColorStop(position, color);
+    if (!smooth && i > 0 && i < gradientStops.length) {
+      let prevStop = gradientStops[i - 1];
+      let color = prevStop.color ?? prevStop;
+      gradient.addColorStop(Math.max(position - 0.0001, 0), color);
+    }
+  }
+  return gradient;
+}

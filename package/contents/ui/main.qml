@@ -13,7 +13,7 @@ PlasmoidItem {
     id: root
     Plasmoid.constraintHints: Plasmoid.configuration.fillPanel ? Plasmoid.CanFillArea : Plasmoid.NoHint
     Plasmoid.backgroundHints: plasmoid.configuration.desktopWidgetBg
-    property int widgetLength: visualiser.width
+    property int widgetLength: visualizer.width
     property bool horizontal: Plasmoid.formFactor !== PlasmaCore.Types.Vertical
     Layout.preferredWidth: horizontal ? widgetLength : 0
     Layout.preferredHeight: horizontal ? Math.min(root.width, root.height) : widgetLength
@@ -32,6 +32,7 @@ PlasmoidItem {
     property bool roundedBars: Plasmoid.configuration.roundedBars
     property bool hideWhenIdle: Plasmoid.configuration.hideWhenIdle
     property int visualizerStyle: Plasmoid.configuration.visualizerStyle
+    property bool fillWave: Plasmoid.configuration.fillWave
     property bool idle: true
 
     property var barColorsCfg: {
@@ -73,7 +74,7 @@ PlasmoidItem {
                     idleTimer.start();
                 }
                 if (!root.idle) {
-                    visualiser.requestPaint();
+                    visualizer.requestPaint();
                 }
             }
         }
@@ -94,7 +95,7 @@ PlasmoidItem {
     }
 
     Canvas {
-        id: visualiser
+        id: visualizer
         property int visualizerStyle: root.visualizerStyle
         property int barWidth: root.barWidth
         property int spacing: root.barGap
@@ -107,7 +108,7 @@ PlasmoidItem {
         property int colorSourceType: barColorsCfg.sourceType
         property color customColor: barColorsCfg.custom
         property color themeColor: kirigamiColorItem.Kirigami.Theme[barColorsCfg.systemColor]
-        property color singleColor: {
+        property var singleColor: {
             let color = null;
             if (colorSourceType === 0) {
                 color = customColor;
@@ -138,6 +139,9 @@ PlasmoidItem {
             }
             return colors;
         }
+        property bool smoothGradient: barColorsCfg.smoothGradient
+        property int colorsOrientation: barColorsCfg.colorsOrientation
+        property bool fillWave: root.fillWave
 
         width: barCount * barWidth + ((barCount - 1) * spacing)
         height: parent.height
@@ -145,26 +149,21 @@ PlasmoidItem {
         onPaint: {
             const ctx = getContext("2d");
             ctx.reset();
+            if (singleColor) {
+                ctx.strokeStyle = singleColor;
+            } else {
+                ctx.strokeStyle = Utils.buildCanvasGradient(ctx, smoothGradient, colors, colorsOrientation, height, width);
+            }
             if (visualizerStyle === Enum.VisualizerStyles.Bars) {
                 ctx.lineCap = roundedBars ? "round" : "butt";
                 ctx.lineWidth = barWidth;
 
                 let x = barWidth / 2;
 
-                if (singleColor) {
-                    ctx.strokeStyle = singleColor;
-                }
-
                 // bars
                 const centerY = height / 2;
                 for (let i = 0; i < barCount; i++) {
                     const value = Math.max(1, Math.min(100, values[i]));
-
-                    // multi color
-                    if (colors.length) {
-                        const nextIndex = i % colors.length;
-                        ctx.strokeStyle = colors[nextIndex];
-                    }
 
                     let barHeight;
                     let yBottom;
@@ -198,14 +197,18 @@ PlasmoidItem {
                 if (barCount < 2)
                     return;
 
-                const step = width / (barCount - 1);
-                const yBottom = centeredBars ? height / 2 : height;
-                const amplitude = centeredBars ? height / 2 : height;
+                ctx.lineCap = roundedBars ? "round" : "butt";
+                ctx.lineWidth = barWidth;
 
-                ctx.strokeStyle = "red";
-                ctx.lineWidth = 2;
+                const step = width / (barCount - 1);
+                const yBottom = centeredBars ? height / 2 : height - barWidth;
+                const amplitude = centeredBars ? height / 2 : height - barWidth;
 
                 ctx.beginPath();
+
+                if (fillWave) {
+                    ctx.moveTo(0, yBottom);
+                }
 
                 let prevX = 0;
                 let prevY = yBottom - Math.max(0, Math.min(100, values[0])) / 100 * amplitude;
@@ -223,6 +226,12 @@ PlasmoidItem {
                 }
 
                 ctx.lineTo(width, prevY);
+                if (fillWave) {
+                    ctx.lineTo(width, yBottom);
+                    ctx.closePath();
+                    ctx.fillStyle = ctx.strokeStyle;
+                    ctx.fill();
+                }
                 ctx.stroke();
             }
         }
