@@ -26,6 +26,7 @@ KCM.SimpleKCM {
     property string cfg_barColors
     property string cfg_waveFillColors
     property alias cfg_fillWave: fillWaveCheckbox.checked
+    property alias cfg_debugMode: debugModeCheckbox.checked
 
     ColumnLayout {
 
@@ -165,6 +166,10 @@ KCM.SimpleKCM {
                     }
                     ButtonGroup.group: desktopWidgetBackgroundRadio
                 }
+            }
+            CheckBox {
+                id: debugModeCheckbox
+                Kirigami.FormData.label: i18n("Debug mode:")
             }
         }
 

@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Shapes 1.9
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.plasmoid
@@ -38,6 +39,7 @@ PlasmoidItem {
     property bool hideWhenIdle: Plasmoid.configuration.hideWhenIdle
     property int visualizerStyle: Plasmoid.configuration.visualizerStyle
     property bool fillWave: Plasmoid.configuration.fillWave
+    property bool debugMode: Plasmoid.configuration.debugMode
     property bool idle: true
 
     property var barColorsCfg: {
@@ -126,6 +128,7 @@ PlasmoidItem {
 
     Canvas {
         id: visualizer
+        anchors.centerIn: parent
         property int visualizerStyle: root.visualizerStyle
         property int barWidth: root.barWidth
         property int spacing: root.barGap
@@ -257,6 +260,65 @@ PlasmoidItem {
             }
             if (barWidth % 2 === 0 && centeredBars) {
                 ctx.translate(-0.5, -0.5);
+            }
+        }
+    }
+
+    Shape {
+        id: shape
+        visible: root.debugMode
+        width: parent.width
+        height: parent.height
+        anchors.centerIn: parent
+        ShapePath {
+            fillColor: "transparent"
+            strokeWidth: 1
+            strokeColor: "red"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 8]
+            startX: 0
+            startY: shape.height
+            PathLine {
+                x: shape.width
+                y: shape.height
+            }
+            PathLine {
+                x: shape.width
+                y: 0
+            }
+            PathLine {
+                x: 0
+                y: 0
+            }
+            PathLine {
+                x: 0
+                y: shape.height
+            }
+        }
+        ShapePath {
+            fillColor: "transparent"
+            strokeWidth: 1
+            strokeColor: "red"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 8]
+            startX: 0
+            startY: shape.height / 2
+            PathLine {
+                x: shape.width
+                y: shape.height / 2
+            }
+        }
+        ShapePath {
+            fillColor: "transparent"
+            strokeWidth: 1
+            strokeColor: "red"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 8]
+            startX: shape.width / 2
+            startY: 0
+            PathLine {
+                x: shape.width / 2
+                y: shape.height
             }
         }
     }

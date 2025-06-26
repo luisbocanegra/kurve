@@ -6,7 +6,7 @@
   <kcfgfile name=""/>
 
   <group name="General">
-    <entry name="enableDebug" type="Bool">
+    <entry name="debugMode" type="Bool">
       <default>false</default>
     </entry>
     <entry name="hideWhenIdle" type="Bool">
