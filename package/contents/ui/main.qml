@@ -23,7 +23,12 @@ PlasmoidItem {
     property list<int> values
     property int framerate: Plasmoid.configuration.framerate
     property int barGap: Plasmoid.configuration.barGap
-    property int barCount: Plasmoid.configuration.barCount
+    property int barCount: {
+        if (visualizerStyle === Enum.VisualizerStyles.Wave) {
+            return Math.max(2, Plasmoid.configuration.barCount);
+        }
+        return Plasmoid.configuration.barCount;
+    }
     property int barWidth: Plasmoid.configuration.barWidth
     property int noiseReduction: Plasmoid.configuration.noiseReduction
     property int monstercat: Plasmoid.configuration.monstercat

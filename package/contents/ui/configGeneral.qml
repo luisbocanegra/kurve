@@ -98,7 +98,7 @@ KCM.SimpleKCM {
             SpinBox {
                 id: barWidthSpinbox
                 Kirigami.FormData.label: i18n("Bar width:")
-                from: 0
+                from: 1
                 to: 100
             }
 
