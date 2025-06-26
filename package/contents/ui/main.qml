@@ -1,14 +1,13 @@
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Shapes 1.9
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.plasmoid
-import com.github.luisbocanegra.audiovisualizer.process 1.0
 import "code/enum.js" as Enum
 import "code/globals.js" as Globals
 import "code/utils.js" as Utils
+import "components" as Components
 
 PlasmoidItem {
     id: root
@@ -79,9 +78,9 @@ PlasmoidItem {
     preferredRepresentation: fullRepresentation
     Plasmoid.status: hideWhenIdle && idle ? PlasmaCore.Types.HiddenStatus : PlasmaCore.Types.ActiveStatus
 
-    Process {
+    Components.ProcessMonitor {
         id: process
-        command: ["sh", "-c", `printf '[general]\nframerate=${root.framerate}\nbars=${root.barCount}\n[output]\nchannels=mono\nmethod=raw\nraw_target=/dev/stdout\ndata_format=ascii\nascii_max_range=100\n[smoothing]\nnoise_reduction=${root.noiseReduction}\nmonstercat=${root.monstercat}\nwaves=${root.waves}' | cava -p /dev/stdin`]
+        command: `printf '[general]\nframerate=${root.framerate}\nbars=${root.barCount}\n[output]\nchannels=mono\nmethod=raw\nraw_target=/dev/stdout\ndata_format=ascii\nascii_max_range=100\n[smoothing]\nnoise_reduction=${root.noiseReduction}\nmonstercat=${root.monstercat}\nwaves=${root.waves}' | cava -p /dev/stdin`
         onStdoutChanged: {
             if (process.stdout) {
                 let output = process.stdout.trim();
