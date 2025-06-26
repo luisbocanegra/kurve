@@ -63,9 +63,9 @@ PlasmoidItem {
             waveFillColors = JSON.parse(Plasmoid.configuration.waveFillColors);
         } catch (e) {
             console.error(e, e.stack);
-            globalSettings = Globals.baseBarColors;
+            globalSettings = Globals.baseWaveFillColors;
         }
-        const config = Utils.mergeConfigs(Globals.baseBarColors, waveFillColors);
+        const config = Utils.mergeConfigs(Globals.baseWaveFillColors, waveFillColors);
         const configStr = JSON.stringify(config);
         if (Plasmoid.configuration.waveFillColors !== configStr) {
             Plasmoid.configuration.waveFillColors = configStr;
