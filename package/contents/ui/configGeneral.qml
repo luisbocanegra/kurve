@@ -24,6 +24,7 @@ KCM.SimpleKCM {
     property alias cfg_hideWhenIdle: hideWhenIdleCheckbox.checked
     property int cfg_visualizerStyle
     property string cfg_barColors
+    property string cfg_waveFillColors
     property alias cfg_fillWave: fillWaveCheckbox.checked
 
     ColumnLayout {
@@ -65,7 +66,8 @@ KCM.SimpleKCM {
 
             CheckBox {
                 id: fillWaveCheckbox
-                Kirigami.FormData.label: i18n("Fill wave:")
+                text: i18n("Fill wave")
+                visible: root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave
             }
 
             CheckBox {
@@ -172,9 +174,19 @@ KCM.SimpleKCM {
             onUpdateConfigString: (newString, newConfig) => {
                 root.cfg_barColors = JSON.stringify(newConfig);
             }
-            sectionName: i18n("Bar Color")
+            sectionName: root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave ? i18n("Wave Color") : i18n("Bar Color")
             multiColor: true
         }
+
+        Components.FormColors {
+            configString: root.cfg_waveFillColors
+            handleString: true
+            onUpdateConfigString: (newString, newConfig) => {
+                root.cfg_waveFillColors = JSON.stringify(newConfig);
+            }
+            sectionName: i18n("Wave Fill Color")
+            multiColor: true
+            visible: root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave && fillWaveCheckbox.checked
+        }
     }
-    Component.onCompleted: console.log(root.cfg_barColors)
 }

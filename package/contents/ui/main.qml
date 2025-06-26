@@ -57,6 +57,23 @@ PlasmoidItem {
         return config;
     }
 
+    property var waveFillColorsCfg: {
+        let waveFillColors;
+        try {
+            waveFillColors = JSON.parse(Plasmoid.configuration.waveFillColors);
+        } catch (e) {
+            console.error(e, e.stack);
+            globalSettings = Globals.baseBarColors;
+        }
+        const config = Utils.mergeConfigs(Globals.baseBarColors, waveFillColors);
+        const configStr = JSON.stringify(config);
+        if (Plasmoid.configuration.waveFillColors !== configStr) {
+            Plasmoid.configuration.waveFillColors = configStr;
+            Plasmoid.configuration.writeConfig();
+        }
+        return config;
+    }
+
     preferredRepresentation: fullRepresentation
     Plasmoid.status: hideWhenIdle && idle ? PlasmaCore.Types.HiddenStatus : PlasmaCore.Types.ActiveStatus
 
@@ -99,6 +116,14 @@ PlasmoidItem {
         Kirigami.Theme.colorSet: Kirigami.Theme[root.barColorsCfg.systemColorSet]
     }
 
+    Rectangle {
+        id: kirigamiColorItem2
+        opacity: 0
+        height: 1
+        width: height
+        Kirigami.Theme.colorSet: Kirigami.Theme[root.waveFillColorsCfg.systemColorSet]
+    }
+
     Canvas {
         id: visualizer
         property int visualizerStyle: root.visualizerStyle
@@ -109,15 +134,17 @@ PlasmoidItem {
         property bool roundedBars: root.roundedBars
         property var values: root.values
         property real radiusOffset: barWidth / 2
-        property var barColorsCfg: root.barColorsCfg
-        property color themeColor: kirigamiColorItem.Kirigami.Theme[barColorsCfg.systemColor]
-        property list<color> colors: Utils.getColors(barColorsCfg, barCount, themeColor)
-        property bool smoothGradient: barColorsCfg.smoothGradient
-        property int colorsOrientation: barColorsCfg.colorsOrientation
         property bool fillWave: root.fillWave
         property int gradientHeight: height
         property int gradientWidth: width
-        property var gradient: Utils.buildCanvasGradient(getContext("2d"), smoothGradient, colors, colorsOrientation, gradientHeight, gradientWidth)
+
+        property var barColorsCfg: root.barColorsCfg
+        property list<color> colors: Utils.getColors(barColorsCfg, barCount, kirigamiColorItem.Kirigami.Theme[barColorsCfg.systemColor])
+        property var gradient: Utils.buildCanvasGradient(getContext("2d"), barColorsCfg.smoothGradient, colors, barColorsCfg.colorsOrientation, gradientHeight, gradientWidth)
+
+        property var waveFillColorsCfg: root.waveFillColorsCfg
+        property list<color> waveFillColors: Utils.getColors(waveFillColorsCfg, barCount, kirigamiColorItem2.Kirigami.Theme[waveFillColorsCfg.systemColor])
+        property var waveFillGradient: Utils.buildCanvasGradient(getContext("2d"), waveFillColorsCfg.smoothGradient, waveFillColors, waveFillColorsCfg.colorsOrientation, gradientHeight, gradientWidth)
 
         width: barCount * barWidth + ((barCount - 1) * spacing)
         height: parent.height
@@ -181,11 +208,6 @@ PlasmoidItem {
                 gradientHeight = yBottom;
 
                 ctx.beginPath();
-
-                if (fillWave) {
-                    ctx.moveTo(0, yBottom);
-                }
-
                 let prevX = 0;
                 let prevY = yBottom - Math.max(0, Math.min(100, values[0])) / 100 * amplitude;
                 ctx.lineTo(prevX, prevY);
@@ -202,13 +224,33 @@ PlasmoidItem {
                 }
 
                 ctx.lineTo(width, prevY);
+                ctx.stroke();
+
                 if (fillWave) {
+                    ctx.beginPath();
+                    ctx.moveTo(0, yBottom);
+
+                    prevX = 0;
+                    prevY = yBottom - Math.max(0, Math.min(100, values[0])) / 100 * amplitude;
+                    ctx.lineTo(prevX, prevY);
+
+                    for (let i = 1; i < barCount; i++) {
+                        const norm = Math.max(0, Math.min(100, values[i])) / 100;
+                        const x = i * step;
+                        const y = yBottom - norm * amplitude;
+                        const midX = (prevX + x) / 2;
+                        const midY = (prevY + y) / 2;
+                        ctx.quadraticCurveTo(prevX, prevY, midX, midY);
+                        prevX = x;
+                        prevY = y;
+                    }
+
+                    ctx.lineTo(width, prevY);
                     ctx.lineTo(width, yBottom);
                     ctx.closePath();
-                    ctx.fillStyle = ctx.strokeStyle;
+                    ctx.fillStyle = waveFillGradient;
                     ctx.fill();
                 }
-                ctx.stroke();
             }
         }
     }

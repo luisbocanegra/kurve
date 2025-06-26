@@ -33,6 +33,9 @@
     <entry name="barColors" type="String">
       <default>{}</default>
     </entry>
+    <entry name="waveFillColors" type="String">
+      <default>{}</default>
+    </entry>
     <entry name="noiseReduction" type="Int">
       <default>77</default>
     </entry>
