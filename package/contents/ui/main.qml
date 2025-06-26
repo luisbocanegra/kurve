@@ -152,6 +152,9 @@ PlasmoidItem {
         onPaint: {
             const ctx = getContext("2d");
             ctx.reset();
+            if (barWidth % 2 === 0 && centeredBars) {
+                ctx.translate(0.5, 0.5);
+            }
             if (gradient) {
                 ctx.strokeStyle = gradient;
             }
@@ -202,20 +205,19 @@ PlasmoidItem {
                 ctx.lineWidth = barWidth;
 
                 const step = width / (barCount - 1);
-                const yBottom = centeredBars ? height / 2 : height - barWidth;
-                const amplitude = centeredBars ? height / 2 : height - barWidth;
+                const yBottom = centeredBars ? (height / 2) : (height - barWidth / 2);
 
                 gradientHeight = yBottom;
 
                 ctx.beginPath();
                 let prevX = 0;
-                let prevY = yBottom - Math.max(0, Math.min(100, values[0])) / 100 * amplitude;
-                ctx.lineTo(prevX, prevY);
+                let prevY = yBottom - Math.max(0, Math.min(100, values[0])) / 100 * yBottom;
+                ctx.lineTo(prevX - 0.5, prevY);
 
                 for (let i = 1; i < barCount; i++) {
                     const norm = Math.max(0, Math.min(100, values[i])) / 100;
                     const x = i * step;
-                    const y = yBottom - norm * amplitude;
+                    const y = yBottom - norm * yBottom;
                     const midX = (prevX + x) / 2;
                     const midY = (prevY + y) / 2;
                     ctx.quadraticCurveTo(prevX, prevY, midX, midY);
@@ -223,21 +225,22 @@ PlasmoidItem {
                     prevY = y;
                 }
 
-                ctx.lineTo(width, prevY);
+                ctx.lineTo(width + 0.5, prevY);
                 ctx.stroke();
 
                 if (fillWave) {
+                    const yBottom = centeredBars ? (height / 2 + barWidth / 2) : height;
                     ctx.beginPath();
                     ctx.moveTo(0, yBottom);
 
                     prevX = 0;
-                    prevY = yBottom - Math.max(0, Math.min(100, values[0])) / 100 * amplitude;
+                    prevY = yBottom - Math.max(0, Math.min(100, values[0])) / 100 * yBottom;
                     ctx.lineTo(prevX, prevY);
 
                     for (let i = 1; i < barCount; i++) {
                         const norm = Math.max(0, Math.min(100, values[i])) / 100;
                         const x = i * step;
-                        const y = yBottom - norm * amplitude;
+                        const y = yBottom - norm * yBottom;
                         const midX = (prevX + x) / 2;
                         const midY = (prevY + y) / 2;
                         ctx.quadraticCurveTo(prevX, prevY, midX, midY);
@@ -251,6 +254,9 @@ PlasmoidItem {
                     ctx.fillStyle = waveFillGradient;
                     ctx.fill();
                 }
+            }
+            if (barWidth % 2 === 0 && centeredBars) {
+                ctx.translate(-0.5, -0.5);
             }
         }
     }
