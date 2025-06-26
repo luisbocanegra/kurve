@@ -37,10 +37,10 @@ function scaleLightness(color, lightness) {
 
 function alterColor(color, saturationEnabled, saturation, lightnessEnabled, lightness, alpha) {
   if (saturationEnabled) {
-    color = Utils.scaleSaturation(color, saturation);
+    color = scaleSaturation(color, saturation);
   }
   if (lightnessEnabled) {
-    color = Utils.scaleLightness(color, lightness);
+    color = scaleLightness(color, lightness);
   }
   if (alpha !== 1.0) {
     color = Qt.hsla(color.hslHue, color.hslSaturation, color.hslLightness, alpha);
@@ -88,4 +88,35 @@ function buildCanvasGradient(ctx, smooth, gradientStops, orientation, height, wi
     }
   }
   return gradient;
+}
+
+function getColors(barColorsCfg, barCount, themeColor) {
+  let colorSourceType = barColorsCfg.sourceType;
+  let colors = [];
+  let color = null;
+  if (colorSourceType === 0) {
+    color = hexToQtColor(barColorsCfg.custom);
+  } else if (colorSourceType === 1) {
+    color = themeColor;
+  }
+  if (color) {
+    color = alterColor(color, barColorsCfg.saturationEnabled, barColorsCfg.saturation, barColorsCfg.lightnessEnabled, barColorsCfg.lightness, barColorsCfg.alpha);
+    colors.push(color);
+  }
+  if (colorSourceType === 2) {
+    colors = barColorsCfg.list.map(c => {
+      c = hexToQtColor(c);
+      return alterColor(c, barColorsCfg.saturationEnabled, barColorsCfg.saturation, barColorsCfg.lightnessEnabled, barColorsCfg.lightness, barColorsCfg.alpha);
+    });
+  } else if (colorSourceType === 3) {
+    for (let i = 0; i < barCount; i++) {
+      colors.push(alterColor(getRandomColor(null, 0.8, 0.7, null), barColorsCfg.saturationEnabled, barColorsCfg.saturation, barColorsCfg.lightnessEnabled, barColorsCfg.lightness, barColorsCfg.alpha));
+    }
+  } else if (colorSourceType === 7) {
+    for (let i = 0; i < barCount; i++) {
+      let c = Qt.hsla(i / barCount, 0.8, 0.7, 1.0);
+      colors.push(alterColor(c, barColorsCfg.saturationEnabled, barColorsCfg.saturation, barColorsCfg.lightnessEnabled, barColorsCfg.lightness, barColorsCfg.alpha));
+    }
+  }
+  return colors;
 }

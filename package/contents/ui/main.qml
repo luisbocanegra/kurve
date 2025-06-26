@@ -105,43 +105,14 @@ PlasmoidItem {
         property var values: root.values
         property real radiusOffset: barWidth / 2
         property var barColorsCfg: root.barColorsCfg
-        property int colorSourceType: barColorsCfg.sourceType
-        property color customColor: barColorsCfg.custom
         property color themeColor: kirigamiColorItem.Kirigami.Theme[barColorsCfg.systemColor]
-        property var singleColor: {
-            let color = null;
-            if (colorSourceType === 0) {
-                color = customColor;
-            } else if (colorSourceType === 1) {
-                color = themeColor;
-            }
-            if (color) {
-                color = Utils.alterColor(color, barColorsCfg.saturationEnabled, barColorsCfg.saturationValue, barColorsCfg.lightnessEnabled, barColorsCfg.lightnessValue, barColorsCfg.alpha);
-            }
-            return color;
-        }
-        property list<color> colors: {
-            let colors = [];
-            if (colorSourceType === 2) {
-                colors = barColorsCfg.list.map(c => {
-                    c = Utils.hexToQtColor(c);
-                    return Utils.alterColor(c, barColorsCfg.saturationEnabled, barColorsCfg.saturationValue, barColorsCfg.lightnessEnabled, barColorsCfg.lightnessValue, barColorsCfg.alpha);
-                });
-            } else if (colorSourceType === 3) {
-                for (let i = 0; i < barCount; i++) {
-                    colors.push(Utils.alterColor(Utils.getRandomColor(null, 0.8, 0.7, null), barColorsCfg.saturationEnabled, barColorsCfg.saturationValue, barColorsCfg.lightnessEnabled, barColorsCfg.lightnessValue, barColorsCfg.alpha));
-                }
-            } else if (colorSourceType === 7) {
-                for (let i = 0; i < barCount; i++) {
-                    let c = Qt.hsla(i / barCount, 0.8, 0.7, 1.0);
-                    colors.push(Utils.alterColor(c, barColorsCfg.saturationEnabled, barColorsCfg.saturationValue, barColorsCfg.lightnessEnabled, barColorsCfg.lightnessValue, barColorsCfg.alpha));
-                }
-            }
-            return colors;
-        }
+        property list<color> colors: Utils.getColors(barColorsCfg, barCount, themeColor)
         property bool smoothGradient: barColorsCfg.smoothGradient
         property int colorsOrientation: barColorsCfg.colorsOrientation
         property bool fillWave: root.fillWave
+        property int gradientHeight: height
+        property int gradientWidth: width
+        property var gradient: Utils.buildCanvasGradient(getContext("2d"), smoothGradient, colors, colorsOrientation, gradientHeight, gradientWidth)
 
         width: barCount * barWidth + ((barCount - 1) * spacing)
         height: parent.height
@@ -149,10 +120,8 @@ PlasmoidItem {
         onPaint: {
             const ctx = getContext("2d");
             ctx.reset();
-            if (singleColor) {
-                ctx.strokeStyle = singleColor;
-            } else {
-                ctx.strokeStyle = Utils.buildCanvasGradient(ctx, smoothGradient, colors, colorsOrientation, height, width);
+            if (gradient) {
+                ctx.strokeStyle = gradient;
             }
             if (visualizerStyle === Enum.VisualizerStyles.Bars) {
                 ctx.lineCap = roundedBars ? "round" : "butt";
@@ -203,6 +172,8 @@ PlasmoidItem {
                 const step = width / (barCount - 1);
                 const yBottom = centeredBars ? height / 2 : height - barWidth;
                 const amplitude = centeredBars ? height / 2 : height - barWidth;
+
+                gradientHeight = yBottom;
 
                 ctx.beginPath();
 

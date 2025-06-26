@@ -17,8 +17,8 @@ const baseGradientList = [
 
 const baseBarColors = {
   enabled: false,
-  lightnessValue: 0.5,
-  saturationValue: 0.5,
+  lightness: 0.5,
+  saturation: 0.5,
   alpha: 1,
   systemColor: "backgroundColor",
   systemColorSet: "View",
