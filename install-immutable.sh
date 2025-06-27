@@ -14,3 +14,5 @@ fi
 cmake -B build/ -S . -DINSTALL_PLASMOID=ON -DBUILD_PLUGIN=ON -DCMAKE_INSTALL_PREFIX="$HOME/.local"
 cmake --build build/
 cmake --install build/
+# cmake plasma_install_package does't copy executable permission
+chmod 700 "$HOME/.local/share/plasma/plasmoids/luisbocanegra.audio.visualizer/contents/ui/tools/commandMonitor"
