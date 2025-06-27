@@ -5,7 +5,7 @@ Item {
 
     property string command: ""
     property string stdout: ""
-    property bool useFallback: true
+    property bool useFallback: false
 
     onCommandChanged: {
         if (loader.status === Loader.Ready) {
