@@ -127,7 +127,7 @@ PlasmoidItem {
 
     Canvas {
         id: visualizer
-        anchors.centerIn: parent
+        anchors.horizontalCenter: parent.horizontalCenter
         property int visualizerStyle: root.visualizerStyle
         property int barWidth: root.barWidth
         property int spacing: root.barGap
@@ -150,12 +150,13 @@ PlasmoidItem {
 
         width: barCount * barWidth + ((barCount - 1) * spacing)
         height: parent.height
+        property bool fixAlign: barWidth % 2 === 0 && centeredBars && visualizerStyle === Enum.VisualizerStyles.Wave
 
         onPaint: {
             const ctx = getContext("2d");
             ctx.reset();
-            if (barWidth % 2 === 0 && centeredBars) {
-                ctx.translate(0.5, 0.5);
+            if (fixAlign) {
+                ctx.translate(0.0, 0.5);
             }
             if (gradient) {
                 ctx.strokeStyle = gradient;
@@ -257,8 +258,8 @@ PlasmoidItem {
                     ctx.fill();
                 }
             }
-            if (barWidth % 2 === 0 && centeredBars) {
-                ctx.translate(-0.5, -0.5);
+            if (fixAlign) {
+                ctx.translate(0.0, -0.5);
             }
         }
     }
