@@ -74,7 +74,7 @@ function buildCanvasGradient(ctx, smooth, gradientStops, orientation, height, wi
   if (orientation === 0) {
     gradient = ctx.createLinearGradient(0, 0, width, 0);
   } else {
-    gradient = ctx.createLinearGradient(0, 0, 0, height);
+    gradient = ctx.createLinearGradient(0, height, 0, 0);
   }
   for (let i = 0; i < gradientStops.length; i++) {
     const stop = gradientStops[i];
