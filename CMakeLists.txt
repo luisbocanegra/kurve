@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-set(PROJECT_NAME "plasma-cursor-eyes")
+set(PROJECT_NAME "plasma-audio-visualizer")
 project(${PROJECT_NAME})
 option(BUILD_PLUGIN "Build the plugin" OFF)
 option(INSTALL_PLASMOID "Install plasmoid" OFF)

@@ -1,21 +1,22 @@
 
 # Plasma Audio Visualizer
 
-**This is work in progress, project name suggestions are welcome 🙂**
-
 Audio visualizer widget powered by [CAVA](https://github.com/karlstav/cava) for the KDE Plasma Desktop
 
 ![screenshot](screenshots/screenshot.png)
+
+> [!NOTE]
+> I have decided to stick with the current name for ease of search and discoverability of this niche of niches project. Thanks everyone for the feedback and name suggestions in the Kreddit!
 
 ## Installation
 
 ## Distribution packages
 
-*Soon*
+*Coming soon*
 
 ### KDE Store
 
-*Soon*
+*Coming Soon*
 
 ### Build from source (With C++ Plugin)
 
