@@ -24,11 +24,11 @@ Audio visualizer widget powered by [CAVA](https://github.com/karlstav/cava) for 
 
     ```sh
     # Arch Linux
-    sudo pacman -S git gcc cmake extra-cmake-modules libplasma cava
+    sudo pacman -S git gcc cmake extra-cmake-modules libplasma cava python-websockets
     # Fedora
-    sudo dnf install git gcc-c++ cmake extra-cmake-modules libplasma-devel cava
+    sudo dnf install git gcc-c++ cmake extra-cmake-modules libplasma-devel cava python3-websockets
     # Kubuntu
-    sudo apt install git build-essential cmake extra-cmake-modules libplasma-dev cava
+    sudo apt install git build-essential cmake extra-cmake-modules libplasma-dev cava python3-websockets
     ```
 
 2. Clone and install
