@@ -3,7 +3,7 @@
 #include <QSet>
 #include <qcontainerfwd.h>
 
-Process::Process(QObject *parent) : QObject(parent), m_command(), m_stdout(), m_stdoutBuffer() {
+Process::Process(QObject *parent) : QObject(parent), m_command(), m_stdout(), m_stderr(), m_stdoutBuffer() {
     connect(this, &Process::commandChanged, this, &Process::runCommand);
 }
 
@@ -22,19 +22,9 @@ void Process::runCommand() {
         qWarning() << "Command is empty, cannot run.";
         return;
     }
-    if (m_process) {
-        m_process->terminate();
+    
+    cleanup();
 
-        if (!m_process->waitForFinished()) {
-            qWarning() << "Process didn't finish in time, killing it.";
-            m_process->kill();
-        }
-
-        m_process->deleteLater();
-        m_process = nullptr;
-    }
-
-    QProcess* proc = m_process;
     m_process = new QProcess(this);
     m_process->start(m_command.first(), m_command.mid(1));
 
@@ -50,14 +40,19 @@ void Process::runCommand() {
             }
         }
     });
-    connect(proc, &QProcess::finished, this, [this, proc](int exitCode, QProcess::ExitStatus exitStatus) {
-        if (proc != m_process) return;
+    connect(m_process, &QProcess::readyReadStandardError, this, [this]() {
+        QString stderr = QString::fromUtf8(m_process->readAllStandardError());
+        if (!stderr.isEmpty() && stderr != m_stderr) {
+            m_stderr = stderr;
+            emit stderrChanged();
+        }
+    });
+    connect(m_process, &QProcess::finished, this, [this](int exitCode, QProcess::ExitStatus exitStatus) {
         qDebug() << "Process finished:" << exitCode << exitStatus;
         cleanup();
     });
 
-    connect(proc, &QProcess::errorOccurred, this, [this, proc](QProcess::ProcessError error) {
-        if (proc != m_process) return;
+    connect(m_process, &QProcess::errorOccurred, this, [this](QProcess::ProcessError error) {
         qWarning() << "Process error occurred:" << error;
         cleanup();
     });

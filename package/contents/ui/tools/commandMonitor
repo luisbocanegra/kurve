@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
+import os
 import asyncio
 import sys
 import websockets
-import os
 
 if len(sys.argv) < 3:
     print(f"Usage: {os.path.basename(__file__)} <ws-url> <command>")
@@ -15,16 +15,20 @@ command.extend(sys.argv[2:])
 
 
 async def send_live_output():
-    process = await asyncio.create_subprocess_exec(
-        *command, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.STDOUT
+    proc = await asyncio.create_subprocess_exec(
+        *command, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
 
     async with websockets.connect(ws_url) as ws:
-        assert process.stdout is not None
-        async for line in process.stdout:
+        assert proc.stdout is not None
+        async for line in proc.stdout:
             await ws.send(line.decode().rstrip())
 
-    await process.wait()
+        assert proc.stderr is not None
+        async for line in proc.stderr:
+            await ws.send(f"ERROR: {line.decode().rstrip()}")
+
+    await proc.wait()
 
 
 if __name__ == "__main__":
