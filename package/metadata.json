@@ -15,7 +15,7 @@
         "License": "GPL-3.0",
         "Name": "Kurva",
         "Icon": "waveform-symbolic",
-        "Version": "0.3.0",
+        "Version": "0.3.1",
         "Website": "https://github.com/luisbocanegra/kurva"
     },
     "X-Plasma-API-Minimum-Version": "6.0"
