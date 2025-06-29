@@ -7,6 +7,8 @@ Item {
     property string command: ""
     property string stdout: ""
     property string stderr: ""
+    property bool running: stdout !== ""
+    property string pid: ""
 
     readonly property string toolsDir: Qt.resolvedUrl("../tools").toString().substring(7) + "/"
     readonly property string commandMonitorTool: "'" + toolsDir + "commandMonitor'"
@@ -19,6 +21,8 @@ Item {
             if (exitCode !== 0) {
                 console.error(cmd, exitCode, exitStatus, stdout, stderr);
                 root.stderr = stderr;
+                root.stdout = "";
+                root.pid = "";
             }
         }
     }
@@ -32,6 +36,13 @@ Item {
                 if (message) {
                     if (message.includes("ERROR:")) {
                         root.stderr = message;
+                        root.stdout = "";
+                        root.pid = "";
+                        return;
+                    }
+                    if (message.includes("PID:")) {
+                        root.pid = message.trim().split(" ")[1];
+                        root.stderr = "";
                         return;
                     }
                     root.stdout = message.trim().replace(/"/g, "");
@@ -44,8 +55,15 @@ Item {
         restart();
     }
 
+    function stop() {
+        if (pid) {
+            runCommand.run(`kill -9 ${pid}`);
+            pid = "";
+        }
+    }
+
     function restart() {
-        runCommand.run(`pkill -f ${commandMonitorTool}`);
+        stop();
         Utils.delay(100, () => {
             runCommand.run(root.monitorCommand);
         }, root);

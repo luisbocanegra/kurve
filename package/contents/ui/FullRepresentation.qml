@@ -31,9 +31,19 @@ ColumnLayout {
             text: i18n("Oh no! Something went wrong")
             wrapMode: Text.Wrap
             horizontalAlignment: TextEdit.AlignHCenter
-            visible: main.hasError
+            visible: cava.hasError
             font.bold: true
             color: Kirigami.Theme.negativeTextColor
+        }
+        PlasmaComponents.Button {
+            text: cava.running ? i18n("Stop CAVA") : i18n("Start CAVA")
+            onClicked: {
+                if (cava.running) {
+                    cava.stop();
+                } else {
+                    cava.restart();
+                }
+            }
         }
         PlasmaComponents.ScrollView {
             Layout.fillWidth: true
@@ -41,14 +51,19 @@ ColumnLayout {
             TextArea {
                 text: {
                     let msg = "";
-                    if (main.error) {
-                        msg += `Error: ${main.error}\n`;
+                    if (cava.error) {
+                        msg += `Error: ${cava.error}\n`;
+                    }
+                    if (cava.running) {
+                        msg += `CAVA is running\n`;
+                    } else {
+                        msg += `❌ CAVA is not running\n`;
                     }
                     msg += `Widget version: ${Plasmoid.metaData.version}\n`;
                     if (root.cavaVersion) {
-                        msg += `Cava version: ${root.cavaVersion}\n`;
+                        msg += `CAVA version: ${root.cavaVersion}\n`;
                     } else {
-                        msg += `❌ Cava not found\n`;
+                        msg += `❌ CAVA not found\n`;
                     }
                     msg += `Using ProcessMonitorFallback: ${cava.usingFallback}\n`;
                     msg += `Widget install location: ${Qt.resolvedUrl("../../").toString().substring(7)}\n`;
@@ -71,10 +86,22 @@ ColumnLayout {
         id: cavaVersion
         onExited: (cmd, exitCode, exitStatus, stdout, stderr) => {
             if (exitCode !== 0) {
+                root.cavaVersion = "";
                 return;
             }
             root.cavaVersion = stdout.trim().split(" ").pop();
         }
     }
     Component.onCompleted: cavaVersion.run("cava -v")
+    Timer {
+        interval: 1000
+        onTriggered: {
+            if (root.visible) {
+                cavaVersion.run("cava -v");
+            }
+        }
+        running: root.visible
+        repeat: true
+        triggeredOnStart: true
+    }
 }
