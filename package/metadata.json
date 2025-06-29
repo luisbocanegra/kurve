@@ -13,8 +13,8 @@
         "EnabledByDefault": false,
         "Id": "luisbocanegra.audio.visualizer",
         "License": "GPL-3.0",
-        "Name": "Audio visualizer",
-        "Icon": "cursor-arrow",
+        "Name": "Plasma Audio Visualizer",
+        "Icon": "waveform-symbolic",
         "Version": "0.2.0",
         "Website": "https://github.com/luisbocanegra/plasma-audio-visualizer"
     },
