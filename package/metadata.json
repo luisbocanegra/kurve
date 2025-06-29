@@ -7,16 +7,16 @@
                 "Name": "Luis Bocanegra"
             }
         ],
-        "BugReportUrl": "https://github.com/luisbocanegra/plasma-audio-visualizer/issues",
+        "BugReportUrl": "https://github.com/luisbocanegra/kurva/issues",
         "Category": "System Information",
         "Description": "Audio visualizer powered by CAVA",
         "EnabledByDefault": false,
         "Id": "luisbocanegra.audio.visualizer",
         "License": "GPL-3.0",
-        "Name": "Plasma Audio Visualizer",
+        "Name": "Kurva",
         "Icon": "waveform-symbolic",
         "Version": "0.3.0",
-        "Website": "https://github.com/luisbocanegra/plasma-audio-visualizer"
+        "Website": "https://github.com/luisbocanegra/kurva"
     },
     "X-Plasma-API-Minimum-Version": "6.0"
 }
