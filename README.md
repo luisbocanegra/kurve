@@ -1,9 +1,15 @@
+<div align="center">
 
 # Plasma Audio Visualizer
+
+[![AUR version](https://img.shields.io/aur/version/plasma6-applets-plasma-audio-visualizer?logo=archlinux&labelColor=2d333b&color=1f425f)](https://aur.archlinux.org/packages/plasma6-applets-plasma-audio-visualizer)
+[![Store version](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Fapi.opendesktop.org%2Focs%2Fv1%2Fcontent%2Fdata%2F2299506&query=%2Focs%2Fdata%2Fcontent%2Fversion%2Ftext()&color=1f425f&labelColor=2d333b&logo=kde&label=KDE%20Store)](https://store.kde.org/p/2299506)
 
 Audio visualizer widget powered by [CAVA](https://github.com/karlstav/cava) for the KDE Plasma Desktop
 
 ![screenshot](screenshots/screenshot.png)
+
+</div>
 
 > [!NOTE]
 > I have decided to stick with the current name for ease of search and discoverability of this niche of niches project. Thanks everyone for the feedback and name suggestions in the Kreddit!
