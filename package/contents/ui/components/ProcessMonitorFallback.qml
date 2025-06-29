@@ -6,6 +6,7 @@ Item {
     id: root
     property string command: ""
     property string stdout: ""
+    property string stderr: ""
 
     readonly property string toolsDir: Qt.resolvedUrl("../tools").toString().substring(7) + "/"
     readonly property string commandMonitorTool: "'" + toolsDir + "commandMonitor'"
@@ -17,6 +18,7 @@ Item {
         onExited: (cmd, exitCode, exitStatus, stdout, stderr) => {
             if (exitCode !== 0) {
                 console.error(cmd, exitCode, exitStatus, stdout, stderr);
+                root.stderr = stderr;
             }
         }
     }
@@ -28,6 +30,10 @@ Item {
         onClientConnected: webSocket => {
             webSocket.onTextMessageReceived.connect(function (message) {
                 if (message) {
+                    if (message.includes("ERROR:")) {
+                        root.stderr = message;
+                        return;
+                    }
                     root.stdout = message.trim().replace(/"/g, "");
                 }
             });
