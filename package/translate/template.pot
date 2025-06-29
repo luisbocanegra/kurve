@@ -1,0 +1,310 @@
+# Translation of visualizer in LANGUAGE
+# Copyright (C) 2025
+# This file is distributed under the same license as the visualizer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: visualizer\n"
+"Report-Msgid-Bugs-To: https://github.com/luisbocanegra/plasma-audio-visualizer\n"
+"POT-Creation-Date: 2025-06-29 01:38-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../metadata.json
+msgid "Plasma Audio Visualizer"
+msgstr ""
+
+#: ../metadata.json
+msgid "Audio visualizer powered by CAVA"
+msgstr ""
+
+#: ../contents/config/config.qml
+msgid "General"
+msgstr ""
+
+#: ../contents/ui/components/ColorPickerGradientList.qml ../contents/ui/components/ColorPickerList.qml ../contents/ui/components/FormColors.qml
+msgid "Widget background"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Color"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Animation:"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Interval (ms):"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Smoothing (ms):"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Color source:"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Custom"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "A fixed custom color"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "System"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Color that updates with your System theme"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Custom list"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Define a list of colors that will be applied to all the elements, wraps around if there are more elements than colors"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Random"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Random color for each element"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Follow"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Follow the color of a parent element"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Gradient"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Horizontal or vertical customizable color gradient"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Image"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "High resolution images can slow down the desktop when the panel or widget size changes!"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Hue"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Automatically shifted color for each bar"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Element:"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Panel background"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Tray widget background"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Positioning:"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Stretch"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Tile"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Scaled and Cropped"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Image:"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Pick a image file"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Image files"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "All files"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Color:"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Color set:"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Colors:"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Orientation:"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Horizontal"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Vertical"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Gradient:"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Alpha:"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Contrast Correction"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Saturation:"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Lightness:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Framerate:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Style:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Bars"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Wave"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Fill wave"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Auto-hide when idle:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Fill panel thickness:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Centered bars:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Rounded bars:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Number of bars:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Bar width:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Bar gap:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Noise reduction:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Monstercat:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Waves:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Desktop background:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Default"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Transparent"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Transparent with shadow"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Debug mode:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Wave Color"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Bar Color"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Wave Fill Color"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Oh no! Something went wrong"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
+msgid "Stop CAVA"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
+msgid "Start CAVA"
+msgstr ""
