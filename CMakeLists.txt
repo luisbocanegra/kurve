@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-set(PROJECT_NAME "Kurva")
-project(${PROJECT_NAME})
+project(Kurva)
 option(BUILD_PLUGIN "Build the plugin" OFF)
 option(INSTALL_PLASMOID "Install plasmoid" OFF)
 option(PACKAGE_PLASMOID "Package plasmoid" OFF)
@@ -33,7 +32,7 @@ if(INSTALL_PLASMOID)
 endif()
 
 if(PACKAGE_PLASMOID)
-    # GenEreate plasmoid file
+    # generate plasmoid file
     set(PLASMOID_FILE ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}-v${CUR_VERSION}.plasmoid)
     add_custom_target(plasmoid ALL
         COMMAND rm -rf "${PLASMOID_FILE}"
