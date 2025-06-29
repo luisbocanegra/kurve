@@ -12,11 +12,43 @@ Audio visualizer widget powered by [CAVA](https://github.com/karlstav/cava) for 
 
 ## Distribution packages
 
-*Coming soon*
+**Arch Linux (AUR)**
+
+```sh
+yay -S plasma6-applets-plasma-audio-visualizer
+```
 
 ### KDE Store
 
-*Coming Soon*
+1. Install the following (runtime) dependencies from your distribution packages:
+
+    ```sh
+    # Arch Linux
+    sudo pacman -Syu cava qt6-websockets python-websockets
+    # Fedora
+    sudo dnf install cava qt6-qtwebsockets python-websockets
+    # Kubuntu
+    sudo apt install cava qt6-websockets python-websockets
+   ```
+
+   *NOTE: Qt/Python websockets are used to communicate with CAVA if the C++ plugin is not installed manually or can't be loaded*
+
+2. Install the widget from the KDE Store
+
+    **Method 1: Directly from Plasma**
+
+   1. **Right click on the Panel or Desktop** > **Add or manage widgets** > **Get new** > **Download new...**
+   2. **Search** for "**Plasma Audio Visualizer**", install and add it to your Panel or Desktop.
+
+    **Method 2: From local plasmoid file**
+
+   1. Go to the Plasma Audio Visualizer product page in the KDE Store: <https://store.kde.org/p/2299506>
+   2. Download the *.plasmoid file
+   3. Install with the following command:
+
+    `kpackagetool6 -t Plasma/Applet -i package /path/to/downloaded/file.plasmoid`
+
+    *NOTE: Replace -i with -u to update instead*
 
 ### Build from source (With C++ Plugin)
 
@@ -24,12 +56,16 @@ Audio visualizer widget powered by [CAVA](https://github.com/karlstav/cava) for 
 
     ```sh
     # Arch Linux
-    sudo pacman -S git gcc cmake extra-cmake-modules libplasma cava python-websockets
+    sudo pacman -S git gcc cmake extra-cmake-modules libplasma cava qt6-websockets python-websockets
     # Fedora
-    sudo dnf install git gcc-c++ cmake extra-cmake-modules libplasma-devel cava python3-websockets
+    sudo dnf install git gcc-c++ cmake extra-cmake-modules libplasma-devel cava qt6-qtwebsockets python3-websockets
     # Kubuntu
-    sudo apt install git build-essential cmake extra-cmake-modules libplasma-dev cava python3-websockets
+    sudo apt install git build-essential cmake extra-cmake-modules libplasma-dev cava qt6-websockets python3-websockets
     ```
+
+    *NOTE: Packages `libplasma` `cava` `qt6-websockets` and `python3-websockets` are runtime dependencies*
+
+    *NOTE: Qt/Python websockets are used to communicate with CAVA if the C++ plugin can't be loaded*
 
 2. Clone and install
 
