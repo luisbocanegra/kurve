@@ -84,6 +84,7 @@ Item {
             waveFillColorsCfg: root.waveFillColorsCfg
             values: cava.values
             debugMode: Plasmoid.configuration.debugMode
+            visible: !cava.hasError
         }
         Kirigami.Icon {
             Layout.preferredWidth: Kirigami.Units.iconSizes.roundedIconSize(Math.min(main.height, main.width))
@@ -92,7 +93,7 @@ Item {
             active: mouseArea.containsMouse
             isMask: true
             color: Kirigami.Theme.negativeTextColor
-            visible: main.hasError
+            visible: cava.hasError
         }
     }
 

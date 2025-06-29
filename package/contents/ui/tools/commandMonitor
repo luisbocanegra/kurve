@@ -15,6 +15,10 @@ command.extend(sys.argv[2:])
 
 
 async def send_live_output():
+
+    async with websockets.connect(ws_url) as ws:
+        await ws.send(f"PID: {os.getpid()}")
+
     proc = await asyncio.create_subprocess_exec(
         *command, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )

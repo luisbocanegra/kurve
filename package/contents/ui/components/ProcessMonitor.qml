@@ -8,6 +8,19 @@ Item {
     property string stderr: ""
     property bool useFallback: false
     property bool usingFallback: loader.source.toString() === "ProcessMonitorFallback.qml"
+    property bool running: false
+
+    function restart() {
+        if (loader.status === Loader.Ready) {
+            loader.item.restart();
+        }
+    }
+
+    function stop() {
+        if (loader.status === Loader.Ready) {
+            loader.item.stop();
+        }
+    }
 
     onCommandChanged: {
         if (loader.status === Loader.Ready) {
@@ -31,6 +44,9 @@ Item {
             });
             loader.item.stderrChanged.connect(() => {
                 root.stderr = loader.item.stderr;
+            });
+            loader.item.runningChanged.connect(() => {
+                root.running = loader.item.running;
             });
         }
     }

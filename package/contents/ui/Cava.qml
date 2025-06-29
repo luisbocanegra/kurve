@@ -13,6 +13,13 @@ Item {
     property bool hasError: error !== ""
     property string error
     property bool usingFallback: process.usingFallback
+    property bool running: process.running
+    function restart() {
+        process.restart();
+    }
+    function stop() {
+        process.stop();
+    }
     ProcessMonitor {
         id: process
         command: `printf '[general]\nframerate=${root.framerate}\nbars=${root.barCount}\n[output]\nchannels=mono\nmethod=raw\nraw_target=/dev/stdout\ndata_format=ascii\nascii_max_range=100\n[smoothing]\nnoise_reduction=${root.noiseReduction}\nmonstercat=${root.monstercat}\nwaves=${root.waves}' | cava -p /dev/stdin`
@@ -28,7 +35,7 @@ Item {
                 }
                 root.idle = false;
             } else {
-                idleTimer.start();
+                idleTimer.restart();
             }
         }
         onStderrChanged: root.error = process.stderr
