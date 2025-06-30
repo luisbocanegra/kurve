@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurva\n"
-"POT-Creation-Date: 2025-06-29 17:28+0000\n"
+"POT-Creation-Date: 2025-06-30 22:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,10 @@ msgstr ""
 
 #: ../metadata.json
 msgid "Audio visualizer powered by CAVA"
+msgstr ""
+
+#: ../contents/config/config.qml
+msgid "Visualizer"
 msgstr ""
 
 #: ../contents/config/config.qml
@@ -217,94 +221,94 @@ msgstr ""
 msgid "Lightness:"
 msgstr ""
 
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configCava.qml
 msgid "Framerate:"
 msgstr ""
 
-#: ../contents/ui/configGeneral.qml
-msgid "Style:"
-msgstr ""
-
-#: ../contents/ui/configGeneral.qml
-msgid "Bars"
-msgstr ""
-
-#: ../contents/ui/configGeneral.qml
-msgid "Wave"
-msgstr ""
-
-#: ../contents/ui/configGeneral.qml
-msgid "Fill wave"
-msgstr ""
-
-#: ../contents/ui/configGeneral.qml
-msgid "Auto-hide when idle:"
-msgstr ""
-
-#: ../contents/ui/configGeneral.qml
-msgid "Fill panel thickness:"
-msgstr ""
-
-#: ../contents/ui/configGeneral.qml
-msgid "Centered bars:"
-msgstr ""
-
-#: ../contents/ui/configGeneral.qml
-msgid "Rounded bars:"
-msgstr ""
-
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configCava.qml
 msgid "Number of bars:"
 msgstr ""
 
-#: ../contents/ui/configGeneral.qml
-msgid "Bar width:"
-msgstr ""
-
-#: ../contents/ui/configGeneral.qml
-msgid "Bar gap:"
-msgstr ""
-
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configCava.qml
 msgid "Noise reduction:"
 msgstr ""
 
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configCava.qml
 msgid "Monstercat:"
 msgstr ""
 
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configCava.qml
 msgid "Waves:"
 msgstr ""
 
-#: ../contents/ui/configGeneral.qml
-msgid "Desktop background:"
-msgstr ""
-
-#: ../contents/ui/configGeneral.qml
-msgid "Default"
-msgstr ""
-
-#: ../contents/ui/configGeneral.qml
-msgid "Transparent"
-msgstr ""
-
-#: ../contents/ui/configGeneral.qml
-msgid "Transparent with shadow"
-msgstr ""
-
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
 msgid "Debug mode:"
 msgstr ""
 
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+msgid "Auto-hide when idle:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+msgid "Fill panel thickness:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+msgid "Desktop background:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+msgid "Default"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+msgid "Transparent"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+msgid "Transparent with shadow"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Style:"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bars"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Wave"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Fill wave"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Centered bars:"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Rounded bars:"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bar width:"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bar gap:"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
 msgid "Wave Color"
 msgstr ""
 
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configVisualizer.qml
 msgid "Bar Color"
 msgstr ""
 
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configVisualizer.qml
 msgid "Wave Fill Color"
 msgstr ""
