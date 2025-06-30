@@ -41,7 +41,7 @@ PlasmoidItem {
             return Plasmoid.configuration.barCount;
         }
         noiseReduction: Plasmoid.configuration.noiseReduction
-        monstercat: lasmoid.configuration.monstercat
+        monstercat: Plasmoid.configuration.monstercat
         waves: Plasmoid.configuration.waves
         onIdleChanged: main.updateStatus()
         onHasErrorChanged: main.updateStatus()
