@@ -1,8 +1,8 @@
 <div align="center">
 
-# Kurva
+# Kurve
 
-[![AUR version](https://img.shields.io/aur/version/plasma6-applets-kurva?logo=archlinux&labelColor=2d333b&color=1f425f)](https://aur.archlinux.org/packages/plasma6-applets-kurva)
+[![AUR version](https://img.shields.io/aur/version/plasma6-applets-kurve?logo=archlinux&labelColor=2d333b&color=1f425f)](https://aur.archlinux.org/packages/plasma6-applets-kurve)
 [![Store version](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Fapi.opendesktop.org%2Focs%2Fv1%2Fcontent%2Fdata%2F2299506&query=%2Focs%2Fdata%2Fcontent%2Fversion%2Ftext()&color=1f425f&labelColor=2d333b&logo=kde&label=KDE%20Store)](https://store.kde.org/p/2299506)
 
 Audio visualizer widget powered by [CAVA](https://github.com/karlstav/cava) for the KDE Plasma Desktop
@@ -21,7 +21,7 @@ Audio visualizer widget powered by [CAVA](https://github.com/karlstav/cava) for 
 **Arch Linux (AUR)**
 
 ```sh
-yay -S plasma6-applets-kurva
+yay -S plasma6-applets-kurve
 ```
 
 ### KDE Store
@@ -46,11 +46,11 @@ yay -S plasma6-applets-kurva
     **Method 1: Directly from Plasma**
 
    1. **Right click on the Panel or Desktop** > **Add or manage widgets** > **Get new** > **Download new...**
-   2. **Search** for "**Kurva**", install and add it to your Panel or Desktop.
+   2. **Search** for "**Kurve**", install and add it to your Panel or Desktop.
 
     **Method 2: From local plasmoid file**
 
-   1. Go to the Kurva product page in the KDE Store: <https://store.kde.org/p/2299506>
+   1. Go to the Kurve product page in the KDE Store: <https://store.kde.org/p/2299506>
    2. Download the *.plasmoid file
    3. Install with the following command:
 
@@ -80,8 +80,8 @@ yay -S plasma6-applets-kurva
 2. Clone and install
 
     ```sh
-    git clone https://github.com/luisbocanegra/kurva.git
-    cd kurva
+    git clone https://github.com/luisbocanegra/kurve.git
+    cd kurve
     ./install.sh
     ```
 

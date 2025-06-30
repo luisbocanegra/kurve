@@ -1,11 +1,11 @@
 # Changelog
 
-## [0.3.1](https://github.com/luisbocanegra/kurva/compare/v0.3.0...v0.3.1) (2025-06-29)
+## [0.3.1](https://github.com/luisbocanegra/kurve/compare/v0.3.0...v0.3.1) (2025-06-29)
 
 
 ### Miscellaneous Chores
 
-* release 0.3.1 ([8d243a5](https://github.com/luisbocanegra/kurva/commit/8d243a5bcb28f5e5539d1e72288db3bb44e41c34))
+* release 0.3.1 ([8d243a5](https://github.com/luisbocanegra/kurve/commit/8d243a5bcb28f5e5539d1e72288db3bb44e41c34))
 
 ## [0.3.0](https://github.com/luisbocanegra/plasma-audio-visualizer/compare/v0.2.0...v0.3.0) (2025-06-29)
 

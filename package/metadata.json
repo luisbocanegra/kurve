@@ -7,7 +7,7 @@
                 "Name": "Luis Bocanegra"
             }
         ],
-        "BugReportUrl": "https://github.com/luisbocanegra/kurva/issues",
+        "BugReportUrl": "https://github.com/luisbocanegra/kurve/issues",
         "Category": "System Information",
         "Description": "Audio visualizer powered by CAVA",
         "Description[nl]": "Audiovisualisatie, gebaseerd op CAVA",
@@ -15,10 +15,10 @@
         "Icon": "waveform-symbolic",
         "Id": "luisbocanegra.audio.visualizer",
         "License": "GPL-3.0",
-        "Name": "Kurva",
-        "Name[nl]": "Kurva",
+        "Name": "Kurve",
+        "Name[nl]": "Kurve",
         "Version": "0.3.1",
-        "Website": "https://github.com/luisbocanegra/kurva"
+        "Website": "https://github.com/luisbocanegra/kurve"
     },
     "X-Plasma-API-Minimum-Version": "6.0"
 }
