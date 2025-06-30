@@ -1,4 +1,4 @@
-# Translation of visualizer in LANGUAGE
+# Translation of visualizer in nl
 # Copyright (C) 2025
 # This file is distributed under the same license as the visualizer package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -93,8 +93,8 @@ msgid ""
 "Define a list of colors that will be applied to all the elements, wraps "
 "around if there are more elements than colors"
 msgstr ""
-"Stel een lijst samen met kleuren die worden toegepast op alle elementen - "
-"in herhaalde volgorde indien er meer elementen dat kleuren zijn"
+"Stel een lijst samen met kleuren die worden toegepast op alle elementen - in "
+"herhaalde volgorde indien er meer elementen dat kleuren zijn"
 
 #: ../contents/ui/components/FormColors.qml
 msgid "Random"
