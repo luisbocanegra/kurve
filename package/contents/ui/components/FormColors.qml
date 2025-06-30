@@ -183,7 +183,7 @@ Kirigami.FormLayout {
         }
     }
 
-    Kirigami.Separator {
+    Item {
         Kirigami.FormData.isSection: root.isSection
         Kirigami.FormData.label: root.sectionName || i18n("Color")
         Layout.fillWidth: true
