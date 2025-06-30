@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-06-30 16:54-0600\n"
+"POT-Creation-Date: 2025-06-30 22:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,6 +31,18 @@ msgstr ""
 
 #: ../contents/config/config.qml
 msgid "General"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Oh no! Something went wrong"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
+msgid "Stop CAVA"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
+msgid "Start CAVA"
 msgstr ""
 
 #: ../contents/ui/components/ColorPickerGradientList.qml ../contents/ui/components/ColorPickerList.qml ../contents/ui/components/FormColors.qml
@@ -299,16 +311,4 @@ msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Wave Fill Color"
-msgstr ""
-
-#: ../contents/ui/FullRepresentation.qml
-msgid "Oh no! Something went wrong"
-msgstr ""
-
-#: ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
-msgid "Stop CAVA"
-msgstr ""
-
-#: ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
-msgid "Start CAVA"
 msgstr ""
