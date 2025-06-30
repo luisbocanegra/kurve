@@ -22,7 +22,22 @@ Item {
     }
     ProcessMonitor {
         id: process
-        command: `printf '[general]\nframerate=${root.framerate}\nbars=${root.barCount}\n[output]\nchannels=mono\nmethod=raw\nraw_target=/dev/stdout\ndata_format=ascii\nascii_max_range=100\n[smoothing]\nnoise_reduction=${root.noiseReduction}\nmonstercat=${root.monstercat}\nwaves=${root.waves}' | cava -p /dev/stdin`
+        command: `cava -p /dev/stdin <<-EOF
+[general]
+framerate=${root.framerate}
+bars=${root.barCount}
+[output]
+channels=mono
+method=raw
+raw_target=/dev/stdout
+data_format=ascii
+ascii_max_range=100
+[smoothing]
+noise_reduction=${root.noiseReduction}
+monstercat=${root.monstercat}
+waves=${root.waves}
+EOF
+`
         onStdoutChanged: {
             let output = process.stdout.trim();
             if (output.endsWith(';')) {
