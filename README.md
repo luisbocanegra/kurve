@@ -35,6 +35,8 @@ yay -S plasma6-applets-kurva
     sudo dnf install cava qt6-qtwebsockets python-websockets
     # Kubuntu
     sudo apt install cava qt6-websockets python-websockets
+    # openSUSE
+    sudo zypper install cava qt6-websockets-imports python3-websockets
    ```
 
    *NOTE: Qt/Python websockets are used to communicate with CAVA if the C++ plugin is not installed manually or can't be loaded*
@@ -67,6 +69,8 @@ yay -S plasma6-applets-kurva
     sudo dnf install git gcc-c++ cmake extra-cmake-modules libplasma-devel cava qt6-qtwebsockets python3-websockets
     # Kubuntu
     sudo apt install git build-essential cmake extra-cmake-modules libplasma-dev cava qt6-websockets python3-websockets
+    # openSUSE
+    sudo zypper install git cmake extra-cmake-modules libplasma6-devel cava qt6-websockets-imports python3-websockets
     ```
 
     *NOTE: Packages `libplasma` `cava` `qt6-websockets` and `python3-websockets` are runtime dependencies*
