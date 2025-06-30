@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.4.0](https://github.com/luisbocanegra/kurve/compare/v0.3.1...v0.4.0) (2025-06-30)
+
+
+### Features
+
+* rename project to 'Kurve' ([e9757f7](https://github.com/luisbocanegra/kurve/commit/e9757f70ce36129d686126910ba845df6710f94c))
+* split configuration into tabs ([a8be687](https://github.com/luisbocanegra/kurve/commit/a8be68712fa80d1929ac5259afccfe91f79600b8))
+
+
+### Bug Fixes
+
+* typo in monstercat configuration option ([bb605fe](https://github.com/luisbocanegra/kurve/commit/bb605fe06231eb681e6a4dd32e0b7da1a13d6c90))
+
 ## [0.3.1](https://github.com/luisbocanegra/kurve/compare/v0.3.0...v0.3.1) (2025-06-29)
 
 
