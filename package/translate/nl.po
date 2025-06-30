@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-06-30 16:54-0600\n"
+"POT-Creation-Date: 2025-06-30 22:59+0000\n"
 "PO-Revision-Date: 2025-06-30 11:50+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -33,6 +33,18 @@ msgstr ""
 #: ../contents/config/config.qml
 msgid "General"
 msgstr "Algemeen"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Oh no! Something went wrong"
+msgstr "Oeps, er is iets misgegaan…"
+
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
+msgid "Stop CAVA"
+msgstr "CAVA stoppen"
+
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
+msgid "Start CAVA"
+msgstr "CAVA starten"
 
 #: ../contents/ui/components/ColorPickerGradientList.qml
 #: ../contents/ui/components/ColorPickerList.qml
@@ -310,15 +322,3 @@ msgstr "Balkkleur"
 #: ../contents/ui/configVisualizer.qml
 msgid "Wave Fill Color"
 msgstr "Opgevulde golfkleur"
-
-#: ../contents/ui/FullRepresentation.qml
-msgid "Oh no! Something went wrong"
-msgstr "Oeps, er is iets misgegaan…"
-
-#: ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
-msgid "Stop CAVA"
-msgstr "CAVA stoppen"
-
-#: ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
-msgid "Start CAVA"
-msgstr "CAVA starten"
