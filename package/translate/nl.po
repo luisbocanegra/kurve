@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurva\n"
-"POT-Creation-Date: 2025-06-29 17:28+0000\n"
+"POT-Creation-Date: 2025-06-30 22:45+0000\n"
 "PO-Revision-Date: 2025-06-30 11:50+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -25,6 +25,10 @@ msgstr "Kurva"
 #: ../metadata.json
 msgid "Audio visualizer powered by CAVA"
 msgstr "Audiovisualisatie, gebaseerd op CAVA"
+
+#: ../contents/config/config.qml
+msgid "Visualizer"
+msgstr ""
 
 #: ../contents/config/config.qml
 msgid "General"
@@ -227,94 +231,94 @@ msgstr "Verzadiging:"
 msgid "Lightness:"
 msgstr "Helderheid:"
 
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configCava.qml
 msgid "Framerate:"
 msgstr "Framesnelheid:"
 
-#: ../contents/ui/configGeneral.qml
-msgid "Style:"
-msgstr "Stijl:"
-
-#: ../contents/ui/configGeneral.qml
-msgid "Bars"
-msgstr "Balken"
-
-#: ../contents/ui/configGeneral.qml
-msgid "Wave"
-msgstr "Golf"
-
-#: ../contents/ui/configGeneral.qml
-msgid "Fill wave"
-msgstr "Opgevulde golf"
-
-#: ../contents/ui/configGeneral.qml
-msgid "Auto-hide when idle:"
-msgstr "Automatisch verbergen na inactiviteit:"
-
-#: ../contents/ui/configGeneral.qml
-msgid "Fill panel thickness:"
-msgstr "Paneelopvulling:"
-
-#: ../contents/ui/configGeneral.qml
-msgid "Centered bars:"
-msgstr "Gecentreerde balken:"
-
-#: ../contents/ui/configGeneral.qml
-msgid "Rounded bars:"
-msgstr "Afgeronde balken:"
-
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configCava.qml
 msgid "Number of bars:"
 msgstr "Aantal balken:"
 
-#: ../contents/ui/configGeneral.qml
-msgid "Bar width:"
-msgstr "Balkbreedte:"
-
-#: ../contents/ui/configGeneral.qml
-msgid "Bar gap:"
-msgstr "Ruimte tussen balken:"
-
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configCava.qml
 msgid "Noise reduction:"
 msgstr "Ruisonderdrukking:"
 
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configCava.qml
 msgid "Monstercat:"
 msgstr "Monstercat:"
 
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configCava.qml
 msgid "Waves:"
 msgstr "Golven:"
 
-#: ../contents/ui/configGeneral.qml
-msgid "Desktop background:"
-msgstr "Bureaubladachtergrond:"
-
-#: ../contents/ui/configGeneral.qml
-msgid "Default"
-msgstr "Standaard"
-
-#: ../contents/ui/configGeneral.qml
-msgid "Transparent"
-msgstr "Doorzichtig"
-
-#: ../contents/ui/configGeneral.qml
-msgid "Transparent with shadow"
-msgstr "Doorzichtig, met schaduw"
-
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
 msgid "Debug mode:"
 msgstr "Foutopsporingsmodus:"
 
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+msgid "Auto-hide when idle:"
+msgstr "Automatisch verbergen na inactiviteit:"
+
+#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+msgid "Fill panel thickness:"
+msgstr "Paneelopvulling:"
+
+#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+msgid "Desktop background:"
+msgstr "Bureaubladachtergrond:"
+
+#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+msgid "Default"
+msgstr "Standaard"
+
+#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+msgid "Transparent"
+msgstr "Doorzichtig"
+
+#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+msgid "Transparent with shadow"
+msgstr "Doorzichtig, met schaduw"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Style:"
+msgstr "Stijl:"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bars"
+msgstr "Balken"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Wave"
+msgstr "Golf"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Fill wave"
+msgstr "Opgevulde golf"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Centered bars:"
+msgstr "Gecentreerde balken:"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Rounded bars:"
+msgstr "Afgeronde balken:"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bar width:"
+msgstr "Balkbreedte:"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bar gap:"
+msgstr "Ruimte tussen balken:"
+
+#: ../contents/ui/configVisualizer.qml
 msgid "Wave Color"
 msgstr "Golfkleur"
 
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configVisualizer.qml
 msgid "Bar Color"
 msgstr "Balkkleur"
 
-#: ../contents/ui/configGeneral.qml
+#: ../contents/ui/configVisualizer.qml
 msgid "Wave Fill Color"
 msgstr "Opgevulde golfkleur"
