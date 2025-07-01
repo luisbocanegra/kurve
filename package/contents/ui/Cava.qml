@@ -6,8 +6,10 @@ Item {
     property int framerate
     property int barCount
     property int noiseReduction
-    property int monstercat
-    property int waves
+    property int monstercat // boolean
+    property int waves // boolean
+    property int autoSensitivity // boolean
+    property int sensitivity
     property list<int> values
     property bool idle
     property bool hasError: error !== ""
@@ -26,6 +28,8 @@ Item {
 [general]
 framerate=${root.framerate}
 bars=${root.barCount}
+autosens=${root.autoSensitivity}
+sensitivity=${root.sensitivity}
 [output]
 channels=mono
 method=raw

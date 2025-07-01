@@ -43,6 +43,8 @@ PlasmoidItem {
         noiseReduction: Plasmoid.configuration.noiseReduction
         monstercat: Plasmoid.configuration.monstercat
         waves: Plasmoid.configuration.waves
+        autoSensitivity: Plasmoid.configuration.autoSensitivity
+        sensitivity: Plasmoid.configuration.sensitivity
         onIdleChanged: main.updateStatus()
         onHasErrorChanged: main.updateStatus()
         onRunningChanged: main.updateStatus()

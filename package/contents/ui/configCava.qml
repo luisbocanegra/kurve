@@ -11,6 +11,8 @@ KCM.SimpleKCM {
     property alias cfg_framerate: framerateSpinbox.value
     property alias cfg_monstercat: monstercatCheckbox.checked
     property alias cfg_waves: wavesCheckbox.checked
+    property alias cfg_autoSensitivity: autoSensitivityCheckbox.checked
+    property alias cfg_sensitivity: sensitivitySpinbox.value
     property int cfg_visualizerStyle
     property string cfg_barColors
     property string cfg_waveFillColors
@@ -18,6 +20,11 @@ KCM.SimpleKCM {
     Kirigami.FormLayout {
         id: parentLayout
         Layout.fillWidth: true
+
+        Kirigami.Separator {
+            Kirigami.FormData.isSection: true
+            Kirigami.FormData.label: i18n("General")
+        }
 
         SpinBox {
             id: framerateSpinbox
@@ -31,6 +38,33 @@ KCM.SimpleKCM {
             Kirigami.FormData.label: i18n("Number of bars:")
             from: 1
             to: 512
+        }
+
+        RowLayout {
+            Kirigami.FormData.label: i18n("Automatic sensitivity:")
+            CheckBox {
+                id: autoSensitivityCheckbox
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Attempt to decrease sensitivity if the bars peak.")
+            }
+        }
+
+        RowLayout {
+            Kirigami.FormData.label: i18n("Sensitivity:")
+            SpinBox {
+                id: sensitivitySpinbox
+                from: 1
+                to: 999
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Manual sensitivity in %.\nIf autosens is enabled, this will only be the initial value")
+            }
+        }
+
+        Kirigami.Separator {
+            Kirigami.FormData.isSection: true
+            Kirigami.FormData.label: i18n("Smoothing")
         }
 
         RowLayout {
