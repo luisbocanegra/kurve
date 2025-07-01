@@ -10,6 +10,8 @@ Item {
     property int waves // boolean
     property int autoSensitivity // boolean
     property int sensitivity
+    property int lowerCutoffFreq
+    property int higherCutoffFreq
     property list<int> values
     property bool idle
     property bool hasError: error !== ""
@@ -30,6 +32,8 @@ framerate=${root.framerate}
 bars=${root.barCount}
 autosens=${root.autoSensitivity}
 sensitivity=${root.sensitivity}
+lower_cutoff_freq=${root.lowerCutoffFreq}
+higher_cutoff_freq=${root.higherCutoffFreq}
 [output]
 channels=mono
 method=raw

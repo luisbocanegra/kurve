@@ -28,6 +28,12 @@
     <entry name="sensitivity" type="Int">
       <default>100</default>
     </entry>
+    <entry name="lowerCutoffFreq" type="Int">
+      <default>50</default>
+    </entry>
+    <entry name="higherCutoffFreq" type="Int">
+      <default>10000</default>
+    </entry>
     <!-- Widget config -->
     <entry name="debugMode" type="Bool">
       <default>false</default>

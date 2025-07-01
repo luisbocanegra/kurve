@@ -45,6 +45,8 @@ PlasmoidItem {
         waves: Plasmoid.configuration.waves
         autoSensitivity: Plasmoid.configuration.autoSensitivity
         sensitivity: Plasmoid.configuration.sensitivity
+        lowerCutoffFreq: Plasmoid.configuration.lowerCutoffFreq
+        higherCutoffFreq: Plasmoid.configuration.higherCutoffFreq
         onIdleChanged: main.updateStatus()
         onHasErrorChanged: main.updateStatus()
         onRunningChanged: main.updateStatus()

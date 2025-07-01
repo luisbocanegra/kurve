@@ -6,13 +6,17 @@ import org.kde.kcmutils as KCM
 
 KCM.SimpleKCM {
     id: root
+    // general
     property alias cfg_barCount: barCountSpinbox.value
-    property alias cfg_noiseReduction: noiseReductionSpinbox.value
     property alias cfg_framerate: framerateSpinbox.value
-    property alias cfg_monstercat: monstercatCheckbox.checked
-    property alias cfg_waves: wavesCheckbox.checked
     property alias cfg_autoSensitivity: autoSensitivityCheckbox.checked
     property alias cfg_sensitivity: sensitivitySpinbox.value
+    property alias cfg_lowerCutoffFreq: lowerCutoffFreqSpinbox.value
+    property alias cfg_higherCutoffFreq: higherCutoffFreqSpinbox.value
+    // smoothing
+    property alias cfg_noiseReduction: noiseReductionSpinbox.value
+    property alias cfg_monstercat: monstercatCheckbox.checked
+    property alias cfg_waves: wavesCheckbox.checked
     property int cfg_visualizerStyle
     property string cfg_barColors
     property string cfg_waveFillColors
@@ -59,6 +63,35 @@ KCM.SimpleKCM {
             }
             Kirigami.ContextualHelpButton {
                 toolTipText: i18n("Manual sensitivity in %.\nIf autosens is enabled, this will only be the initial value")
+            }
+        }
+
+        RowLayout {
+            Kirigami.FormData.label: i18n("Frequency range (Hz):")
+
+            Label {
+                text: i18n("Min")
+            }
+            SpinBox {
+                id: lowerCutoffFreqSpinbox
+                from: 20
+                to: 22000
+                stepSize: 100
+            }
+
+            Label {
+                text: i18n("Max")
+            }
+
+            SpinBox {
+                id: higherCutoffFreqSpinbox
+                from: 1
+                to: 22000
+                stepSize: 100
+            }
+
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Lower and higher cutoff frequencies for lowest and highest bars, the bandwidth of the visualizer.\nNote: Cava will automatically increase the higher cutoff if a too low band is specified.")
             }
         }
 
