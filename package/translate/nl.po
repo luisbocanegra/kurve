@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
 "POT-Creation-Date: 2025-06-30 22:59+0000\n"
-"PO-Revision-Date: 2025-06-30 11:50+0200\n"
+"PO-Revision-Date: 2025-07-01 11:09+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -28,7 +28,7 @@ msgstr "Audiovisualisatie, gebaseerd op CAVA"
 
 #: ../contents/config/config.qml
 msgid "Visualizer"
-msgstr ""
+msgstr "Visualisatie"
 
 #: ../contents/config/config.qml
 msgid "General"
