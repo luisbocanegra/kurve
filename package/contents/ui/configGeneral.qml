@@ -1,12 +1,9 @@
 import QtQuick
-import QtQuick.Dialogs
 import QtQuick.Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
 import org.kde.plasma.core as PlasmaCore
-import "components" as Components
-import "code/enum.js" as Enum
 
 KCM.SimpleKCM {
     id: root

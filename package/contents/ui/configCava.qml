@@ -1,12 +1,8 @@
 import QtQuick
-import QtQuick.Dialogs
 import QtQuick.Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
-import org.kde.plasma.core as PlasmaCore
-import "components" as Components
-import "code/enum.js" as Enum
 
 KCM.SimpleKCM {
     id: root
@@ -23,11 +19,6 @@ KCM.SimpleKCM {
         id: parentLayout
         Layout.fillWidth: true
 
-        Kirigami.Separator {
-            Kirigami.FormData.isSection: true
-            Kirigami.FormData.label: "CAVA"
-        }
-
         SpinBox {
             id: framerateSpinbox
             Kirigami.FormData.label: i18n("Framerate:")
@@ -42,21 +33,31 @@ KCM.SimpleKCM {
             to: 512
         }
 
-        SpinBox {
-            id: noiseReductionSpinbox
+        RowLayout {
             Kirigami.FormData.label: i18n("Noise reduction:")
-            from: 0
-            to: 100
+            SpinBox {
+                id: noiseReductionSpinbox
+                from: 0
+                to: 100
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("The raw visualization is very noisy, this factor adjusts the integral and gravity filters to keep the signal smooth.\n100 will be very slow and smooth, 0 will be fast but noisy.")
+            }
         }
-
-        CheckBox {
-            id: monstercatCheckbox
+        RowLayout {
             Kirigami.FormData.label: i18n("Monstercat:")
+            CheckBox {
+                id: monstercatCheckbox
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Enable the so-called \"Monstercat smoothing\" with or without \"waves\".")
+            }
         }
 
         CheckBox {
             id: wavesCheckbox
-            Kirigami.FormData.label: i18n("Waves:")
+            text: i18n("Waves")
+            enabled: monstercatCheckbox.checked
         }
     }
 }

@@ -1,10 +1,8 @@
 import QtQuick
-import QtQuick.Dialogs
 import QtQuick.Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
-import org.kde.plasma.core as PlasmaCore
 import "components" as Components
 import "code/enum.js" as Enum
 
@@ -12,7 +10,6 @@ KCM.SimpleKCM {
     id: root
     property alias cfg_barGap: barGapSpinbox.value
     property alias cfg_barWidth: barWidthSpinbox.value
-    property alias cfg_desktopWidgetBg: desktopWidgetBackgroundRadio.value
     property alias cfg_centeredBars: centeredBarsCheckbox.checked
     property alias cfg_roundedBars: roundedBarsCheckbox.checked
     property alias cfg_fillPanel: fillPanelCheckbox.checked
@@ -21,7 +18,6 @@ KCM.SimpleKCM {
     property string cfg_barColors
     property string cfg_waveFillColors
     property alias cfg_fillWave: fillWaveCheckbox.checked
-    property alias cfg_debugMode: debugModeCheckbox.checked
 
     ColumnLayout {
 
@@ -91,48 +87,6 @@ KCM.SimpleKCM {
                 Kirigami.FormData.label: i18n("Bar gap:")
                 from: 0
                 to: 20
-            }
-
-            RadioButton {
-                Kirigami.FormData.label: i18n("Desktop background:")
-                text: i18n("Default")
-                checked: desktopWidgetBackgroundRadio.value == PlasmaCore.Types.StandardBackground
-                onCheckedChanged: () => {
-                    if (checked) {
-                        desktopWidgetBackgroundRadio.value = PlasmaCore.Types.StandardBackground;
-                    }
-                }
-                ButtonGroup.group: desktopWidgetBackgroundRadio
-            }
-            RadioButton {
-                text: i18n("Transparent")
-                checked: desktopWidgetBackgroundRadio.value == PlasmaCore.Types.NoBackground
-                onCheckedChanged: () => {
-                    if (checked) {
-                        desktopWidgetBackgroundRadio.value = PlasmaCore.Types.NoBackground;
-                    }
-                }
-                ButtonGroup.group: desktopWidgetBackgroundRadio
-            }
-            RowLayout {
-                RadioButton {
-                    text: i18n("Transparent with shadow")
-                    checked: desktopWidgetBackgroundRadio.value == PlasmaCore.Types.ShadowBackground
-                    onCheckedChanged: () => {
-                        if (checked) {
-                            desktopWidgetBackgroundRadio.value = PlasmaCore.Types.ShadowBackground;
-                        }
-                    }
-                    ButtonGroup.group: desktopWidgetBackgroundRadio
-                }
-            }
-            ButtonGroup {
-                id: desktopWidgetBackgroundRadio
-                property int value: PlasmaCore.Types.StandardBackground
-            }
-            CheckBox {
-                id: debugModeCheckbox
-                Kirigami.FormData.label: i18n("Debug mode:")
             }
         }
 
