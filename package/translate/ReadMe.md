@@ -5,7 +5,7 @@
 |  Locale  |  Lines  | % Done|
 |----------|---------|-------|
 | Template |      74 |       |
-| nl       |   73/74 |   98% |
+| nl       |   74/74 |  100% |
 
 
 ## New Translations
