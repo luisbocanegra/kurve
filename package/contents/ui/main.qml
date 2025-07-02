@@ -49,6 +49,10 @@ PlasmoidItem {
         higherCutoffFreq: Plasmoid.configuration.higherCutoffFreq
         inputMethod: Plasmoid.configuration.inputMethod
         inputSource: Plasmoid.configuration.inputSource
+        sampleRate: Plasmoid.configuration.sampleRate
+        sampleBits: Plasmoid.configuration.sampleBits
+        inputChannels: Plasmoid.configuration.inputChannels
+        autoconnect: Plasmoid.configuration.autoconnect
         onIdleChanged: main.updateStatus()
         onHasErrorChanged: main.updateStatus()
         onRunningChanged: main.updateStatus()

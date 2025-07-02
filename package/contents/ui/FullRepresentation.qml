@@ -11,8 +11,7 @@ ColumnLayout {
     id: root
     Layout.minimumWidth: Kirigami.Units.gridUnit * 25
     Layout.maximumWidth: Kirigami.Units.gridUnit * 25
-    Layout.preferredHeight: content.implicitHeight
-    Layout.minimumHeight: Layout.preferredHeight
+    Layout.minimumHeight: Kirigami.Units.gridUnit * 25
     Layout.maximumHeight: Kirigami.Units.gridUnit * 25
     property string cavaVersion: ""
 
@@ -67,6 +66,7 @@ ColumnLayout {
                     }
                     msg += `Using ProcessMonitorFallback: ${cava.usingFallback}\n`;
                     msg += `Widget install location: ${Qt.resolvedUrl("../../").toString().substring(7)}\n`;
+                    msg += `Cava command:\n${cava.cavaCommand}\n`;
                     return msg;
                 }
                 // HACK: silence binding loop warnings.

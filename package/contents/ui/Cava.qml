@@ -14,22 +14,19 @@ Item {
     property int higherCutoffFreq
     property string inputMethod
     property string inputSource
+    property int sampleRate
+    property int sampleBits
+    property int inputChannels
+    property int autoconnect
     property list<int> values
     property bool idle
     property bool hasError: error !== ""
     property string error
     property bool usingFallback: process.usingFallback
     property bool running: process.running
-    function restart() {
-        process.restart();
-    }
-    function stop() {
-        process.stop();
-    }
-    ProcessMonitor {
-        id: process
-        command: `cava -p /dev/stdin <<-EOF
-[general]
+    readonly property string cavaCommand: process.command
+    readonly property string cavaConfig: {
+        let config = `[general]
 framerate=${root.framerate}
 bars=${root.barCount}
 autosens=${root.autoSensitivity}
@@ -37,8 +34,19 @@ sensitivity=${root.sensitivity}
 lower_cutoff_freq=${root.lowerCutoffFreq}
 higher_cutoff_freq=${root.higherCutoffFreq}
 [input]
-${root.inputMethod !== "" ? 'method=' + root.inputMethod : ''}
-${root.inputSource !== "" ? 'source=' + root.inputSource : ''}
+`;
+
+        if (root.inputMethod !== "") {
+            config += `method=${root.inputMethod}`;
+        }
+        if (root.inputSource !== "") {
+            config += `source=${root.inputSource}`;
+        }
+
+        config += `sample_rate=${root.sampleRate}
+sample_bits=${root.sampleBits}
+channels=${root.inputChannels}
+autoconnect=${root.autoconnect}
 [output]
 channels=mono
 method=raw
@@ -48,7 +56,20 @@ ascii_max_range=100
 [smoothing]
 noise_reduction=${root.noiseReduction}
 monstercat=${root.monstercat}
-waves=${root.waves}
+waves=${root.waves}`;
+
+        return config;
+    }
+    function restart() {
+        process.restart();
+    }
+    function stop() {
+        process.stop();
+    }
+    ProcessMonitor {
+        id: process
+        command: `cava -p /dev/stdin <<-EOF
+${root.cavaConfig}
 EOF
 `
         onStdoutChanged: {

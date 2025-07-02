@@ -21,6 +21,11 @@ KCM.SimpleKCM {
     // input
     property string cfg_inputMethod
     property alias cfg_inputSource: inputSourceField.text
+    property alias cfg_sampleRate: sampleRateSpinbox.value
+    property alias cfg_sampleBits: sampleBitsSpinbox.value
+    property alias cfg_inputChannels: inputChannelsSpinbox.value
+    property alias cfg_autoconnect: autoconnectSpinbox.value
+    // visualizer
     property int cfg_visualizerStyle
     property string cfg_barColors
     property string cfg_waveFillColors
@@ -266,7 +271,87 @@ KCM.SimpleKCM {
         }
 
         Kirigami.FormLayout {
+            twinFormLayouts: [parentLayout]
+            SpinBox {
+                id: sampleRateSpinbox
+                Kirigami.FormData.label: i18n("Sample rate:")
+                from: 1
+                to: 192000
+                stepSize: 100
+                enabled: ["", "fifo", "pipewire", "sndio", "oss"].includes(root.cfg_inputMethod)
+            }
 
+            SpinBox {
+                id: sampleBitsSpinbox
+                Kirigami.FormData.label: i18n("Sample bits:")
+                from: 8
+                to: 32
+                stepSize: 8
+                enabled: ["", "fifo", "pipewire", "sndio", "oss"].includes(root.cfg_inputMethod)
+            }
+
+            SpinBox {
+                id: inputChannelsSpinbox
+                Kirigami.FormData.label: i18n("Channels:")
+                from: 2
+                to: 4
+                enabled: ["", "sndio", "oss", "jack"].includes(root.cfg_inputMethod)
+            }
+
+            SpinBox {
+                id: autoconnectSpinbox
+                Kirigami.FormData.label: i18n("Auto connect:")
+                from: 2
+                to: 4
+                enabled: ["", "jack"].includes(root.cfg_inputMethod)
+            }
+            ToolButton {
+                onCheckedChanged: sampleHelpCard.visible = !sampleHelpCard.visible
+                checkable: true
+                icon.name: "help"
+            }
+        }
+
+        Kirigami.AbstractCard {
+            id: sampleHelpCard
+            spacing: 0
+            visible: false
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.SelectableLabel {
+                    text: i18n("The options 'sample_rate', 'sample_bits', 'channels' and 'autoconnect' can be configured for some input methods:")
+                    Layout.fillWidth: true
+                }
+                Kirigami.SelectableLabel {
+                    text: "sample_rate: fifo, pipewire, sndio, oss"
+                    Layout.fillWidth: true
+                }
+                Kirigami.SelectableLabel {
+                    text: "sample_bits: fifo, pipewire, sndio, oss"
+                    Layout.fillWidth: true
+                }
+                Kirigami.SelectableLabel {
+                    text: "channels:    sndio, oss, jack"
+                    Layout.fillWidth: true
+                }
+                Kirigami.SelectableLabel {
+                    text: "autoconnect: jack"
+                    Layout.fillWidth: true
+                }
+                Kirigami.SelectableLabel {
+                    text: i18n("Other methods ignore these settings.")
+                    Layout.fillWidth: true
+                }
+                Kirigami.SelectableLabel {
+                    text: i18n("For 'sndio' and 'oss' they are only preferred values, i.e. if the values are not supported by the chosen audio device, the device will use other supported values instead.")
+                    Layout.fillWidth: true
+                }
+            }
+        }
+
+        Kirigami.FormLayout {
+            twinFormLayouts: [parentLayout]
             Kirigami.Separator {
                 Kirigami.FormData.isSection: true
                 Kirigami.FormData.label: i18n("Smoothing")

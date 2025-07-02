@@ -40,6 +40,18 @@
     <entry name="inputSource" type="String">
       <default></default>
     </entry>
+    <entry name="sampleRate" type="Int">
+      <default>44100</default>
+    </entry>
+    <entry name="sampleBits" type="Int">
+      <default>16</default>
+    </entry>
+    <entry name="inputChannels" type="Int">
+      <default>2</default>
+    </entry>
+    <entry name="autoconnect" type="Int">
+      <default>2</default>
+    </entry>
     <!-- Widget config -->
     <entry name="debugMode" type="Bool">
       <default>false</default>
