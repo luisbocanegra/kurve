@@ -47,6 +47,8 @@ PlasmoidItem {
         sensitivity: Plasmoid.configuration.sensitivity
         lowerCutoffFreq: Plasmoid.configuration.lowerCutoffFreq
         higherCutoffFreq: Plasmoid.configuration.higherCutoffFreq
+        inputMethod: Plasmoid.configuration.inputMethod
+        inputSource: Plasmoid.configuration.inputSource
         onIdleChanged: main.updateStatus()
         onHasErrorChanged: main.updateStatus()
         onRunningChanged: main.updateStatus()

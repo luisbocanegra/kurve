@@ -12,6 +12,8 @@ Item {
     property int sensitivity
     property int lowerCutoffFreq
     property int higherCutoffFreq
+    property string inputMethod
+    property string inputSource
     property list<int> values
     property bool idle
     property bool hasError: error !== ""
@@ -34,6 +36,9 @@ autosens=${root.autoSensitivity}
 sensitivity=${root.sensitivity}
 lower_cutoff_freq=${root.lowerCutoffFreq}
 higher_cutoff_freq=${root.higherCutoffFreq}
+[input]
+${root.inputMethod !== "" ? 'method=' + root.inputMethod : ''}
+${root.inputSource !== "" ? 'source=' + root.inputSource : ''}
 [output]
 channels=mono
 method=raw

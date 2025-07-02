@@ -34,6 +34,12 @@
     <entry name="higherCutoffFreq" type="Int">
       <default>10000</default>
     </entry>
+    <entry name="inputMethod" type="String">
+      <default></default>
+    </entry>
+    <entry name="inputSource" type="String">
+      <default></default>
+    </entry>
     <!-- Widget config -->
     <entry name="debugMode" type="Bool">
       <default>false</default>
