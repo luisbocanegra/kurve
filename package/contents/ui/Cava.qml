@@ -18,6 +18,9 @@ Item {
     property int sampleBits
     property int inputChannels
     property int autoconnect
+    property string outputChannels
+    property string monoOption
+    property int reverse // bool
     property list<int> values
     property bool idle
     property bool hasError: error !== ""
@@ -37,10 +40,10 @@ higher_cutoff_freq=${root.higherCutoffFreq}
 `;
 
         if (root.inputMethod !== "") {
-            config += `method=${root.inputMethod}`;
+            config += `method=${root.inputMethod}\n`;
         }
         if (root.inputSource !== "") {
-            config += `source=${root.inputSource}`;
+            config += `source=${root.inputSource}\n`;
         }
 
         config += `sample_rate=${root.sampleRate}
@@ -48,7 +51,9 @@ sample_bits=${root.sampleBits}
 channels=${root.inputChannels}
 autoconnect=${root.autoconnect}
 [output]
-channels=mono
+channels=${root.outputChannels}
+mono_option=${root.monoOption}
+reverse=${root.reverse}
 method=raw
 raw_target=/dev/stdout
 data_format=ascii

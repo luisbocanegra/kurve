@@ -53,6 +53,9 @@ PlasmoidItem {
         sampleBits: Plasmoid.configuration.sampleBits
         inputChannels: Plasmoid.configuration.inputChannels
         autoconnect: Plasmoid.configuration.autoconnect
+        outputChannels: Plasmoid.configuration.outputChannels
+        monoOption: Plasmoid.configuration.monoOption
+        reverse: Plasmoid.configuration.reverse
         onIdleChanged: main.updateStatus()
         onHasErrorChanged: main.updateStatus()
         onRunningChanged: main.updateStatus()

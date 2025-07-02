@@ -25,6 +25,10 @@ KCM.SimpleKCM {
     property alias cfg_sampleBits: sampleBitsSpinbox.value
     property alias cfg_inputChannels: inputChannelsSpinbox.value
     property alias cfg_autoconnect: autoconnectSpinbox.value
+    // output
+    property string cfg_outputChannels
+    property string cfg_monoOption
+    property alias cfg_reverse: reverseCheckbox.checked
     // visualizer
     property int cfg_visualizerStyle
     property string cfg_barColors
@@ -111,7 +115,7 @@ KCM.SimpleKCM {
 
             Kirigami.Separator {
                 Kirigami.FormData.isSection: true
-                Kirigami.FormData.label: i18n("Audio Input")
+                Kirigami.FormData.label: i18n("Input")
             }
 
             RowLayout {
@@ -352,6 +356,44 @@ KCM.SimpleKCM {
 
         Kirigami.FormLayout {
             twinFormLayouts: [parentLayout]
+
+            Kirigami.Separator {
+                Kirigami.FormData.isSection: true
+                Kirigami.FormData.label: i18n("Output")
+            }
+
+            RowLayout {
+                Kirigami.FormData.label: i18n("Visual channels:")
+                ComboBox {
+                    id: outputChannelsCombobox
+                    model: ["mono", "stereo"]
+                    onActivated: root.cfg_outputChannels = currentValue
+                    Component.onCompleted: currentIndex = indexOfValue(root.cfg_outputChannels)
+                }
+                Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("'mono' outputs left to right lowest to highest frequencies.\n'stereo' mirrors both channels with low frequencies in center.")
+                }
+            }
+
+            ComboBox {
+                id: monoOptionCombobox
+                Kirigami.FormData.label: i18n("Mono channel:")
+                model: ['left', 'right', 'average']
+                onActivated: root.cfg_monoOption = currentValue
+                Component.onCompleted: currentIndex = indexOfValue(root.cfg_monoOption)
+                enabled: root.cfg_outputChannels === "mono"
+            }
+
+            RowLayout {
+                Kirigami.FormData.label: i18n("Reverse:")
+                CheckBox {
+                    id: reverseCheckbox
+                }
+                Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("Display frequencies the other way around")
+                }
+            }
+
             Kirigami.Separator {
                 Kirigami.FormData.isSection: true
                 Kirigami.FormData.label: i18n("Smoothing")
