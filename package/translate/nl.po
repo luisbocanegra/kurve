@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-06-30 22:59+0000\n"
+"POT-Creation-Date: 2025-07-02 22:49+0000\n"
 "PO-Revision-Date: 2025-07-01 11:09+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -30,7 +30,7 @@ msgstr "Audiovisualisatie, gebaseerd op CAVA"
 msgid "Visualizer"
 msgstr "Visualisatie"
 
-#: ../contents/config/config.qml
+#: ../contents/config/config.qml ../contents/ui/configCava.qml
 msgid "General"
 msgstr "Algemeen"
 
@@ -240,18 +240,199 @@ msgid "Number of bars:"
 msgstr "Aantal balken:"
 
 #: ../contents/ui/configCava.qml
+msgid "Automatic sensitivity:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Attempt to decrease sensitivity if the bars peak."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Sensitivity:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Manual sensitivity in %.\n"
+"If autosens is enabled, this will only be the initial value"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Frequency range (Hz):"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Min"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Max"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Lower and higher cutoff frequencies for lowest and highest bars, the "
+"bandwidth of the visualizer.\n"
+"Note: Cava will automatically increase the higher cutoff if a too low band "
+"is specified."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Input"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Method:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml ../contents/ui/configGeneral.qml
+msgid "Default"
+msgstr "Standaard"
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Audio capturing method.\n"
+"Defaults to 'oss', 'pipewire', 'sndio', 'jack', 'pulse', 'alsa', 'portaudio' "
+"or 'fifo', in that order, dependent on what support cava was built with.\n"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Source:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"For pulseaudio and pipewire 'source' will be the source. Default: 'auto', "
+"which uses the monitor source of the default sink (all pulseaudio "
+"sinks(outputs) have 'monitor' sources(inputs) associated with them)."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"For pipewire 'source' will be the object name or object.serial of the device "
+"to capture from. Both input and output devices are supported."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "For alsa 'source' will be the capture device."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "For fifo 'source' will be the path to fifo-file."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:"
+"EE:FF' will be squeezelite's MAC address."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"For sndio 'source' will be a raw recording audio descriptor or a monitoring "
+"sub-device, e.g. 'rsnd/2' or 'snd/1'. Default: 'default'."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"For oss 'source' will be the path to a audio device, e.g. '/dev/dsp2'. "
+"Default: '/dev/dsp', i.e. the default audio device."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"For jack 'source' will be the name of the JACK server to connect to, e.g. "
+"'foobar'. Default: 'default'."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Sample rate:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Sample bits:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Channels:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Auto connect:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"The options 'sample_rate', 'sample_bits', 'channels' and 'autoconnect' can "
+"be configured for some input methods:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Other methods ignore these settings."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"For 'sndio' and 'oss' they are only preferred values, i.e. if the values are "
+"not supported by the chosen audio device, the device will use other "
+"supported values instead."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Output"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Visual channels:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"'mono' outputs left to right lowest to highest frequencies.\n"
+"'stereo' mirrors both channels with low frequencies in center."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Mono channel:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Reverse:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Display frequencies the other way around"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Smoothing"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
 msgid "Noise reduction:"
 msgstr "Ruisonderdrukking:"
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"The raw visualization is very noisy, this factor adjusts the integral and "
+"gravity filters to keep the signal smooth.\n"
+"100 will be very slow and smooth, 0 will be fast but noisy."
+msgstr ""
 
 #: ../contents/ui/configCava.qml
 msgid "Monstercat:"
 msgstr "Monstercat:"
 
 #: ../contents/ui/configCava.qml
-msgid "Waves:"
-msgstr "Golven:"
+msgid ""
+"Enable the so-called \"Monstercat smoothing\" with or without \"waves\"."
+msgstr ""
 
-#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+#: ../contents/ui/configCava.qml
+msgid "Waves"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
 msgid "Debug mode:"
 msgstr "Foutopsporingsmodus:"
 
@@ -263,19 +444,15 @@ msgstr "Automatisch verbergen na inactiviteit:"
 msgid "Fill panel thickness:"
 msgstr "Paneelopvulling:"
 
-#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+#: ../contents/ui/configGeneral.qml
 msgid "Desktop background:"
 msgstr "Bureaubladachtergrond:"
 
-#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
-msgid "Default"
-msgstr "Standaard"
-
-#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+#: ../contents/ui/configGeneral.qml
 msgid "Transparent"
 msgstr "Doorzichtig"
 
-#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+#: ../contents/ui/configGeneral.qml
 msgid "Transparent with shadow"
 msgstr "Doorzichtig, met schaduw"
 
@@ -322,3 +499,6 @@ msgstr "Balkkleur"
 #: ../contents/ui/configVisualizer.qml
 msgid "Wave Fill Color"
 msgstr "Opgevulde golfkleur"
+
+#~ msgid "Waves:"
+#~ msgstr "Golven:"
