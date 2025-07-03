@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-07-02 22:49+0000\n"
+"POT-Creation-Date: 2025-07-03 07:32+0000\n"
 "PO-Revision-Date: 2025-07-01 11:09+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -51,6 +51,18 @@ msgstr "CAVA starten"
 #: ../contents/ui/components/FormColors.qml
 msgid "Widget background"
 msgstr "Widgetachtergrond"
+
+#: ../contents/ui/components/Eq.qml
+msgid "Remove band"
+msgstr ""
+
+#: ../contents/ui/components/Eq.qml
+msgid "Add band"
+msgstr ""
+
+#: ../contents/ui/components/Eq.qml
+msgid "Flat response"
+msgstr ""
 
 #: ../contents/ui/components/FormColors.qml
 msgid "Color"
@@ -432,6 +444,16 @@ msgstr ""
 msgid "Waves"
 msgstr ""
 
+#: ../contents/ui/configCava.qml
+msgid "Equalizer"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Adjust frequencies by a multiplication factor, more bars equals more "
+"precision."
+msgstr ""
+
 #: ../contents/ui/configGeneral.qml
 msgid "Debug mode:"
 msgstr "Foutopsporingsmodus:"
@@ -439,6 +461,14 @@ msgstr "Foutopsporingsmodus:"
 #: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
 msgid "Auto-hide when idle:"
 msgstr "Automatisch verbergen na inactiviteit:"
+
+#: ../contents/ui/configGeneral.qml
+msgid "After"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "seconds"
+msgstr ""
 
 #: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
 msgid "Fill panel thickness:"
