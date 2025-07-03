@@ -61,6 +61,9 @@
     <entry name="reverse" type="Bool">
       <default>false</default>
     </entry>
+    <entry name="eq" type="StringList">
+      <default>1.0,1.0,1.0,1.0,1.0</default>
+    </entry>
     <!-- Widget config -->
     <entry name="debugMode" type="Bool">
       <default>false</default>
@@ -80,11 +83,11 @@
     <entry name="barGap" type="Int">
       <default>5</default>
     </entry>
-    <!-- /home/luis/projects/kurve/package/contents/ui/code/globals.js -->
+    <!-- ./package/contents/ui/code/globals.js -->
     <entry name="barColors" type="String">
       <default>{}</default>
     </entry>
-    <!-- /home/luis/projects/kurve/package/contents/ui/code/globals.js -->
+    <!-- ./package/contents/ui/code/globals.js -->
     <entry name="waveFillColors" type="String">
       <default>{}</default>
     </entry>

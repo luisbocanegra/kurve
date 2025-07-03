@@ -56,6 +56,7 @@ PlasmoidItem {
         outputChannels: Plasmoid.configuration.outputChannels
         monoOption: Plasmoid.configuration.monoOption
         reverse: Plasmoid.configuration.reverse
+        eq: Plasmoid.configuration.eq
         onIdleChanged: main.updateStatus()
         onHasErrorChanged: main.updateStatus()
         onRunningChanged: main.updateStatus()

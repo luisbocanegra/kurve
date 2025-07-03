@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
+import org.kde.plasma.plasmoid
 import "./components"
 
 KCM.SimpleKCM {
@@ -29,10 +30,8 @@ KCM.SimpleKCM {
     property string cfg_outputChannels
     property string cfg_monoOption
     property alias cfg_reverse: reverseCheckbox.checked
-    // visualizer
-    property int cfg_visualizerStyle
-    property string cfg_barColors
-    property string cfg_waveFillColors
+    // eq
+    property var cfg_eq
 
     PactlList {
         id: pactl
@@ -424,6 +423,41 @@ KCM.SimpleKCM {
                 id: wavesCheckbox
                 text: i18n("Waves")
                 enabled: monstercatCheckbox.checked
+            }
+            Kirigami.Separator {
+                Kirigami.FormData.isSection: true
+                Kirigami.FormData.label: i18n("Equalizer")
+            }
+        }
+        Kirigami.ContextualHelpButton {
+            toolTipText: i18n("Adjust frequencies by a multiplication factor, more bars equals more precision.")
+            Layout.alignment: Qt.AlignHCenter
+        }
+        Eq {
+            Layout.preferredWidth: parent.width - Kirigami.Units.gridUnit * 2
+            Layout.alignment: Qt.AlignHCenter
+            fromFreq: root.cfg_lowerCutoffFreq
+            toFreq: root.cfg_higherCutoffFreq
+            onValueChanged: (index, value) => {
+                root.cfg_eq[index] = parseFloat(value.toString()).toFixed(1);
+                const tmp = root.cfg_eq;
+                root.cfg_eq = null;
+                root.cfg_eq = tmp;
+            }
+            Component.onCompleted: values = root.cfg_eq.map(v => parseFloat(v).toFixed(1))
+            onBandRemoved: {
+                root.cfg_eq.pop();
+                values = root.cfg_eq.map(v => parseFloat(v).toFixed(1));
+            }
+            onBandAdded: {
+                root.cfg_eq.push("1.0");
+                values = root.cfg_eq.map(v => parseFloat(v).toFixed(1));
+            }
+            onFlat: {
+                root.cfg_eq = root.cfg_eq.map(v => "1.0");
+                // HACK: setting values alone doesn't update the values in the controls
+                bandAdded();
+                bandRemoved();
             }
         }
     }

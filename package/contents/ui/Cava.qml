@@ -21,6 +21,7 @@ Item {
     property string outputChannels
     property string monoOption
     property int reverse // bool
+    property list<real> eq
     property list<int> values
     property bool idle
     property bool hasError: error !== ""
@@ -61,8 +62,15 @@ ascii_max_range=100
 [smoothing]
 noise_reduction=${root.noiseReduction}
 monstercat=${root.monstercat}
-waves=${root.waves}`;
-
+waves=${root.waves}
+[eq]
+`;
+        for (let i = 0; i < eq.length; i++) {
+            config += `${i + 1}=${eq[i]}`;
+            if (i < eq.length - 1) {
+                config += '\n';
+            }
+        }
         return config;
     }
     function restart() {
