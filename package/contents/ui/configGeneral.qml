@@ -14,6 +14,7 @@ KCM.SimpleKCM {
     property string cfg_barColors
     property string cfg_waveFillColors
     property alias cfg_debugMode: debugModeCheckbox.checked
+    property alias cfg_idleTimer: idleTimerSpinbox.value
 
     Kirigami.FormLayout {
         id: parentLayout
@@ -24,9 +25,23 @@ KCM.SimpleKCM {
             Kirigami.FormData.label: i18n("Debug mode:")
         }
 
-        CheckBox {
-            id: hideWhenIdleCheckbox
+        RowLayout {
             Kirigami.FormData.label: i18n("Auto-hide when idle:")
+            CheckBox {
+                id: hideWhenIdleCheckbox
+            }
+            Label {
+                text: i18n("After")
+            }
+            SpinBox {
+                id: idleTimerSpinbox
+                enabled: hideWhenIdleCheckbox.checked
+                from: 1
+                to: 60
+            }
+            Label {
+                text: i18n("seconds")
+            }
         }
 
         CheckBox {

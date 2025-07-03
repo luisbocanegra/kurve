@@ -71,6 +71,9 @@
     <entry name="hideWhenIdle" type="Bool">
       <default>false</default>
     </entry>
+    <entry name="idleTimer" type="Int">
+      <default>5</default>
+    </entry>
     <entry name="visualizerStyle" type="Int">
       <default>1</default>
     </entry>

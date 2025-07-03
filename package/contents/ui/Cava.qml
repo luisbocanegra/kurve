@@ -24,6 +24,8 @@ Item {
     property list<real> eq
     property list<int> values
     property bool idle
+    property bool idleCheck
+    property int idleTimer
     property bool hasError: error !== ""
     property string error
     property bool usingFallback: process.usingFallback
@@ -91,6 +93,9 @@ EOF
                 output = output.slice(0, -1);
             }
             root.values = output.split(";").map(v => parseInt(v, 10));
+            if (!root.idleCheck) {
+                return;
+            }
             if (root.values.find(v => v > 0)) {
                 if (idleTimer.running) {
                     idleTimer.stop();
@@ -105,7 +110,7 @@ EOF
 
     Timer {
         id: idleTimer
-        interval: 5000
+        interval: root.idleTimer * 1000
         onTriggered: root.idle = true
     }
 }

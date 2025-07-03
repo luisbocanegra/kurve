@@ -57,6 +57,8 @@ PlasmoidItem {
         monoOption: Plasmoid.configuration.monoOption
         reverse: Plasmoid.configuration.reverse
         eq: Plasmoid.configuration.eq
+        idleCheck: main.hideWhenIdle
+        idleTimer: Plasmoid.configuration.idleTimer
         onIdleChanged: main.updateStatus()
         onHasErrorChanged: main.updateStatus()
         onRunningChanged: main.updateStatus()
