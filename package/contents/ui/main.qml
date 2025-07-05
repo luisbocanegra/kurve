@@ -17,6 +17,19 @@ PlasmoidItem {
     property bool onDesktop: Plasmoid.location === PlasmaCore.Types.Floating
     property bool horizontal: Plasmoid.formFactor !== PlasmaCore.Types.Vertical
 
+    property int barCount: {
+        let bars = 1;
+        const width = main.width;
+        bars = Math.floor((width + Plasmoid.configuration.barGap) / (Plasmoid.configuration.barWidth + Plasmoid.configuration.barGap));
+        if (Plasmoid.configuration.outputChannels === "stereo") {
+            bars = Utils.makeEven(bars);
+        }
+        if (Plasmoid.configuration.visualizerStyle === Enum.VisualizerStyles.Wave) {
+            bars = Math.max(2, bars);
+        }
+        return bars;
+    }
+
     property bool hideWhenIdle: Plasmoid.configuration.hideWhenIdle
 
     Plasmoid.status: PlasmaCore.Types.ActiveStatus
@@ -30,16 +43,16 @@ PlasmoidItem {
     onExpandedChanged: {
         Utils.delay(1000, updateStatus, main);
     }
+    onBarCountChanged: {
+        if (editMode && !cava.running) {
+            return;
+        }
+        cava.barCount = barCount;
+    }
 
     Cava {
         id: cava
         framerate: Plasmoid.configuration.framerate
-        barCount: {
-            if (Plasmoid.configuration.visualizerStyle === Enum.VisualizerStyles.Wave) {
-                return Math.max(2, Plasmoid.configuration.barCount);
-            }
-            return Plasmoid.configuration.barCount;
-        }
         noiseReduction: Plasmoid.configuration.noiseReduction
         monstercat: Plasmoid.configuration.monstercat
         waves: Plasmoid.configuration.waves

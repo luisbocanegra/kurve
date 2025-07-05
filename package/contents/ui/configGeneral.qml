@@ -8,7 +8,6 @@ import org.kde.plasma.core as PlasmaCore
 KCM.SimpleKCM {
     id: root
     property alias cfg_desktopWidgetBg: desktopWidgetBackgroundRadio.value
-    property alias cfg_fillPanel: fillPanelCheckbox.checked
     property alias cfg_hideWhenIdle: hideWhenIdleCheckbox.checked
     property int cfg_visualizerStyle
     property string cfg_barColors
@@ -42,11 +41,6 @@ KCM.SimpleKCM {
             Label {
                 text: i18n("seconds")
             }
-        }
-
-        CheckBox {
-            id: fillPanelCheckbox
-            Kirigami.FormData.label: i18n("Fill panel thickness:")
         }
 
         RadioButton {

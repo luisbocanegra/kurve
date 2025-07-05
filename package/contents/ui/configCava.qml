@@ -54,13 +54,27 @@ KCM.SimpleKCM {
                 to: 144
             }
 
-            SpinBox {
-                id: barCountSpinbox
+            RowLayout {
+                id: barsRow
+                Kirigami.FormData.buddyFor: barCountSpinbox
                 Kirigami.FormData.label: i18n("Number of bars:")
-                from: 1
-                to: 512
+                SpinBox {
+                    id: barCountSpinbox
+                    enabled: false //TODO enable when we have a visualization style that can use it
+                    from: 1
+                    to: 512
+                    Layout.alignment: Qt.AlignTop
+                }
+                Label {
+                    visible: !barCountSpinbox.enabled
+                    text: i18n("Automatically calculated for the current visualizer style.")
+                    font: Kirigami.Theme.smallFont
+                    Layout.maximumWidth: 200
+                    wrapMode: Label.Wrap
+                    enabled: false
+                    Layout.alignment: Qt.AlignTop
+                }
             }
-
             RowLayout {
                 Kirigami.FormData.label: i18n("Automatic sensitivity:")
                 CheckBox {
