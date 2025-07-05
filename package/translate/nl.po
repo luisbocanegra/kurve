@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-07-03 07:32+0000\n"
+"POT-Creation-Date: 2025-07-05 02:03+0000\n"
 "PO-Revision-Date: 2025-07-01 11:09+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -252,6 +252,10 @@ msgid "Number of bars:"
 msgstr "Aantal balken:"
 
 #: ../contents/ui/configCava.qml
+msgid "Automatically calculated for the current visualizer style."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
 msgid "Automatic sensitivity:"
 msgstr ""
 
@@ -458,7 +462,7 @@ msgstr ""
 msgid "Debug mode:"
 msgstr "Foutopsporingsmodus:"
 
-#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
+#: ../contents/ui/configGeneral.qml
 msgid "Auto-hide when idle:"
 msgstr "Automatisch verbergen na inactiviteit:"
 
@@ -469,10 +473,6 @@ msgstr ""
 #: ../contents/ui/configGeneral.qml
 msgid "seconds"
 msgstr ""
-
-#: ../contents/ui/configGeneral.qml ../contents/ui/configVisualizer.qml
-msgid "Fill panel thickness:"
-msgstr "Paneelopvulling:"
 
 #: ../contents/ui/configGeneral.qml
 msgid "Desktop background:"
@@ -485,6 +485,14 @@ msgstr "Doorzichtig"
 #: ../contents/ui/configGeneral.qml
 msgid "Transparent with shadow"
 msgstr "Doorzichtig, met schaduw"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "height"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "width"
+msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Style:"
@@ -501,6 +509,18 @@ msgstr "Golf"
 #: ../contents/ui/configVisualizer.qml
 msgid "Fill wave"
 msgstr "Opgevulde golf"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Fill panel %1:"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Fixed %1:"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Fill panel thickness:"
+msgstr "Paneelopvulling:"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Centered bars:"
