@@ -18,8 +18,7 @@ Item {
     required property var waveFillColorsCfg
     property list<int> values
     property bool debugMode: false
-    Layout.preferredWidth: visualizer.width
-    Layout.preferredHeight: parent.height
+
     Rectangle {
         id: kirigamiColorItem
         opacity: 0
@@ -35,15 +34,29 @@ Item {
         width: height
         Kirigami.Theme.colorSet: Kirigami.Theme[root.waveFillColorsCfg.systemColorSet]
     }
+    Rectangle {
+        color: Kirigami.Theme.highlightColor
+        opacity: 0.2
+        visible: root.debugMode
+        width: canvas.width
+        height: canvas.height
+        anchors.centerIn: parent
+    }
     Canvas {
-        id: visualizer
+        id: canvas
+        anchors.centerIn: parent
         property int visualizerStyle: root.visualizerStyle
         property int barWidth: root.barWidth
         property int spacing: root.barGap
         property int barCount: root.values.length
         property bool centeredBars: root.centeredBars
         property bool roundedBars: root.roundedBars
-        property var values: root.values
+        property var values: {
+            if (root.debugMode) {
+                root.values[0] = 100;
+            }
+            return root.values;
+        }
         property bool fillWave: root.fillWave
 
         property real radiusOffset: barWidth / 2
@@ -62,7 +75,7 @@ Item {
         height: parent.height
         property bool fixAlign: barWidth % 2 === 0 && centeredBars && visualizerStyle === Enum.VisualizerStyles.Wave
 
-        onValuesChanged: visualizer.requestPaint()
+        onValuesChanged: canvas.requestPaint()
 
         onPaint: {
             const ctx = getContext("2d");
@@ -179,8 +192,8 @@ Item {
     Shape {
         id: shape
         visible: root.debugMode
-        width: parent.width
-        height: parent.height
+        width: canvas.width
+        height: canvas.height
         anchors.centerIn: parent
         ShapePath {
             fillColor: "transparent"

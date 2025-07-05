@@ -3,8 +3,11 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.plasmoid
 import "components" as Components
 import "code/enum.js" as Enum
+import "code/utils.js" as Utils
 
 KCM.SimpleKCM {
     id: root
@@ -12,12 +15,23 @@ KCM.SimpleKCM {
     property alias cfg_barWidth: barWidthSpinbox.value
     property alias cfg_centeredBars: centeredBarsCheckbox.checked
     property alias cfg_roundedBars: roundedBarsCheckbox.checked
+    // fill panel thickness
     property alias cfg_fillPanel: fillPanelCheckbox.checked
-    property alias cfg_hideWhenIdle: hideWhenIdleCheckbox.checked
     property int cfg_visualizerStyle
     property string cfg_barColors
     property string cfg_waveFillColors
     property alias cfg_fillWave: fillWaveCheckbox.checked
+    // take all the available space in the panel
+    property alias cfg_expanding: expandingCheckbox.checked
+    property alias cfg_length: lengthSpinbox.value
+
+    readonly property bool vertical: {
+        if (Plasmoid.formFactor == PlasmaCore.Types.Vertical) {
+            return true;
+        }
+        return false;
+    }
+    readonly property string dimensionStr: vertical ? i18n("height") : i18n("width")
 
     ColumnLayout {
 
@@ -56,12 +70,22 @@ KCM.SimpleKCM {
             }
 
             CheckBox {
-                id: hideWhenIdleCheckbox
-                Kirigami.FormData.label: i18n("Auto-hide when idle:")
+                id: expandingCheckbox
+                visible: !(Plasmoid.location === PlasmaCore.Types.Floating)
+                Kirigami.FormData.label: i18n("Fill panel %1:", root.dimensionStr)
+            }
+            SpinBox {
+                id: lengthSpinbox
+                visible: !(Plasmoid.location === PlasmaCore.Types.Floating)
+                enabled: !expandingCheckbox.checked
+                Kirigami.FormData.label: i18n("Fixed %1:", root.dimensionStr)
+                from: 1
+                to: 9999
             }
 
             CheckBox {
                 id: fillPanelCheckbox
+                visible: !(Plasmoid.location === PlasmaCore.Types.Floating)
                 Kirigami.FormData.label: i18n("Fill panel thickness:")
             }
 

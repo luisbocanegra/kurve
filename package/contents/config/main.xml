@@ -86,11 +86,11 @@
     <entry name="barGap" type="Int">
       <default>5</default>
     </entry>
-    <!-- ./package/contents/ui/code/globals.js -->
+    <!-- ./package/contents/ui/code/globals.js[baseBarColors] -->
     <entry name="barColors" type="String">
       <default>{}</default>
     </entry>
-    <!-- ./package/contents/ui/code/globals.js -->
+    <!-- ./package/contents/ui/code/globals.js[baseWaveFillColors] -->
     <entry name="waveFillColors" type="String">
       <default>{}</default>
     </entry>
@@ -103,8 +103,16 @@
     <entry name="roundedBars" type="Bool">
       <default>false</default>
     </entry>
+    <!-- fill panel thickness -->
     <entry name="fillPanel" type="Bool">
       <default>false</default>
+    </entry>
+    <!-- take all the available space in the panel -->
+    <entry name="expanding" type="Bool">
+      <default>false</default>
+    </entry>
+    <entry name="length" type="Int">
+      <default>200</default>
     </entry>
   </group>
 </kcfg>

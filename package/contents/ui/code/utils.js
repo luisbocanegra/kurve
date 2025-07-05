@@ -134,3 +134,7 @@ function delay(interval, callback, parentItem) {
   });
   timer.start();
 }
+
+function makeEven(n) {
+  return n - (n % 2);
+}

@@ -2,7 +2,6 @@ import QtQuick
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.plasmoid
-import org.kde.plasma.components as PlasmaComponents
 import "./components"
 import "code/enum.js" as Enum
 import "code/globals.js" as Globals
@@ -11,19 +10,25 @@ import "code/utils.js" as Utils
 Item {
     id: root
 
-    Layout.preferredWidth: main.onDesktop ? content.implicitWidth : (main.horizontal ? content.implicitWidth : parent.height)
-    Layout.preferredHeight: main.onDesktop ? 0 : (main.horizontal ? parent.height : content.implicitHeight)
-    Layout.minimumWidth: Layout.preferredWidth
-    Layout.minimumHeight: Layout.preferredHeight
+    Layout.preferredWidth: {
+        if (main.onDesktop || main.horizontal && Plasmoid.configuration.expanding) {
+            return 0;
+        }
+        return main.horizontal ? Plasmoid.configuration.length : parent.width;
+    }
+
+    Layout.preferredHeight: {
+        if (main.onDesktop || !main.horizontal && Plasmoid.configuration.expanding) {
+            return 0;
+        }
+        return main.horizontal ? parent.height : Plasmoid.configuration.length;
+    }
+    Layout.fillWidth: main.horizontal && Plasmoid.configuration.expanding && !main.onDesktop
+    Layout.fillHeight: !main.horizontal && Plasmoid.configuration.expanding && !main.onDesktop
 
     property int framerate: Plasmoid.configuration.framerate
     property int barGap: Plasmoid.configuration.barGap
-    property int barCount: {
-        if (visualizerStyle === Enum.VisualizerStyles.Wave) {
-            return Math.max(2, Plasmoid.configuration.barCount);
-        }
-        return Plasmoid.configuration.barCount;
-    }
+    property int barCount: main.barCount
     property int barWidth: Plasmoid.configuration.barWidth
     property int noiseReduction: Plasmoid.configuration.noiseReduction
     property int monstercat: Plasmoid.configuration.monstercat
@@ -67,34 +72,31 @@ Item {
         return config;
     }
 
-    RowLayout {
-        id: content
-        height: parent.height
-        anchors.horizontalCenter: parent.horizontalCenter
-        Visualizer {
-            id: visualizer
-            visualizerStyle: root.visualizerStyle
-            barWidth: root.barWidth
-            barGap: root.barGap
-            barCount: root.barCount
-            centeredBars: root.centeredBars
-            roundedBars: root.roundedBars
-            fillWave: root.fillWave
-            barColorsCfg: root.barColorsCfg
-            waveFillColorsCfg: root.waveFillColorsCfg
-            values: cava.values
-            debugMode: Plasmoid.configuration.debugMode
-            visible: !cava.hasError
-        }
-        Kirigami.Icon {
-            Layout.preferredWidth: Kirigami.Units.iconSizes.roundedIconSize(Math.min(main.height, main.width))
-            Layout.preferredHeight: Layout.preferredWidth
-            source: Qt.resolvedUrl("./icons/error.svg").toString().replace("file://", "")
-            active: mouseArea.containsMouse
-            isMask: true
-            color: Kirigami.Theme.negativeTextColor
-            visible: cava.hasError
-        }
+    Visualizer {
+        id: visualizer
+        anchors.fill: parent
+        visualizerStyle: root.visualizerStyle
+        barWidth: root.barWidth
+        barGap: root.barGap
+        barCount: root.barCount
+        centeredBars: root.centeredBars
+        roundedBars: root.roundedBars
+        fillWave: root.fillWave
+        barColorsCfg: root.barColorsCfg
+        waveFillColorsCfg: root.waveFillColorsCfg
+        values: cava.values
+        debugMode: Plasmoid.configuration.debugMode
+        visible: !cava.hasError && !cava.idle
+    }
+    Kirigami.Icon {
+        anchors.centerIn: parent
+        width: Kirigami.Units.iconSizes.roundedIconSize(Math.min(main.height, main.width))
+        height: width
+        source: Qt.resolvedUrl("./icons/error.svg").toString().replace("file://", "")
+        active: mouseArea.containsMouse
+        isMask: true
+        color: Kirigami.Theme.negativeTextColor
+        visible: cava.hasError
     }
 
     MouseArea {
