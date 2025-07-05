@@ -24,6 +24,7 @@ KCM.SimpleKCM {
     // take all the available space in the panel
     property alias cfg_expanding: expandingCheckbox.checked
     property alias cfg_length: lengthSpinbox.value
+    property int cfg_orientation
 
     readonly property bool vertical: {
         if (Plasmoid.formFactor == PlasmaCore.Types.Vertical) {
@@ -67,6 +68,34 @@ KCM.SimpleKCM {
                 id: fillWaveCheckbox
                 text: i18n("Fill wave")
                 visible: root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave
+            }
+
+            ComboBox {
+                id: orientationCombobox
+                Kirigami.FormData.label: i18n("Orientation:")
+                valueRole: "value"
+                textRole: "label"
+
+                model: [
+                    {
+                        label: i18n("Top"),
+                        value: Enum.Orientation.Top
+                    },
+                    {
+                        label: i18n("Bottom"),
+                        value: Enum.Orientation.Bottom
+                    },
+                    {
+                        label: i18n("Left"),
+                        value: Enum.Orientation.Left
+                    },
+                    {
+                        label: i18n("Right"),
+                        value: Enum.Orientation.Right
+                    }
+                ]
+                onActivated: root.cfg_orientation = currentValue
+                Component.onCompleted: currentIndex = indexOfValue(root.cfg_orientation)
             }
 
             CheckBox {
