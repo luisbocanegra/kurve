@@ -53,6 +53,9 @@ ColumnLayout {
                     if (cava.error) {
                         msg += `Error: ${cava.error}\n`;
                     }
+                    if (!cava.running && cava.loadingFailed) {
+                        msg += `Error: ${cava.loadingErrors.join('\n')}\n`;
+                    }
                     if (cava.running) {
                         msg += `CAVA is running\n`;
                     } else {
