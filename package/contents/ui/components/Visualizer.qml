@@ -1,6 +1,5 @@
 import QtQuick
-import QtQuick.Layouts
-import QtQuick.Shapes 1.9
+import QtQuick.Shapes
 import org.kde.kirigami as Kirigami
 import "../code/utils.js" as Utils
 import "../code/enum.js" as Enum

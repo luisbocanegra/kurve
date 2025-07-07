@@ -1,5 +1,5 @@
 import QtQuick
-import com.github.luisbocanegra.audiovisualizer.process 1.0
+import com.github.luisbocanegra.audiovisualizer.process
 
 Item {
     id: root

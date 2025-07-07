@@ -1,5 +1,5 @@
 import QtQuick
-import QtWebSockets 1.9
+import QtWebSockets
 import "../code/utils.js" as Utils
 
 Item {
