@@ -32,7 +32,7 @@ yay -S plasma6-applets-kurve
     # Arch Linux
     sudo pacman -Syu cava qt6-websockets python-websockets
     # Fedora
-    sudo dnf install cava qt6-qtwebsockets python-websockets
+    sudo dnf install cava qt6-qtwebsockets-devel python-websockets
     # Kubuntu
     sudo apt install cava qt6-websockets python-websockets
     # openSUSE
