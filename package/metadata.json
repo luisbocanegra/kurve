@@ -17,7 +17,7 @@
         "License": "GPL-3.0",
         "Name": "Kurve",
         "Name[nl]": "Kurve",
-        "Version": "0.4.0",
+        "Version": "1.0.0",
         "Website": "https://github.com/luisbocanegra/kurve"
     },
     "X-Plasma-API-Minimum-Version": "6.0"
