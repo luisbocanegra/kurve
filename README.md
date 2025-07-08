@@ -11,9 +11,6 @@ Audio visualizer widget powered by [CAVA](https://github.com/karlstav/cava) for 
 
 </div>
 
-> [!NOTE]
-> I have decided to stick with the current name for ease of search and discoverability of this niche of niches project. Thanks everyone for the feedback and name suggestions in the Kreddit!
-
 ## Installation
 
 ## Distribution packages
