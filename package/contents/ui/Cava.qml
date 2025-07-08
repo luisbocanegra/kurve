@@ -26,10 +26,12 @@ Item {
     property bool idle
     property bool idleCheck
     property int idleTimer
-    property bool hasError: error !== ""
-    property string error
-    property bool usingFallback: process.usingFallback
-    property bool running: process.running
+    readonly property bool hasError: error !== ""
+    readonly property string error: process.stderr
+    readonly property list<string> loadingErrors: process.loadingErrors
+    readonly property bool loadingFailed: process.loadingFailed
+    readonly property bool usingFallback: process.usingFallback
+    readonly property bool running: process.running
     readonly property string cavaCommand: process.command
     readonly property string cavaConfig: {
         let config = `[general]
@@ -105,7 +107,7 @@ EOF
                 idleTimer.restart();
             }
         }
-        onStderrChanged: root.error = process.stderr
+        onLoadingErrorsChanged: root.error = process.loadingErrors.join("\n")
     }
 
     Timer {

@@ -38,7 +38,7 @@ PlasmoidItem {
         if (Plasmoid.status === PlasmaCore.Types.RequiresAttentionStatus) {
             return;
         }
-        Plasmoid.status = (hideWhenIdle && cava.idle || !cava.running) && !Plasmoid.expanded && !editMode && !cava.hasError ? PlasmaCore.Types.HiddenStatus : PlasmaCore.Types.ActiveStatus;
+        Plasmoid.status = hideWhenIdle && (cava.idle || !cava.running) && !Plasmoid.expanded && !editMode && !cava.hasError ? PlasmaCore.Types.HiddenStatus : PlasmaCore.Types.ActiveStatus;
     }
     onExpandedChanged: {
         Utils.delay(1000, updateStatus, main);

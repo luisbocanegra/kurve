@@ -4,50 +4,54 @@ Item {
     id: root
 
     property string command: ""
-    property string stdout: ""
-    property string stderr: ""
-    property bool useFallback: false
-    property bool usingFallback: loader.source.toString() === "ProcessMonitorFallback.qml"
-    property bool running: false
+    readonly property string stdout: process.stdout ?? ""
+    readonly property string stderr: process.stderr ?? ""
+    readonly property bool forceFallback: false
+    readonly property bool running: process.running ?? false
+    property bool usingFallback: false
+    property var process: null
+    property bool loadingFailed: false
+    property list<string> loadingErrors
 
     function restart() {
-        if (loader.status === Loader.Ready) {
-            loader.item.restart();
+        if (process !== null) {
+            process.restart();
         }
     }
 
     function stop() {
-        if (loader.status === Loader.Ready) {
-            loader.item.stop();
+        if (process !== null) {
+            process.stop();
         }
     }
 
     onCommandChanged: {
-        if (loader.status === Loader.Ready) {
-            loader.item.command = root.command;
+        if (process !== null) {
+            process.command = root.command;
         }
     }
 
-    Loader {
-        id: loader
-
-        source: root.useFallback ? "ProcessMonitorFallback.qml" : "ProcessMonitorPrimary.qml"
-        onStatusChanged: {
-            if (status === Loader.Error) {
-                loader.source = "ProcessMonitorFallback.qml";
+    Component.onCompleted: {
+        let component = null;
+        const sources = ["ProcessMonitorFallback.qml"];
+        if (!root.forceFallback) {
+            sources.unshift("ProcessMonitorPrimary.qml");
+        }
+        for (let source of sources) {
+            component = Qt.createComponent(source);
+            if (component.status === Component.Ready) {
+                process = component.createObject(root);
+                process.command = root.command;
+                break;
+            } else {
+                console.warn(component.errorString());
+                root.loadingErrors.push(component.errorString());
             }
         }
-        onLoaded: {
-            loader.item.command = root.command;
-            loader.item.stdoutChanged.connect(() => {
-                root.stdout = loader.item.stdout;
-            });
-            loader.item.stderrChanged.connect(() => {
-                root.stderr = loader.item.stderr;
-            });
-            loader.item.runningChanged.connect(() => {
-                root.running = loader.item.running;
-            });
+
+        if (process === null) {
+            root.loadingFailed = true;
         }
+        root.usingFallback = component.url.toString().includes("ProcessMonitorFallback.qml");
     }
 }

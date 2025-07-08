@@ -86,7 +86,7 @@ Item {
         waveFillColorsCfg: root.waveFillColorsCfg
         values: cava.values
         debugMode: Plasmoid.configuration.debugMode
-        visible: !cava.hasError && !cava.idle
+        visible: !cava.hasError && !cava.idle && !cava.loadingFailed
     }
     Kirigami.Icon {
         anchors.centerIn: parent
@@ -96,7 +96,7 @@ Item {
         active: mouseArea.containsMouse
         isMask: true
         color: Kirigami.Theme.negativeTextColor
-        visible: cava.hasError
+        visible: cava.hasError || cava.loadingFailed
     }
 
     MouseArea {
