@@ -16,10 +16,11 @@ PlasmoidItem {
     property bool editMode: Plasmoid.containment.corona?.editMode ?? false
     property bool onDesktop: Plasmoid.location === PlasmaCore.Types.Floating
     property bool horizontal: Plasmoid.formFactor !== PlasmaCore.Types.Vertical
+    property int orientation: Plasmoid.configuration.orientation
 
     property int barCount: {
         let bars = 1;
-        const width = main.width;
+        const width = [Enum.Orientation.Left, Enum.Orientation.Right].includes(Plasmoid.configuration.orientation) ? main.height : main.width;
         bars = Math.floor((width + Plasmoid.configuration.barGap) / (Plasmoid.configuration.barWidth + Plasmoid.configuration.barGap));
         if (Plasmoid.configuration.outputChannels === "stereo") {
             bars = Utils.makeEven(bars);
@@ -32,13 +33,16 @@ PlasmoidItem {
 
     property bool hideWhenIdle: Plasmoid.configuration.hideWhenIdle
 
-    Plasmoid.status: PlasmaCore.Types.ActiveStatus
+    Plasmoid.status: PlasmaCore.Types.HiddenStatus
 
     function updateStatus() {
-        if (Plasmoid.status === PlasmaCore.Types.RequiresAttentionStatus) {
-            return;
-        }
-        Plasmoid.status = (hideWhenIdle && cava.idle || !cava.running) && !Plasmoid.expanded && !editMode && !cava.hasError ? PlasmaCore.Types.HiddenStatus : PlasmaCore.Types.ActiveStatus;
+        // HACK: without this delay there is a visible margin on the right side when expanding == true
+        Utils.delay(10, () => {
+            if (Plasmoid.status === PlasmaCore.Types.RequiresAttentionStatus) {
+                return;
+            }
+            Plasmoid.status = (hideWhenIdle && cava.idle || !cava.running) && !Plasmoid.expanded && !editMode && !cava.hasError ? PlasmaCore.Types.HiddenStatus : PlasmaCore.Types.ActiveStatus;
+        }, main);
     }
     onExpandedChanged: {
         Utils.delay(1000, updateStatus, main);

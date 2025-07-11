@@ -10,25 +10,15 @@ import "code/utils.js" as Utils
 Item {
     id: root
 
-    Layout.preferredWidth: {
-        if (main.onDesktop || main.horizontal && Plasmoid.configuration.expanding) {
-            return 0;
-        }
-        return main.horizontal ? Plasmoid.configuration.length : parent.width;
-    }
-
-    Layout.preferredHeight: {
-        if (main.onDesktop || !main.horizontal && Plasmoid.configuration.expanding) {
-            return 0;
-        }
-        return main.horizontal ? parent.height : Plasmoid.configuration.length;
-    }
-    Layout.fillWidth: main.horizontal && Plasmoid.configuration.expanding && !main.onDesktop
-    Layout.fillHeight: !main.horizontal && Plasmoid.configuration.expanding && !main.onDesktop
+    Layout.preferredWidth: content.implicitWidth
+    Layout.preferredHeight: content.implicitHeight
+    Layout.minimumWidth: Plasmoid.configuration.expanding || main.onDesktop ? -1 : Layout.preferredWidth
+    Layout.minimumHeight: Plasmoid.configuration.expanding || main.onDesktop ? -1 : Layout.preferredHeight
+    Layout.fillHeight: main.horizontal || Plasmoid.configuration.expanding || main.onDesktop
+    Layout.fillWidth: !main.horizontal || Plasmoid.configuration.expanding || main.onDesktop
 
     property int framerate: Plasmoid.configuration.framerate
     property int barGap: Plasmoid.configuration.barGap
-    property int barCount: main.barCount
     property int barWidth: Plasmoid.configuration.barWidth
     property int noiseReduction: Plasmoid.configuration.noiseReduction
     property int monstercat: Plasmoid.configuration.monstercat
@@ -37,6 +27,8 @@ Item {
     property bool roundedBars: Plasmoid.configuration.roundedBars
     property int visualizerStyle: Plasmoid.configuration.visualizerStyle
     property bool fillWave: Plasmoid.configuration.fillWave
+    property int orientation: Plasmoid.configuration.orientation
+    clip: !Plasmoid.configuration.debugMode
 
     property var barColorsCfg: {
         let barColors;
@@ -72,31 +64,87 @@ Item {
         return config;
     }
 
-    Visualizer {
-        id: visualizer
-        anchors.fill: parent
-        visualizerStyle: root.visualizerStyle
-        barWidth: root.barWidth
-        barGap: root.barGap
-        barCount: root.barCount
-        centeredBars: root.centeredBars
-        roundedBars: root.roundedBars
-        fillWave: root.fillWave
-        barColorsCfg: root.barColorsCfg
-        waveFillColorsCfg: root.waveFillColorsCfg
-        values: cava.values
-        debugMode: Plasmoid.configuration.debugMode
-        visible: !cava.hasError && !cava.idle
-    }
-    Kirigami.Icon {
+    RowLayout {
+        id: content
+        height: [Enum.Orientation.Left, Enum.Orientation.Right].includes(root.orientation) ? parent.width : parent.height
+        width: [Enum.Orientation.Left, Enum.Orientation.Right].includes(root.orientation) ? parent.height : parent.width
         anchors.centerIn: parent
-        width: Kirigami.Units.iconSizes.roundedIconSize(Math.min(main.height, main.width))
-        height: width
-        source: Qt.resolvedUrl("./icons/error.svg").toString().replace("file://", "")
-        active: mouseArea.containsMouse
-        isMask: true
-        color: Kirigami.Theme.negativeTextColor
-        visible: cava.hasError
+        spacing: 0
+        Visualizer {
+            id: visualizer
+            visualizerStyle: root.visualizerStyle
+            barWidth: root.barWidth
+            barGap: root.barGap
+            centeredBars: root.centeredBars
+            roundedBars: root.roundedBars
+            fillWave: root.fillWave
+            barColorsCfg: root.barColorsCfg
+            waveFillColorsCfg: root.waveFillColorsCfg
+            values: cava.values
+            debugMode: Plasmoid.configuration.debugMode
+            visible: !cava.hasError && !cava.idle
+            fixVertical: !main.horizontal
+            Layout.preferredWidth: (main.horizontal && !Plasmoid.configuration.expanding) ? Plasmoid.configuration.length : 0
+            Layout.preferredHeight: !(main.horizontal && !Plasmoid.configuration.expanding) ? Plasmoid.configuration.length : 0
+            Layout.fillHeight: main.horizontal || Plasmoid.configuration.expanding || [Enum.Orientation.Left, Enum.Orientation.Right].includes(root.orientation) || main.onDesktop
+            Layout.fillWidth: !main.horizontal || Plasmoid.configuration.expanding || [Enum.Orientation.Left, Enum.Orientation.Right].includes(root.orientation) || main.onDesktop
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+
+            property var orientationBottom: Rotation {
+                origin.x: Math.floor(visualizer.width / 2)
+                origin.y: Math.floor(visualizer.height / 2)
+                axis {
+                    x: 1
+                    y: 0
+                    z: 0
+                }
+                angle: 0
+            }
+            property var orientationTop: Rotation {
+                origin.x: Math.floor(visualizer.width / 2)
+                origin.y: Math.floor(visualizer.height / 2)
+                axis {
+                    x: 1
+                    y: 0
+                    z: 0
+                }
+                angle: 180
+            }
+            property var orientationLeft: Rotation {
+                origin.x: Math.floor(visualizer.width / 2)
+                origin.y: Math.floor(visualizer.height / 2)
+                angle: 90
+            }
+            property var orientationRight: Rotation {
+                origin.x: Math.floor(visualizer.width / 2)
+                origin.y: Math.floor(visualizer.height / 2)
+                angle: -90
+            }
+            transform: {
+                let t = [];
+                if (main.orientation === Enum.Orientation.Top) {
+                    t.push(orientationTop);
+                }
+                if (main.orientation === Enum.Orientation.Left) {
+                    t.push(orientationLeft);
+                }
+                if (main.orientation === Enum.Orientation.Right) {
+                    t.push(orientationRight);
+                    t.push(orientationTop);
+                }
+                return t;
+            }
+        }
+        Kirigami.Icon {
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+            Layout.preferredWidth: Kirigami.Units.iconSizes.roundedIconSize(Math.min(main.height, main.width))
+            Layout.fillHeight: Layout.preferredWidth
+            source: Qt.resolvedUrl("./icons/error.svg").toString().replace("file://", "")
+            active: mouseArea.containsMouse
+            isMask: true
+            color: Kirigami.Theme.negativeTextColor
+            visible: cava.hasError
+        }
     }
 
     MouseArea {

@@ -1,6 +1,8 @@
 import QtQuick
 import QtQuick.Shapes
 import org.kde.kirigami as Kirigami
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.plasmoid
 import "../code/utils.js" as Utils
 import "../code/enum.js" as Enum
 
@@ -9,12 +11,12 @@ Item {
     required property int visualizerStyle
     required property int barWidth
     required property int barGap
-    required property int barCount
     required property bool centeredBars
     required property bool roundedBars
     required property bool fillWave
     required property var barColorsCfg
     required property var waveFillColorsCfg
+    required property bool fixVertical
     property list<int> values
     property bool debugMode: false
 
@@ -52,7 +54,9 @@ Item {
         property bool roundedBars: root.roundedBars
         property var values: {
             if (root.debugMode) {
-                root.values[0] = 100;
+                let copy = root.values.slice();
+                copy[0] = 100;
+                return copy;
             }
             return root.values;
         }
@@ -72,7 +76,7 @@ Item {
 
         width: barCount * barWidth + ((barCount - 1) * spacing)
         height: parent.height
-        property bool fixAlign: barWidth % 2 === 0 && centeredBars && visualizerStyle === Enum.VisualizerStyles.Wave
+        property bool fixAlign: barWidth % 2 === 0 && centeredBars && visualizerStyle === Enum.VisualizerStyles.Wave && !root.fixVertical
 
         onValuesChanged: canvas.requestPaint()
 
@@ -81,6 +85,9 @@ Item {
             ctx.reset();
             if (fixAlign) {
                 ctx.translate(0.0, 0.5);
+            }
+            if (root.fixVertical) {
+                ctx.translate(0.0, -0.5);
             }
             if (gradient) {
                 ctx.strokeStyle = gradient;

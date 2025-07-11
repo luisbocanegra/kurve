@@ -114,5 +114,9 @@
     <entry name="length" type="Int">
       <default>200</default>
     </entry>
+    <entry name="orientation" type="Int">
+        <!-- ./package/contents/ui/code/enum.js[Orientation] -->
+        <default>1</default>
+    </entry>
   </group>
 </kcfg>
