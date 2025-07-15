@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-07-15 00:06+0000\n"
+"POT-Creation-Date: 2025-07-15 21:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -451,6 +451,14 @@ msgstr ""
 
 #: ../contents/ui/configGeneral.qml
 msgid "Transparent with shadow"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Disable tooltip:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Disable ToolTip that shows the widget name and description."
 msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
