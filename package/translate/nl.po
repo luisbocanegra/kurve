@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-07-05 02:03+0000\n"
+"POT-Creation-Date: 2025-07-15 00:06+0000\n"
 "PO-Revision-Date: 2025-07-01 11:09+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -211,7 +211,7 @@ msgstr "Kleurenschema:"
 msgid "Colors:"
 msgstr "Kleuren:"
 
-#: ../contents/ui/components/FormColors.qml
+#: ../contents/ui/components/FormColors.qml ../contents/ui/configVisualizer.qml
 msgid "Orientation:"
 msgstr "Oriëntatie:"
 
@@ -509,6 +509,22 @@ msgstr "Golf"
 #: ../contents/ui/configVisualizer.qml
 msgid "Fill wave"
 msgstr "Opgevulde golf"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Top"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bottom"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Left"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Right"
+msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Fill panel %1:"
