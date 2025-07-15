@@ -121,5 +121,8 @@
     <entry name="_stopCava" type="Bool">
       <default>false</default>
     </entry>
+    <entry name="hideToolTip" type="Bool">
+      <default>false</default>
+    </entry>
   </group>
 </kcfg>

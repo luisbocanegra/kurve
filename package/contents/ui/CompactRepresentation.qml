@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.plasmoid
 import "./components"
 import "code/enum.js" as Enum
@@ -84,8 +85,8 @@ Item {
             debugMode: Plasmoid.configuration.debugMode
             visible: !cava.hasError && !cava.idle
             fixVertical: !main.horizontal
-            Layout.preferredWidth: (main.horizontal && !Plasmoid.configuration.expanding) ? Plasmoid.configuration.length : 0
-            Layout.preferredHeight: !(main.horizontal && !Plasmoid.configuration.expanding) ? Plasmoid.configuration.length : 0
+            Layout.preferredWidth: (main.horizontal && !Plasmoid.configuration.expanding) ? Plasmoid.configuration.length : -1
+            Layout.preferredHeight: !(main.horizontal && !Plasmoid.configuration.expanding) ? Plasmoid.configuration.length : -1
             Layout.fillHeight: main.horizontal || Plasmoid.configuration.expanding || [Enum.Orientation.Left, Enum.Orientation.Right].includes(root.orientation) || main.onDesktop
             Layout.fillWidth: !main.horizontal || Plasmoid.configuration.expanding || [Enum.Orientation.Left, Enum.Orientation.Right].includes(root.orientation) || main.onDesktop
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
@@ -151,9 +152,15 @@ Item {
         id: mouseArea
         anchors.fill: parent
         hoverEnabled: enabled
-        cursorShape: enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
+        cursorShape: Qt.PointingHandCursor
         onClicked: {
             main.expanded = !main.expanded;
         }
+    }
+
+    PlasmaCore.ToolTipArea {
+        anchors.fill: parent
+        mainItem: Tooltip {}
+        active: !Plasmoid.configuration.hideToolTip
     }
 }

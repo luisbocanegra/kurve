@@ -10,7 +10,7 @@ import "code/utils.js" as Utils
 
 PlasmoidItem {
     id: main
-    Plasmoid.backgroundHints: plasmoid.configuration.desktopWidgetBg
+    Plasmoid.backgroundHints: editMode ? PlasmaCore.Types.StandardBackground : plasmoid.configuration.desktopWidgetBg
     Plasmoid.constraintHints: Plasmoid.configuration.fillPanel ? Plasmoid.CanFillArea : Plasmoid.NoHint
 
     property bool editMode: Plasmoid.containment.corona?.editMode ?? false
@@ -101,4 +101,7 @@ PlasmoidItem {
             }
         }
     ]
+    // hide default tooltip
+    toolTipMainText: ""
+    toolTipSubText: ""
 }

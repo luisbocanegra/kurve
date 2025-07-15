@@ -14,6 +14,7 @@ KCM.SimpleKCM {
     property string cfg_waveFillColors
     property alias cfg_debugMode: debugModeCheckbox.checked
     property alias cfg_idleTimer: idleTimerSpinbox.value
+    property alias cfg_hideToolTip: hideToolTipCheckbox.checked
 
     Kirigami.FormLayout {
         id: parentLayout
@@ -79,6 +80,15 @@ KCM.SimpleKCM {
         ButtonGroup {
             id: desktopWidgetBackgroundRadio
             property int value: PlasmaCore.Types.StandardBackground
+        }
+        RowLayout {
+            Kirigami.FormData.label: i18n("Disable tooltip:")
+            CheckBox {
+                id: hideToolTipCheckbox
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Disable ToolTip that shows the widget name and description.")
+            }
         }
     }
 }
