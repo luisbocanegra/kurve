@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
 "POT-Creation-Date: 2025-07-15 21:59+0000\n"
-"PO-Revision-Date: 2025-07-01 11:09+0200\n"
+"PO-Revision-Date: 2025-07-16 11:04+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -54,15 +54,15 @@ msgstr "Widgetachtergrond"
 
 #: ../contents/ui/components/Eq.qml
 msgid "Remove band"
-msgstr ""
+msgstr "Bandbreedte verwijderen"
 
 #: ../contents/ui/components/Eq.qml
 msgid "Add band"
-msgstr ""
+msgstr "Bandbreedte toevoegen"
 
 #: ../contents/ui/components/Eq.qml
 msgid "Flat response"
-msgstr ""
+msgstr "Plat antwoord"
 
 #: ../contents/ui/components/FormColors.qml
 msgid "Color"
@@ -254,36 +254,42 @@ msgstr "Aantal balken:"
 #: ../contents/ui/configCava.qml
 msgid "Automatically calculated for the current visualizer style."
 msgstr ""
+"Dit wordt automatisch berekend aan de hand van de huidige visualisatie."
 
 #: ../contents/ui/configCava.qml
 msgid "Automatic sensitivity:"
-msgstr ""
+msgstr "Automatische gevoeligheid:"
 
 #: ../contents/ui/configCava.qml
 msgid "Attempt to decrease sensitivity if the bars peak."
 msgstr ""
+"Probeer de gevoeligheid te verlagen zodra het maximale aantal balken bereikt "
+"is."
 
 #: ../contents/ui/configCava.qml
 msgid "Sensitivity:"
-msgstr ""
+msgstr "Gevoeligheidsgraad:"
 
 #: ../contents/ui/configCava.qml
 msgid ""
 "Manual sensitivity in %.\n"
 "If autosens is enabled, this will only be the initial value"
 msgstr ""
+"De handmatige gevoeligheidsgraad (in %).\n"
+"Als de automatische modus is ingeschakeld, dan wordt dit als startwaarde "
+"gebruikt."
 
 #: ../contents/ui/configCava.qml
 msgid "Frequency range (Hz):"
-msgstr ""
+msgstr "Frequentiebereik (in Hz):"
 
 #: ../contents/ui/configCava.qml
 msgid "Min"
-msgstr ""
+msgstr "Min."
 
 #: ../contents/ui/configCava.qml
 msgid "Max"
-msgstr ""
+msgstr "Max."
 
 #: ../contents/ui/configCava.qml
 msgid ""
@@ -292,14 +298,18 @@ msgid ""
 "Note: Cava will automatically increase the higher cutoff if a too low band "
 "is specified."
 msgstr ""
+"Lagere en hogere afbreekfrequenties voor de laagste en hoogste balken, en de "
+"bandbreedte van de visualisatie.\n"
+"Let op: Cava zal deze waarde automatisch verhogen als een te lage band is "
+"opgegeven."
 
 #: ../contents/ui/configCava.qml
 msgid "Input"
-msgstr ""
+msgstr "Invoer"
 
 #: ../contents/ui/configCava.qml
 msgid "Method:"
-msgstr ""
+msgstr "Methode:"
 
 #: ../contents/ui/configCava.qml ../contents/ui/configGeneral.qml
 msgid "Default"
@@ -311,10 +321,14 @@ msgid ""
 "Defaults to 'oss', 'pipewire', 'sndio', 'jack', 'pulse', 'alsa', 'portaudio' "
 "or 'fifo', in that order, dependent on what support cava was built with.\n"
 msgstr ""
+"De audio-invoermethode.\n"
+"Standaard wordt ‘oss’, ‘pipewire’, ‘sndio’, ‘jack’, ‘pulse’, ‘alsa’, "
+"‘portaudio’ of ‘fifo’ in vaste volgorde gebruikt. De gekozen methode is "
+"afhankelijk van waar Cava mee gebouwd is.\r\n"
 
 #: ../contents/ui/configCava.qml
 msgid "Source:"
-msgstr ""
+msgstr "Bron:"
 
 #: ../contents/ui/configCava.qml
 msgid ""
@@ -322,70 +336,86 @@ msgid ""
 "which uses the monitor source of the default sink (all pulseaudio "
 "sinks(outputs) have 'monitor' sources(inputs) associated with them)."
 msgstr ""
+"Voor PulseAudio en PipeWire wordt ‘source’ gebruikt als de bron. Standaard "
+"staat deze waarde op ‘auto’, welke de bron van de standaardsink zal "
+"raadplegen (alle PulseAudio-sinks (uitvoeren) hebben ‘monitor’-bronnen "
+"(invoeren))."
 
 #: ../contents/ui/configCava.qml
 msgid ""
 "For pipewire 'source' will be the object name or object.serial of the device "
 "to capture from. Both input and output devices are supported."
 msgstr ""
+"Voor PipeWire zal ‘source’ de objectnaam of object.serial zijn van het te "
+"gebruiken apparaat. Zowel in- als uitvoerapparaten kunnen worden gebruikt."
 
 #: ../contents/ui/configCava.qml
 msgid "For alsa 'source' will be the capture device."
-msgstr ""
+msgstr "Voor Alsa zal ‘source’ het opnameapparaat zijn."
 
 #: ../contents/ui/configCava.qml
 msgid "For fifo 'source' will be the path to fifo-file."
-msgstr ""
+msgstr "Voor fifo zal ‘source’ de locatie van het fifo-bestand zijn."
 
 #: ../contents/ui/configCava.qml
 msgid ""
-"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:"
-"EE:FF' will be squeezelite's MAC address."
+"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where "
+"'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address."
 msgstr ""
+"Voor shmem zal ‘source’ /squeezelite-AA:BB:CC:DD:EE:FF zijn, waar "
+"‘AA:BB:CC:DD:EE:FF’ staat voor squeezelites MAC-adres."
 
 #: ../contents/ui/configCava.qml
 msgid ""
 "For sndio 'source' will be a raw recording audio descriptor or a monitoring "
 "sub-device, e.g. 'rsnd/2' or 'snd/1'. Default: 'default'."
 msgstr ""
+"Voor sndio zal ‘source’ een opname-audiobeschrijving of een monitorend "
+"subapparaat zijn, bijv. ‘rsnd/2’ of ‘snd/1’. Standaardwaarde: ‘default’."
 
 #: ../contents/ui/configCava.qml
 msgid ""
 "For oss 'source' will be the path to a audio device, e.g. '/dev/dsp2'. "
 "Default: '/dev/dsp', i.e. the default audio device."
 msgstr ""
+"Voor oss zal ‘source’ de locatie van een audioapparaat zijn, bijv. ‘/dev/"
+"dsp2’. Standaardwaarde: ‘/dev/dsp’, oftewel het standaard audioapparaat."
 
 #: ../contents/ui/configCava.qml
 msgid ""
 "For jack 'source' will be the name of the JACK server to connect to, e.g. "
 "'foobar'. Default: 'default'."
 msgstr ""
+"Voor jack zal ‘source’ de naam van de JACK-server zijn, bijv. ‘foobar’. "
+"Standaardwaarde: ‘default’."
 
 #: ../contents/ui/configCava.qml
 msgid "Sample rate:"
-msgstr ""
+msgstr "Samplesnelheid:"
 
 #: ../contents/ui/configCava.qml
 msgid "Sample bits:"
-msgstr ""
+msgstr "Samplebits:"
 
 #: ../contents/ui/configCava.qml
 msgid "Channels:"
-msgstr ""
+msgstr "Aantal kanalen:"
 
 #: ../contents/ui/configCava.qml
 msgid "Auto connect:"
-msgstr ""
+msgstr "Automatisch verbinden:"
 
 #: ../contents/ui/configCava.qml
 msgid ""
 "The options 'sample_rate', 'sample_bits', 'channels' and 'autoconnect' can "
 "be configured for some input methods:"
 msgstr ""
+"De opties ‘sample_rate’, ‘sample_bits’, ‘channels’ en ‘autoconnect’ kunnen "
+"bij sommige invoermethoden nauwkeurig worden afgesteld:"
 
 #: ../contents/ui/configCava.qml
 msgid "Other methods ignore these settings."
-msgstr ""
+msgstr "Andere methoden negeren deze instellingen."
 
 #: ../contents/ui/configCava.qml
 msgid ""
@@ -393,36 +423,43 @@ msgid ""
 "not supported by the chosen audio device, the device will use other "
 "supported values instead."
 msgstr ""
+"Voor ‘sndio’ en ‘oss’ zijn dit slechts voorkeurswaarden. Als de waarden niet "
+"ondersteund worden door het gekozen audioapparaat, zullen de andere, "
+"ondersteunde waarden worden gebruikt."
 
 #: ../contents/ui/configCava.qml
 msgid "Output"
-msgstr ""
+msgstr "Uitvoer"
 
 #: ../contents/ui/configCava.qml
 msgid "Visual channels:"
-msgstr ""
+msgstr "Visuele kanalen:"
 
 #: ../contents/ui/configCava.qml
 msgid ""
 "'mono' outputs left to right lowest to highest frequencies.\n"
 "'stereo' mirrors both channels with low frequencies in center."
 msgstr ""
+"‘mono’ geeft uitvoer van links naar rechts, met de laagste tot hoogste "
+"frequenties;\n"
+"‘stereo’ geeft uitvoer op beide kanalen, met de laatste frequenties in het "
+"midden."
 
 #: ../contents/ui/configCava.qml
 msgid "Mono channel:"
-msgstr ""
+msgstr "Monokanaal:"
 
 #: ../contents/ui/configCava.qml
 msgid "Reverse:"
-msgstr ""
+msgstr "Verwisselen:"
 
 #: ../contents/ui/configCava.qml
 msgid "Display frequencies the other way around"
-msgstr ""
+msgstr "Verwissel de frequenties van plek"
 
 #: ../contents/ui/configCava.qml
 msgid "Smoothing"
-msgstr ""
+msgstr "Vloeiendheid"
 
 #: ../contents/ui/configCava.qml
 msgid "Noise reduction:"
@@ -434,6 +471,9 @@ msgid ""
 "gravity filters to keep the signal smooth.\n"
 "100 will be very slow and smooth, 0 will be fast but noisy."
 msgstr ""
+"De standaardvisualisatie bevat erg veel ruis. Met behulp van deze factor kun "
+"je de filters afstellen om het signaal vloeiend door te laten komen.\n"
+"100 is erg langzaam, maar wel vloeiend; 0 is snel, maar met veel ruis."
 
 #: ../contents/ui/configCava.qml
 msgid "Monstercat:"
@@ -443,20 +483,23 @@ msgstr "Monstercat:"
 msgid ""
 "Enable the so-called \"Monstercat smoothing\" with or without \"waves\"."
 msgstr ""
+"Schakel de zogeheten ‘Monstercat-vloeiendheid’ in, met of zonder golven."
 
 #: ../contents/ui/configCava.qml
 msgid "Waves"
-msgstr ""
+msgstr "Golven"
 
 #: ../contents/ui/configCava.qml
 msgid "Equalizer"
-msgstr ""
+msgstr "Equalizer"
 
 #: ../contents/ui/configCava.qml
 msgid ""
 "Adjust frequencies by a multiplication factor, more bars equals more "
 "precision."
 msgstr ""
+"Pas de frequenties aan met een vermenigvuldigingsfactor. Meer balken = meer "
+"precisie."
 
 #: ../contents/ui/configGeneral.qml
 msgid "Debug mode:"
@@ -468,11 +511,11 @@ msgstr "Automatisch verbergen na inactiviteit:"
 
 #: ../contents/ui/configGeneral.qml
 msgid "After"
-msgstr ""
+msgstr "Na"
 
 #: ../contents/ui/configGeneral.qml
 msgid "seconds"
-msgstr ""
+msgstr "seconden"
 
 #: ../contents/ui/configGeneral.qml
 msgid "Desktop background:"
@@ -488,19 +531,19 @@ msgstr "Doorzichtig, met schaduw"
 
 #: ../contents/ui/configGeneral.qml
 msgid "Disable tooltip:"
-msgstr ""
+msgstr "Hulpballon uitschakelen"
 
 #: ../contents/ui/configGeneral.qml
 msgid "Disable ToolTip that shows the widget name and description."
-msgstr ""
+msgstr "Schakel de hulpballon uit de de widgetnaam en -beschrijving toont."
 
 #: ../contents/ui/configVisualizer.qml
 msgid "height"
-msgstr ""
+msgstr "hoogte"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "width"
-msgstr ""
+msgstr "breedte"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Style:"
@@ -520,27 +563,27 @@ msgstr "Opgevulde golf"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Top"
-msgstr ""
+msgstr "Bovenkant"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Bottom"
-msgstr ""
+msgstr "Onderkant"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Left"
-msgstr ""
+msgstr "Links"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Right"
-msgstr ""
+msgstr "Rechts"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Fill panel %1:"
-msgstr ""
+msgstr "Paneel ‘%1’ opvullen:"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Fixed %1:"
-msgstr ""
+msgstr "Vaste %1:"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Fill panel thickness:"
