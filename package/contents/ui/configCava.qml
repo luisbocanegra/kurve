@@ -15,6 +15,7 @@ KCM.SimpleKCM {
     property alias cfg_sensitivity: sensitivitySpinbox.value
     property alias cfg_lowerCutoffFreq: lowerCutoffFreqSpinbox.value
     property alias cfg_higherCutoffFreq: higherCutoffFreqSpinbox.value
+    property alias cfg_cavaSleepTimer: cavaSleepTimerSpinbox.value
     // smoothing
     property alias cfg_noiseReduction: noiseReductionSpinbox.value
     property alias cfg_monstercat: monstercatCheckbox.checked
@@ -123,6 +124,18 @@ KCM.SimpleKCM {
 
                 Kirigami.ContextualHelpButton {
                     toolTipText: i18n("Lower and higher cutoff frequencies for lowest and highest bars, the bandwidth of the visualizer.\nNote: Cava will automatically increase the higher cutoff if a too low band is specified.")
+                }
+            }
+
+            RowLayout {
+                Kirigami.FormData.label: i18n("Sleep timer (seconds):")
+                SpinBox {
+                    id: cavaSleepTimerSpinbox
+                    from: 1
+                    to: 60
+                }
+                Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("Seconds with no input before cava goes to sleep mode.\nCava will not perform FFT and only check for input once per second.")
                 }
             }
 

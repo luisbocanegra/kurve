@@ -76,6 +76,7 @@ PlasmoidItem {
         eq: Plasmoid.configuration.eq
         idleCheck: main.hideWhenIdle
         idleTimer: Plasmoid.configuration.idleTimer
+        cavaSleepTimer: Plasmoid.configuration.cavaSleepTimer
         onIdleChanged: main.updateStatus()
         onHasErrorChanged: main.updateStatus()
         onRunningChanged: main.updateStatus()

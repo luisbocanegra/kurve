@@ -26,6 +26,7 @@ Item {
     property bool idle
     property bool idleCheck
     property int idleTimer
+    property int cavaSleepTimer
     readonly property bool hasError: error !== ""
     readonly property string error: process.stderr
     readonly property list<string> loadingErrors: process.loadingErrors
@@ -41,6 +42,7 @@ autosens=${root.autoSensitivity}
 sensitivity=${root.sensitivity}
 lower_cutoff_freq=${root.lowerCutoffFreq}
 higher_cutoff_freq=${root.higherCutoffFreq}
+sleep_timer=${root.cavaSleepTimer}
 [input]
 `;
 
