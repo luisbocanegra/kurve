@@ -11,7 +11,7 @@ Item {
             }
             if (stdout) {
                 let output = stdout.trim().split('\n');
-                output = output.map(l => l.split(/\s+/)[1]);
+                output = output.map(l => l.split(/\t+/)[1]);
                 output.unshift("auto");
                 root.names = output;
             }
