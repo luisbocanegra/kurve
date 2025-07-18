@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/luisbocanegra/kurve/compare/v1.0.0...v1.1.0) (2025-07-18)
+
+
+### Features
+
+* control cava sleep mode ([6cba407](https://github.com/luisbocanegra/kurve/commit/6cba407ad3ddea3857bd3e5a4f5809c78411c1e0))
+
+
+### Bug Fixes
+
+* source names with spaces getting truncated ([a7d861d](https://github.com/luisbocanegra/kurve/commit/a7d861d864e25acd5499523f05c2cfba6f28b2cc))
+
 ## [1.0.0](https://github.com/luisbocanegra/kurve/compare/v0.4.0...v1.0.0) (2025-07-15)
 
 
