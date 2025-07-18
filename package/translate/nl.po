@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-07-15 21:59+0000\n"
+"POT-Creation-Date: 2025-07-18 02:07+0000\n"
 "PO-Revision-Date: 2025-07-16 11:04+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -302,6 +302,16 @@ msgstr ""
 "bandbreedte van de visualisatie.\n"
 "Let op: Cava zal deze waarde automatisch verhogen als een te lage band is "
 "opgegeven."
+
+#: ../contents/ui/configCava.qml
+msgid "Sleep timer (seconds):"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Seconds with no input before cava goes to sleep mode.\n"
+"Cava will not perform FFT and only check for input once per second."
+msgstr ""
 
 #: ../contents/ui/configCava.qml
 msgid "Input"

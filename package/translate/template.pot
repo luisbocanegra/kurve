@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-07-15 21:59+0000\n"
+"POT-Creation-Date: 2025-07-18 02:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -279,6 +279,16 @@ msgstr ""
 msgid ""
 "Lower and higher cutoff frequencies for lowest and highest bars, the bandwidth of the visualizer.\n"
 "Note: Cava will automatically increase the higher cutoff if a too low band is specified."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Sleep timer (seconds):"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Seconds with no input before cava goes to sleep mode.\n"
+"Cava will not perform FFT and only check for input once per second."
 msgstr ""
 
 #: ../contents/ui/configCava.qml
