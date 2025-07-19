@@ -9,6 +9,8 @@ Item {
     property string stderr: ""
     property bool running: stdout !== ""
     property string pid: ""
+    property bool isReady: false
+    property bool pendingRestart: false
 
     readonly property string toolsDir: Qt.resolvedUrl("../tools").toString().substring(7) + "/"
     readonly property string commandMonitorTool: "'" + toolsDir + "commandMonitor'"
@@ -23,6 +25,10 @@ Item {
                 root.stderr = stderr;
                 root.stdout = "";
                 root.pid = "";
+            }
+            if (cmd.startsWith("kill") && root.pendingRestart) {
+                root.pendingRestart = false;
+                root.start();
             }
         }
     }
@@ -52,7 +58,14 @@ Item {
     }
 
     Component.onCompleted: {
-        restart();
+        start();
+    }
+
+    function start() {
+        Utils.delay(100, () => {
+            isReady = true;
+            runCommand.run(root.monitorCommand);
+        }, root);
     }
 
     function stop() {
@@ -64,9 +77,7 @@ Item {
 
     function restart() {
         stop();
-        Utils.delay(100, () => {
-            runCommand.run(root.monitorCommand);
-        }, root);
+        pendingRestart = true;
     }
 
     onCommandChanged: {

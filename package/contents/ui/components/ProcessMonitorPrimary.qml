@@ -10,6 +10,11 @@ Item {
     function restart() {
         process.restart();
     }
+    // the plugin keeps a single process so no special handling is needed here
+    // this function is here just to match the signature of the fallback
+    function start() {
+        restart();
+    }
     function stop() {
         process.stop();
     }

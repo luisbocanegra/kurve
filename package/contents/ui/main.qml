@@ -95,7 +95,7 @@ PlasmoidItem {
                     cava.stop();
                     Plasmoid.configuration._stopCava = true;
                 } else {
-                    cava.restart();
+                    cava.start();
                     Plasmoid.configuration._stopCava = true;
                 }
                 Plasmoid.configuration.writeConfig();

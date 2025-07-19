@@ -82,6 +82,9 @@ waves=${root.waves}
     function restart() {
         process.restart();
     }
+    function start() {
+        process.start();
+    }
     function stop() {
         process.stop();
     }

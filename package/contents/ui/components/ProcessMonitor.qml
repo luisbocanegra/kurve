@@ -19,6 +19,12 @@ Item {
         }
     }
 
+    function start() {
+        if (process !== null) {
+            process.start();
+        }
+    }
+
     function stop() {
         if (process !== null) {
             process.stop();
