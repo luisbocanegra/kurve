@@ -40,7 +40,7 @@ ColumnLayout {
                 if (cava.running) {
                     cava.stop();
                 } else {
-                    cava.restart();
+                    cava.start();
                 }
             }
         }
