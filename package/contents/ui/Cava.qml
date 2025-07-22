@@ -27,7 +27,7 @@ Item {
     property bool idleCheck
     property int idleTimer
     property int cavaSleepTimer
-    readonly property bool hasError: error !== ""
+    readonly property bool hasError: error !== "" || loadingFailed
     readonly property string error: process.stderr
     readonly property list<string> loadingErrors: process.loadingErrors
     readonly property bool loadingFailed: process.loadingFailed
@@ -112,7 +112,6 @@ EOF
                 idleTimer.restart();
             }
         }
-        onLoadingErrorsChanged: root.error = process.loadingErrors.join("\n")
     }
 
     Timer {
