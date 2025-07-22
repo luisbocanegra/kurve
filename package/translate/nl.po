@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-07-18 02:07+0000\n"
+"POT-Creation-Date: 2025-07-22 07:28+0000\n"
 "PO-Revision-Date: 2025-07-20 10:50+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -45,6 +45,10 @@ msgstr "CAVA stoppen"
 #: ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
 msgid "Start CAVA"
 msgstr "CAVA starten"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Copy to clipboard"
+msgstr ""
 
 #: ../contents/ui/components/ColorPickerGradientList.qml
 #: ../contents/ui/components/ColorPickerList.qml
