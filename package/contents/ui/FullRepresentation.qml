@@ -43,11 +43,27 @@ ColumnLayout {
                     cava.start();
                 }
             }
+            Layout.alignment: Qt.AlignHCenter
         }
+
+        PlasmaComponents.ToolButton {
+            id: copyButton
+            display: PlasmaComponents.AbstractButton.TextBesideIcon
+            text: i18n("Copy to clipboard")
+            icon.name: "edit-copy"
+            onClicked: {
+                textArea.selectAll();
+                textArea.copy();
+                textArea.deselect();
+            }
+            Layout.alignment: Qt.AlignHCenter
+        }
+
         PlasmaComponents.ScrollView {
             Layout.fillWidth: true
             Layout.fillHeight: true
             TextArea {
+                id: textArea
                 text: {
                     let msg = "";
                     if (cava.error) {
@@ -69,7 +85,7 @@ ColumnLayout {
                     }
                     msg += `Using ProcessMonitorFallback: ${cava.usingFallback}\n`;
                     msg += `Widget install location: ${Qt.resolvedUrl("../../").toString().substring(7)}\n`;
-                    msg += `Cava command:\n${cava.cavaCommand}\n`;
+                    msg += `\nCava command:\n${cava.cavaCommand}\n`;
                     return msg;
                 }
                 // HACK: silence binding loop warnings.
