@@ -1,0 +1,571 @@
+# Translation of visualizer in LANGUAGE
+# Copyright (C) 2025
+# This file is distributed under the same license as the visualizer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: visualizer\n"
+"Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
+"POT-Creation-Date: 2025-08-04 14:03+0000\n"
+"PO-Revision-Date: 2025-08-04 14:03+0000\n"
+"Last-Translator: Mathias Mårtensson <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+
+#: ../metadata.json
+msgid "Kurve"
+msgstr "Kurve"
+
+#: ../metadata.json
+msgid "Audio visualizer powered by CAVA"
+msgstr "Ljudvisualisering som använder CAVA"
+
+#: ../contents/config/config.qml
+msgid "Visualizer"
+msgstr "Visualiserare"
+
+#: ../contents/config/config.qml ../contents/ui/configCava.qml
+msgid "General"
+msgstr "Allmänt"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Oh no! Something went wrong"
+msgstr "Åh nej! Något gick fel"
+
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
+msgid "Stop CAVA"
+msgstr "Stoppa CAVA"
+
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
+msgid "Start CAVA"
+msgstr "Starta CAVA"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Copy to clipboard"
+msgstr "Kopiera till klippbordet"
+
+#: ../contents/ui/components/ColorPickerGradientList.qml ../contents/ui/components/ColorPickerList.qml ../contents/ui/components/FormColors.qml
+msgid "Widget background"
+msgstr "Widgetbakgrund"
+
+#: ../contents/ui/components/Eq.qml
+msgid "Remove band"
+msgstr "Ta bort band"
+
+#: ../contents/ui/components/Eq.qml
+msgid "Add band"
+msgstr "Lägg till band"
+
+#: ../contents/ui/components/Eq.qml
+msgid "Flat response"
+msgstr "Platt kurva"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Color"
+msgstr "Färg"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Animation:"
+msgstr "Animation:"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Interval (ms):"
+msgstr "Intervall (ms):"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Smoothing (ms):"
+msgstr "Utjämning (ms):"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Color source:"
+msgstr "Färgkälla:"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Custom"
+msgstr "Anpassad"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "A fixed custom color"
+msgstr "En fast anpassad färg"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "System"
+msgstr "System"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Color that updates with your System theme"
+msgstr "Färg som följer ditt systemtema"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Custom list"
+msgstr "Anpassad lista"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Define a list of colors that will be applied to all the elements, wraps around if there are more elements than colors"
+msgstr "Definierar en lista av färger som appliceras på alla element, upprepar om det finns fler element än färger"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Random"
+msgstr "Slumpmässig"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Random color for each element"
+msgstr "Slumpmässig färg för varje element"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Follow"
+msgstr "Följer"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Follow the color of a parent element"
+msgstr "Följer färgen på ett överordnat element"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Gradient"
+msgstr "Färgövergång"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Horizontal or vertical customizable color gradient"
+msgstr "Horisontala eller vertikala anpassade färgövergångar"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Image"
+msgstr "Bild"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "High resolution images can slow down the desktop when the panel or widget size changes!"
+msgstr "Hög upplösning på bilder kan ge sämre prestanda på skrivbordet när panelens eller widgetens storlek ändras!"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Hue"
+msgstr "Nyans"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Automatically shifted color for each bar"
+msgstr "Automatiskt ändrar färg för varje band"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Element:"
+msgstr "Element:"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Panel background"
+msgstr "Panelbakgrund"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Tray widget background"
+msgstr "Tray Widgetbakgrund"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Positioning:"
+msgstr "Positionering:"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Stretch"
+msgstr "Sträck"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Tile"
+msgstr "Bricka"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Scaled and Cropped"
+msgstr "Skalad och beskuren"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Image:"
+msgstr "Bild:"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Pick a image file"
+msgstr "Välj en bildfil"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Image files"
+msgstr "Bildfiler"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "All files"
+msgstr "Alla filer"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Color:"
+msgstr "Färg:"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Color set:"
+msgstr "Färguppsättning:"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Colors:"
+msgstr "Färger:"
+
+#: ../contents/ui/components/FormColors.qml ../contents/ui/configVisualizer.qml
+msgid "Orientation:"
+msgstr "Orientering:"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Horizontal"
+msgstr "Horisontell"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Vertical"
+msgstr "Vertikal"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Gradient:"
+msgstr "Färgövergång:"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Alpha:"
+msgstr "Alfa:"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Contrast Correction"
+msgstr "Kontrastkorrigering"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Saturation:"
+msgstr "Mättnad:"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Lightness:"
+msgstr "Ljusstyrka:"
+
+#: ../contents/ui/configCava.qml
+msgid "Framerate:"
+msgstr "Bildfrekvens:"
+
+#: ../contents/ui/configCava.qml
+msgid "Number of bars:"
+msgstr "Antal band:"
+
+#: ../contents/ui/configCava.qml
+msgid "Automatically calculated for the current visualizer style."
+msgstr "Automatiskt uträknad för den valda visualiseringsstilen."
+
+#: ../contents/ui/configCava.qml
+msgid "Automatic sensitivity:"
+msgstr "Automatisk känslighet:"
+
+#: ../contents/ui/configCava.qml
+msgid "Attempt to decrease sensitivity if the bars peak."
+msgstr "Försöker att minska känsligheten om banden når sin topp."
+
+#: ../contents/ui/configCava.qml
+msgid "Sensitivity:"
+msgstr "Känslighet:"
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Manual sensitivity in %.\n"
+"If autosens is enabled, this will only be the initial value"
+msgstr ""
+"Manuell känslighet i %.\n"
+"Om automatisk känslighet är aktiverat kommer detta endast att vara det initiala värdet"
+
+#: ../contents/ui/configCava.qml
+msgid "Frequency range (Hz):"
+msgstr "Frekvensomfång (Hz):"
+
+#: ../contents/ui/configCava.qml
+msgid "Min"
+msgstr "Min"
+
+#: ../contents/ui/configCava.qml
+msgid "Max"
+msgstr "Max"
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Lower and higher cutoff frequencies for lowest and highest bars, the bandwidth of the visualizer.\n"
+"Note: Cava will automatically increase the higher cutoff if a too low band is specified."
+msgstr ""
+" Visualiserarens bandbredd för lägsta och högsta gränsfrekvenser för lägsta och högsta band.\n"
+"Observera att Cava automatiskt höjer till en högre gränsfrekvens om ett för lågt frekvensband läggs till."
+
+#: ../contents/ui/configCava.qml
+msgid "Sleep timer (seconds):"
+msgstr "Sleep timer (sekunder):"
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Seconds with no input before cava goes to sleep mode.\n"
+"Cava will not perform FFT and only check for input once per second."
+msgstr ""
+"Sekunder utan inmatning innan Cava går in i viloläge.\n"
+"Cava utför inte FFT och kontrollerar bara inmatning en gång per sekund."
+
+#: ../contents/ui/configCava.qml
+msgid "Input"
+msgstr "Indata"
+
+#: ../contents/ui/configCava.qml
+msgid "Method:"
+msgstr "Metod:"
+
+#: ../contents/ui/configCava.qml ../contents/ui/configGeneral.qml
+msgid "Default"
+msgstr "Förvald"
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Audio capturing method.\n"
+"Defaults to 'oss', 'pipewire', 'sndio', 'jack', 'pulse', 'alsa', 'portaudio' or 'fifo', in that order, dependent on what support cava was built with.\n"
+msgstr ""
+"Ljudinspelningsmetod.\n"
+"Standardvärdena är 'oss', 'pipewire', 'sndio', 'jack', 'pulse', 'alsa', 'portaudio' eller 'fifo', i den ordningen, beroende på vilket stöd Cava kompilerats för.\n"
+
+#: ../contents/ui/configCava.qml
+msgid "Source:"
+msgstr "Källa:"
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"For pulseaudio and pipewire 'source' will be the source. Default: 'auto', which uses the monitor source of the default sink (all pulseaudio sinks(outputs) have 'monitor' sources(inputs) associated "
+"with them)."
+msgstr ""
+"För pulseaudio och pipewire kommer 'source' att vara källan. Förvald: 'auto', som använder sig av källan för förvald sink (alla pulseaudio-sinkar (utgångar) har 'monitor'-källor (ingångar) associerade "
+"med sig)."
+
+#: ../contents/ui/configCava.qml
+msgid "For pipewire 'source' will be the object name or object.serial of the device to capture from. Both input and output devices are supported."
+msgstr "För pipewire kommer 'source' att vara objektnamnet eller object.serial för den enhet som det hämtas från. Både in- och utdataenheter stöds."
+
+#: ../contents/ui/configCava.qml
+msgid "For alsa 'source' will be the capture device."
+msgstr "För alsa kommer 'source' att vara inspelningsenheten."
+
+#: ../contents/ui/configCava.qml
+msgid "For fifo 'source' will be the path to fifo-file."
+msgstr "För fifo kommer 'source' att vara sökvägen till fifo-filen."
+
+#: ../contents/ui/configCava.qml
+msgid "For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address."
+msgstr "För shmem kommer 'source' att vara /squeezelite-AA:BB:CC:DD:EE:FF där 'AA:BB:CC:DD:EE:FF' är squeezelites MAC-adress."
+
+#: ../contents/ui/configCava.qml
+msgid "For sndio 'source' will be a raw recording audio descriptor or a monitoring sub-device, e.g. 'rsnd/2' or 'snd/1'. Default: 'default'."
+msgstr "För sndio kommer 'source' att vara en rå inspelningsenhet eller en underordnad övervakningsenhet, t.ex. 'rsnd/2' eller 'snd/1'. Standard: 'default'."
+
+#: ../contents/ui/configCava.qml
+msgid "For oss 'source' will be the path to a audio device, e.g. '/dev/dsp2'. Default: '/dev/dsp', i.e. the default audio device."
+msgstr "För oss kommer 'source' att vara sökvägen till en ljudenhet, t.ex. '/dev/dsp2'. Standard: '/dev/dsp', d.v.s. standardljudenheten."
+
+#: ../contents/ui/configCava.qml
+msgid "For jack 'source' will be the name of the JACK server to connect to, e.g. 'foobar'. Default: 'default'."
+msgstr "För jack kommer 'source' att vara namnet på JACK-servern att ansluta till, t.ex. 'foobar'. Standard: 'default'."
+
+#: ../contents/ui/configCava.qml
+msgid "Sample rate:"
+msgstr "Samplingsfrekvens:"
+
+#: ../contents/ui/configCava.qml
+msgid "Sample bits:"
+msgstr "bitdjup:"
+
+#: ../contents/ui/configCava.qml
+msgid "Channels:"
+msgstr "Kanaler:"
+
+#: ../contents/ui/configCava.qml
+msgid "Auto connect:"
+msgstr "Automatisk anslutning:"
+
+#: ../contents/ui/configCava.qml
+msgid "The options 'sample_rate', 'sample_bits', 'channels' and 'autoconnect' can be configured for some input methods:"
+msgstr "Alternativen 'sample_rate', 'sample_bits', 'channels' och 'autoconnect' kan konfigureras för vissa inmatningsmetoder:"
+
+#: ../contents/ui/configCava.qml
+msgid "Other methods ignore these settings."
+msgstr "Andra metoder ignorerar dessa inställningar."
+
+#: ../contents/ui/configCava.qml
+msgid "For 'sndio' and 'oss' they are only preferred values, i.e. if the values are not supported by the chosen audio device, the device will use other supported values instead."
+msgstr "För 'sndio' och 'oss' är endast föredragna värden, d.v.s. om värdena inte stöds av den valda ljudenheten kommer enheten att använda andra värden som stöds istället."
+
+#: ../contents/ui/configCava.qml
+msgid "Output"
+msgstr "Utdataenhet"
+
+#: ../contents/ui/configCava.qml
+msgid "Visual channels:"
+msgstr "Visuella kanaler:"
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"'mono' outputs left to right lowest to highest frequencies.\n"
+"'stereo' mirrors both channels with low frequencies in center."
+msgstr ""
+"'mono' återger från vänster till höger, lägsta till högsta frekvenser.\n"
+"'stereo' speglar båda kanalerna med de låga frekvenser i mitten."
+
+#: ../contents/ui/configCava.qml
+msgid "Mono channel:"
+msgstr "Monokanal:"
+
+#: ../contents/ui/configCava.qml
+msgid "Reverse:"
+msgstr "Omvänd:"
+
+#: ../contents/ui/configCava.qml
+msgid "Display frequencies the other way around"
+msgstr "Återger frekvenser omvänt"
+
+#: ../contents/ui/configCava.qml
+msgid "Smoothing"
+msgstr "Utjämning"
+
+#: ../contents/ui/configCava.qml
+msgid "Noise reduction:"
+msgstr "Brusreducering:"
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"The raw visualization is very noisy, this factor adjusts the integral and gravity filters to keep the signal smooth.\n"
+"100 will be very slow and smooth, 0 will be fast but noisy."
+msgstr ""
+"Den råa visualiseringen är mycket brusig, denna faktor justerar integral- och gravitationsfiltren så att signalen hålls jämn.\n"
+"100 kommer att vara väldigt långsam och jämn, 0 kommer att vara snabb men brusig."
+
+#: ../contents/ui/configCava.qml
+msgid "Monstercat:"
+msgstr "Monstercat:"
+
+#: ../contents/ui/configCava.qml
+msgid "Enable the so-called \"Monstercat smoothing\" with or without \"waves\"."
+msgstr "Aktivera den så kallade \"Monstercat-utjämningen\" med eller utan \"Vågor\"."
+
+#: ../contents/ui/configCava.qml
+msgid "Waves"
+msgstr "Vågor"
+
+#: ../contents/ui/configCava.qml
+msgid "Equalizer"
+msgstr "Equalizer"
+
+#: ../contents/ui/configCava.qml
+msgid "Adjust frequencies by a multiplication factor, more bars equals more precision."
+msgstr "Justera frekvenserna med en multiplikationsfaktor, desto fler band, desto högre precision."
+
+#: ../contents/ui/configGeneral.qml
+msgid "Debug mode:"
+msgstr "Felsökningsläge:"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Auto-hide when idle:"
+msgstr "Dölj automatiskt vid inaktivitet:"
+
+#: ../contents/ui/configGeneral.qml
+msgid "After"
+msgstr "Efter"
+
+#: ../contents/ui/configGeneral.qml
+msgid "seconds"
+msgstr "sekunder"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Desktop background:"
+msgstr "Bakgrundsfärg:"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Transparent"
+msgstr "Transparent"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Transparent with shadow"
+msgstr "Transparent med skugga"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Disable tooltip:"
+msgstr "Inaktivera verktygstips:"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Disable ToolTip that shows the widget name and description."
+msgstr "Inaktivera verktygstips som visar widgetens namn och beskrivning."
+
+#: ../contents/ui/configVisualizer.qml
+msgid "height"
+msgstr "höjd"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "width"
+msgstr "bredd"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Style:"
+msgstr "Stil:"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bars"
+msgstr "Band"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Wave"
+msgstr "Vågor"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Fill wave"
+msgstr "Fyll vågor"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Top"
+msgstr "Topp"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bottom"
+msgstr "Botten"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Left"
+msgstr "Vänster"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Right"
+msgstr "Höger"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Fill panel %1:"
+msgstr "Fyll panelens %1:"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Fixed %1:"
+msgstr "Fixerad %1:"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Fill panel thickness:"
+msgstr "Fyll panelens tjocklek:"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Centered bars:"
+msgstr "Centrerade band:"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Rounded bars:"
+msgstr "Rundade band:"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bar width:"
+msgstr "Bandens bredd:"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bar gap:"
+msgstr "Bandens mellanrum:"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Wave Color"
+msgstr "Vågfärg"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bar Color"
+msgstr "Bandfärg"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Wave Fill Color"
+msgstr "Vågfyllningsfärg"
