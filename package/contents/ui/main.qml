@@ -5,7 +5,6 @@ import org.kde.kirigami as Kirigami
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.plasmoid
 import "code/enum.js" as Enum
-import "code/globals.js" as Globals
 import "code/utils.js" as Utils
 
 PlasmoidItem {
@@ -17,6 +16,7 @@ PlasmoidItem {
     property bool onDesktop: Plasmoid.location === PlasmaCore.Types.Floating
     property bool horizontal: Plasmoid.formFactor !== PlasmaCore.Types.Vertical
     property int orientation: Plasmoid.configuration.orientation
+    property bool stopCava: Plasmoid.configuration._stopCava
 
     property int barCount: {
         let bars = 1;
@@ -48,7 +48,7 @@ PlasmoidItem {
         Utils.delay(1000, updateStatus, main);
     }
     onBarCountChanged: {
-        if (editMode && Plasmoid.configuration._stopCava) {
+        if (editMode && root.stopCava) {
             return;
         }
         cava.barCount = barCount;
@@ -86,17 +86,23 @@ PlasmoidItem {
     compactRepresentation: CompactRepresentation {}
     fullRepresentation: FullRepresentation {}
 
+    onStopCavaChanged: {
+        if (stopCava) {
+            cava.stop();
+        } else {
+            cava.start();
+        }
+    }
+
     Plasmoid.contextualActions: [
         PlasmaCore.Action {
             text: cava.running ? i18n("Stop CAVA") : i18n("Start CAVA")
             icon.name: "waveform-symbolic"
             onTriggered: {
                 if (cava.running) {
-                    cava.stop();
-                    Plasmoid.configuration._stopCava = true;
+                    root.stopCava = true;
                 } else {
-                    cava.start();
-                    Plasmoid.configuration._stopCava = true;
+                    root.stopCava = true;
                 }
                 Plasmoid.configuration.writeConfig();
             }
