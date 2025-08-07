@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/luisbocanegra/kurve/compare/v1.1.0...v1.2.0) (2025-08-07)
+
+
+### Features
+
+* button to copy support information ([ca4cc45](https://github.com/luisbocanegra/kurve/commit/ca4cc4525f25067af3ebdd23fc71d1446996733c))
+* stop & start cava from widget settings ([f110161](https://github.com/luisbocanegra/kurve/commit/f110161af352c73d98c4b4c7d3d5b77edaace8c9))
+
+
+### Bug Fixes
+
+* read-only propery error ([76111fe](https://github.com/luisbocanegra/kurve/commit/76111fec3c86f9c772294181304823633d02d869))
+
 ## [1.1.0](https://github.com/luisbocanegra/kurve/compare/v1.0.0...v1.1.0) (2025-07-19)
 
 
