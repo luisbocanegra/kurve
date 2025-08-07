@@ -1,4 +1,4 @@
-# Translation of visualizer in LANGUAGE
+# Translation of visualizer in sv
 # Copyright (C) 2025
 # This file is distributed under the same license as the visualizer package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-08-04 14:03+0000\n"
+"POT-Creation-Date: 2025-07-22 07:28+0000\n"
 "PO-Revision-Date: 2025-08-04 14:03+0000\n"
 "Last-Translator: Mathias Mårtensson <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,9 @@ msgstr "Starta CAVA"
 msgid "Copy to clipboard"
 msgstr "Kopiera till klippbordet"
 
-#: ../contents/ui/components/ColorPickerGradientList.qml ../contents/ui/components/ColorPickerList.qml ../contents/ui/components/FormColors.qml
+#: ../contents/ui/components/ColorPickerGradientList.qml
+#: ../contents/ui/components/ColorPickerList.qml
+#: ../contents/ui/components/FormColors.qml
 msgid "Widget background"
 msgstr "Widgetbakgrund"
 
@@ -107,8 +109,12 @@ msgid "Custom list"
 msgstr "Anpassad lista"
 
 #: ../contents/ui/components/FormColors.qml
-msgid "Define a list of colors that will be applied to all the elements, wraps around if there are more elements than colors"
-msgstr "Definierar en lista av färger som appliceras på alla element, upprepar om det finns fler element än färger"
+msgid ""
+"Define a list of colors that will be applied to all the elements, wraps "
+"around if there are more elements than colors"
+msgstr ""
+"Definierar en lista av färger som appliceras på alla element, upprepar om "
+"det finns fler element än färger"
 
 #: ../contents/ui/components/FormColors.qml
 msgid "Random"
@@ -139,8 +145,12 @@ msgid "Image"
 msgstr "Bild"
 
 #: ../contents/ui/components/FormColors.qml
-msgid "High resolution images can slow down the desktop when the panel or widget size changes!"
-msgstr "Hög upplösning på bilder kan ge sämre prestanda på skrivbordet när panelens eller widgetens storlek ändras!"
+msgid ""
+"High resolution images can slow down the desktop when the panel or widget "
+"size changes!"
+msgstr ""
+"Hög upplösning på bilder kan ge sämre prestanda på skrivbordet när panelens "
+"eller widgetens storlek ändras!"
 
 #: ../contents/ui/components/FormColors.qml
 msgid "Hue"
@@ -268,7 +278,8 @@ msgid ""
 "If autosens is enabled, this will only be the initial value"
 msgstr ""
 "Manuell känslighet i %.\n"
-"Om automatisk känslighet är aktiverat kommer detta endast att vara det initiala värdet"
+"Om automatisk känslighet är aktiverat kommer detta endast att vara det "
+"initiala värdet"
 
 #: ../contents/ui/configCava.qml
 msgid "Frequency range (Hz):"
@@ -284,11 +295,15 @@ msgstr "Max"
 
 #: ../contents/ui/configCava.qml
 msgid ""
-"Lower and higher cutoff frequencies for lowest and highest bars, the bandwidth of the visualizer.\n"
-"Note: Cava will automatically increase the higher cutoff if a too low band is specified."
+"Lower and higher cutoff frequencies for lowest and highest bars, the "
+"bandwidth of the visualizer.\n"
+"Note: Cava will automatically increase the higher cutoff if a too low band "
+"is specified."
 msgstr ""
-" Visualiserarens bandbredd för lägsta och högsta gränsfrekvenser för lägsta och högsta band.\n"
-"Observera att Cava automatiskt höjer till en högre gränsfrekvens om ett för lågt frekvensband läggs till."
+" Visualiserarens bandbredd för lägsta och högsta gränsfrekvenser för lägsta "
+"och högsta band.\n"
+"Observera att Cava automatiskt höjer till en högre gränsfrekvens om ett för "
+"lågt frekvensband läggs till."
 
 #: ../contents/ui/configCava.qml
 msgid "Sleep timer (seconds):"
@@ -317,10 +332,13 @@ msgstr "Förvald"
 #: ../contents/ui/configCava.qml
 msgid ""
 "Audio capturing method.\n"
-"Defaults to 'oss', 'pipewire', 'sndio', 'jack', 'pulse', 'alsa', 'portaudio' or 'fifo', in that order, dependent on what support cava was built with.\n"
+"Defaults to 'oss', 'pipewire', 'sndio', 'jack', 'pulse', 'alsa', 'portaudio' "
+"or 'fifo', in that order, dependent on what support cava was built with.\n"
 msgstr ""
 "Ljudinspelningsmetod.\n"
-"Standardvärdena är 'oss', 'pipewire', 'sndio', 'jack', 'pulse', 'alsa', 'portaudio' eller 'fifo', i den ordningen, beroende på vilket stöd Cava kompilerats för.\n"
+"Standardvärdena är 'oss', 'pipewire', 'sndio', 'jack', 'pulse', 'alsa', "
+"'portaudio' eller 'fifo', i den ordningen, beroende på vilket stöd Cava "
+"kompilerats för.\n"
 
 #: ../contents/ui/configCava.qml
 msgid "Source:"
@@ -328,15 +346,21 @@ msgstr "Källa:"
 
 #: ../contents/ui/configCava.qml
 msgid ""
-"For pulseaudio and pipewire 'source' will be the source. Default: 'auto', which uses the monitor source of the default sink (all pulseaudio sinks(outputs) have 'monitor' sources(inputs) associated "
-"with them)."
+"For pulseaudio and pipewire 'source' will be the source. Default: 'auto', "
+"which uses the monitor source of the default sink (all pulseaudio "
+"sinks(outputs) have 'monitor' sources(inputs) associated with them)."
 msgstr ""
-"För pulseaudio och pipewire kommer 'source' att vara källan. Förvald: 'auto', som använder sig av källan för förvald sink (alla pulseaudio-sinkar (utgångar) har 'monitor'-källor (ingångar) associerade "
-"med sig)."
+"För pulseaudio och pipewire kommer 'source' att vara källan. Förvald: "
+"'auto', som använder sig av källan för förvald sink (alla pulseaudio-sinkar "
+"(utgångar) har 'monitor'-källor (ingångar) associerade med sig)."
 
 #: ../contents/ui/configCava.qml
-msgid "For pipewire 'source' will be the object name or object.serial of the device to capture from. Both input and output devices are supported."
-msgstr "För pipewire kommer 'source' att vara objektnamnet eller object.serial för den enhet som det hämtas från. Både in- och utdataenheter stöds."
+msgid ""
+"For pipewire 'source' will be the object name or object.serial of the device "
+"to capture from. Both input and output devices are supported."
+msgstr ""
+"För pipewire kommer 'source' att vara objektnamnet eller object.serial för "
+"den enhet som det hämtas från. Både in- och utdataenheter stöds."
 
 #: ../contents/ui/configCava.qml
 msgid "For alsa 'source' will be the capture device."
@@ -347,20 +371,37 @@ msgid "For fifo 'source' will be the path to fifo-file."
 msgstr "För fifo kommer 'source' att vara sökvägen till fifo-filen."
 
 #: ../contents/ui/configCava.qml
-msgid "For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address."
-msgstr "För shmem kommer 'source' att vara /squeezelite-AA:BB:CC:DD:EE:FF där 'AA:BB:CC:DD:EE:FF' är squeezelites MAC-adress."
+msgid ""
+"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:"
+"EE:FF' will be squeezelite's MAC address."
+msgstr ""
+"För shmem kommer 'source' att vara /squeezelite-AA:BB:CC:DD:EE:FF där 'AA:BB:"
+"CC:DD:EE:FF' är squeezelites MAC-adress."
 
 #: ../contents/ui/configCava.qml
-msgid "For sndio 'source' will be a raw recording audio descriptor or a monitoring sub-device, e.g. 'rsnd/2' or 'snd/1'. Default: 'default'."
-msgstr "För sndio kommer 'source' att vara en rå inspelningsenhet eller en underordnad övervakningsenhet, t.ex. 'rsnd/2' eller 'snd/1'. Standard: 'default'."
+msgid ""
+"For sndio 'source' will be a raw recording audio descriptor or a monitoring "
+"sub-device, e.g. 'rsnd/2' or 'snd/1'. Default: 'default'."
+msgstr ""
+"För sndio kommer 'source' att vara en rå inspelningsenhet eller en "
+"underordnad övervakningsenhet, t.ex. 'rsnd/2' eller 'snd/1'. Standard: "
+"'default'."
 
 #: ../contents/ui/configCava.qml
-msgid "For oss 'source' will be the path to a audio device, e.g. '/dev/dsp2'. Default: '/dev/dsp', i.e. the default audio device."
-msgstr "För oss kommer 'source' att vara sökvägen till en ljudenhet, t.ex. '/dev/dsp2'. Standard: '/dev/dsp', d.v.s. standardljudenheten."
+msgid ""
+"For oss 'source' will be the path to a audio device, e.g. '/dev/dsp2'. "
+"Default: '/dev/dsp', i.e. the default audio device."
+msgstr ""
+"För oss kommer 'source' att vara sökvägen till en ljudenhet, t.ex. '/dev/"
+"dsp2'. Standard: '/dev/dsp', d.v.s. standardljudenheten."
 
 #: ../contents/ui/configCava.qml
-msgid "For jack 'source' will be the name of the JACK server to connect to, e.g. 'foobar'. Default: 'default'."
-msgstr "För jack kommer 'source' att vara namnet på JACK-servern att ansluta till, t.ex. 'foobar'. Standard: 'default'."
+msgid ""
+"For jack 'source' will be the name of the JACK server to connect to, e.g. "
+"'foobar'. Default: 'default'."
+msgstr ""
+"För jack kommer 'source' att vara namnet på JACK-servern att ansluta till, t."
+"ex. 'foobar'. Standard: 'default'."
 
 #: ../contents/ui/configCava.qml
 msgid "Sample rate:"
@@ -379,16 +420,26 @@ msgid "Auto connect:"
 msgstr "Automatisk anslutning:"
 
 #: ../contents/ui/configCava.qml
-msgid "The options 'sample_rate', 'sample_bits', 'channels' and 'autoconnect' can be configured for some input methods:"
-msgstr "Alternativen 'sample_rate', 'sample_bits', 'channels' och 'autoconnect' kan konfigureras för vissa inmatningsmetoder:"
+msgid ""
+"The options 'sample_rate', 'sample_bits', 'channels' and 'autoconnect' can "
+"be configured for some input methods:"
+msgstr ""
+"Alternativen 'sample_rate', 'sample_bits', 'channels' och 'autoconnect' kan "
+"konfigureras för vissa inmatningsmetoder:"
 
 #: ../contents/ui/configCava.qml
 msgid "Other methods ignore these settings."
 msgstr "Andra metoder ignorerar dessa inställningar."
 
 #: ../contents/ui/configCava.qml
-msgid "For 'sndio' and 'oss' they are only preferred values, i.e. if the values are not supported by the chosen audio device, the device will use other supported values instead."
-msgstr "För 'sndio' och 'oss' är endast föredragna värden, d.v.s. om värdena inte stöds av den valda ljudenheten kommer enheten att använda andra värden som stöds istället."
+msgid ""
+"For 'sndio' and 'oss' they are only preferred values, i.e. if the values are "
+"not supported by the chosen audio device, the device will use other "
+"supported values instead."
+msgstr ""
+"För 'sndio' och 'oss' är endast föredragna värden, d.v.s. om värdena inte "
+"stöds av den valda ljudenheten kommer enheten att använda andra värden som "
+"stöds istället."
 
 #: ../contents/ui/configCava.qml
 msgid "Output"
@@ -428,19 +479,24 @@ msgstr "Brusreducering:"
 
 #: ../contents/ui/configCava.qml
 msgid ""
-"The raw visualization is very noisy, this factor adjusts the integral and gravity filters to keep the signal smooth.\n"
+"The raw visualization is very noisy, this factor adjusts the integral and "
+"gravity filters to keep the signal smooth.\n"
 "100 will be very slow and smooth, 0 will be fast but noisy."
 msgstr ""
-"Den råa visualiseringen är mycket brusig, denna faktor justerar integral- och gravitationsfiltren så att signalen hålls jämn.\n"
-"100 kommer att vara väldigt långsam och jämn, 0 kommer att vara snabb men brusig."
+"Den råa visualiseringen är mycket brusig, denna faktor justerar integral- "
+"och gravitationsfiltren så att signalen hålls jämn.\n"
+"100 kommer att vara väldigt långsam och jämn, 0 kommer att vara snabb men "
+"brusig."
 
 #: ../contents/ui/configCava.qml
 msgid "Monstercat:"
 msgstr "Monstercat:"
 
 #: ../contents/ui/configCava.qml
-msgid "Enable the so-called \"Monstercat smoothing\" with or without \"waves\"."
-msgstr "Aktivera den så kallade \"Monstercat-utjämningen\" med eller utan \"Vågor\"."
+msgid ""
+"Enable the so-called \"Monstercat smoothing\" with or without \"waves\"."
+msgstr ""
+"Aktivera den så kallade \"Monstercat-utjämningen\" med eller utan \"Vågor\"."
 
 #: ../contents/ui/configCava.qml
 msgid "Waves"
@@ -451,8 +507,12 @@ msgid "Equalizer"
 msgstr "Equalizer"
 
 #: ../contents/ui/configCava.qml
-msgid "Adjust frequencies by a multiplication factor, more bars equals more precision."
-msgstr "Justera frekvenserna med en multiplikationsfaktor, desto fler band, desto högre precision."
+msgid ""
+"Adjust frequencies by a multiplication factor, more bars equals more "
+"precision."
+msgstr ""
+"Justera frekvenserna med en multiplikationsfaktor, desto fler band, desto "
+"högre precision."
 
 #: ../contents/ui/configGeneral.qml
 msgid "Debug mode:"
