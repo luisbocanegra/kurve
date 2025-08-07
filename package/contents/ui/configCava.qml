@@ -48,6 +48,15 @@ KCM.SimpleKCM {
                 Kirigami.FormData.label: i18n("General")
             }
 
+            Button {
+                id: stopCavaButton
+                text: Plasmoid.configuration._stopCava ? i18n("Start CAVA") : i18n("Stop CAVA")
+                onClicked: {
+                    Plasmoid.configuration._stopCava = !Plasmoid.configuration._stopCava;
+                    Plasmoid.configuration.writeConfig();
+                }
+            }
+
             SpinBox {
                 id: framerateSpinbox
                 Kirigami.FormData.label: i18n("Framerate:")
