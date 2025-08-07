@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-07-22 07:28+0000\n"
+"POT-Creation-Date: 2025-08-07 20:02+0000\n"
 "PO-Revision-Date: 2025-07-20 10:50+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -38,11 +38,13 @@ msgstr "Algemeen"
 msgid "Oh no! Something went wrong"
 msgstr "Oeps, er is iets misgegaan…"
 
-#: ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml
+#: ../contents/ui/main.qml
 msgid "Stop CAVA"
 msgstr "CAVA stoppen"
 
-#: ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml
+#: ../contents/ui/main.qml
 msgid "Start CAVA"
 msgstr "CAVA starten"
 
