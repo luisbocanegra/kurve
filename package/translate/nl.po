@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
 "POT-Creation-Date: 2025-08-07 20:02+0000\n"
-"PO-Revision-Date: 2025-07-20 10:50+0200\n"
+"PO-Revision-Date: 2025-08-27 11:03+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -50,7 +50,7 @@ msgstr "CAVA starten"
 
 #: ../contents/ui/FullRepresentation.qml
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopiëren naar klembord"
 
 #: ../contents/ui/components/ColorPickerGradientList.qml
 #: ../contents/ui/components/ColorPickerList.qml
@@ -378,11 +378,11 @@ msgstr "Voor fifo zal ‘source’ de locatie van het fifo-bestand zijn."
 
 #: ../contents/ui/configCava.qml
 msgid ""
-"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:"
-"EE:FF' will be squeezelite's MAC address."
+"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where "
+"'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address."
 msgstr ""
-"Voor shmem zal ‘source’ /squeezelite-AA:BB:CC:DD:EE:FF zijn, waar ‘AA:BB:CC:"
-"DD:EE:FF’ staat voor squeezelites MAC-adres."
+"Voor shmem zal ‘source’ /squeezelite-AA:BB:CC:DD:EE:FF zijn, waar "
+"‘AA:BB:CC:DD:EE:FF’ staat voor squeezelites MAC-adres."
 
 #: ../contents/ui/configCava.qml
 msgid ""
