@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-08-07 20:02+0000\n"
+"POT-Creation-Date: 2025-09-16 15:15+0000\n"
 "PO-Revision-Date: 2025-08-27 11:03+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -556,6 +556,14 @@ msgstr "Hulpballon uitschakelen"
 msgid "Disable ToolTip that shows the widget name and description."
 msgstr "Schakel de hulpballon uit de de widgetnaam en -beschrijving toont."
 
+#: ../contents/ui/configGeneral.qml
+msgid "Disable left click:"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Applet popup will still be accessible from the right click menu."
+msgstr ""
+
 #: ../contents/ui/configVisualizer.qml
 msgid "height"
 msgstr "hoogte"
@@ -635,6 +643,10 @@ msgstr "Balkkleur"
 #: ../contents/ui/configVisualizer.qml
 msgid "Wave Fill Color"
 msgstr "Opgevulde golfkleur"
+
+#: ../contents/ui/main.qml
+msgid "Show support information"
+msgstr ""
 
 #~ msgid "Waves:"
 #~ msgstr "Golven:"
