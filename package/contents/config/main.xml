@@ -61,6 +61,9 @@
     <entry name="reverse" type="Bool">
       <default>false</default>
     </entry>
+    <entry name="eqEnabled" type="Bool">
+      <default>false</default>
+    </entry>
     <entry name="eq" type="StringList">
       <default>1.0,1.0,1.0,1.0,1.0</default>
     </entry>
