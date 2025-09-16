@@ -21,6 +21,7 @@ Item {
     property string outputChannels
     property string monoOption
     property int reverse // bool
+    property bool eqEnabled
     property list<real> eq
     property list<int> values
     property bool idle
@@ -69,12 +70,14 @@ ascii_max_range=100
 noise_reduction=${root.noiseReduction}
 monstercat=${root.monstercat}
 waves=${root.waves}
-[eq]
 `;
-        for (let i = 0; i < eq.length; i++) {
-            config += `${i + 1}=${eq[i]}`;
-            if (i < eq.length - 1) {
-                config += '\n';
+        if (root.eqEnabled) {
+            config += "[eq]\n";
+            for (let i = 0; i < eq.length; i++) {
+                config += `${i + 1}=${eq[i]}`;
+                if (i < eq.length - 1) {
+                    config += '\n';
+                }
             }
         }
         return config;

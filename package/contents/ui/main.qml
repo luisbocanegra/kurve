@@ -74,6 +74,7 @@ PlasmoidItem {
         outputChannels: Plasmoid.configuration.outputChannels
         monoOption: Plasmoid.configuration.monoOption
         reverse: Plasmoid.configuration.reverse
+        eqEnabled: Plasmoid.configuration.eqEnabled
         eq: Plasmoid.configuration.eq
         idleCheck: main.hideWhenIdle
         idleTimer: Plasmoid.configuration.idleTimer

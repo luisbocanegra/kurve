@@ -32,6 +32,7 @@ KCM.SimpleKCM {
     property string cfg_monoOption
     property alias cfg_reverse: reverseCheckbox.checked
     // eq
+    property alias cfg_eqEnabled: eqEnabled.checked
     property var cfg_eq
 
     PactlList {
@@ -464,12 +465,19 @@ KCM.SimpleKCM {
                 Kirigami.FormData.isSection: true
                 Kirigami.FormData.label: i18n("Equalizer")
             }
-        }
-        Kirigami.ContextualHelpButton {
-            toolTipText: i18n("Adjust frequencies by a multiplication factor, more bars equals more precision.")
-            Layout.alignment: Qt.AlignHCenter
+            RowLayout {
+                Kirigami.FormData.label: i18n("Enabled:")
+                CheckBox {
+                    id: eqEnabled
+                }
+                Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("Adjust frequencies by a multiplication factor, more bands equals more precision.")
+                    Layout.alignment: Qt.AlignHCenter
+                }
+            }
         }
         Eq {
+            enabled: eqEnabled.checked
             Layout.preferredWidth: parent.width - Kirigami.Units.gridUnit * 2
             Layout.alignment: Qt.AlignHCenter
             fromFreq: root.cfg_lowerCutoffFreq
