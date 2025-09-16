@@ -17,6 +17,7 @@ PlasmoidItem {
     property bool horizontal: Plasmoid.formFactor !== PlasmaCore.Types.Vertical
     property int orientation: Plasmoid.configuration.orientation
     property bool stopCava: Plasmoid.configuration._stopCava
+    property bool disableLeftClick: Plasmoid.configuration.disableLeftClick
 
     property int barCount: {
         let bars = 1;
@@ -106,6 +107,14 @@ PlasmoidItem {
                 }
                 Plasmoid.configuration.writeConfig();
             }
+        },
+        PlasmaCore.Action {
+            text: i18n("Show support information")
+            icon.name: "info-symbolic"
+            onTriggered: {
+                main.expanded = !main.expanded;
+            }
+            visible: main.disableLeftClick
         }
     ]
     // hide default tooltip

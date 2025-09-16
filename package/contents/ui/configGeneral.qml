@@ -15,6 +15,7 @@ KCM.SimpleKCM {
     property alias cfg_debugMode: debugModeCheckbox.checked
     property alias cfg_idleTimer: idleTimerSpinbox.value
     property alias cfg_hideToolTip: hideToolTipCheckbox.checked
+    property alias cfg_disableLeftClick: disableLeftClickCheckbox.checked
 
     Kirigami.FormLayout {
         id: parentLayout
@@ -88,6 +89,15 @@ KCM.SimpleKCM {
             }
             Kirigami.ContextualHelpButton {
                 toolTipText: i18n("Disable ToolTip that shows the widget name and description.")
+            }
+        }
+        RowLayout {
+            Kirigami.FormData.label: i18n("Disable left click:")
+            CheckBox {
+                id: disableLeftClickCheckbox
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Applet popup will still be accessible from the right click menu.")
             }
         }
     }
