@@ -29,6 +29,7 @@ Item {
     property int visualizerStyle: Plasmoid.configuration.visualizerStyle
     property bool fillWave: Plasmoid.configuration.fillWave
     property int orientation: Plasmoid.configuration.orientation
+    property bool disableLeftClick: Plasmoid.configuration.disableLeftClick
     clip: !Plasmoid.configuration.debugMode
 
     property var barColorsCfg: {
@@ -152,10 +153,11 @@ Item {
         id: mouseArea
         anchors.fill: parent
         hoverEnabled: enabled
-        cursorShape: Qt.PointingHandCursor
+        cursorShape: enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
         onClicked: {
             main.expanded = !main.expanded;
         }
+        enabled: !root.disableLeftClick || cava.hasError || main.expanded
     }
 
     PlasmaCore.ToolTipArea {
