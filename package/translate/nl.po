@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-09-16 15:15+0000\n"
+"POT-Creation-Date: 2025-09-20 07:52+0000\n"
 "PO-Revision-Date: 2025-08-27 11:03+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -513,12 +513,14 @@ msgid "Equalizer"
 msgstr "Equalizer"
 
 #: ../contents/ui/configCava.qml
+msgid "Enabled:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
 msgid ""
-"Adjust frequencies by a multiplication factor, more bars equals more "
+"Adjust frequencies by a multiplication factor, more bands equals more "
 "precision."
 msgstr ""
-"Pas de frequenties aan met een vermenigvuldigingsfactor. Meer balken = meer "
-"precisie."
 
 #: ../contents/ui/configGeneral.qml
 msgid "Debug mode:"
@@ -647,6 +649,13 @@ msgstr "Opgevulde golfkleur"
 #: ../contents/ui/main.qml
 msgid "Show support information"
 msgstr ""
+
+#~ msgid ""
+#~ "Adjust frequencies by a multiplication factor, more bars equals more "
+#~ "precision."
+#~ msgstr ""
+#~ "Pas de frequenties aan met een vermenigvuldigingsfactor. Meer balken = "
+#~ "meer precisie."
 
 #~ msgid "Waves:"
 #~ msgstr "Golven:"
