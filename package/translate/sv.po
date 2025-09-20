@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-09-16 15:15+0000\n"
+"POT-Creation-Date: 2025-09-20 07:52+0000\n"
 "PO-Revision-Date: 2025-08-04 14:03+0000\n"
 "Last-Translator: Mathias Mårtensson <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -509,12 +509,14 @@ msgid "Equalizer"
 msgstr "Equalizer"
 
 #: ../contents/ui/configCava.qml
+msgid "Enabled:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
 msgid ""
-"Adjust frequencies by a multiplication factor, more bars equals more "
+"Adjust frequencies by a multiplication factor, more bands equals more "
 "precision."
 msgstr ""
-"Justera frekvenserna med en multiplikationsfaktor, desto fler band, desto "
-"högre precision."
 
 #: ../contents/ui/configGeneral.qml
 msgid "Debug mode:"
@@ -643,3 +645,10 @@ msgstr "Vågfyllningsfärg"
 #: ../contents/ui/main.qml
 msgid "Show support information"
 msgstr ""
+
+#~ msgid ""
+#~ "Adjust frequencies by a multiplication factor, more bars equals more "
+#~ "precision."
+#~ msgstr ""
+#~ "Justera frekvenserna med en multiplikationsfaktor, desto fler band, desto "
+#~ "högre precision."
