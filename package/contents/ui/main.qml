@@ -73,6 +73,9 @@ PlasmoidItem {
         sampleBits: Plasmoid.configuration.sampleBits
         inputChannels: Plasmoid.configuration.inputChannels
         autoconnect: Plasmoid.configuration.autoconnect
+        active: Plasmoid.configuration.active
+        remix: Plasmoid.configuration.remix
+        virtual: Plasmoid.configuration.virtual
         outputChannels: Plasmoid.configuration.outputChannels
         monoOption: Plasmoid.configuration.monoOption
         reverse: Plasmoid.configuration.reverse

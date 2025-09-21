@@ -52,6 +52,15 @@
     <entry name="autoconnect" type="Int">
       <default>2</default>
     </entry>
+    <entry name="active" type="Bool">
+      <default>false</default>
+    </entry>
+    <entry name="remix" type="Bool">
+      <default>true</default>
+    </entry>
+    <entry name="virtual" type="Bool">
+      <default>true</default>
+    </entry>
     <entry name="outputChannels" type="String">
       <default>mono</default>
     </entry>

@@ -27,6 +27,9 @@ KCM.SimpleKCM {
     property alias cfg_sampleBits: sampleBitsSpinbox.value
     property alias cfg_inputChannels: inputChannelsSpinbox.value
     property alias cfg_autoconnect: autoconnectSpinbox.value
+    property alias cfg_active: activeCheckbox.checked
+    property alias cfg_remix: remixCheckbox.checked
+    property alias cfg_virtual: virtualCheckbox.checked
     // output
     property string cfg_outputChannels
     property string cfg_monoOption
@@ -312,80 +315,91 @@ KCM.SimpleKCM {
 
         Kirigami.FormLayout {
             twinFormLayouts: [parentLayout]
-            SpinBox {
-                id: sampleRateSpinbox
+
+            RowLayout {
                 Kirigami.FormData.label: i18n("Sample rate:")
-                from: 1
-                to: 192000
-                stepSize: 100
-                enabled: ["", "fifo", "pipewire", "sndio", "oss"].includes(root.cfg_inputMethod)
+                SpinBox {
+                    id: sampleRateSpinbox
+                    from: 1
+                    to: 192000
+                    stepSize: 100
+                    enabled: ["", "fifo", "pipewire", "sndio", "oss"].includes(root.cfg_inputMethod)
+                }
+                Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("Only for fifo, pipewire, sndio, oss")
+                }
             }
 
-            SpinBox {
-                id: sampleBitsSpinbox
+            RowLayout {
                 Kirigami.FormData.label: i18n("Sample bits:")
-                from: 8
-                to: 32
-                stepSize: 8
-                enabled: ["", "fifo", "pipewire", "sndio", "oss"].includes(root.cfg_inputMethod)
+                SpinBox {
+                    id: sampleBitsSpinbox
+                    from: 8
+                    to: 32
+                    stepSize: 8
+                    enabled: ["", "fifo", "pipewire", "sndio", "oss"].includes(root.cfg_inputMethod)
+                }
+                Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("Only for fifo, pipewire, sndio, oss")
+                }
             }
 
-            SpinBox {
-                id: inputChannelsSpinbox
+            RowLayout {
                 Kirigami.FormData.label: i18n("Channels:")
-                from: 2
-                to: 4
-                enabled: ["", "sndio", "oss", "jack"].includes(root.cfg_inputMethod)
+                SpinBox {
+                    id: inputChannelsSpinbox
+                    from: 2
+                    to: 4
+                    enabled: ["", "pipewire", "sndio", "oss", "jack"].includes(root.cfg_inputMethod)
+                }
+                Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("Only for pipewire & cava>=0.10.6, sndio, oss, jack")
+                }
             }
 
-            SpinBox {
-                id: autoconnectSpinbox
+            RowLayout {
                 Kirigami.FormData.label: i18n("Auto connect:")
-                from: 2
-                to: 4
-                enabled: ["", "jack"].includes(root.cfg_inputMethod)
+                SpinBox {
+                    id: autoconnectSpinbox
+                    from: 2
+                    to: 4
+                    enabled: ["", "jack"].includes(root.cfg_inputMethod)
+                }
+                Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("Only for jack")
+                }
             }
-            ToolButton {
-                onCheckedChanged: sampleHelpCard.visible = !sampleHelpCard.visible
-                checkable: true
-                icon.name: "help"
-            }
-        }
 
-        Kirigami.AbstractCard {
-            id: sampleHelpCard
-            spacing: 0
-            visible: false
-            Layout.fillWidth: true
-            contentItem: ColumnLayout {
-                spacing: Kirigami.Units.largeSpacing
-                Kirigami.SelectableLabel {
-                    text: i18n("The options 'sample_rate', 'sample_bits', 'channels' and 'autoconnect' can be configured for some input methods:")
-                    Layout.fillWidth: true
+            RowLayout {
+                Kirigami.FormData.label: i18n("Active:")
+                CheckBox {
+                    id: activeCheckbox
+                    enabled: ["", "pipewire"].includes(root.cfg_inputMethod)
                 }
-                Kirigami.SelectableLabel {
-                    text: "sample_rate: fifo, pipewire, sndio, oss"
-                    Layout.fillWidth: true
+                Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("Only for pipewire & cava>=0.10.6. Force the node to always process. Useful for monitoring sources when no other application is active.")
                 }
-                Kirigami.SelectableLabel {
-                    text: "sample_bits: fifo, pipewire, sndio, oss"
-                    Layout.fillWidth: true
+            }
+
+            RowLayout {
+                Kirigami.FormData.label: i18n("Remix:")
+                CheckBox {
+                    id: remixCheckbox
+                    enabled: ["", "pipewire"].includes(root.cfg_inputMethod)
                 }
-                Kirigami.SelectableLabel {
-                    text: "channels:    sndio, oss, jack"
-                    Layout.fillWidth: true
+                Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("Only for pipewire & cava>=0.10.6. Allow to remix audio channels to match cava's channel count. Useful for surround sound.")
                 }
-                Kirigami.SelectableLabel {
-                    text: "autoconnect: jack"
-                    Layout.fillWidth: true
+            }
+
+            RowLayout {
+                Kirigami.FormData.label: i18n("Virtual:")
+                CheckBox {
+                    id: virtualCheckbox
+                    enabled: ["", "pipewire"].includes(root.cfg_inputMethod)
                 }
-                Kirigami.SelectableLabel {
-                    text: i18n("Other methods ignore these settings.")
-                    Layout.fillWidth: true
-                }
-                Kirigami.SelectableLabel {
-                    text: i18n("For 'sndio' and 'oss' they are only preferred values, i.e. if the values are not supported by the chosen audio device, the device will use other supported values instead.")
-                    Layout.fillWidth: true
+                Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("Only for pipewire & cava>=0.10.6. Set the node to virtual, to avoid recording notifications from the DE.")
                 }
             }
         }
