@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-09-20 07:52+0000\n"
+"POT-Creation-Date: 2025-09-21 09:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -356,6 +356,10 @@ msgid "Sample rate:"
 msgstr ""
 
 #: ../contents/ui/configCava.qml
+msgid "Only for fifo, pipewire, sndio, oss"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
 msgid "Sample bits:"
 msgstr ""
 
@@ -364,19 +368,39 @@ msgid "Channels:"
 msgstr ""
 
 #: ../contents/ui/configCava.qml
+msgid "Only for pipewire & cava>=0.10.6, sndio, oss, jack"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
 msgid "Auto connect:"
 msgstr ""
 
 #: ../contents/ui/configCava.qml
-msgid "The options 'sample_rate', 'sample_bits', 'channels' and 'autoconnect' can be configured for some input methods:"
+msgid "Only for jack"
 msgstr ""
 
 #: ../contents/ui/configCava.qml
-msgid "Other methods ignore these settings."
+msgid "Active:"
 msgstr ""
 
 #: ../contents/ui/configCava.qml
-msgid "For 'sndio' and 'oss' they are only preferred values, i.e. if the values are not supported by the chosen audio device, the device will use other supported values instead."
+msgid "Only for pipewire & cava>=0.10.6. Force the node to always process. Useful for monitoring sources when no other application is active."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Remix:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Only for pipewire & cava>=0.10.6. Allow to remix audio channels to match cava's channel count. Useful for surround sound."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Virtual:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Only for pipewire & cava>=0.10.6. Set the node to virtual, to avoid recording notifications from the DE."
 msgstr ""
 
 #: ../contents/ui/configCava.qml

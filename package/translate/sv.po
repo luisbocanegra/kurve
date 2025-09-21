@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-09-20 07:52+0000\n"
+"POT-Creation-Date: 2025-09-21 09:09+0000\n"
 "PO-Revision-Date: 2025-08-04 14:03+0000\n"
 "Last-Translator: Mathias Mårtensson <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -410,6 +410,10 @@ msgid "Sample rate:"
 msgstr "Samplingsfrekvens:"
 
 #: ../contents/ui/configCava.qml
+msgid "Only for fifo, pipewire, sndio, oss"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
 msgid "Sample bits:"
 msgstr "bitdjup:"
 
@@ -418,30 +422,46 @@ msgid "Channels:"
 msgstr "Kanaler:"
 
 #: ../contents/ui/configCava.qml
+msgid "Only for pipewire & cava>=0.10.6, sndio, oss, jack"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
 msgid "Auto connect:"
 msgstr "Automatisk anslutning:"
 
 #: ../contents/ui/configCava.qml
-msgid ""
-"The options 'sample_rate', 'sample_bits', 'channels' and 'autoconnect' can "
-"be configured for some input methods:"
+msgid "Only for jack"
 msgstr ""
-"Alternativen 'sample_rate', 'sample_bits', 'channels' och 'autoconnect' kan "
-"konfigureras för vissa inmatningsmetoder:"
 
 #: ../contents/ui/configCava.qml
-msgid "Other methods ignore these settings."
-msgstr "Andra metoder ignorerar dessa inställningar."
+msgid "Active:"
+msgstr ""
 
 #: ../contents/ui/configCava.qml
 msgid ""
-"For 'sndio' and 'oss' they are only preferred values, i.e. if the values are "
-"not supported by the chosen audio device, the device will use other "
-"supported values instead."
+"Only for pipewire & cava>=0.10.6. Force the node to always process. Useful "
+"for monitoring sources when no other application is active."
 msgstr ""
-"För 'sndio' och 'oss' är endast föredragna värden, d.v.s. om värdena inte "
-"stöds av den valda ljudenheten kommer enheten att använda andra värden som "
-"stöds istället."
+
+#: ../contents/ui/configCava.qml
+msgid "Remix:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Only for pipewire & cava>=0.10.6. Allow to remix audio channels to match "
+"cava's channel count. Useful for surround sound."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Virtual:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Only for pipewire & cava>=0.10.6. Set the node to virtual, to avoid "
+"recording notifications from the DE."
+msgstr ""
 
 #: ../contents/ui/configCava.qml
 msgid "Output"
@@ -645,6 +665,25 @@ msgstr "Vågfyllningsfärg"
 #: ../contents/ui/main.qml
 msgid "Show support information"
 msgstr ""
+
+#~ msgid ""
+#~ "The options 'sample_rate', 'sample_bits', 'channels' and 'autoconnect' "
+#~ "can be configured for some input methods:"
+#~ msgstr ""
+#~ "Alternativen 'sample_rate', 'sample_bits', 'channels' och 'autoconnect' "
+#~ "kan konfigureras för vissa inmatningsmetoder:"
+
+#~ msgid "Other methods ignore these settings."
+#~ msgstr "Andra metoder ignorerar dessa inställningar."
+
+#~ msgid ""
+#~ "For 'sndio' and 'oss' they are only preferred values, i.e. if the values "
+#~ "are not supported by the chosen audio device, the device will use other "
+#~ "supported values instead."
+#~ msgstr ""
+#~ "För 'sndio' och 'oss' är endast föredragna värden, d.v.s. om värdena inte "
+#~ "stöds av den valda ljudenheten kommer enheten att använda andra värden "
+#~ "som stöds istället."
 
 #~ msgid ""
 #~ "Adjust frequencies by a multiplication factor, more bars equals more "
