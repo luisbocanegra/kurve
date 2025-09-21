@@ -132,14 +132,14 @@ KCM.SimpleKCM {
                 id: barWidthSpinbox
                 Kirigami.FormData.label: i18n("Bar width:")
                 from: 1
-                to: 100
+                to: 999
             }
 
             SpinBox {
                 id: barGapSpinbox
                 Kirigami.FormData.label: i18n("Bar gap:")
                 from: 0
-                to: 20
+                to: 999
             }
         }
 
