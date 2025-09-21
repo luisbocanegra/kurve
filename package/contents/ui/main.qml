@@ -49,11 +49,13 @@ PlasmoidItem {
         Utils.delay(1000, updateStatus, main);
     }
     onBarCountChanged: {
-        if (editMode && root.stopCava) {
+        if (editMode && stopCava) {
             return;
         }
         cava.barCount = barCount;
     }
+
+    onEditModeChanged: updateStatus()
 
     Cava {
         id: cava
@@ -101,11 +103,7 @@ PlasmoidItem {
             text: cava.running ? i18n("Stop CAVA") : i18n("Start CAVA")
             icon.name: "waveform-symbolic"
             onTriggered: {
-                if (cava.running) {
-                    root.stopCava = true;
-                } else {
-                    root.stopCava = true;
-                }
+                Plasmoid.configuration._stopCava = !Plasmoid.configuration._stopCava;
                 Plasmoid.configuration.writeConfig();
             }
         },
