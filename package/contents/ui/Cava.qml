@@ -18,9 +18,12 @@ Item {
     property int sampleBits
     property int inputChannels
     property int autoconnect
+    property int active // boolean
+    property int remix // boolean
+    property int virtual // boolean
     property string outputChannels
     property string monoOption
-    property int reverse // bool
+    property int reverse // boolean
     property bool eqEnabled
     property list<real> eq
     property list<int> values
@@ -58,6 +61,9 @@ sleep_timer=${root.cavaSleepTimer}
 sample_bits=${root.sampleBits}
 channels=${root.inputChannels}
 autoconnect=${root.autoconnect}
+active=${root.active}
+remix=${root.remix}
+virtual=${root.virtual}
 [output]
 channels=${root.outputChannels}
 mono_option=${root.monoOption}
