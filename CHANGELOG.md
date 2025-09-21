@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.0.0](https://github.com/luisbocanegra/kurve/compare/v1.2.0...v2.0.0) (2025-09-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* If you are using the equalizer feature you will need to enable it in the CAVA tab
+
+### Features
+
+* add option to disable EQ and disable it by default ([f6306b0](https://github.com/luisbocanegra/kurve/commit/f6306b02873c72448c0d380d819d3d09d4077155))
+* allow to disable widget left click ([b247034](https://github.com/luisbocanegra/kurve/commit/b247034c4e69aa2c0711324aab4870cbee8f9879))
+* cava&gt;=0.10.6 pipewire settings [input] virtual, active, remix, channel ([86d86e1](https://github.com/luisbocanegra/kurve/commit/86d86e103dd367d3e067185e6d96b86e1b70f330))
+* raise maximum value for bar width and gap ([42945e0](https://github.com/luisbocanegra/kurve/commit/42945e04211d4d898c1493f7433981a033adadea))
+
+
+### Bug Fixes
+
+* stop cava from right click menu not working ([3d13183](https://github.com/luisbocanegra/kurve/commit/3d13183ed6a0080fd44ebf70751a58da8678e19c))
+
 ## [1.2.0](https://github.com/luisbocanegra/kurve/compare/v1.1.0...v1.2.0) (2025-08-07)
 
 
