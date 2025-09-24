@@ -411,7 +411,7 @@ msgstr "Samplingsfrekvens:"
 
 #: ../contents/ui/configCava.qml
 msgid "Only for fifo, pipewire, sndio, oss"
-msgstr ""
+msgstr "Endast för fifo, pipewire, sndio, oss"
 
 #: ../contents/ui/configCava.qml
 msgid "Sample bits:"
@@ -423,7 +423,7 @@ msgstr "Kanaler:"
 
 #: ../contents/ui/configCava.qml
 msgid "Only for pipewire & cava>=0.10.6, sndio, oss, jack"
-msgstr ""
+msgstr "Endast för pipewire & cava>=0.10.6, sndio, oss, jack"
 
 #: ../contents/ui/configCava.qml
 msgid "Auto connect:"
@@ -431,37 +431,43 @@ msgstr "Automatisk anslutning:"
 
 #: ../contents/ui/configCava.qml
 msgid "Only for jack"
-msgstr ""
+msgstr "Endast för jack"
 
 #: ../contents/ui/configCava.qml
 msgid "Active:"
-msgstr ""
+msgstr "Aktiv:"
 
 #: ../contents/ui/configCava.qml
 msgid ""
 "Only for pipewire & cava>=0.10.6. Force the node to always process. Useful "
 "for monitoring sources when no other application is active."
 msgstr ""
+"Endast för pipewire & cava>=0.10.6. Tvinga noden att alltid bearbeta. Användbart "
+"för att övervaka källor när ingen annan applikation är aktiv."
 
 #: ../contents/ui/configCava.qml
 msgid "Remix:"
-msgstr ""
+msgstr "Remix:"
 
 #: ../contents/ui/configCava.qml
 msgid ""
 "Only for pipewire & cava>=0.10.6. Allow to remix audio channels to match "
 "cava's channel count. Useful for surround sound."
 msgstr ""
+"Endast för pipewire & cava>=0.10.6. Tillåter att remixa ljudkanaler för att matcha "
+"Cavas kanalantal. Användbart för surroundljud."
 
 #: ../contents/ui/configCava.qml
 msgid "Virtual:"
-msgstr ""
+msgstr "Virtuell:"
 
 #: ../contents/ui/configCava.qml
 msgid ""
 "Only for pipewire & cava>=0.10.6. Set the node to virtual, to avoid "
 "recording notifications from the DE."
 msgstr ""
+"Endast för pipewire & cava>=0.10.6. Ställ in noden på virtuell för att undvika "
+"att spela in aviseringar från skrivbordsmiljön."
 
 #: ../contents/ui/configCava.qml
 msgid "Output"
@@ -530,13 +536,15 @@ msgstr "Equalizer"
 
 #: ../contents/ui/configCava.qml
 msgid "Enabled:"
-msgstr ""
+msgstr "Aktiverad:"
 
 #: ../contents/ui/configCava.qml
 msgid ""
 "Adjust frequencies by a multiplication factor, more bands equals more "
 "precision."
 msgstr ""
+"Justera frekvenserna med en multiplikationsfaktor, desto fler band, desto "
+"högre precision."
 
 #: ../contents/ui/configGeneral.qml
 msgid "Debug mode:"
@@ -576,11 +584,11 @@ msgstr "Inaktivera verktygstips som visar widgetens namn och beskrivning."
 
 #: ../contents/ui/configGeneral.qml
 msgid "Disable left click:"
-msgstr ""
+msgstr "Inaktivera vänsterklick:"
 
 #: ../contents/ui/configGeneral.qml
 msgid "Applet popup will still be accessible from the right click menu."
-msgstr ""
+msgstr "Applet-popupen kommer fortfarande att vara tillgänglig från högerklicksmenyn."
 
 #: ../contents/ui/configVisualizer.qml
 msgid "height"
@@ -664,7 +672,7 @@ msgstr "Vågfyllningsfärg"
 
 #: ../contents/ui/main.qml
 msgid "Show support information"
-msgstr ""
+msgstr "Visa supportinformation"
 
 #~ msgid ""
 #~ "The options 'sample_rate', 'sample_bits', 'channels' and 'autoconnect' "
