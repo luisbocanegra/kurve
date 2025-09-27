@@ -442,8 +442,8 @@ msgid ""
 "Only for pipewire & cava>=0.10.6. Force the node to always process. Useful "
 "for monitoring sources when no other application is active."
 msgstr ""
-"Endast för pipewire & cava>=0.10.6. Tvinga noden att alltid bearbeta. Användbart "
-"för att övervaka källor när ingen annan applikation är aktiv."
+"Endast för pipewire & cava>=0.10.6. Tvinga noden att alltid bearbeta. "
+"Användbart för att övervaka källor när ingen annan applikation är aktiv."
 
 #: ../contents/ui/configCava.qml
 msgid "Remix:"
@@ -454,8 +454,8 @@ msgid ""
 "Only for pipewire & cava>=0.10.6. Allow to remix audio channels to match "
 "cava's channel count. Useful for surround sound."
 msgstr ""
-"Endast för pipewire & cava>=0.10.6. Tillåter att remixa ljudkanaler för att matcha "
-"Cavas kanalantal. Användbart för surroundljud."
+"Endast för pipewire & cava>=0.10.6. Tillåter att remixa ljudkanaler för att "
+"matcha Cavas kanalantal. Användbart för surroundljud."
 
 #: ../contents/ui/configCava.qml
 msgid "Virtual:"
@@ -466,8 +466,8 @@ msgid ""
 "Only for pipewire & cava>=0.10.6. Set the node to virtual, to avoid "
 "recording notifications from the DE."
 msgstr ""
-"Endast för pipewire & cava>=0.10.6. Ställ in noden på virtuell för att undvika "
-"att spela in aviseringar från skrivbordsmiljön."
+"Endast för pipewire & cava>=0.10.6. Ställ in noden på virtuell för att "
+"undvika att spela in aviseringar från skrivbordsmiljön."
 
 #: ../contents/ui/configCava.qml
 msgid "Output"
@@ -588,7 +588,8 @@ msgstr "Inaktivera vänsterklick:"
 
 #: ../contents/ui/configGeneral.qml
 msgid "Applet popup will still be accessible from the right click menu."
-msgstr "Applet-popupen kommer fortfarande att vara tillgänglig från högerklicksmenyn."
+msgstr ""
+"Applet-popupen kommer fortfarande att vara tillgänglig från högerklicksmenyn."
 
 #: ../contents/ui/configVisualizer.qml
 msgid "height"
