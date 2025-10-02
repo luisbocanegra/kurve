@@ -1,4 +1,6 @@
 import QtQuick
+import org.kde.plasma.plasmoid
+import "../"
 
 Item {
     id: root
@@ -37,6 +39,8 @@ Item {
         }
     }
 
+    property var logger: Logger.create(Plasmoid.configuration.debugMode ? LoggingCategory.Debug : LoggingCategory.Info)
+
     Component.onCompleted: {
         let component = null;
         const sources = ["ProcessMonitorFallback.qml"];
@@ -44,13 +48,14 @@ Item {
             sources.unshift("ProcessMonitorPrimary.qml");
         }
         for (let source of sources) {
+            logger.debug("Trying to load", source);
             component = Qt.createComponent(source);
             if (component.status === Component.Ready) {
                 process = component.createObject(root);
                 process.command = root.command;
                 break;
             } else {
-                console.warn(component.errorString());
+                logger.warn(component.errorString());
                 root.loadingErrors.push(component.errorString());
             }
         }

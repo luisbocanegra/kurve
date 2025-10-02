@@ -13,11 +13,7 @@ Item {
             return;
 
         if (stdout.length > 0) {
-            try {
-                output = stdout.trim();
-            } catch (e) {
-                console.error(e, e.stack);
-            }
+            output = stdout.trim()
         }
     }
 

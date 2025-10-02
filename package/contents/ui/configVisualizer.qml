@@ -56,7 +56,6 @@ KCM.SimpleKCM {
                     }
                 ]
                 onActivated: {
-                    console.log("v", currentValue);
                     root.cfg_visualizerStyle = currentValue;
                 }
                 Component.onCompleted: {
