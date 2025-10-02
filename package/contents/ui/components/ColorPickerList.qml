@@ -2,6 +2,8 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import org.kde.plasma.plasmoid
+import "../"
 
 // A component to create a list of color pickers
 // color (hex) | ColorButton | randomize | move up | move down | delete | add new
@@ -31,12 +33,14 @@ ColumnLayout {
         }
     }
 
+    property var logger: Logger.create(Plasmoid.configuration.debugMode ? LoggingCategory.Debug : LoggingCategory.Info)
+
     Connections {
         target: colorsListModel
         function onCountChanged(count, ready) {
             if (!ready)
                 return;
-            console.log("model count changed:", count);
+            logger.debug("model count changed:", count);
             updateColorsList();
         }
     }
@@ -64,12 +68,12 @@ ColumnLayout {
         const s = Math.random();
         const l = Math.random();
         const a = 1.0;
-        console.log(h, s, l);
+        logger.debug(h, s, l);
         return Qt.hsla(h, s, l, a);
     }
 
     function updateColorsList() {
-        console.log("updateColorsList()");
+        logger.debug("updateColorsList()");
         let colors_list = [];
         for (let i = 0; i < colorsListModel.count; i++) {
             let c = colorsListModel.get(i).color;

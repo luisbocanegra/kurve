@@ -32,12 +32,14 @@ Item {
     property bool disableLeftClick: Plasmoid.configuration.disableLeftClick
     clip: !Plasmoid.configuration.debugMode
 
+    property var logger: Logger.create(Plasmoid.configuration.debugMode ? LoggingCategory.Debug : LoggingCategory.Info)
+
     property var barColorsCfg: {
         let barColors;
         try {
             barColors = JSON.parse(Plasmoid.configuration.barColors);
         } catch (e) {
-            console.error(e, e.stack);
+            logger.error(e, e.stack);
             globalSettings = Globals.baseBarColors;
         }
         const config = Utils.mergeConfigs(Globals.baseBarColors, barColors);
@@ -54,7 +56,7 @@ Item {
         try {
             waveFillColors = JSON.parse(Plasmoid.configuration.waveFillColors);
         } catch (e) {
-            console.error(e, e.stack);
+            logger.error(e, e.stack);
             globalSettings = Globals.baseWaveFillColors;
         }
         const config = Utils.mergeConfigs(Globals.baseWaveFillColors, waveFillColors);

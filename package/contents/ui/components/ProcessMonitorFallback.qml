@@ -1,6 +1,8 @@
 import QtQuick
 import QtWebSockets
 import "../code/utils.js" as Utils
+import org.kde.plasma.plasmoid
+import "../"
 
 Item {
     id: root
@@ -16,16 +18,20 @@ Item {
     readonly property string commandMonitorTool: "'" + toolsDir + "commandMonitor'"
     readonly property string monitorCommand: `${commandMonitorTool} ${server.url} "${command}"`
 
+    property var logger: Logger.create(Plasmoid.configuration.debugMode ? LoggingCategory.Debug : LoggingCategory.Info)
+
     // run command
     RunCommand {
         id: runCommand
         onExited: (cmd, exitCode, exitStatus, stdout, stderr) => {
             if (exitCode !== 0) {
-                console.error(cmd, exitCode, exitStatus, stdout, stderr);
+                logger.error(`ProcessMonitorFallback cmd: ${cmd}, exitCode: ${exitCode}, exitStatus: ${exitStatus}, stdout: ${stdout}, stderr: ${stderr}`);
                 root.stderr = stderr;
-                root.stdout = "";
-                root.pid = "";
+            } else {
+                logger.debug(`cmd: ${cmd}, exitCode: ${exitCode}, exitStatus: ${exitStatus}, stdout: ${stdout}, stderr: ${stderr}`);
             }
+            root.stdout = "";
+            root.pid = "";
             if (cmd.startsWith("kill") && root.pendingRestart) {
                 root.pendingRestart = false;
                 root.start();
@@ -37,10 +43,14 @@ Item {
     WebSocketServer {
         id: server
         listen: true
+        onUrlChanged: url => {
+            root.logger.debug("started websocket server:", url);
+        }
         onClientConnected: webSocket => {
             webSocket.onTextMessageReceived.connect(function (message) {
                 if (message) {
                     if (message.includes("ERROR:")) {
+                        logger.error(message);
                         root.stderr = message;
                         root.stdout = "";
                         root.pid = "";
@@ -48,6 +58,7 @@ Item {
                     }
                     if (message.includes("PID:")) {
                         root.pid = message.trim().split(" ")[1];
+                        logger.debug(`started ${root.monitorCommand} with pid:`, root.pid);
                         root.stderr = "";
                         return;
                     }
@@ -62,6 +73,7 @@ Item {
     }
 
     function start() {
+        logger.debug("ProcessMonitorFallback.start()");
         Utils.delay(100, () => {
             isReady = true;
             runCommand.run(root.monitorCommand);
@@ -69,6 +81,7 @@ Item {
     }
 
     function stop() {
+        logger.debug("ProcessMonitorFallback.stop()");
         if (pid) {
             runCommand.run(`kill -9 ${pid}`);
             pid = "";
@@ -76,11 +89,15 @@ Item {
     }
 
     function restart() {
+        logger.debug("ProcessMonitorFallback.restart()");
         stop();
         pendingRestart = true;
     }
 
     onCommandChanged: {
+        if (!command || command == "")
+            return;
+        logger.debug("ProcessMonitorFallback.onCommandChanged:", command);
         restart();
     }
 }

@@ -3,6 +3,8 @@ import QtQuick.Controls
 import QtQuick.Dialogs
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import org.kde.plasma.plasmoid
+import "../"
 
 Kirigami.FormLayout {
     id: root
@@ -39,6 +41,8 @@ Kirigami.FormLayout {
 
     twinFormLayouts: parentLayout
     Layout.fillWidth: true
+
+    property var logger: Logger.create(Plasmoid.configuration.debugMode ? LoggingCategory.Debug : LoggingCategory.Info)
 
     ListModel {
         id: themeColorSetModel
@@ -470,7 +474,7 @@ Kirigami.FormLayout {
         nameFilters: [i18n("Image files") + " (*.png *.jpg *.jpeg *.gif *.webp *.bmp *.svg)", i18n("All files") + " (*)"]
         onAccepted: {
             if (fileDialog.selectedFile) {
-                console.log(fileDialog.selectedFile);
+                logger.debug(fileDialog.selectedFile);
                 imgTextArea.text = fileDialog.selectedFile;
             }
         }

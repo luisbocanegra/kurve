@@ -32,30 +32,39 @@ PlasmoidItem {
         return bars;
     }
 
+    property var logger: Logger.create(Plasmoid.configuration.debugMode ? LoggingCategory.Debug : LoggingCategory.Info)
+
     property bool hideWhenIdle: Plasmoid.configuration.hideWhenIdle
 
     Plasmoid.status: PlasmaCore.Types.HiddenStatus
 
     function updateStatus() {
+        logger.debug("Plasmoid.status:", Plasmoid.status);
         // HACK: without this delay there is a visible margin on the right side when expanding == true
         Utils.delay(10, () => {
             if (Plasmoid.status === PlasmaCore.Types.RequiresAttentionStatus) {
                 return;
             }
             Plasmoid.status = (hideWhenIdle && cava.idle || !cava.running) && !Plasmoid.expanded && !editMode && !cava.hasError ? PlasmaCore.Types.HiddenStatus : PlasmaCore.Types.ActiveStatus;
+            logger.debug("Plasmoid.status:", Plasmoid.status);
         }, main);
     }
-    onExpandedChanged: {
+    onExpandedChanged: expanded => {
+        logger.debug("expanded:", expanded);
         Utils.delay(1000, updateStatus, main);
     }
     onBarCountChanged: {
         if (editMode && stopCava) {
             return;
         }
+        logger.debug("barCount:", barCount);
         cava.barCount = barCount;
     }
 
-    onEditModeChanged: updateStatus()
+    onEditModeChanged: {
+        logger.debug("editMode:", editMode);
+        updateStatus();
+    }
 
     Cava {
         id: cava
@@ -84,9 +93,18 @@ PlasmoidItem {
         idleCheck: main.hideWhenIdle
         idleTimer: Plasmoid.configuration.idleTimer
         cavaSleepTimer: Plasmoid.configuration.cavaSleepTimer
-        onIdleChanged: main.updateStatus()
-        onHasErrorChanged: main.updateStatus()
-        onRunningChanged: main.updateStatus()
+        onIdleChanged: {
+            main.logger.info("cava.idle:", idle);
+            main.updateStatus();
+        }
+        onHasErrorChanged: {
+            main.logger.error("cava.hasError:", hasError, error);
+            main.updateStatus();
+        }
+        onRunningChanged: {
+            main.logger.info("cava.running:", running);
+            main.updateStatus();
+        }
     }
 
     preferredRepresentation: compactRepresentation
@@ -94,6 +112,7 @@ PlasmoidItem {
     fullRepresentation: FullRepresentation {}
 
     onStopCavaChanged: {
+        logger.debug("stopCava:", stopCava);
         if (stopCava) {
             cava.stop();
         } else {
