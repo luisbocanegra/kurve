@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/luisbocanegra/kurve/compare/v2.0.0...v2.1.0) (2025-10-03)
+
+
+### Features
+
+* improve logging and debug mode ([a347cf2](https://github.com/luisbocanegra/kurve/commit/a347cf293dc57cb6410ee2ecc2334b0d9542d5bc))
+
 ## [2.0.0](https://github.com/luisbocanegra/kurve/compare/v1.2.0...v2.0.0) (2025-09-21)
 
 
