@@ -8,7 +8,7 @@ Item {
     property string command: ""
     readonly property string stdout: process.stdout ?? ""
     readonly property string stderr: process.stderr ?? ""
-    readonly property bool forceFallback: false
+    readonly property bool forceFallback: true
     readonly property bool running: process.running ?? false
     property bool usingFallback: false
     property var process: null
