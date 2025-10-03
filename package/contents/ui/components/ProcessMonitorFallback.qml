@@ -83,8 +83,7 @@ Item {
     function stop() {
         logger.debug("ProcessMonitorFallback.stop()");
         if (pid) {
-            runCommand.run(`kill -9 ${pid}`);
-            pid = "";
+            runCommand.run(`kill -TERM ${pid}`);
         }
     }
 
