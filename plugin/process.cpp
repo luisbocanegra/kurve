@@ -1,6 +1,7 @@
 #include "process.h"
 #include <QDebug>
 #include <QTimer>
+#include <qdebug.h>
 #include <qprocess.h>
 
 Process::Process(QObject *parent) : QObject(parent), m_command(), m_stdout(), m_stderr(), m_running(), m_stdoutBuffer() {
@@ -22,10 +23,11 @@ void Process::restart() {
         qWarning() << "Command is empty, cannot run.";
         return;
     }
-    
-    cleanup();
+
+    stop();
 
     m_process = new QProcess(this);
+    m_process->start(m_command.first(), m_command.mid(1));
 
     connect(m_process, &QProcess::stateChanged, this, [this](QProcess::ProcessState state) {
         bool runningNow = (state == QProcess::Running);
@@ -38,8 +40,6 @@ void Process::restart() {
             }
         }
     });
-
-    m_process->start(m_command.first(), m_command.mid(1));
 
     connect(m_process, &QProcess::readyReadStandardOutput, this, [this]() {
         m_stdoutBuffer += QString::fromUtf8(m_process->readAllStandardOutput());
@@ -60,20 +60,17 @@ void Process::restart() {
             emit stderrChanged();
         }
     });
-    connect(m_process, &QProcess::finished, this, [this](int exitCode, QProcess::ExitStatus exitStatus) {
-        qDebug() << "Process finished:" << exitCode << exitStatus;
+    connect(m_process, &QProcess::finished, this, [this]() {
         cleanup();
     });
 
-    connect(m_process, &QProcess::errorOccurred, this, [this](QProcess::ProcessError error) {
-        qWarning() << "Process error occurred:" << error;
+    connect(m_process, &QProcess::errorOccurred, this, [this]() {
         cleanup();
     });
     }
 
 void Process::cleanup() {
     if (m_process) {
-        qDebug() << "Running cleanup:";
         m_process->disconnect();
         m_process->deleteLater();
         m_process = nullptr;
@@ -81,13 +78,19 @@ void Process::cleanup() {
 }
 
 void Process::stop() {
-    if (m_process && m_running) {
-        QProcess *proc = m_process;
-        proc->terminate();
-        QTimer::singleShot(3000, this, [this, proc]() {
-            if (m_process == proc && m_process->state() != QProcess::NotRunning) {
-                m_process->kill();
-            }
-        });
+    if (m_process) {
+        QProcess proc;
+        proc.start("pgrep", {"-P", QString::number(m_process->processId())});
+        proc.waitForFinished();
+        QString output = proc.readAllStandardOutput();
+        QStringList pidList = output.split('\n', Qt::SkipEmptyParts);
+        for (const QString &pid : pidList) {
+
+            QProcess kill_proc;
+            kill_proc.start("kill", {"-TERM", pid});
+            kill_proc.waitForFinished();
+        }
+        m_process->terminate();
+        m_process->waitForFinished();
     }
 }
