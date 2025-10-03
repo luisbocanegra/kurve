@@ -99,7 +99,7 @@ waves=${root.waves}
     }
     ProcessMonitor {
         id: process
-        command: `cava -p /dev/stdin <<-EOF
+        command: `exec cava -p /dev/stdin <<-EOF
 ${root.cavaConfig}
 EOF
 `

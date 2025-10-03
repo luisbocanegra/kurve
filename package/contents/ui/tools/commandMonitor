@@ -3,37 +3,62 @@
 import os
 import asyncio
 import sys
+from signal import SIGTERM
 import websockets
 
-if len(sys.argv) < 3:
-    print(f"Usage: {os.path.basename(__file__)} <ws-url> <command>")
-    sys.exit(1)
 
-ws_url = sys.argv[1]
-command = ["sh", "-c"]
-command.extend(sys.argv[2:])
+async def monitor_command_output(cmd: str, ws_url: str) -> None:
+    """Run a command and send the PID and live output to a websocket
 
+    Args:
+        cmd (str): command
+        ws_url (str): websocket url
+    """
+    proc = None
+    try:
+        async with websockets.connect(ws_url) as ws:
+            await ws.send(f"PID: {os.getpid()}")
 
-async def send_live_output():
+        print(f"Starting process {cmd} ...")
+        proc = await asyncio.create_subprocess_shell(
+            cmd,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+        )
 
-    async with websockets.connect(ws_url) as ws:
-        await ws.send(f"PID: {os.getpid()}")
+        async with websockets.connect(ws_url) as ws:
+            assert proc.stdout is not None
+            async for line in proc.stdout:
+                await ws.send(line.decode().rstrip())
 
-    proc = await asyncio.create_subprocess_exec(
-        *command, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-    )
+            assert proc.stderr is not None
+            async for line in proc.stderr:
+                await ws.send(f"ERROR: {line.decode().rstrip()}")
 
-    async with websockets.connect(ws_url) as ws:
-        assert proc.stdout is not None
-        async for line in proc.stdout:
-            await ws.send(line.decode().rstrip())
-
-        assert proc.stderr is not None
-        async for line in proc.stderr:
-            await ws.send(f"ERROR: {line.decode().rstrip()}")
-
-    await proc.wait()
+        await proc.wait()
+    except asyncio.CancelledError:
+        if proc is not None and proc.returncode is None:
+            print(f"Stopping process pid: {proc.pid} {cmd} ...")
+            proc.kill()
+            await proc.wait()
 
 
 if __name__ == "__main__":
-    asyncio.run(send_live_output())
+    if len(sys.argv) < 3:
+        print(f"Usage: {os.path.basename(__file__)} <ws-url> <command>")
+        sys.exit(1)
+
+    WS_URL = sys.argv[1]
+    COMMAND = " ".join(sys.argv[2:])
+
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    main_task = asyncio.ensure_future(
+        monitor_command_output(COMMAND, WS_URL), loop=loop
+    )
+    loop.add_signal_handler(SIGTERM, main_task.cancel)
+
+    try:
+        loop.run_until_complete(main_task)
+    finally:
+        loop.close()

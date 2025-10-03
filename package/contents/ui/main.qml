@@ -141,4 +141,10 @@ PlasmoidItem {
     // hide default tooltip
     toolTipMainText: ""
     toolTipSubText: ""
+    Connections {
+        target: Qt.application
+        function onAboutToQuit() {
+            cava.stop();
+        }
+    }
 }

@@ -35,9 +35,6 @@ class Process : public QObject {
     void stderrChanged();
     void runningChanged();
 
-  public slots:
-    //
-
   private:
     QStringList m_command;
     QString m_stdout;
@@ -45,7 +42,7 @@ class Process : public QObject {
     bool m_running;
     QStringList command() const { return m_command; }
     void setCommand(const QStringList &command);
-    void cleanup();
+    void cleanup(QProcess *proc);
     QString m_stdoutBuffer;
     QProcess *m_process = nullptr;
 };
