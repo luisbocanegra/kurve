@@ -74,7 +74,12 @@ Item {
         property list<color> waveFillColors: Utils.getColors(waveFillColorsCfg, barCount, kirigamiColorItem2.Kirigami.Theme[waveFillColorsCfg.systemColor])
         property var waveFillGradient: Utils.buildCanvasGradient(getContext("2d"), waveFillColorsCfg.smoothGradient, waveFillColors, waveFillColorsCfg.colorsOrientation, gradientHeight, gradientWidth)
 
-        width: barCount * barWidth + ((barCount - 1) * spacing)
+        width: {
+            if (visualizerStyle === Enum.VisualizerStyles.Wave) {
+                return barWidth + ((barCount - 1) * spacing);
+            }
+            return barCount * barWidth + ((barCount - 1) * spacing);
+        }
         height: parent.height
         property bool fixAlign: barWidth % 2 === 0 && centeredBars && visualizerStyle === Enum.VisualizerStyles.Wave && !root.fixVertical
 

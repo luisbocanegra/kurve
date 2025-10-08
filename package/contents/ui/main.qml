@@ -22,7 +22,11 @@ PlasmoidItem {
     property int barCount: {
         let bars = 1;
         const width = [Enum.Orientation.Left, Enum.Orientation.Right].includes(Plasmoid.configuration.orientation) ? main.height : main.width;
-        bars = Math.floor((width + Plasmoid.configuration.barGap) / (Plasmoid.configuration.barWidth + Plasmoid.configuration.barGap));
+        if (Plasmoid.configuration.visualizerStyle === Enum.VisualizerStyles.Wave) {
+            bars = Math.floor((width + Plasmoid.configuration.barGap) / (Plasmoid.configuration.barGap));
+        } else {
+            bars = Math.floor((width + Plasmoid.configuration.barGap) / (Plasmoid.configuration.barWidth + Plasmoid.configuration.barGap));
+        }
         if (Plasmoid.configuration.outputChannels === "stereo") {
             bars = Utils.makeEven(bars);
         }
