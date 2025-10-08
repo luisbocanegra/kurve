@@ -27,13 +27,12 @@ Item {
     }
     Process {
         id: process
-        command: ["sh", "-c", `${root.command}`]
     }
 
     onCommandChanged: {
-        if (!command || command === "")
+        if (command == "")
             return;
+        process.command = ["sh", "-c", `${command}`];
         logger.debug("ProcessMonitorPrimary.onCommandChanged:", command);
-        restart();
     }
 }

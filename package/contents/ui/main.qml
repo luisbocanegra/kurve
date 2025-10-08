@@ -36,7 +36,7 @@ PlasmoidItem {
 
     property bool hideWhenIdle: Plasmoid.configuration.hideWhenIdle
 
-    Plasmoid.status: PlasmaCore.Types.HiddenStatus
+    Plasmoid.status: PlasmaCore.Types.ActiveStatus
 
     function updateStatus() {
         logger.debug("Plasmoid.status:", Plasmoid.status);
@@ -57,8 +57,10 @@ PlasmoidItem {
         if (editMode && stopCava) {
             return;
         }
-        logger.debug("barCount:", barCount);
-        cava.barCount = barCount;
+        Qt.callLater(() => {
+            logger.debug("barCount:", barCount);
+            cava.barCount = barCount;
+        });
     }
 
     onEditModeChanged: {

@@ -97,12 +97,16 @@ waves=${root.waves}
     function stop() {
         process.stop();
     }
+    onCavaConfigChanged: {
+        if (barCount > 0 && cavaConfig != "") {
+            process.command = `exec cava -p /dev/stdin <<-EOF
+${cavaConfig}
+EOF
+`;
+        }
+    }
     ProcessMonitor {
         id: process
-        command: `exec cava -p /dev/stdin <<-EOF
-${root.cavaConfig}
-EOF
-`
         onStdoutChanged: {
             let output = process.stdout.trim();
             if (output.endsWith(';')) {

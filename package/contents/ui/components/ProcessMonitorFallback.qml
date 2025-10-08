@@ -12,7 +12,6 @@ Item {
     property bool running: stdout !== ""
     property string pid: ""
     property bool isReady: false
-    property bool pendingRestart: false
 
     readonly property string toolsDir: Qt.resolvedUrl("../tools").toString().substring(7) + "/"
     readonly property string commandMonitorTool: "'" + toolsDir + "commandMonitor'"
@@ -25,17 +24,13 @@ Item {
         id: runCommand
         onExited: (cmd, exitCode, exitStatus, stdout, stderr) => {
             if (exitCode !== 0) {
-                logger.error(`ProcessMonitorFallback cmd: ${cmd}, exitCode: ${exitCode}, exitStatus: ${exitStatus}, stdout: ${stdout}, stderr: ${stderr}`);
+                root.logger.error(`ProcessMonitorFallback cmd: ${cmd}, exitCode: ${exitCode}, exitStatus: ${exitStatus}, stdout: ${stdout}, stderr: ${stderr}`);
                 root.stderr = stderr;
             } else {
-                logger.debug(`cmd: ${cmd}, exitCode: ${exitCode}, exitStatus: ${exitStatus}, stdout: ${stdout}, stderr: ${stderr}`);
+                root.logger.debug(`cmd: ${cmd}, exitCode: ${exitCode}, exitStatus: ${exitStatus}, stdout: ${stdout}, stderr: ${stderr}`);
             }
             root.stdout = "";
             root.pid = "";
-            if (cmd.startsWith("kill") && root.pendingRestart) {
-                root.pendingRestart = false;
-                root.start();
-            }
         }
     }
 
@@ -68,10 +63,6 @@ Item {
         }
     }
 
-    Component.onCompleted: {
-        start();
-    }
-
     function start() {
         logger.debug("ProcessMonitorFallback.start()");
         Utils.delay(100, () => {
@@ -90,11 +81,11 @@ Item {
     function restart() {
         logger.debug("ProcessMonitorFallback.restart()");
         stop();
-        pendingRestart = true;
+        start();
     }
 
     onCommandChanged: {
-        if (!command || command == "")
+        if (command == "")
             return;
         logger.debug("ProcessMonitorFallback.onCommandChanged:", command);
         restart();
