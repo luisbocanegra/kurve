@@ -9,3 +9,12 @@ const Orientation = {
     Left: 2,
     Right: 3,
 };
+
+const ColorSourceType = {
+    Custom: 0,
+    SystemTheme: 1,
+    List: 2,
+    Random: 3,
+    // 4-6 unused
+    Hue: 7,
+};

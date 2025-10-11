@@ -605,6 +605,21 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
+        Kirigami.FormData.label: i18n("Reverse:")
+        CheckBox {
+            checked: root.config.reverseList
+            onCheckedChanged: {
+                root.config.reverseList = checked;
+                root.updateConfig();
+            }
+            visible: root.config.sourceType > 1
+        }
+        Kirigami.ContextualHelpButton {
+            toolTipText: i18n("Display colors the other way around")
+        }
+    }
+
+    RowLayout {
         Kirigami.FormData.label: i18n("Alpha:")
         visible: colorModeGroup.checkedButton.index !== 6
 
