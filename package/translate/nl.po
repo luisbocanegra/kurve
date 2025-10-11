@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-09-21 09:09+0000\n"
+"POT-Creation-Date: 2025-10-11 19:24+0000\n"
 "PO-Revision-Date: 2025-08-27 11:03+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -645,6 +645,10 @@ msgstr "Gecentreerde balken:"
 #: ../contents/ui/configVisualizer.qml
 msgid "Rounded bars:"
 msgstr "Afgeronde balken:"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Line width:"
+msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Bar width:"
