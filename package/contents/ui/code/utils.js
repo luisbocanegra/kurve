@@ -35,7 +35,7 @@ function scaleLightness(color, lightness) {
   return Qt.hsla(color.hslHue, color.hslSaturation, lightness, color.a);
 }
 
-function alterColor(color, saturationEnabled, saturation, lightnessEnabled, lightness, alpha) {
+function adjustColor(color, saturationEnabled, saturation, lightnessEnabled, lightness, alpha) {
   if (saturationEnabled) {
     color = scaleSaturation(color, saturation);
   }
@@ -91,32 +91,44 @@ function buildCanvasGradient(ctx, smooth, gradientStops, orientation, height, wi
 }
 
 function getColors(barColorsCfg, barCount, themeColor) {
-  let colorSourceType = barColorsCfg.sourceType;
+  const saturationEnabled = barColorsCfg.saturationEnabled;
+  const saturation = barColorsCfg.saturation;
+  const lightnessEnabled = barColorsCfg.lightnessEnabled;
+  const lightness = barColorsCfg.lightness;
+  const alpha = barColorsCfg.alpha;
+  const colorSourceType = barColorsCfg.sourceType;
+  const reverseList = barColorsCfg.reverseList;
+
   let colors = [];
   let color = null;
-  if (colorSourceType === 0) {
+  if (colorSourceType === Enum.ColorSourceType.Custom) {
     color = hexToQtColor(barColorsCfg.custom);
-  } else if (colorSourceType === 1) {
+  } else if (colorSourceType === Enum.ColorSourceType.SystemTheme) {
     color = themeColor;
   }
   if (color) {
-    color = alterColor(color, barColorsCfg.saturationEnabled, barColorsCfg.saturation, barColorsCfg.lightnessEnabled, barColorsCfg.lightness, barColorsCfg.alpha);
-    colors.push(color);
+    colors.push(adjustColor(color, saturationEnabled, saturation, lightnessEnabled, lightness, alpha));
   }
-  if (colorSourceType === 2) {
-    colors = barColorsCfg.list.map(c => {
-      c = hexToQtColor(c);
-      return alterColor(c, barColorsCfg.saturationEnabled, barColorsCfg.saturation, barColorsCfg.lightnessEnabled, barColorsCfg.lightness, barColorsCfg.alpha);
-    });
-  } else if (colorSourceType === 3) {
+  if (colorSourceType === Enum.ColorSourceType.List) {
+    colors = barColorsCfg.list.map(c => adjustColor(hexToQtColor(c), saturationEnabled, saturation, lightnessEnabled, lightness, alpha));
+  }
+  if (colorSourceType === Enum.ColorSourceType.Random) {
     for (let i = 0; i < barCount; i++) {
-      colors.push(alterColor(getRandomColor(null, 0.8, 0.7, null), barColorsCfg.saturationEnabled, barColorsCfg.saturation, barColorsCfg.lightnessEnabled, barColorsCfg.lightness, barColorsCfg.alpha));
+      colors.push(adjustColor(getRandomColor(null, 0.8, 0.7, null), saturationEnabled, saturation, lightnessEnabled, lightness, alpha));
     }
-  } else if (colorSourceType === 7) {
+  }
+  if (colorSourceType === Enum.ColorSourceType.Hue) {
     for (let i = 0; i < barCount; i++) {
       let c = Qt.hsla(i / barCount, 0.8, 0.7, 1.0);
-      colors.push(alterColor(c, barColorsCfg.saturationEnabled, barColorsCfg.saturation, barColorsCfg.lightnessEnabled, barColorsCfg.lightness, barColorsCfg.alpha));
+      colors.push(adjustColor(c, saturationEnabled, saturation, lightnessEnabled, lightness, alpha));
     }
+  }
+  if (reverseList) {
+    let reversed = [];
+    for (let i = colors.length - 1; i >= 0; i--) {
+      reversed.push(colors[i]);
+    }
+    colors = reversed;
   }
   return colors;
 }
