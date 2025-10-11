@@ -19,13 +19,20 @@ PlasmoidItem {
     property bool stopCava: Plasmoid.configuration._stopCava
     property bool disableLeftClick: Plasmoid.configuration.disableLeftClick
 
+    property int barGap: {
+        if (Plasmoid.configuration.visualizerStyle === Enum.VisualizerStyles.Wave) {
+            return Math.max(1, Plasmoid.configuration.barGap);
+        }
+        return Plasmoid.configuration.barGap;
+    }
+
     property int barCount: {
         let bars = 1;
         const width = [Enum.Orientation.Left, Enum.Orientation.Right].includes(Plasmoid.configuration.orientation) ? main.height : main.width;
         if (Plasmoid.configuration.visualizerStyle === Enum.VisualizerStyles.Wave) {
-            bars = Math.floor((width + Plasmoid.configuration.barGap) / (Plasmoid.configuration.barGap));
+            bars = Math.floor((width + barGap) / barGap);
         } else {
-            bars = Math.floor((width + Plasmoid.configuration.barGap) / (Plasmoid.configuration.barWidth + Plasmoid.configuration.barGap));
+            bars = Math.floor((width + barGap) / (Plasmoid.configuration.barWidth + barGap));
         }
         if (Plasmoid.configuration.outputChannels === "stereo") {
             bars = Utils.makeEven(bars);
