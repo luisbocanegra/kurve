@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-10-11 19:24+0000\n"
+"POT-Creation-Date: 2025-10-11 21:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -221,6 +221,14 @@ msgstr ""
 msgid "Gradient:"
 msgstr ""
 
+#: ../contents/ui/components/FormColors.qml ../contents/ui/configCava.qml
+msgid "Reverse:"
+msgstr ""
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Display colors the other way around"
+msgstr ""
+
 #: ../contents/ui/components/FormColors.qml
 msgid "Alpha:"
 msgstr ""
@@ -419,10 +427,6 @@ msgstr ""
 
 #: ../contents/ui/configCava.qml
 msgid "Mono channel:"
-msgstr ""
-
-#: ../contents/ui/configCava.qml
-msgid "Reverse:"
 msgstr ""
 
 #: ../contents/ui/configCava.qml
