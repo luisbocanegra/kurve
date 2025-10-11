@@ -48,7 +48,12 @@ Item {
         anchors.centerIn: parent
         property int visualizerStyle: root.visualizerStyle
         property int barWidth: root.barWidth
-        property int spacing: root.barGap
+        property int spacing: {
+            if (visualizerStyle === Enum.VisualizerStyles.Wave) {
+                return Math.max(1, root.barGap);
+            }
+            return root.barGap;
+        }
         property int barCount: root.values.length
         property bool centeredBars: root.centeredBars
         property bool roundedBars: root.roundedBars
