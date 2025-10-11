@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-09-21 09:09+0000\n"
+"POT-Creation-Date: 2025-10-11 19:24+0000\n"
 "PO-Revision-Date: 2025-08-04 14:03+0000\n"
 "Last-Translator: Mathias Mårtensson <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -650,6 +650,10 @@ msgstr "Centrerade band:"
 #: ../contents/ui/configVisualizer.qml
 msgid "Rounded bars:"
 msgstr "Rundade band:"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Line width:"
+msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Bar width:"
