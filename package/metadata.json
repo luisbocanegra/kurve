@@ -19,7 +19,7 @@
         "Name": "Kurve",
         "Name[nl]": "Kurve",
         "Name[sv]": "Kurve",
-        "Version": "2.0.0",
+        "Version": "2.1.0",
         "Website": "https://github.com/luisbocanegra/kurve"
     },
     "X-Plasma-API-Minimum-Version": "6.0"
