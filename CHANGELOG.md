@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.1.0](https://github.com/luisbocanegra/kurve/compare/v2.0.0...v2.1.0) (2025-10-12)
+
+
+### Features
+
+* add reverse option to hue and custom color list ([401ee36](https://github.com/luisbocanegra/kurve/commit/401ee3617375904ae27a8e886b19c1e2f66f8f92))
+* improve logging and debug mode ([a347cf2](https://github.com/luisbocanegra/kurve/commit/a347cf293dc57cb6410ee2ecc2334b0d9542d5bc))
+
+
+### Bug Fixes
+
+* bar width changes bar count in wave style ([6198154](https://github.com/luisbocanegra/kurve/commit/61981547ba0818bc27d04b75289aa145dc82c1a3))
+* don't allow gap of 0 for wave style ([8aa8000](https://github.com/luisbocanegra/kurve/commit/8aa800054940c7712bb25be21b8dcdbd89f59837))
+* multiple cava restarts during initialization or resize ([301c9a7](https://github.com/luisbocanegra/kurve/commit/301c9a7dbcad8c413d355bc2c20499f7b0878e49))
+* wait canvas context to be available ([8144147](https://github.com/luisbocanegra/kurve/commit/8144147b87fb05dab235d406b38fa4702a01412e))
+* zombie cava process after stop/restart ([3093f83](https://github.com/luisbocanegra/kurve/commit/3093f83fe1541e20882327853d1e45be7c51b4c3))
+
 ## [2.0.0](https://github.com/luisbocanegra/kurve/compare/v1.2.0...v2.0.0) (2025-09-21)
 
 
