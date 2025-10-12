@@ -97,7 +97,7 @@ function wave(ctx, canvas) {
   ctx.lineTo(width + 0.5, prevY);
   ctx.stroke();
 
-  if (fillWave) {
+  if (fillWave && waveFillGradient) {
     const yBottom = centeredBars ? (height / 2 + barWidth / 2) : height;
     ctx.beginPath();
     ctx.moveTo(0, yBottom);

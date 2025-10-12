@@ -75,11 +75,21 @@ Item {
 
         property var barColorsCfg: root.barColorsCfg
         property list<color> colors: Utils.getColors(barColorsCfg, barCount, kirigamiColorItem.Kirigami.Theme[barColorsCfg.systemColor])
-        property var gradient: Utils.buildCanvasGradient(getContext("2d"), barColorsCfg.smoothGradient, colors, barColorsCfg.colorsOrientation, gradientHeight, gradientWidth)
+        property var gradient: {
+            if (canvas.available) {
+                return Utils.buildCanvasGradient(getContext("2d"), barColorsCfg.smoothGradient, colors, barColorsCfg.colorsOrientation, gradientHeight, gradientWidth);
+            }
+            return null;
+        }
 
         property var waveFillColorsCfg: root.waveFillColorsCfg
         property list<color> waveFillColors: Utils.getColors(waveFillColorsCfg, barCount, kirigamiColorItem2.Kirigami.Theme[waveFillColorsCfg.systemColor])
-        property var waveFillGradient: Utils.buildCanvasGradient(getContext("2d"), waveFillColorsCfg.smoothGradient, waveFillColors, waveFillColorsCfg.colorsOrientation, gradientHeight, gradientWidth)
+        property var waveFillGradient: {
+            if (canvas.available) {
+                return Utils.buildCanvasGradient(getContext("2d"), waveFillColorsCfg.smoothGradient, waveFillColors, waveFillColorsCfg.colorsOrientation, gradientHeight, gradientWidth);
+            }
+            return null;
+        }
 
         width: {
             if (visualizerStyle === Enum.VisualizerStyles.Wave) {
