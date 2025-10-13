@@ -27,7 +27,9 @@ const baseBarColors = {
   image: {
     source: "",
     fillMode: 2
-  }
+  },
+  hueStart: 0,
+  hueEnd: 360,
 };
 
 const baseWaveFillColors = {
@@ -49,5 +51,7 @@ const baseWaveFillColors = {
   image: {
     source: "",
     fillMode: 2
-  }
+  },
+  hueStart: 0,
+  hueEnd: 360,
 };

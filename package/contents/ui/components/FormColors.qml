@@ -5,6 +5,8 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.plasmoid
 import "../"
+import "../code/enum.js" as Enum
+import "../code/utils.js" as Utils
 
 Kirigami.FormLayout {
     id: root
@@ -561,6 +563,73 @@ Kirigami.FormLayout {
             id: pickerList
 
             ColorPickerList {}
+        }
+    }
+
+    ColumnLayout {
+        visible: root.config.sourceType === Enum.ColorSourceType.Hue
+        Kirigami.FormData.label: i18n("Range:")
+        Kirigami.FormData.buddyFor: hue
+        RowLayout{
+            id: hue
+            SpinBox {
+                id: hueStart
+                from: 0
+                to: 360
+                stepSize: 1
+                onValueModified: {
+                    if (value >= hueEnd.value - 1) {
+                        value = hueEnd.value - 1
+                    }
+                    root.config.hueStart = value;
+                    root.updateConfig();
+                }
+                Component.onCompleted: value = root.config.hueStart
+            }
+            Label {
+                text: "-"
+            }
+            SpinBox {
+                id: hueEnd
+                from: 0
+                to: 360
+                stepSize: 1
+                onValueModified: {
+                    if (value <= hueStart.value + 1) {
+                        value = hueStart.value + 1
+                    }
+                    root.config.hueEnd = value;
+                    root.updateConfig();
+                }
+                Component.onCompleted: value = root.config.hueEnd
+            }
+        }
+        Canvas {
+            id: canvas
+            property list<color> colors: {
+                let colors = [];
+                const start = hueStart.value / 360;
+                const end = hueEnd.value / 360;
+                for (let i = 0; i < canvas.width; i++) {
+                    let c = Qt.hsla(start + ((i / canvas.width) * (end - start)), 0.8, 0.7, 1.0);
+                    colors.push(c);
+                }
+                return colors
+            }
+            property var gradient: {
+                if (canvas.available) {
+                    return Utils.buildCanvasGradient(getContext("2d"), true, colors, 0, height, width);
+                }
+                return null;
+            }
+            Layout.fillWidth: true
+            Layout.preferredHeight: 8
+            onColorsChanged: canvas.requestPaint()
+            onPaint: {
+                var ctx = getContext("2d");
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, width, height);
+            }
         }
     }
 

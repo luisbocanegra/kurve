@@ -98,6 +98,8 @@ function getColors(barColorsCfg, barCount, themeColor) {
   const alpha = barColorsCfg.alpha;
   const colorSourceType = barColorsCfg.sourceType;
   const reverseList = barColorsCfg.reverseList;
+  const hueStart = barColorsCfg.hueStart;
+  const hueEnd = barColorsCfg.hueEnd;
 
   let colors = [];
   let color = null;
@@ -118,8 +120,10 @@ function getColors(barColorsCfg, barCount, themeColor) {
     }
   }
   if (colorSourceType === Enum.ColorSourceType.Hue) {
+    const start = hueStart / 360;
+    const end = hueEnd / 360;
     for (let i = 0; i < barCount; i++) {
-      let c = Qt.hsla(i / barCount, 0.8, 0.7, 1.0);
+      let c = Qt.hsla(start + ((i / barCount) * (end - start)), 0.8, 0.7, 1.0);
       colors.push(adjustColor(c, saturationEnabled, saturation, lightnessEnabled, lightness, alpha));
     }
   }
