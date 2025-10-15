@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-10-11 21:54+0000\n"
+"POT-Creation-Date: 2025-10-15 10:24+0000\n"
 "PO-Revision-Date: 2025-08-04 14:03+0000\n"
 "Last-Translator: Mathias Mårtensson <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -217,6 +217,10 @@ msgstr "Färguppsättning:"
 #: ../contents/ui/components/FormColors.qml
 msgid "Colors:"
 msgstr "Färger:"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Range:"
+msgstr ""
 
 #: ../contents/ui/components/FormColors.qml ../contents/ui/configVisualizer.qml
 msgid "Orientation:"
