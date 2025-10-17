@@ -12,6 +12,7 @@
         "Description": "Audio visualizer powered by CAVA",
         "Description[nl]": "Audiovisualisatie, gebaseerd op CAVA",
         "Description[sv]": "Ljudvisualisering som använder CAVA",
+        "Description[zh_CN]": "基于CAVA的音频可视化器",
         "EnabledByDefault": false,
         "Icon": "waveform-symbolic",
         "Id": "luisbocanegra.audio.visualizer",
@@ -19,6 +20,7 @@
         "Name": "Kurve",
         "Name[nl]": "Kurve",
         "Name[sv]": "Kurve",
+        "Name[zh_CN]": "Kurve",
         "Version": "2.1.0",
         "Website": "https://github.com/luisbocanegra/kurve"
     },
