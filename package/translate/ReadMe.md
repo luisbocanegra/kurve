@@ -7,6 +7,7 @@
 | Template |     144 |       |
 | nl       | 127/144 |   88% |
 | sv       | 141/144 |   97% |
+| zh_CN    | 144/144 |  100% |
 
 
 ## New Translations

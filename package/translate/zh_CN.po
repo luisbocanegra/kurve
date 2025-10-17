@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-10-11 21:54+0000\n"
+"POT-Creation-Date: 2025-10-15 10:24+0000\n"
 "PO-Revision-Date: 2025-10-17 11:30+0800\n"
 "Last-Translator: BCTaoTao <165790460+BCTaoTao@users.noreply.github.com>\n"
 "Language-Team: \n"
@@ -38,11 +38,13 @@ msgstr "常规"
 msgid "Oh no! Something went wrong"
 msgstr "糟糕！出错了"
 
-#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml ../contents/ui/main.qml
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml
+#: ../contents/ui/main.qml
 msgid "Stop CAVA"
 msgstr "停止 CAVA"
 
-#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml ../contents/ui/main.qml
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml
+#: ../contents/ui/main.qml
 msgid "Start CAVA"
 msgstr "启动 CAVA"
 
@@ -50,7 +52,9 @@ msgstr "启动 CAVA"
 msgid "Copy to clipboard"
 msgstr "复制到剪贴板"
 
-#: ../contents/ui/components/ColorPickerGradientList.qml ../contents/ui/components/ColorPickerList.qml ../contents/ui/components/FormColors.qml
+#: ../contents/ui/components/ColorPickerGradientList.qml
+#: ../contents/ui/components/ColorPickerList.qml
+#: ../contents/ui/components/FormColors.qml
 msgid "Widget background"
 msgstr "小部件背景"
 
@@ -107,8 +111,11 @@ msgid "Custom list"
 msgstr "自定义颜色列表"
 
 #: ../contents/ui/components/FormColors.qml
-msgid "Define a list of colors that will be applied to all the elements, wraps around if there are more elements than colors"
-msgstr "定义一组颜色列表，依次应用于所有元素；若元素数量多于颜色数量，则循环使用"
+msgid ""
+"Define a list of colors that will be applied to all the elements, wraps "
+"around if there are more elements than colors"
+msgstr ""
+"定义一组颜色列表，依次应用于所有元素；若元素数量多于颜色数量，则循环使用"
 
 #: ../contents/ui/components/FormColors.qml
 msgid "Random"
@@ -139,7 +146,9 @@ msgid "Image"
 msgstr "图像"
 
 #: ../contents/ui/components/FormColors.qml
-msgid "High resolution images can slow down the desktop when the panel or widget size changes!"
+msgid ""
+"High resolution images can slow down the desktop when the panel or widget "
+"size changes!"
 msgstr "高分辨率图像在面板或小部件尺寸变化时可能导致桌面变慢！"
 
 #: ../contents/ui/components/FormColors.qml
@@ -296,8 +305,10 @@ msgstr "最大"
 
 #: ../contents/ui/configCava.qml
 msgid ""
-"Lower and higher cutoff frequencies for lowest and highest bars, the bandwidth of the visualizer.\n"
-"Note: Cava will automatically increase the higher cutoff if a too low band is specified."
+"Lower and higher cutoff frequencies for lowest and highest bars, the "
+"bandwidth of the visualizer.\n"
+"Note: Cava will automatically increase the higher cutoff if a too low band "
+"is specified."
 msgstr ""
 "最低和最高频谱柱对应的截止频率，即可视化器的带宽。\n"
 "注意：若指定的频带过窄，CAVA会自动提高高频截止值。"
@@ -329,10 +340,13 @@ msgstr "默认"
 #: ../contents/ui/configCava.qml
 msgid ""
 "Audio capturing method.\n"
-"Defaults to 'oss', 'pipewire', 'sndio', 'jack', 'pulse', 'alsa', 'portaudio' or 'fifo', in that order, dependent on what support cava was built with.\n"
+"Defaults to 'oss', 'pipewire', 'sndio', 'jack', 'pulse', 'alsa', 'portaudio' "
+"or 'fifo', in that order, dependent on what support cava was built with.\n"
 msgstr ""
 "音频捕获方法。\n"
-"默认按以下顺序尝试：\n'oss'、'pipewire'、'sndio'、'jack'、'pulse'、'alsa'、'portaudio'或'fifo'，\n具体取决于CAVA编译时所包含的支持。\n"
+"默认按以下顺序尝试：\n"
+"'oss'、'pipewire'、'sndio'、'jack'、'pulse'、'alsa'、'portaudio'或'fifo'，\n"
+"具体取决于CAVA编译时所包含的支持。\n"
 
 #: ../contents/ui/configCava.qml
 msgid "Source:"
@@ -340,14 +354,19 @@ msgstr "源："
 
 #: ../contents/ui/configCava.qml
 msgid ""
-"For pulseaudio and pipewire 'source' will be the source. Default: 'auto', which uses the monitor source of the default sink (all pulseaudio sinks(outputs) have 'monitor' sources(inputs) associated "
-"with them)."
+"For pulseaudio and pipewire 'source' will be the source. Default: 'auto', "
+"which uses the monitor source of the default sink (all pulseaudio "
+"sinks(outputs) have 'monitor' sources(inputs) associated with them)."
 msgstr ""
-"对于PulseAudio和PipeWire，'source'指音频源。默认为'auto'，即使用默认输出设备的监听源（所有PulseAudio输出设备均有对应的监听输入源）。"
+"对于PulseAudio和PipeWire，'source'指音频源。默认为'auto'，即使用默认输出设备"
+"的监听源（所有PulseAudio输出设备均有对应的监听输入源）。"
 
 #: ../contents/ui/configCava.qml
-msgid "For pipewire 'source' will be the object name or object.serial of the device to capture from. Both input and output devices are supported."
-msgstr "对于PipeWire，'source'可为设备的对象名称或object.serial，支持输入和输出设备。"
+msgid ""
+"For pipewire 'source' will be the object name or object.serial of the device "
+"to capture from. Both input and output devices are supported."
+msgstr ""
+"对于PipeWire，'source'可为设备的对象名称或object.serial，支持输入和输出设备。"
 
 #: ../contents/ui/configCava.qml
 msgid "For alsa 'source' will be the capture device."
@@ -358,20 +377,35 @@ msgid "For fifo 'source' will be the path to fifo-file."
 msgstr "对于FIFO，'source'为FIFO文件路径。"
 
 #: ../contents/ui/configCava.qml
-msgid "For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address."
-msgstr "对于shmem，'source'为/squeezelite-AA:BB:CC:DD:EE:FF，其中'AA:BB:CC:DD:EE:FF'为squeezelite的MAC地址。"
+msgid ""
+"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:"
+"EE:FF' will be squeezelite's MAC address."
+msgstr ""
+"对于shmem，'source'为/squeezelite-AA:BB:CC:DD:EE:FF，其中'AA:BB:CC:DD:EE:"
+"FF'为squeezelite的MAC地址。"
 
 #: ../contents/ui/configCava.qml
-msgid "For sndio 'source' will be a raw recording audio descriptor or a monitoring sub-device, e.g. 'rsnd/2' or 'snd/1'. Default: 'default'."
-msgstr "对于sndio，'source'为原始录音音频描述符或监听子设备（如'rsnd/2'或'snd/1'）。默认值：'default'。"
+msgid ""
+"For sndio 'source' will be a raw recording audio descriptor or a monitoring "
+"sub-device, e.g. 'rsnd/2' or 'snd/1'. Default: 'default'."
+msgstr ""
+"对于sndio，'source'为原始录音音频描述符或监听子设备（如'rsnd/2'或'snd/1'）。"
+"默认值：'default'。"
 
 #: ../contents/ui/configCava.qml
-msgid "For oss 'source' will be the path to a audio device, e.g. '/dev/dsp2'. Default: '/dev/dsp', i.e. the default audio device."
-msgstr "对于OSS，'source'为音频设备路径（如'/dev/dsp2'）。默认值：'/dev/dsp'（即默认音频设备）。"
+msgid ""
+"For oss 'source' will be the path to a audio device, e.g. '/dev/dsp2'. "
+"Default: '/dev/dsp', i.e. the default audio device."
+msgstr ""
+"对于OSS，'source'为音频设备路径（如'/dev/dsp2'）。默认值：'/dev/dsp'（即默认"
+"音频设备）。"
 
 #: ../contents/ui/configCava.qml
-msgid "For jack 'source' will be the name of the JACK server to connect to, e.g. 'foobar'. Default: 'default'."
-msgstr "对于JACK，'source'为要连接的JACK服务器名称（如'foobar'）。默认值：'default'。"
+msgid ""
+"For jack 'source' will be the name of the JACK server to connect to, e.g. "
+"'foobar'. Default: 'default'."
+msgstr ""
+"对于JACK，'source'为要连接的JACK服务器名称（如'foobar'）。默认值：'default'。"
 
 #: ../contents/ui/configCava.qml
 msgid "Sample rate:"
@@ -406,24 +440,35 @@ msgid "Active:"
 msgstr "激活："
 
 #: ../contents/ui/configCava.qml
-msgid "Only for pipewire & cava>=0.10.6. Force the node to always process. Useful for monitoring sources when no other application is active."
-msgstr "仅适用于pipewire（CAVA ≥ 0.10.6）。强制节点始终处理音频，适用于无其他应用活跃时监听音频源。"
+msgid ""
+"Only for pipewire & cava>=0.10.6. Force the node to always process. Useful "
+"for monitoring sources when no other application is active."
+msgstr ""
+"仅适用于pipewire（CAVA ≥ 0.10.6）。强制节点始终处理音频，适用于无其他应用活跃"
+"时监听音频源。"
 
 #: ../contents/ui/configCava.qml
 msgid "Remix:"
 msgstr "混音："
 
 #: ../contents/ui/configCava.qml
-msgid "Only for pipewire & cava>=0.10.6. Allow to remix audio channels to match cava's channel count. Useful for surround sound."
-msgstr "仅适用于pipewire（CAVA ≥ 0.10.6）。允许重混音频声道以匹配CAVA的声道数，适用于环绕声。"
+msgid ""
+"Only for pipewire & cava>=0.10.6. Allow to remix audio channels to match "
+"cava's channel count. Useful for surround sound."
+msgstr ""
+"仅适用于pipewire（CAVA ≥ 0.10.6）。允许重混音频声道以匹配CAVA的声道数，适用于"
+"环绕声。"
 
 #: ../contents/ui/configCava.qml
 msgid "Virtual:"
 msgstr "虚拟："
 
 #: ../contents/ui/configCava.qml
-msgid "Only for pipewire & cava>=0.10.6. Set the node to virtual, to avoid recording notifications from the DE."
-msgstr "仅适用于pipewire（CAVA ≥ 0.10.6）。将节点设为虚拟，避免桌面环境弹出录音通知。"
+msgid ""
+"Only for pipewire & cava>=0.10.6. Set the node to virtual, to avoid "
+"recording notifications from the DE."
+msgstr ""
+"仅适用于pipewire（CAVA ≥ 0.10.6）。将节点设为虚拟，避免桌面环境弹出录音通知。"
 
 #: ../contents/ui/configCava.qml
 msgid "Output"
@@ -459,7 +504,8 @@ msgstr "降噪："
 
 #: ../contents/ui/configCava.qml
 msgid ""
-"The raw visualization is very noisy, this factor adjusts the integral and gravity filters to keep the signal smooth.\n"
+"The raw visualization is very noisy, this factor adjusts the integral and "
+"gravity filters to keep the signal smooth.\n"
 "100 will be very slow and smooth, 0 will be fast but noisy."
 msgstr ""
 "原始可视化噪声较大，此参数通过积分与重力滤波器使信号平滑。\n"
@@ -470,7 +516,8 @@ msgid "Monstercat:"
 msgstr "Monstercat平滑："
 
 #: ../contents/ui/configCava.qml
-msgid "Enable the so-called \"Monstercat smoothing\" with or without \"waves\"."
+msgid ""
+"Enable the so-called \"Monstercat smoothing\" with or without \"waves\"."
 msgstr "启用所谓的“Monstercat平滑”，可选择是否启用“波浪效果”。"
 
 #: ../contents/ui/configCava.qml
@@ -486,7 +533,9 @@ msgid "Enabled:"
 msgstr "启用："
 
 #: ../contents/ui/configCava.qml
-msgid "Adjust frequencies by a multiplication factor, more bands equals more precision."
+msgid ""
+"Adjust frequencies by a multiplication factor, more bands equals more "
+"precision."
 msgstr "通过乘法因子调整频率，频段越多，精度越高。"
 
 #: ../contents/ui/configGeneral.qml
