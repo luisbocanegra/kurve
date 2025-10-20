@@ -69,9 +69,16 @@ PlasmoidItem {
             return;
         }
         Qt.callLater(() => {
-            logger.debug("barCount:", barCount);
-            cava.barCount = barCount;
+            barCountDebounce.restart();
         });
+    }
+
+    Timer {
+        id: barCountDebounce
+        interval: 50
+        onTriggered: {
+            cava.barCount = main.barCount;
+        }
     }
 
     onEditModeChanged: {
