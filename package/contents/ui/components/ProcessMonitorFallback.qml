@@ -12,6 +12,7 @@ Item {
     property bool running: stdout !== ""
     property string pid: ""
     property bool isReady: false
+    property bool pendingRestart: false
 
     readonly property string toolsDir: Qt.resolvedUrl("../tools").toString().substring(7) + "/"
     readonly property string commandMonitorTool: "'" + toolsDir + "commandMonitor'"
@@ -55,6 +56,7 @@ Item {
                         root.pid = message.trim().split(" ")[1];
                         logger.debug(`started ${root.monitorCommand} with pid:`, root.pid);
                         root.stderr = "";
+                        root.pendingRestart = false;
                         return;
                     }
                     root.stdout = message.trim().replace(/"/g, "");
@@ -65,6 +67,7 @@ Item {
 
     function start() {
         logger.debug("ProcessMonitorFallback.start()");
+        pendingRestart = true;
         Utils.delay(100, () => {
             isReady = true;
             runCommand.run(root.monitorCommand);
@@ -79,6 +82,8 @@ Item {
     }
 
     function restart() {
+        if (pendingRestart)
+            return;
         logger.debug("ProcessMonitorFallback.restart()");
         stop();
         start();
