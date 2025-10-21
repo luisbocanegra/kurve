@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-10-15 10:24+0000\n"
+"POT-Creation-Date: 2025-10-21 00:45+0000\n"
 "PO-Revision-Date: 2025-08-04 14:03+0000\n"
 "Last-Translator: Mathias Mårtensson <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -555,10 +555,6 @@ msgstr ""
 "högre precision."
 
 #: ../contents/ui/configGeneral.qml
-msgid "Debug mode:"
-msgstr "Felsökningsläge:"
-
-#: ../contents/ui/configGeneral.qml
 msgid "Auto-hide when idle:"
 msgstr "Dölj automatiskt vid inaktivitet:"
 
@@ -598,6 +594,21 @@ msgstr "Inaktivera vänsterklick:"
 msgid "Applet popup will still be accessible from the right click menu."
 msgstr ""
 "Applet-popupen kommer fortfarande att vara tillgänglig från högerklicksmenyn."
+
+#: ../contents/ui/configGeneral.qml
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Debug mode:"
+msgstr "Felsökningsläge:"
+
+#: ../contents/ui/configGeneral.qml
+msgid ""
+"Print additional messages to the system log. To make it easier to spot "
+"sizing issues, this will also force full height to the first visualizer bar "
+"and displays a grid over it."
+msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "height"
