@@ -21,11 +21,6 @@ KCM.SimpleKCM {
         id: parentLayout
         Layout.fillWidth: true
 
-        CheckBox {
-            id: debugModeCheckbox
-            Kirigami.FormData.label: i18n("Debug mode:")
-        }
-
         RowLayout {
             Kirigami.FormData.label: i18n("Auto-hide when idle:")
             CheckBox {
@@ -98,6 +93,21 @@ KCM.SimpleKCM {
             }
             Kirigami.ContextualHelpButton {
                 toolTipText: i18n("Applet popup will still be accessible from the right click menu.")
+            }
+        }
+
+        Kirigami.Separator {
+            Kirigami.FormData.isSection: true
+            Kirigami.FormData.label: i18n("Troubleshooting")
+        }
+
+        RowLayout {
+            Kirigami.FormData.label: i18n("Debug mode:")
+            CheckBox {
+                id: debugModeCheckbox
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Print additional messages to the system log. To make it easier to spot sizing issues, this will also force full height to the first visualizer bar and displays a grid over it.")
             }
         }
     }
