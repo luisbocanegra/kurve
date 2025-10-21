@@ -483,8 +483,8 @@ msgid ""
 "'mono' outputs left to right lowest to highest frequencies.\n"
 "'stereo' mirrors both channels with low frequencies in center."
 msgstr ""
-"“单声道”从左至右显示从低到高的频率。\n"
-"“立体声”镜像显示双声道，低频位于中央。"
+"“单声道(mono)”从左到右显示从低到高的频率。\n"
+"“立体声(stereo)”镜像显示双声道，低频位于中央。"
 
 #: ../contents/ui/configCava.qml
 msgid "Mono channel:"
@@ -518,7 +518,7 @@ msgstr "Monstercat平滑："
 #: ../contents/ui/configCava.qml
 msgid ""
 "Enable the so-called \"Monstercat smoothing\" with or without \"waves\"."
-msgstr "启用所谓的“Monstercat平滑”，可选择是否启用“波浪效果”。"
+msgstr "启用被称为“Monstercat平滑”的效果，可选择是否同时启用“波浪效果”。"
 
 #: ../contents/ui/configCava.qml
 msgid "Waves"
@@ -580,7 +580,7 @@ msgstr "仍可通过右键菜单访问小部件弹出窗口。"
 
 #: ../contents/ui/configGeneral.qml
 msgid "Troubleshooting"
-msgstr ""
+msgstr "故障排除"
 
 #: ../contents/ui/configGeneral.qml
 msgid "Debug mode:"
@@ -592,7 +592,7 @@ msgid ""
 "sizing issues, this will also force full height to the first visualizer bar "
 "and displays a grid over it."
 msgstr ""
-
+"向系统日志输出额外信息。\n为便于发现尺寸问题，此选项还会强制将第一条频谱柱设为最大高度，并在整个区域上显示网格。"
 #: ../contents/ui/configVisualizer.qml
 msgid "height"
 msgstr "高度"
