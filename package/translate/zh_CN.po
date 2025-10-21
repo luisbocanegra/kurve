@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-10-15 10:24+0000\n"
+"POT-Creation-Date: 2025-10-21 00:45+0000\n"
 "PO-Revision-Date: 2025-10-17 11:30+0800\n"
 "Last-Translator: BCTaoTao <165790460+BCTaoTao@users.noreply.github.com>\n"
 "Language-Team: \n"
@@ -539,10 +539,6 @@ msgid ""
 msgstr "通过乘法因子调整频率，频段越多，精度越高。"
 
 #: ../contents/ui/configGeneral.qml
-msgid "Debug mode:"
-msgstr "调试模式："
-
-#: ../contents/ui/configGeneral.qml
 msgid "Auto-hide when idle:"
 msgstr "空闲时自动隐藏："
 
@@ -581,6 +577,21 @@ msgstr "禁用左键点击："
 #: ../contents/ui/configGeneral.qml
 msgid "Applet popup will still be accessible from the right click menu."
 msgstr "仍可通过右键菜单访问小部件弹出窗口。"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Debug mode:"
+msgstr "调试模式："
+
+#: ../contents/ui/configGeneral.qml
+msgid ""
+"Print additional messages to the system log. To make it easier to spot "
+"sizing issues, this will also force full height to the first visualizer bar "
+"and displays a grid over it."
+msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "height"
