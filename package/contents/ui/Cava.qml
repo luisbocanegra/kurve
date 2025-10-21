@@ -31,6 +31,7 @@ Item {
     property bool idleCheck
     property int idleTimer
     property int cavaSleepTimer
+    property int asciiMaxRange: 100
     readonly property bool hasError: error !== "" || loadingFailed
     readonly property string error: process.stderr
     readonly property list<string> loadingErrors: process.loadingErrors
@@ -71,7 +72,7 @@ reverse=${root.reverse}
 method=raw
 raw_target=/dev/stdout
 data_format=ascii
-ascii_max_range=100
+ascii_max_range=${asciiMaxRange}
 [smoothing]
 noise_reduction=${root.noiseReduction}
 monstercat=${root.monstercat}

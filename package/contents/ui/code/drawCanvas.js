@@ -4,7 +4,8 @@
  * @param {Canvas} canvas QML Type
  */
 function bars(ctx, canvas) {
-  const height = canvas.height;
+  const canvasHeight = canvas.height;
+  const maxValue = canvasHeight;
   const barCount = canvas.barCount;
   const roundedBars = canvas.roundedBars;
   const barWidth = canvas.barWidth;
@@ -17,28 +18,28 @@ function bars(ctx, canvas) {
 
   let x = barWidth / 2;
 
-  const centerY = height / 2;
+  const centerY = canvasHeight / 2;
   for (let i = 0; i < barCount; i++) {
-    const value = Math.max(1, Math.min(100, values[i]));
+    const value = Math.max(1, Math.min(maxValue, values[i]));
 
     let barHeight;
     let yBottom;
     let yTop;
     if (centeredBars) {
       if (roundedBars) {
-        barHeight = (value / 100) * ((height - barWidth) / 2);
+        barHeight = (value / maxValue) * ((canvasHeight - barWidth) / 2);
       } else {
-        barHeight = (value / 100) * (height / 2);
+        barHeight = (value / maxValue) * (canvasHeight / 2);
       }
       yBottom = centerY - barHeight;
       yTop = yBottom + (barHeight * 2);
     } else {
       if (roundedBars) {
-        barHeight = (value / 100) * (height - barWidth);
-        yBottom = height - radiusOffset;
+        barHeight = (value / maxValue) * (canvasHeight - barWidth);
+        yBottom = canvasHeight - radiusOffset;
       } else {
-        barHeight = (value / 100) * height;
-        yBottom = height;
+        barHeight = (value / maxValue) * canvasHeight;
+        yBottom = canvasHeight;
       }
       yTop = yBottom - barHeight;
     }
@@ -57,8 +58,9 @@ function bars(ctx, canvas) {
  * @param {Canvas} canvas QML Type
  */
 function wave(ctx, canvas) {
-  const width = canvas.width;
-  const height = canvas.height;
+  const canvasWidth = canvas.width;
+  const canvasHeight = canvas.height;
+  const maxValue = canvasHeight;
   const barCount = canvas.barCount;
   const roundedBars = canvas.roundedBars;
   const barWidth = canvas.barWidth;
@@ -73,18 +75,18 @@ function wave(ctx, canvas) {
   ctx.lineCap = roundedBars ? "round" : "butt";
   ctx.lineWidth = barWidth;
 
-  const step = width / (barCount - 1);
-  const yBottom = centeredBars ? (height / 2) : (height - barWidth / 2);
+  const step = canvasWidth / (barCount - 1);
+  const yBottom = centeredBars ? (canvasHeight / 2) : (canvasHeight - barWidth / 2);
 
   canvas.gradientHeight = yBottom;
 
   ctx.beginPath();
   let prevX = 0;
-  let prevY = yBottom - Math.max(0, Math.min(100, values[0])) / 100 * yBottom;
+  let prevY = yBottom - Math.max(0, Math.min(maxValue, values[0])) / maxValue * yBottom;
   ctx.lineTo(prevX - 0.5, prevY);
 
   for (let i = 1; i < barCount; i++) {
-    const norm = Math.max(0, Math.min(100, values[i])) / 100;
+    const norm = Math.max(0, Math.min(maxValue, values[i])) / maxValue;
     const x = i * step;
     const y = yBottom - norm * yBottom;
     const midX = (prevX + x) / 2;
@@ -94,20 +96,20 @@ function wave(ctx, canvas) {
     prevY = y;
   }
 
-  ctx.lineTo(width + 0.5, prevY);
+  ctx.lineTo(canvasWidth + 0.5, prevY);
   ctx.stroke();
 
   if (fillWave && waveFillGradient) {
-    const yBottom = centeredBars ? (height / 2 + barWidth / 2) : height;
+    const yBottom = centeredBars ? (canvasHeight / 2 + barWidth / 2) : canvasHeight;
     ctx.beginPath();
     ctx.moveTo(0, yBottom);
 
     prevX = 0;
-    prevY = yBottom - Math.max(0, Math.min(100, values[0])) / 100 * yBottom;
+    prevY = yBottom - Math.max(0, Math.min(maxValue, values[0])) / maxValue * yBottom;
     ctx.lineTo(prevX, prevY);
 
     for (let i = 1; i < barCount; i++) {
-      const norm = Math.max(0, Math.min(100, values[i])) / 100;
+      const norm = Math.max(0, Math.min(maxValue, values[i])) / maxValue;
       const x = i * step;
       const y = yBottom - norm * yBottom;
       const midX = (prevX + x) / 2;
@@ -117,8 +119,8 @@ function wave(ctx, canvas) {
       prevY = y;
     }
 
-    ctx.lineTo(width, prevY);
-    ctx.lineTo(width, yBottom);
+    ctx.lineTo(canvasWidth, prevY);
+    ctx.lineTo(canvasWidth, yBottom);
     ctx.closePath();
     ctx.fillStyle = waveFillGradient;
     ctx.fill();

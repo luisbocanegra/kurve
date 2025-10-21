@@ -43,6 +43,8 @@ PlasmoidItem {
         return bars;
     }
 
+    property int asciiMaxRange: [Enum.Orientation.Left, Enum.Orientation.Right].includes(Plasmoid.configuration.orientation) ? main.width : main.height
+
     property var logger: Logger.create(Plasmoid.configuration.debugMode ? LoggingCategory.Debug : LoggingCategory.Info)
 
     property bool hideWhenIdle: Plasmoid.configuration.hideWhenIdle
@@ -64,20 +66,32 @@ PlasmoidItem {
         logger.debug("expanded:", expanded);
         Utils.delay(1000, updateStatus, main);
     }
+
     onBarCountChanged: {
         if (editMode && stopCava) {
             return;
         }
         Qt.callLater(() => {
-            barCountDebounce.restart();
+            resizeDebounce.restart();
+        });
+    }
+
+    onAsciiMaxRangeChanged: {
+        if (editMode && stopCava) {
+            return;
+        }
+        Qt.callLater(() => {
+            resizeDebounce.restart();
         });
     }
 
     Timer {
-        id: barCountDebounce
+        id: resizeDebounce
         interval: 50
         onTriggered: {
             cava.barCount = main.barCount;
+            cava.asciiMaxRange = main.asciiMaxRange;
+            logger.debug("barCount:", barCount, "asciiMaxRange:", asciiMaxRange);
         }
     }
 
