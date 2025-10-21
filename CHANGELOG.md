@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.2.0](https://github.com/luisbocanegra/kurve/compare/v2.1.0...v2.2.0) (2025-10-21)
+
+
+### Features
+
+* allow setting range for hue color source ([98c5cb8](https://github.com/luisbocanegra/kurve/commit/98c5cb80a674d4269a6857a6fcdd33358dd63637))
+* describe the things the debug mode does ([2d56bc7](https://github.com/luisbocanegra/kurve/commit/2d56bc74da17340a04adef203f97993651f7f956))
+* smoother visualizer when the widget is taller than 100px ([2787335](https://github.com/luisbocanegra/kurve/commit/278733516417c8df6c04558e7103b06fc342cd7d))
+
+
+### Bug Fixes
+
+* widget resize creating multiple cava instances in fallback mode ([fec989f](https://github.com/luisbocanegra/kurve/commit/fec989fa5372d8534665b6e49a949f226b740c09))
+
 ## [2.1.0](https://github.com/luisbocanegra/kurve/compare/v2.0.0...v2.1.0) (2025-10-12)
 
 
