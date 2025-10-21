@@ -62,7 +62,7 @@ Item {
         property var values: {
             if (root.debugMode) {
                 let copy = root.values.slice();
-                copy[0] = 100;
+                copy[0] = height;
                 return copy;
             }
             return root.values;
