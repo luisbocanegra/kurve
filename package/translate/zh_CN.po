@@ -592,7 +592,10 @@ msgid ""
 "sizing issues, this will also force full height to the first visualizer bar "
 "and displays a grid over it."
 msgstr ""
-"向系统日志输出额外信息。\n为便于发现尺寸问题，此选项还会强制将第一条频谱柱设为最大高度，并在整个区域上显示网格。"
+"向系统日志输出额外信息。\n"
+"为便于发现尺寸问题，此选项还会强制将第一条频谱柱设为最大高度，并在整个区域上"
+"显示网格。"
+
 #: ../contents/ui/configVisualizer.qml
 msgid "height"
 msgstr "高度"
