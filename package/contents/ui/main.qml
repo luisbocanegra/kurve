@@ -107,6 +107,7 @@ PlasmoidItem {
         monstercat: Plasmoid.configuration.monstercat
         waves: Plasmoid.configuration.waves
         autoSensitivity: Plasmoid.configuration.autoSensitivity
+        sensitivityEnabled: Plasmoid.configuration.sensitivityEnabled
         sensitivity: Plasmoid.configuration.sensitivity
         lowerCutoffFreq: Plasmoid.configuration.lowerCutoffFreq
         higherCutoffFreq: Plasmoid.configuration.higherCutoffFreq

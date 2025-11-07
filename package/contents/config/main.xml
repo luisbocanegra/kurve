@@ -25,6 +25,9 @@
     <entry name="autoSensitivity" type="Bool">
       <default>true</default>
     </entry>
+    <entry name="sensitivityEnabled" type="Bool">
+      <default>true</default>
+    </entry>
     <entry name="sensitivity" type="Int">
       <default>100</default>
     </entry>

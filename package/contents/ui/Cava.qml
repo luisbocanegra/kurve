@@ -9,6 +9,7 @@ Item {
     property int monstercat // boolean
     property int waves // boolean
     property int autoSensitivity // boolean
+    property bool sensitivityEnabled
     property int sensitivity
     property int lowerCutoffFreq
     property int higherCutoffFreq
@@ -44,13 +45,15 @@ Item {
 framerate=${root.framerate}
 bars=${root.barCount}
 autosens=${root.autoSensitivity}
-sensitivity=${root.sensitivity}
 lower_cutoff_freq=${root.lowerCutoffFreq}
 higher_cutoff_freq=${root.higherCutoffFreq}
 sleep_timer=${root.cavaSleepTimer}
-[input]
 `;
 
+        if (root.sensitivityEnabled) {
+            config += `sensitivity=${root.sensitivity}\n`;
+        }
+        config += "[input]\n";
         if (root.inputMethod !== "") {
             config += `method=${root.inputMethod}\n`;
         }
