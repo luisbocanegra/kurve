@@ -12,6 +12,7 @@ KCM.SimpleKCM {
     property alias cfg_barCount: barCountSpinbox.value
     property alias cfg_framerate: framerateSpinbox.value
     property alias cfg_autoSensitivity: autoSensitivityCheckbox.checked
+    property alias cfg_sensitivityEnabled: sensitivityEnabled.checked
     property alias cfg_sensitivity: sensitivitySpinbox.value
     property alias cfg_lowerCutoffFreq: lowerCutoffFreqSpinbox.value
     property alias cfg_higherCutoffFreq: higherCutoffFreqSpinbox.value
@@ -101,10 +102,14 @@ KCM.SimpleKCM {
 
             RowLayout {
                 Kirigami.FormData.label: i18n("Sensitivity:")
+                CheckBox {
+                    id: sensitivityEnabled
+                }
                 SpinBox {
                     id: sensitivitySpinbox
                     from: 1
                     to: 999
+                    enabled: sensitivityEnabled.checked
                 }
                 Kirigami.ContextualHelpButton {
                     toolTipText: i18n("Manual sensitivity in %.\nIf autosens is enabled, this will only be the initial value")
