@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
 "POT-Creation-Date: 2025-10-21 00:45+0000\n"
-"PO-Revision-Date: 2025-08-04 14:03+0000\n"
+"PO-Revision-Date: 2025-11-07 15:03+0000\n"
 "Last-Translator: Mathias Mårtensson <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: sv\n"
@@ -220,7 +220,7 @@ msgstr "Färger:"
 
 #: ../contents/ui/components/FormColors.qml
 msgid "Range:"
-msgstr ""
+msgstr "Räckvidd:"
 
 #: ../contents/ui/components/FormColors.qml ../contents/ui/configVisualizer.qml
 msgid "Orientation:"
@@ -244,7 +244,7 @@ msgstr "Omvänd:"
 
 #: ../contents/ui/components/FormColors.qml
 msgid "Display colors the other way around"
-msgstr ""
+msgstr "Visa färger i omvänd ordning"
 
 #: ../contents/ui/components/FormColors.qml
 msgid "Alpha:"
@@ -597,7 +597,7 @@ msgstr ""
 
 #: ../contents/ui/configGeneral.qml
 msgid "Troubleshooting"
-msgstr ""
+msgstr "Felsökning"
 
 #: ../contents/ui/configGeneral.qml
 msgid "Debug mode:"
@@ -609,6 +609,9 @@ msgid ""
 "sizing issues, this will also force full height to the first visualizer bar "
 "and displays a grid over it."
 msgstr ""
+"Skriv ut ytterligare meddelanden till systemloggen. För att göra det lättare att upptäcka "
+"storleksproblem, detta kommer också att tvinga fram full höjd på det första visualiseringsfältet "
+"och visar ett rutnät över det."
 
 #: ../contents/ui/configVisualizer.qml
 msgid "height"
@@ -672,7 +675,7 @@ msgstr "Rundade band:"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Line width:"
-msgstr ""
+msgstr "Linjebredd:"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Bar width:"
