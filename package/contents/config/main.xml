@@ -26,7 +26,7 @@
       <default>true</default>
     </entry>
     <entry name="sensitivityEnabled" type="Bool">
-      <default>true</default>
+      <default>false</default>
     </entry>
     <entry name="sensitivity" type="Int">
       <default>100</default>
