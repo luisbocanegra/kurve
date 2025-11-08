@@ -570,7 +570,7 @@ Kirigami.FormLayout {
         visible: root.config.sourceType === Enum.ColorSourceType.Hue
         Kirigami.FormData.label: i18n("Range:")
         Kirigami.FormData.buddyFor: hue
-        RowLayout{
+        RowLayout {
             id: hue
             SpinBox {
                 id: hueStart
@@ -579,7 +579,7 @@ Kirigami.FormLayout {
                 stepSize: 1
                 onValueModified: {
                     if (value >= hueEnd.value - 1) {
-                        value = hueEnd.value - 1
+                        value = hueEnd.value - 1;
                     }
                     root.config.hueStart = value;
                     root.updateConfig();
@@ -596,7 +596,7 @@ Kirigami.FormLayout {
                 stepSize: 1
                 onValueModified: {
                     if (value <= hueStart.value + 1) {
-                        value = hueStart.value + 1
+                        value = hueStart.value + 1;
                     }
                     root.config.hueEnd = value;
                     root.updateConfig();
@@ -614,7 +614,7 @@ Kirigami.FormLayout {
                     let c = Qt.hsla(start + ((i / canvas.width) * (end - start)), 0.8, 0.7, 1.0);
                     colors.push(c);
                 }
-                return colors
+                return colors;
             }
             property var gradient: {
                 if (canvas.available) {
@@ -729,9 +729,9 @@ Kirigami.FormLayout {
             id: saturationSpinbox
             from: 0 * multiplier
             to: 1 * multiplier
-            value: (root.config.saturationValue ?? 0) * multiplier
+            value: (root.config.saturation ?? 0) * multiplier
             onValueModified: {
-                root.config.saturationValue = value / saturationSpinbox.multiplier;
+                root.config.saturation = value / saturationSpinbox.multiplier;
                 root.updateConfig();
             }
         }
@@ -755,9 +755,9 @@ Kirigami.FormLayout {
             id: lightnessSpinbox
             from: 0 * multiplier
             to: 1 * multiplier
-            value: (root.config.lightnessValue ?? 0) * multiplier
+            value: (root.config.lightness ?? 0) * multiplier
             onValueModified: {
-                root.config.lightnessValue = value / lightnessSpinbox.multiplier;
+                root.config.lightness = value / lightnessSpinbox.multiplier;
                 root.updateConfig();
             }
         }
