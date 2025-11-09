@@ -18,6 +18,8 @@ KCM.SimpleKCM {
     // fill panel thickness
     property alias cfg_fillPanel: fillPanelCheckbox.checked
     property int cfg_visualizerStyle
+    property alias cfg_circleMode: circleMode.checked
+    property real cfg_circleModeSize
     property string cfg_barColors
     property string cfg_waveFillColors
     property alias cfg_fillWave: fillWaveCheckbox.checked
@@ -67,6 +69,22 @@ KCM.SimpleKCM {
                 id: fillWaveCheckbox
                 text: i18n("Fill wave")
                 visible: root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave
+            }
+
+            CheckBox {
+                id: circleMode
+                Kirigami.FormData.label: i18n("Circle mode:")
+            }
+
+            Components.DoubleSpinBox {
+                id: circleModeSize
+                Kirigami.FormData.label: i18n("Circle size:")
+                from: 0 * multiplier
+                to: 0.99 * multiplier
+                value: cfg_circleModeSize * multiplier
+                onValueModified: {
+                    cfg_circleModeSize = value / circleModeSize.multiplier;
+                }
             }
 
             ComboBox {

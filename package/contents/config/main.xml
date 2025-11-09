@@ -95,6 +95,12 @@
     <entry name="visualizerStyle" type="Int">
       <default>1</default>
     </entry>
+    <entry name="circleMode" type="Bool">
+      <default>false</default>
+    </entry>
+    <entry name="circleModeSize" type="Double">
+      <default>0.5</default>
+    </entry>
     <entry name="fillWave" type="Bool">
       <default>true</default>
     </entry>
