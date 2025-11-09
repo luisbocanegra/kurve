@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-10-21 00:45+0000\n"
+"POT-Creation-Date: 2025-11-09 23:32+0000\n"
 "PO-Revision-Date: 2025-08-27 11:03+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -628,6 +628,14 @@ msgstr "Golf"
 #: ../contents/ui/configVisualizer.qml
 msgid "Fill wave"
 msgstr "Opgevulde golf"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Circle mode:"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Circle size:"
+msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Top"

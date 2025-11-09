@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-10-21 00:45+0000\n"
+"POT-Creation-Date: 2025-11-09 23:32+0000\n"
 "PO-Revision-Date: 2025-10-17 11:30+0800\n"
 "Last-Translator: BCTaoTao <165790460+BCTaoTao@users.noreply.github.com>\n"
 "Language-Team: \n"
@@ -619,6 +619,14 @@ msgstr "波形"
 #: ../contents/ui/configVisualizer.qml
 msgid "Fill wave"
 msgstr "填充波形"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Circle mode:"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Circle size:"
+msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Top"
