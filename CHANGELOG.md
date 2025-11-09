@@ -1,5 +1,22 @@
 # Changelog
 
+## [3.0.0](https://github.com/luisbocanegra/kurve/compare/v2.2.0...v3.0.0) (2025-11-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* If you are using a custom sensitivity value you will need to enable the feature in the feature in the CAVA tab
+
+### Features
+
+* add option to disable sensitivity and disable it by default ([0f1cc18](https://github.com/luisbocanegra/kurve/commit/0f1cc182e315c85db7e4fc00dbb74bd1d98580ed))
+* circle mode for Bars and Wave styles ([cad7a46](https://github.com/luisbocanegra/kurve/commit/cad7a46bba8e5b0e757e5f095a31a4de5634f775))
+
+
+### Bug Fixes
+
+* color saturation and lightness not working ([d0d9072](https://github.com/luisbocanegra/kurve/commit/d0d907250253d99d0e39c487616e44998c664543))
+
 ## [2.2.0](https://github.com/luisbocanegra/kurve/compare/v2.1.0...v2.2.0) (2025-10-21)
 
 
