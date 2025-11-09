@@ -27,6 +27,8 @@ Item {
     property bool centeredBars: Plasmoid.configuration.centeredBars
     property bool roundedBars: Plasmoid.configuration.roundedBars
     property int visualizerStyle: Plasmoid.configuration.visualizerStyle
+    property bool circleMode: Plasmoid.configuration.circleMode
+    property real circleModeSize: Plasmoid.configuration.circleModeSize
     property bool fillWave: Plasmoid.configuration.fillWave
     property int orientation: Plasmoid.configuration.orientation
     property bool disableLeftClick: Plasmoid.configuration.disableLeftClick
@@ -77,6 +79,8 @@ Item {
         Visualizer {
             id: visualizer
             visualizerStyle: root.visualizerStyle
+            circleMode: root.circleMode
+            circleModeSize: root.circleModeSize
             barWidth: root.barWidth
             barGap: root.barGap
             centeredBars: root.centeredBars

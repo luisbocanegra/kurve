@@ -69,9 +69,14 @@ function hexToQtColor(hex) {
   return rgbToQtColor(rgb);
 }
 
-function buildCanvasGradient(ctx, smooth, gradientStops, orientation, height, width) {
+function buildCanvasGradient(ctx, smooth, gradientStops, orientation, height, width, circleMode = false) {
   let gradient;
-  if (orientation === 0) {
+  if (circleMode) {
+    const centerX = width / 2;
+    const centerY = height / 2;
+    const radius = Math.min(width, height) / 2;
+    gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
+  } else if (orientation === 0) {
     gradient = ctx.createLinearGradient(0, 0, width, 0);
   } else {
     gradient = ctx.createLinearGradient(0, height, 0, 0);
@@ -83,8 +88,8 @@ function buildCanvasGradient(ctx, smooth, gradientStops, orientation, height, wi
     gradient.addColorStop(position, color);
     if (!smooth && i > 0 && i < gradientStops.length) {
       let prevStop = gradientStops[i - 1];
-      let color = prevStop.color ?? prevStop;
-      gradient.addColorStop(Math.max(position - 0.0001, 0), color);
+      let prevColor = prevStop.color ?? prevStop;
+      gradient.addColorStop(Math.max(position - 0.0001, 0), prevColor);
     }
   }
   return gradient;
