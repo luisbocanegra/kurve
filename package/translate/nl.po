@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
 "POT-Creation-Date: 2025-11-09 23:32+0000\n"
-"PO-Revision-Date: 2025-08-27 11:03+0200\n"
+"PO-Revision-Date: 2025-11-12 10:33+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #: ../metadata.json
 msgid "Kurve"
@@ -219,7 +219,7 @@ msgstr "Kleuren:"
 
 #: ../contents/ui/components/FormColors.qml
 msgid "Range:"
-msgstr ""
+msgstr "Bereik:"
 
 #: ../contents/ui/components/FormColors.qml ../contents/ui/configVisualizer.qml
 msgid "Orientation:"
@@ -243,7 +243,7 @@ msgstr "Verwisselen:"
 
 #: ../contents/ui/components/FormColors.qml
 msgid "Display colors the other way around"
-msgstr ""
+msgstr "Kleuren omkeren"
 
 #: ../contents/ui/components/FormColors.qml
 msgid "Alpha:"
@@ -390,11 +390,11 @@ msgstr "Voor fifo zal ‘source’ de locatie van het fifo-bestand zijn."
 
 #: ../contents/ui/configCava.qml
 msgid ""
-"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:"
-"EE:FF' will be squeezelite's MAC address."
+"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where "
+"'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address."
 msgstr ""
-"Voor shmem zal ‘source’ /squeezelite-AA:BB:CC:DD:EE:FF zijn, waar ‘AA:BB:CC:"
-"DD:EE:FF’ staat voor squeezelites MAC-adres."
+"Voor shmem zal ‘source’ /squeezelite-AA:BB:CC:DD:EE:FF zijn, waar "
+"‘AA:BB:CC:DD:EE:FF’ staat voor squeezelites MAC-adres."
 
 #: ../contents/ui/configCava.qml
 msgid ""
@@ -426,7 +426,7 @@ msgstr "Samplesnelheid:"
 
 #: ../contents/ui/configCava.qml
 msgid "Only for fifo, pipewire, sndio, oss"
-msgstr ""
+msgstr "Alleen van toepassing op fifo, pipewire, sndio en oss"
 
 #: ../contents/ui/configCava.qml
 msgid "Sample bits:"
@@ -438,7 +438,7 @@ msgstr "Aantal kanalen:"
 
 #: ../contents/ui/configCava.qml
 msgid "Only for pipewire & cava>=0.10.6, sndio, oss, jack"
-msgstr ""
+msgstr "Alleen van toepassing op pipewire en cava>=0.10.6, sndio, oss en jack"
 
 #: ../contents/ui/configCava.qml
 msgid "Auto connect:"
@@ -446,37 +446,45 @@ msgstr "Automatisch verbinden:"
 
 #: ../contents/ui/configCava.qml
 msgid "Only for jack"
-msgstr ""
+msgstr "Alleen van toepassing op jack"
 
 #: ../contents/ui/configCava.qml
 msgid "Active:"
-msgstr ""
+msgstr "Actief:"
 
 #: ../contents/ui/configCava.qml
 msgid ""
 "Only for pipewire & cava>=0.10.6. Force the node to always process. Useful "
 "for monitoring sources when no other application is active."
 msgstr ""
+"Alleen van toepassing op pipewire en cava>=0.10.6. Dwing het bijwerken van "
+"het knooppunt af. Handig voor het monitoren als er geen ander programma "
+"geopend is."
 
 #: ../contents/ui/configCava.qml
 msgid "Remix:"
-msgstr ""
+msgstr "Remixen:"
 
 #: ../contents/ui/configCava.qml
 msgid ""
 "Only for pipewire & cava>=0.10.6. Allow to remix audio channels to match "
 "cava's channel count. Useful for surround sound."
 msgstr ""
+"Alleen van toepassing op pipewire en cava>=0.10.6. Sta het remixen van "
+"audiokanalen toe om overeen te komen met cava's kanalen. Handig voor "
+"surroundsound."
 
 #: ../contents/ui/configCava.qml
 msgid "Virtual:"
-msgstr ""
+msgstr "Virtueel:"
 
 #: ../contents/ui/configCava.qml
 msgid ""
 "Only for pipewire & cava>=0.10.6. Set the node to virtual, to avoid "
 "recording notifications from the DE."
 msgstr ""
+"Alleen van toepassing op pipewire en cava>=0.10.6. Maak het knooppunt "
+"virtueel om opnamemeldingen van de werkomgeving te onderdrukken."
 
 #: ../contents/ui/configCava.qml
 msgid "Output"
@@ -542,13 +550,15 @@ msgstr "Equalizer"
 
 #: ../contents/ui/configCava.qml
 msgid "Enabled:"
-msgstr ""
+msgstr "Ingeschakeld:"
 
 #: ../contents/ui/configCava.qml
 msgid ""
 "Adjust frequencies by a multiplication factor, more bands equals more "
 "precision."
 msgstr ""
+"Pas frequenties aan de hand van een vermenigvuldigingsfactoor aan. Meer "
+"banden = preciezer."
 
 #: ../contents/ui/configGeneral.qml
 msgid "Auto-hide when idle:"
@@ -584,15 +594,15 @@ msgstr "Schakel de hulpballon uit de de widgetnaam en -beschrijving toont."
 
 #: ../contents/ui/configGeneral.qml
 msgid "Disable left click:"
-msgstr ""
+msgstr "Linksklikken uitschakelen:"
 
 #: ../contents/ui/configGeneral.qml
 msgid "Applet popup will still be accessible from the right click menu."
-msgstr ""
+msgstr "De pop-up is nog toegankelijk via het rechtermuisknopmenu."
 
 #: ../contents/ui/configGeneral.qml
 msgid "Troubleshooting"
-msgstr ""
+msgstr "Probleemoplossing"
 
 #: ../contents/ui/configGeneral.qml
 msgid "Debug mode:"
@@ -604,6 +614,9 @@ msgid ""
 "sizing issues, this will also force full height to the first visualizer bar "
 "and displays a grid over it."
 msgstr ""
+"Toon aanvullende berichten in het systeemlogboek. Ook wordt de eerste "
+"visualisatiebalk groter gemaakt en voorzien van een rooster, zodat problemen "
+"makkelijker te zien zijn."
 
 #: ../contents/ui/configVisualizer.qml
 msgid "height"
@@ -631,11 +644,11 @@ msgstr "Opgevulde golf"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Circle mode:"
-msgstr ""
+msgstr "Cirkelmodus:"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Circle size:"
-msgstr ""
+msgstr "Cirkelomvang:"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Top"
@@ -675,7 +688,7 @@ msgstr "Afgeronde balken:"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Line width:"
-msgstr ""
+msgstr "Lijnbreedte:"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Bar width:"
@@ -699,7 +712,7 @@ msgstr "Opgevulde golfkleur"
 
 #: ../contents/ui/main.qml
 msgid "Show support information"
-msgstr ""
+msgstr "Ondersteuningsinformatie tonen"
 
 #~ msgid ""
 #~ "The options 'sample_rate', 'sample_bits', 'channels' and 'autoconnect' "
