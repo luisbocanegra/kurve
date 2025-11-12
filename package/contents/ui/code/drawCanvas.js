@@ -15,6 +15,14 @@ function wave(ctx, canvas, circleMode = false) {
   }
 }
 
+function blocks(ctx, canvas, circleMode = false) {
+  if (circleMode) {
+    blocksCircle(ctx, canvas);
+  } else {
+    blocksRect(ctx, canvas);
+  }
+}
+
 /**
  * Bars
  * @param {Context2D} ctx QML Type (canvas.getContext('2d'))
@@ -263,5 +271,86 @@ function waveCircle(ctx, canvas) {
     ctx.closePath();
     ctx.fillStyle = waveFillGradient;
     ctx.fill();
+  }
+}
+
+/**
+ * Blocks
+ * @param {Context2D} ctx QML Type (canvas.getContext('2d'))
+ * @param {Canvas} canvas QML Type
+ */
+function blocksRect(ctx, canvas) {
+  const canvasHeight = canvas.height;
+  const barCount = canvas.barCount;
+  const blockWidth = canvas.barWidth;
+  const blockHeight = canvas.blockHeight;
+  const blockSpacing = canvas.blockSpacing;
+  const totalRows = Math.floor((canvasHeight + blockSpacing) / (blockHeight + blockSpacing));
+  const columnSpacing = canvas.spacing;
+  const values = canvas.values || [];
+
+  for (let col = 0; col < barCount; col++) {
+    let value = values[col];
+    const activeRows = Math.floor((value / canvasHeight) * totalRows);
+
+    for (let row = 0; row < totalRows; row++) {
+      const x = col * (blockWidth + columnSpacing);
+      const y = canvasHeight - (row + 1) * blockHeight - row * blockSpacing;
+
+      if (row < activeRows) {
+        ctx.fillStyle = canvas.gradient;
+        ctx.fillRect(x, y, blockWidth, blockHeight);
+      }
+      else if (canvas.drawInactiveBlocks) {
+        ctx.fillStyle = canvas.inactiveBlockGradient;
+        ctx.fillRect(x, y, blockWidth, blockHeight);
+      }
+    }
+  }
+}
+
+function blocksCircle(ctx, canvas) {
+  const canvasWidth = canvas.width;
+  const canvasHeight = canvas.height;
+  const barCount = canvas.barCount;
+  const blockWidth = canvas.barWidth;
+  const circleSize = canvas.circleModeSize;
+  const innerRadius = (Math.min(canvasWidth, canvasHeight) / 2) * circleSize;
+  const blockHeight = canvas.blockHeight;
+  const blockSpacing = canvas.blockSpacing;
+  const totalRows = Math.floor(((Math.min(canvasWidth, canvasHeight) / 2) - innerRadius + blockSpacing) / (blockHeight + blockSpacing));
+  const angleStep = (2 * Math.PI) / barCount;
+  const values = canvas.values || [];
+
+  const centerX = canvasWidth / 2;
+  const centerY = canvasHeight / 2;
+
+  for (let col = 0; col < barCount; col++) {
+    let value = values[col];
+    const activeRows = Math.floor((value / (Math.min(canvasWidth, canvasHeight) / 2)) * totalRows);
+
+    for (let row = 0; row < totalRows; row++) {
+      const radius = innerRadius + row * (blockHeight + blockSpacing) + blockHeight / 2;
+      const angle = col * angleStep - Math.PI / 2;
+
+      const x = centerX + Math.cos(angle) * radius - (blockHeight / 2);
+      const y = centerY + Math.sin(angle) * radius - (blockHeight / 2);
+
+      ctx.save();
+      ctx.translate(x + blockHeight / 2, y + blockHeight / 2);
+      ctx.rotate(angle + Math.PI / 2);
+      ctx.translate(-(x + blockHeight / 2), -(y + blockHeight / 2));
+
+      if (row < activeRows) {
+        ctx.fillStyle = canvas.gradient;
+        ctx.fillRect(x, y, blockWidth, blockHeight);
+      }
+      else if (canvas.drawInactiveBlocks) {
+        ctx.fillStyle = canvas.inactiveBlockGradient;
+        ctx.fillRect(x, y, blockWidth, blockHeight);
+      }
+
+      ctx.restore();
+    }
   }
 }

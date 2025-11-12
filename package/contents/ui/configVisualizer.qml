@@ -13,6 +13,8 @@ KCM.SimpleKCM {
     id: root
     property alias cfg_barGap: barGapSpinbox.value
     property alias cfg_barWidth: barWidthSpinbox.value
+    property alias cfg_blockHeight: blockHeightSpinbox.value
+    property alias cfg_blockSpacing: blockSpacing.value
     property alias cfg_centeredBars: centeredBarsCheckbox.checked
     property alias cfg_roundedBars: roundedBarsCheckbox.checked
     // fill panel thickness
@@ -22,6 +24,8 @@ KCM.SimpleKCM {
     property real cfg_circleModeSize
     property string cfg_barColors
     property string cfg_waveFillColors
+    property string cfg_inactiveBlockColors
+    property alias cfg_drawInactiveBlocks: drawInactiveBlocks.checked
     property alias cfg_fillWave: fillWaveCheckbox.checked
     // take all the available space in the panel
     property alias cfg_expanding: expandingCheckbox.checked
@@ -55,7 +59,11 @@ KCM.SimpleKCM {
                     {
                         "label": i18n("Wave"),
                         "value": Enum.VisualizerStyles.Wave
-                    }
+                    },
+                    {
+                        "label": i18n("Blocks"),
+                        "value": Enum.VisualizerStyles.Blocks
+                    },
                 ]
                 onActivated: {
                     root.cfg_visualizerStyle = currentValue;
@@ -68,7 +76,13 @@ KCM.SimpleKCM {
             CheckBox {
                 id: fillWaveCheckbox
                 text: i18n("Fill wave")
-                visible: root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave
+                enabled: root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave
+            }
+
+            CheckBox {
+                id: drawInactiveBlocks
+                text: i18n("Draw inactive blocks")
+                enabled: root.cfg_visualizerStyle === Enum.VisualizerStyles.Blocks
             }
 
             CheckBox {
@@ -158,6 +172,22 @@ KCM.SimpleKCM {
                 from: root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave ? 1 : 0
                 to: 999
             }
+
+            SpinBox {
+                id: blockHeightSpinbox
+                Kirigami.FormData.label: i18n("Block height:")
+                from: 1
+                to: 999
+                enabled: root.cfg_visualizerStyle === Enum.VisualizerStyles.Blocks
+            }
+
+            SpinBox {
+                id: blockSpacing
+                Kirigami.FormData.label: i18n("Block gap:")
+                from: 0
+                to: 999
+                enabled: root.cfg_visualizerStyle === Enum.VisualizerStyles.Blocks
+            }
         }
 
         Components.FormColors {
@@ -168,6 +198,17 @@ KCM.SimpleKCM {
             }
             sectionName: root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave ? i18n("Wave Color") : i18n("Bar Color")
             multiColor: true
+        }
+
+        Components.FormColors {
+            configString: root.cfg_inactiveBlockColors
+            handleString: true
+            onUpdateConfigString: (newString, newConfig) => {
+                root.cfg_inactiveBlockColors = JSON.stringify(newConfig);
+            }
+            sectionName: i18n("Inactive block color")
+            multiColor: true
+            visible: root.cfg_visualizerStyle === Enum.VisualizerStyles.Blocks && drawInactiveBlocks.checked
         }
 
         Components.FormColors {
