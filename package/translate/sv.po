@@ -639,11 +639,11 @@ msgstr "Fyll vågor"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Circle mode:"
-msgstr ""
+msgstr "Cirkelläge:"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Circle size:"
-msgstr ""
+msgstr "Cirkelstorlek:"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Top"
