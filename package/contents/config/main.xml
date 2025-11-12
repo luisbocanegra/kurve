@@ -107,6 +107,12 @@
     <entry name="barWidth" type="Int">
       <default>2</default>
     </entry>
+    <entry name="blockHeight" type="Int">
+      <default>2</default>
+    </entry>
+    <entry name="blockSpacing" type="Int">
+      <default>2</default>
+    </entry>
     <entry name="barGap" type="Int">
       <default>5</default>
     </entry>
@@ -117,6 +123,13 @@
     <!-- ./package/contents/ui/code/globals.js[baseWaveFillColors] -->
     <entry name="waveFillColors" type="String">
       <default>{}</default>
+    </entry>
+    <!-- ./package/contents/ui/code/globals.js[inactiveBlockColor] -->
+    <entry name="inactiveBlockColors" type="String">
+      <default>{}</default>
+    </entry>
+    <entry name="drawInactiveBlocks" type="Bool">
+      <default>false</default>
     </entry>
     <entry name="desktopWidgetBg" type="Int">
       <default>1</default>

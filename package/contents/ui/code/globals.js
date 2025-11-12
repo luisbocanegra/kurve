@@ -55,3 +55,27 @@ const baseWaveFillColors = {
   hueStart: 0,
   hueEnd: 360,
 };
+
+const baseInactiveBlockColors = {
+  enabled: false,
+  lightness: 0.5,
+  saturation: 0.5,
+  alpha: 0.3,
+  systemColor: "textColor",
+  systemColorSet: "Window",
+  custom: "#013eff",
+  list: baseColorList,
+  reverseList: false,
+  followColor: 0,
+  saturationEnabled: false,
+  lightnessEnabled: false,
+  sourceType: 1,
+  smoothGradient: true,
+  colorsOrientation: 0,
+  image: {
+    source: "",
+    fillMode: 2
+  },
+  hueStart: 0,
+  hueEnd: 360,
+};

@@ -1,6 +1,7 @@
 const VisualizerStyles = {
   Bars: 0,
   Wave: 1,
+  Blocks: 2,
 };
 
 const Orientation = {
