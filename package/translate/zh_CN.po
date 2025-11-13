@@ -622,11 +622,11 @@ msgstr "填充波形"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Circle mode:"
-msgstr ""
+msgstr "环形模式"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Circle size:"
-msgstr ""
+msgstr "内环大小"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Top"
