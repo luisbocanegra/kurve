@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-11-09 23:32+0000\n"
+"POT-Creation-Date: 2025-11-14 06:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -548,7 +548,15 @@ msgid "Wave"
 msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
+msgid "Blocks"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
 msgid "Fill wave"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Draw inactive blocks"
 msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
@@ -608,11 +616,23 @@ msgid "Bar gap:"
 msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
+msgid "Block height:"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Block gap:"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
 msgid "Wave Color"
 msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Bar Color"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Inactive block color"
 msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
