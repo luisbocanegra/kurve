@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.1.0](https://github.com/luisbocanegra/kurve/compare/v3.0.0...v3.1.0) (2025-11-14)
+
+
+### Features
+
+* blocks visualizer style ([4219fe1](https://github.com/luisbocanegra/kurve/commit/4219fe1e7c2c5ca627ac9afb84f2b55d9a79c9cc))
+* updated Chinese translation ([#123](https://github.com/luisbocanegra/kurve/issues/123)) ([2d05e49](https://github.com/luisbocanegra/kurve/commit/2d05e49c35e9bfd6b0b1a118cf44de1c436bed1d))
+* updated Dutch translation ([#117](https://github.com/luisbocanegra/kurve/issues/117)) ([5f23191](https://github.com/luisbocanegra/kurve/commit/5f231914a3ae91ef194b3fbff95c73677dc1de8c))
+* updated Swedish translation ([#118](https://github.com/luisbocanegra/kurve/issues/118)) ([3ed1e21](https://github.com/luisbocanegra/kurve/commit/3ed1e21694a5a5fb990b5f8536090da6b129f20c))
+
 ## [3.0.0](https://github.com/luisbocanegra/kurve/compare/v2.2.0...v3.0.0) (2025-11-09)
 
 
