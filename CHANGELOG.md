@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/luisbocanegra/kurve/compare/v3.1.0...v3.2.0) (2025-11-15)
+
+
+### Features
+
+* add Russian translation ([#127](https://github.com/luisbocanegra/kurve/issues/127)) ([577403a](https://github.com/luisbocanegra/kurve/commit/577403a516162fa9828c58fcd971c54377d5f5e7))
+
 ## [3.1.0](https://github.com/luisbocanegra/kurve/compare/v3.0.0...v3.1.0) (2025-11-14)
 
 
