@@ -31,7 +31,7 @@ yay -S plasma6-applets-kurve
     # Fedora
     sudo dnf install cava qt6-qtwebsockets-devel python-websockets
     # Kubuntu
-    sudo apt install cava qt6-websockets python-websockets
+    sudo apt install cava qt6-websockets-dev python3-websockets
     # openSUSE
     sudo zypper install cava qt6-websockets-imports python3-websockets
    ```
@@ -65,7 +65,7 @@ yay -S plasma6-applets-kurve
     # Fedora
     sudo dnf install git gcc-c++ cmake extra-cmake-modules libplasma-devel cava qt6-qtwebsockets python3-websockets
     # Kubuntu
-    sudo apt install git build-essential cmake extra-cmake-modules libplasma-dev cava qt6-websockets python3-websockets
+    sudo apt install git build-essential cmake extra-cmake-modules libplasma-dev cava qt6-websockets-dev python3-websockets
     # openSUSE
     sudo zypper install git cmake extra-cmake-modules libplasma6-devel cava qt6-websockets-imports python3-websockets
     ```
