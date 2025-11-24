@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
 "POT-Creation-Date: 2025-11-14 06:20+0000\n"
-"PO-Revision-Date: 2025-10-17 11:30+0800\n"
+"PO-Revision-Date: 2025-11-25 00:39+0800\n"
 "Last-Translator: BCTaoTao <165790460+BCTaoTao@users.noreply.github.com>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -610,7 +610,7 @@ msgstr "样式："
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Bars"
-msgstr "频谱柱"
+msgstr "柱状"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Wave"
@@ -618,7 +618,7 @@ msgstr "波形"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Blocks"
-msgstr ""
+msgstr "块状"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Fill wave"
@@ -626,7 +626,7 @@ msgstr "填充波形"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Draw inactive blocks"
-msgstr ""
+msgstr "绘制非活动块"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Circle mode:"
@@ -666,11 +666,11 @@ msgstr "填充面板厚度："
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Centered bars:"
-msgstr "居中频谱柱："
+msgstr "居中柱："
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Rounded bars:"
-msgstr "圆角频谱柱："
+msgstr "圆角柱："
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Line width:"
@@ -678,19 +678,19 @@ msgstr "线条宽度："
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Bar width:"
-msgstr "频谱柱宽度："
+msgstr "列宽度："
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Bar gap:"
-msgstr "频谱柱间距："
+msgstr "列间距："
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Block height:"
-msgstr ""
+msgstr "块高度："
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Block gap:"
-msgstr ""
+msgstr "块间距："
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Wave Color"
@@ -702,7 +702,7 @@ msgstr "频谱柱颜色"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Inactive block color"
-msgstr ""
+msgstr "非活动块颜色"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Wave Fill Color"
