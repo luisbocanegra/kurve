@@ -64,6 +64,8 @@ Install instructions: <https://software.opensuse.org//download.html?project=home
     `kpackagetool6 -t Plasma/Applet -i package /path/to/downloaded/file.plasmoid`
 
     *NOTE: Replace -i with -u to update instead*
+   
+    *NOTE: `/path/to/downloaded/file.plasmoid` must come directly after `-i` flag. The `package` is a placeholder decribing the thing being installed; Its not meant to be typed literally.*
 
 ### Build from source (With C++ Plugin)
 
