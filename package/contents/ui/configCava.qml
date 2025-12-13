@@ -39,6 +39,9 @@ KCM.SimpleKCM {
     property alias cfg_eqEnabled: eqEnabled.checked
     property var cfg_eq
 
+    property alias cfg_pauseOnFullScreenWindow: pauseOnFullScreenWindow.checked
+    property alias cfg_pauseOnMaximizedWindow: pauseOnMaximizedWindow.checked
+
     PactlList {
         id: pactl
     }
@@ -155,6 +158,16 @@ KCM.SimpleKCM {
                 Kirigami.ContextualHelpButton {
                     toolTipText: i18n("Seconds with no input before cava goes to sleep mode.\nCava will not perform FFT and only check for input once per second.")
                 }
+            }
+
+            CheckBox {
+                id: pauseOnFullScreenWindow
+                Kirigami.FormData.label: i18n("Pause on:")
+                text: i18n("Full screen window")
+            }
+            CheckBox {
+                id: pauseOnMaximizedWindow
+                text: i18n("Maximized window")
             }
 
             Kirigami.Separator {

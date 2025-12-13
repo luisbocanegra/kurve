@@ -49,10 +49,12 @@ PlasmoidItem {
     }
 
     property int asciiMaxRange: [Enum.Orientation.Left, Enum.Orientation.Right].includes(Plasmoid.configuration.orientation) ? main.width : main.height
-
     property var logger: Logger.create(Plasmoid.configuration.debugMode ? LoggingCategory.Debug : LoggingCategory.Info)
-
     property bool hideWhenIdle: Plasmoid.configuration.hideWhenIdle
+
+    property bool pauseFullScreen: Plasmoid.configuration.pauseOnFullScreenWindow
+    property bool pauseMaximized: Plasmoid.configuration.pauseOnMaximizedWindow
+    property bool pauseByWindow: (pauseMaximized && tasksModel.maximizedExists) || (pauseFullScreen && tasksModel.fullScreenExists)
 
     Plasmoid.status: PlasmaCore.Types.ActiveStatus
 
@@ -185,6 +187,22 @@ PlasmoidItem {
         target: Qt.application
         function onAboutToQuit() {
             cava.stop();
+        }
+    }
+
+    TasksModel {
+        id: tasksModel
+        screenGeometry: Plasmoid.containment.screenGeometry
+    }
+
+    onPauseByWindowChanged: {
+        if (Plasmoid.configuration._stopCava) {
+            return;
+        }
+        if (pauseByWindow) {
+            cava.stop();
+        } else {
+            cava.start();
         }
     }
 }
