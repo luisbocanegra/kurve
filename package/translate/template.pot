@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-11-14 06:20+0000\n"
+"POT-Creation-Date: 2025-12-13 18:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -305,6 +305,18 @@ msgstr ""
 msgid ""
 "Seconds with no input before cava goes to sleep mode.\n"
 "Cava will not perform FFT and only check for input once per second."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Pause on:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Full screen window"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Maximized window"
 msgstr ""
 
 #: ../contents/ui/configCava.qml

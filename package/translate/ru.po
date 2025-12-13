@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-11-14 06:20+0000\n"
+"POT-Creation-Date: 2025-12-13 18:30+0000\n"
 "PO-Revision-Date: 2025-11-15 03:51+0200\n"
 "Last-Translator: Mykjailo Aleksieiev <mishanya.bigimot@gmail.com>\n"
 "Language-Team: \n"
@@ -330,6 +330,18 @@ msgid ""
 msgstr ""
 "Время в секундах без ввода, после которого CAVA отправится в режим сна.\n"
 "CAVA не будет осуществлять БПФ, и просто проверяет ввод раз в секунду."
+
+#: ../contents/ui/configCava.qml
+msgid "Pause on:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Full screen window"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Maximized window"
+msgstr ""
 
 #: ../contents/ui/configCava.qml
 msgid "Input"
