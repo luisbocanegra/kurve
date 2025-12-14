@@ -61,7 +61,7 @@ Install instructions: <https://software.opensuse.org//download.html?project=home
    2. Download the *.plasmoid file
    3. Install with the following command:
 
-    `kpackagetool6 -t Plasma/Applet -i package /path/to/downloaded/file.plasmoid`
+    `kpackagetool6 -t Plasma/Applet -i /path/to/downloaded/file.plasmoid`
 
     *NOTE: Replace -i with -u to update instead*
 
