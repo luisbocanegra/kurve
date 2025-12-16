@@ -327,15 +327,15 @@ msgstr ""
 
 #: ../contents/ui/configCava.qml
 msgid "Pause on:"
-msgstr ""
+msgstr "何时暂停："
 
 #: ../contents/ui/configCava.qml
 msgid "Full screen window"
-msgstr ""
+msgstr "全屏窗口时"
 
 #: ../contents/ui/configCava.qml
 msgid "Maximized window"
-msgstr ""
+msgstr "最大化窗口时"
 
 #: ../contents/ui/configCava.qml
 msgid "Input"
