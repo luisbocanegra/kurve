@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.3.0](https://github.com/luisbocanegra/kurve/compare/v3.2.0...v3.3.0) (2025-12-16)
+
+
+### Features
+
+* allow to stop the widget on maximized or fullscreen windows ([5f4f3c5](https://github.com/luisbocanegra/kurve/commit/5f4f3c57e062377ebf1586d44121535333cefacd))
+* update Chinese translation ([#139](https://github.com/luisbocanegra/kurve/issues/139)) ([115bbb9](https://github.com/luisbocanegra/kurve/commit/115bbb947ea938ffc1dc2084ab57f4723c774e6b))
+
 ## [3.2.0](https://github.com/luisbocanegra/kurve/compare/v3.1.0...v3.2.0) (2025-11-24)
 
 
