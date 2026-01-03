@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2025-12-13 18:30+0000\n"
+"POT-Creation-Date: 2026-01-03 19:22+0000\n"
 "PO-Revision-Date: 2025-12-31 HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: French <LL@li.org>\n"
@@ -350,12 +350,8 @@ msgid "Source:"
 msgstr "Source :"
 
 #: ../contents/ui/configCava.qml
-msgid ""
-"For pulseaudio and pipewire 'source' will be the source. Default: 'auto', which uses the monitor source of the default sink (all pulseaudio sinks(outputs) have 'monitor' sources(inputs) associated "
-"with them)."
-msgstr ""
-"Pour pulseaudio et pipewire, 'source' sera la source. Par défaut : 'auto', qui utilise la source monitor du sink par défaut (tous les sinks(sorties) pulseaudio ont des sources(entrées) 'monitor' "
-"associées)."
+msgid "For pulseaudio and pipewire 'source' will be the source. Default: 'auto', which uses the monitor source of the default sink (all pulseaudio sinks(outputs) have 'monitor' sources(inputs) associated with them)."
+msgstr "Pour pulseaudio et pipewire, 'source' sera la source. Par défaut : 'auto', qui utilise la source monitor du sink par défaut (tous les sinks(sorties) pulseaudio ont des sources(entrées) 'monitor' associées)."
 
 #: ../contents/ui/configCava.qml
 msgid "For pipewire 'source' will be the object name or object.serial of the device to capture from. Both input and output devices are supported."
