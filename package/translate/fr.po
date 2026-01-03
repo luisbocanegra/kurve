@@ -1,0 +1,670 @@
+# Traduction française de visualizer
+# Copyright (C) 2025
+# Ce fichier est distribué sous la même licence que le paquet visualizer.
+# Traducteur <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: visualizer\n"
+"Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
+"POT-Creation-Date: 2025-12-13 18:30+0000\n"
+"PO-Revision-Date: 2025-12-31 HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: French <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../metadata.json
+msgid "Kurve"
+msgstr "Kurve"
+
+#: ../metadata.json
+msgid "Audio visualizer powered by CAVA"
+msgstr "Visualiseur audio propulsé par CAVA"
+
+#: ../contents/config/config.qml
+msgid "Visualizer"
+msgstr "Visualiseur"
+
+#: ../contents/config/config.qml ../contents/ui/configCava.qml
+msgid "General"
+msgstr "Général"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Oh no! Something went wrong"
+msgstr "Oh non ! Quelque chose s'est mal passé"
+
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml ../contents/ui/main.qml
+msgid "Stop CAVA"
+msgstr "Arrêter CAVA"
+
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml ../contents/ui/main.qml
+msgid "Start CAVA"
+msgstr "Démarrer CAVA"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Copy to clipboard"
+msgstr "Copier dans le presse-papiers"
+
+#: ../contents/ui/components/ColorPickerGradientList.qml ../contents/ui/components/ColorPickerList.qml ../contents/ui/components/FormColors.qml
+msgid "Widget background"
+msgstr "Arrière-plan du widget"
+
+#: ../contents/ui/components/Eq.qml
+msgid "Remove band"
+msgstr "Retirer la bande"
+
+#: ../contents/ui/components/Eq.qml
+msgid "Add band"
+msgstr "Ajouter une bande"
+
+#: ../contents/ui/components/Eq.qml
+msgid "Flat response"
+msgstr "Réponse plate"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Color"
+msgstr "Couleur"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Animation:"
+msgstr "Animation :"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Interval (ms):"
+msgstr "Intervalle (ms) :"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Smoothing (ms):"
+msgstr "Lissage (ms) :"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Color source:"
+msgstr "Source de couleur :"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Custom"
+msgstr "Personnalisée"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "A fixed custom color"
+msgstr "Une couleur personnalisée fixe"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "System"
+msgstr "Système"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Color that updates with your System theme"
+msgstr "Couleur qui se met à jour avec votre thème système"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Custom list"
+msgstr "Liste personnalisée"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Define a list of colors that will be applied to all the elements, wraps around if there are more elements than colors"
+msgstr "Définir une liste de couleurs qui seront appliquées à tous les éléments, reprend au début s'il y a plus d'éléments que de couleurs"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Random"
+msgstr "Aléatoire"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Random color for each element"
+msgstr "Couleur aléatoire pour chaque élément"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Follow"
+msgstr "Suivre"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Follow the color of a parent element"
+msgstr "Suivre la couleur d'un élément parent"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Gradient"
+msgstr "Dégradé"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Horizontal or vertical customizable color gradient"
+msgstr "Dégradé de couleur personnalisable horizontal ou vertical"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Image"
+msgstr "Image"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "High resolution images can slow down the desktop when the panel or widget size changes!"
+msgstr "Les images haute résolution peuvent ralentir le bureau lorsque la taille du panel ou du widget change !"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Hue"
+msgstr "Teinte"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Automatically shifted color for each bar"
+msgstr "Couleur automatiquement décalée pour chaque barre"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Element:"
+msgstr "Élément :"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Panel background"
+msgstr "Arrière-plan du panel"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Tray widget background"
+msgstr "Arrière-plan du widget de la barre d'état"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Positioning:"
+msgstr "Positionnement :"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Stretch"
+msgstr "Étirer"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Tile"
+msgstr "Mosaïque"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Scaled and Cropped"
+msgstr "Mise à l'échelle et recadrage"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Image:"
+msgstr "Image :"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Pick a image file"
+msgstr "Choisir un fichier image"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Image files"
+msgstr "Fichiers image"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "All files"
+msgstr "Tous les fichiers"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Color:"
+msgstr "Couleur :"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Color set:"
+msgstr "Jeu de couleurs :"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Colors:"
+msgstr "Couleurs :"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Range:"
+msgstr "Plage :"
+
+#: ../contents/ui/components/FormColors.qml ../contents/ui/configVisualizer.qml
+msgid "Orientation:"
+msgstr "Orientation :"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Vertical"
+msgstr "Vertical"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Gradient:"
+msgstr "Dégradé :"
+
+#: ../contents/ui/components/FormColors.qml ../contents/ui/configCava.qml
+msgid "Reverse:"
+msgstr "Inverser :"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Display colors the other way around"
+msgstr "Afficher les couleurs dans l'autre sens"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Alpha:"
+msgstr "Alpha :"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Contrast Correction"
+msgstr "Correction du contraste"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Saturation:"
+msgstr "Saturation :"
+
+#: ../contents/ui/components/FormColors.qml
+msgid "Lightness:"
+msgstr "Luminosité :"
+
+#: ../contents/ui/configCava.qml
+msgid "Framerate:"
+msgstr "Fréquence d'images :"
+
+#: ../contents/ui/configCava.qml
+msgid "Number of bars:"
+msgstr "Nombre de barres :"
+
+#: ../contents/ui/configCava.qml
+msgid "Automatically calculated for the current visualizer style."
+msgstr "Calculé automatiquement pour le style de visualiseur actuel."
+
+#: ../contents/ui/configCava.qml
+msgid "Automatic sensitivity:"
+msgstr "Sensibilité automatique :"
+
+#: ../contents/ui/configCava.qml
+msgid "Attempt to decrease sensitivity if the bars peak."
+msgstr "Tenter de diminuer la sensibilité si les barres atteignent le maximum."
+
+#: ../contents/ui/configCava.qml
+msgid "Sensitivity:"
+msgstr "Sensibilité :"
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Manual sensitivity in %.\n"
+"If autosens is enabled, this will only be the initial value"
+msgstr ""
+"Sensibilité manuelle en %.\n"
+"Si la sensibilité automatique est activée, ce ne sera que la valeur initiale"
+
+#: ../contents/ui/configCava.qml
+msgid "Frequency range (Hz):"
+msgstr "Plage de fréquences (Hz) :"
+
+#: ../contents/ui/configCava.qml
+msgid "Min"
+msgstr "Min"
+
+#: ../contents/ui/configCava.qml
+msgid "Max"
+msgstr "Max"
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Lower and higher cutoff frequencies for lowest and highest bars, the bandwidth of the visualizer.\n"
+"Note: Cava will automatically increase the higher cutoff if a too low band is specified."
+msgstr ""
+"Fréquences de coupure inférieure et supérieure pour les barres les plus basses et les plus hautes, la bande passante du visualiseur.\n"
+"Note : Cava augmentera automatiquement la fréquence de coupure supérieure si une bande trop basse est spécifiée."
+
+#: ../contents/ui/configCava.qml
+msgid "Sleep timer (seconds):"
+msgstr "Minuteur de mise en veille (secondes) :"
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Seconds with no input before cava goes to sleep mode.\n"
+"Cava will not perform FFT and only check for input once per second."
+msgstr ""
+"Secondes sans entrée avant que cava ne passe en mode veille.\n"
+"Cava n'effectuera pas de FFT et ne vérifiera l'entrée qu'une fois par seconde."
+
+#: ../contents/ui/configCava.qml
+msgid "Pause on:"
+msgstr "Mettre en pause sur :"
+
+#: ../contents/ui/configCava.qml
+msgid "Full screen window"
+msgstr "Fenêtre en plein écran"
+
+#: ../contents/ui/configCava.qml
+msgid "Maximized window"
+msgstr "Fenêtre maximisée"
+
+#: ../contents/ui/configCava.qml
+msgid "Input"
+msgstr "Entrée"
+
+#: ../contents/ui/configCava.qml
+msgid "Method:"
+msgstr "Méthode :"
+
+#: ../contents/ui/configCava.qml ../contents/ui/configGeneral.qml
+msgid "Default"
+msgstr "Par défaut"
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Audio capturing method.\n"
+"Defaults to 'oss', 'pipewire', 'sndio', 'jack', 'pulse', 'alsa', 'portaudio' or 'fifo', in that order, dependent on what support cava was built with.\n"
+msgstr ""
+"Méthode de capture audio.\n"
+"Par défaut 'oss', 'pipewire', 'sndio', 'jack', 'pulse', 'alsa', 'portaudio' ou 'fifo', dans cet ordre, selon le support avec lequel cava a été compilé.\n"
+
+#: ../contents/ui/configCava.qml
+msgid "Source:"
+msgstr "Source :"
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"For pulseaudio and pipewire 'source' will be the source. Default: 'auto', which uses the monitor source of the default sink (all pulseaudio sinks(outputs) have 'monitor' sources(inputs) associated "
+"with them)."
+msgstr ""
+"Pour pulseaudio et pipewire, 'source' sera la source. Par défaut : 'auto', qui utilise la source monitor du sink par défaut (tous les sinks(sorties) pulseaudio ont des sources(entrées) 'monitor' "
+"associées)."
+
+#: ../contents/ui/configCava.qml
+msgid "For pipewire 'source' will be the object name or object.serial of the device to capture from. Both input and output devices are supported."
+msgstr "Pour pipewire, 'source' sera le nom d'objet ou object.serial du périphérique à capturer. Les périphériques d'entrée et de sortie sont pris en charge."
+
+#: ../contents/ui/configCava.qml
+msgid "For alsa 'source' will be the capture device."
+msgstr "Pour alsa, 'source' sera le périphérique de capture."
+
+#: ../contents/ui/configCava.qml
+msgid "For fifo 'source' will be the path to fifo-file."
+msgstr "Pour fifo, 'source' sera le chemin vers le fichier fifo."
+
+#: ../contents/ui/configCava.qml
+msgid "For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address."
+msgstr "Pour shmem, 'source' sera /squeezelite-AA:BB:CC:DD:EE:FF où 'AA:BB:CC:DD:EE:FF' sera l'adresse MAC de squeezelite."
+
+#: ../contents/ui/configCava.qml
+msgid "For sndio 'source' will be a raw recording audio descriptor or a monitoring sub-device, e.g. 'rsnd/2' or 'snd/1'. Default: 'default'."
+msgstr "Pour sndio, 'source' sera un descripteur audio d'enregistrement brut ou un sous-périphérique de surveillance, par ex. 'rsnd/2' ou 'snd/1'. Par défaut : 'default'."
+
+#: ../contents/ui/configCava.qml
+msgid "For oss 'source' will be the path to a audio device, e.g. '/dev/dsp2'. Default: '/dev/dsp', i.e. the default audio device."
+msgstr "Pour oss, 'source' sera le chemin vers un périphérique audio, par ex. '/dev/dsp2'. Par défaut : '/dev/dsp', c'est-à-dire le périphérique audio par défaut."
+
+#: ../contents/ui/configCava.qml
+msgid "For jack 'source' will be the name of the JACK server to connect to, e.g. 'foobar'. Default: 'default'."
+msgstr "Pour jack, 'source' sera le nom du serveur JACK auquel se connecter, par ex. 'foobar'. Par défaut : 'default'."
+
+#: ../contents/ui/configCava.qml
+msgid "Sample rate:"
+msgstr "Taux d'échantillonnage :"
+
+#: ../contents/ui/configCava.qml
+msgid "Only for fifo, pipewire, sndio, oss"
+msgstr "Uniquement pour fifo, pipewire, sndio, oss"
+
+#: ../contents/ui/configCava.qml
+msgid "Sample bits:"
+msgstr "Bits d'échantillonnage :"
+
+#: ../contents/ui/configCava.qml
+msgid "Channels:"
+msgstr "Canaux :"
+
+#: ../contents/ui/configCava.qml
+msgid "Only for pipewire & cava>=0.10.6, sndio, oss, jack"
+msgstr "Uniquement pour pipewire & cava>=0.10.6, sndio, oss, jack"
+
+#: ../contents/ui/configCava.qml
+msgid "Auto connect:"
+msgstr "Connexion automatique :"
+
+#: ../contents/ui/configCava.qml
+msgid "Only for jack"
+msgstr "Uniquement pour jack"
+
+#: ../contents/ui/configCava.qml
+msgid "Active:"
+msgstr "Actif :"
+
+#: ../contents/ui/configCava.qml
+msgid "Only for pipewire & cava>=0.10.6. Force the node to always process. Useful for monitoring sources when no other application is active."
+msgstr "Uniquement pour pipewire & cava>=0.10.6. Force le nœud à toujours traiter. Utile pour surveiller les sources lorsqu'aucune autre application n'est active."
+
+#: ../contents/ui/configCava.qml
+msgid "Remix:"
+msgstr "Remixage :"
+
+#: ../contents/ui/configCava.qml
+msgid "Only for pipewire & cava>=0.10.6. Allow to remix audio channels to match cava's channel count. Useful for surround sound."
+msgstr "Uniquement pour pipewire & cava>=0.10.6. Permet de remixer les canaux audio pour correspondre au nombre de canaux de cava. Utile pour le son surround."
+
+#: ../contents/ui/configCava.qml
+msgid "Virtual:"
+msgstr "Virtuel :"
+
+#: ../contents/ui/configCava.qml
+msgid "Only for pipewire & cava>=0.10.6. Set the node to virtual, to avoid recording notifications from the DE."
+msgstr "Uniquement pour pipewire & cava>=0.10.6. Définit le nœud comme virtuel, pour éviter d'enregistrer les notifications de l'environnement de bureau."
+
+#: ../contents/ui/configCava.qml
+msgid "Output"
+msgstr "Sortie"
+
+#: ../contents/ui/configCava.qml
+msgid "Visual channels:"
+msgstr "Canaux visuels :"
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"'mono' outputs left to right lowest to highest frequencies.\n"
+"'stereo' mirrors both channels with low frequencies in center."
+msgstr ""
+"'mono' affiche de gauche à droite les fréquences les plus basses vers les plus hautes.\n"
+"'stereo' reflète les deux canaux avec les basses fréquences au centre."
+
+#: ../contents/ui/configCava.qml
+msgid "Mono channel:"
+msgstr "Canal mono :"
+
+#: ../contents/ui/configCava.qml
+msgid "Display frequencies the other way around"
+msgstr "Afficher les fréquences dans l'autre sens"
+
+#: ../contents/ui/configCava.qml
+msgid "Smoothing"
+msgstr "Lissage"
+
+#: ../contents/ui/configCava.qml
+msgid "Noise reduction:"
+msgstr "Réduction du bruit :"
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"The raw visualization is very noisy, this factor adjusts the integral and gravity filters to keep the signal smooth.\n"
+"100 will be very slow and smooth, 0 will be fast but noisy."
+msgstr ""
+"La visualisation brute est très bruitée, ce facteur ajuste les filtres intégraux et de gravité pour garder le signal lisse.\n"
+"100 sera très lent et lisse, 0 sera rapide mais bruité."
+
+#: ../contents/ui/configCava.qml
+msgid "Monstercat:"
+msgstr "Monstercat :"
+
+#: ../contents/ui/configCava.qml
+msgid "Enable the so-called \"Monstercat smoothing\" with or without \"waves\"."
+msgstr "Activer le lissage dit \"Monstercat\" avec ou sans \"vagues\"."
+
+#: ../contents/ui/configCava.qml
+msgid "Waves"
+msgstr "Vagues"
+
+#: ../contents/ui/configCava.qml
+msgid "Equalizer"
+msgstr "Égaliseur"
+
+#: ../contents/ui/configCava.qml
+msgid "Enabled:"
+msgstr "Activé :"
+
+#: ../contents/ui/configCava.qml
+msgid "Adjust frequencies by a multiplication factor, more bands equals more precision."
+msgstr "Ajuste les fréquences par un facteur de multiplication, plus de bandes équivaut à plus de précision."
+
+#: ../contents/ui/configGeneral.qml
+msgid "Auto-hide when idle:"
+msgstr "Masquer automatiquement en cas d'inactivité :"
+
+#: ../contents/ui/configGeneral.qml
+msgid "After"
+msgstr "Après"
+
+#: ../contents/ui/configGeneral.qml
+msgid "seconds"
+msgstr "secondes"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Desktop background:"
+msgstr "Arrière-plan du bureau :"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Transparent"
+msgstr "Transparent"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Transparent with shadow"
+msgstr "Transparent avec ombre"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Disable tooltip:"
+msgstr "Désactiver l'infobulle :"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Disable ToolTip that shows the widget name and description."
+msgstr "Désactive l'infobulle qui affiche le nom et la description du widget."
+
+#: ../contents/ui/configGeneral.qml
+msgid "Disable left click:"
+msgstr "Désactiver le clic gauche :"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Applet popup will still be accessible from the right click menu."
+msgstr "La fenêtre contextuelle de l'applet sera toujours accessible depuis le menu du clic droit."
+
+#: ../contents/ui/configGeneral.qml
+msgid "Troubleshooting"
+msgstr "Dépannage"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Debug mode:"
+msgstr "Mode débogage :"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Print additional messages to the system log. To make it easier to spot sizing issues, this will also force full height to the first visualizer bar and displays a grid over it."
+msgstr "Affiche des messages supplémentaires dans le journal système. Pour faciliter la détection des problèmes de dimensionnement, cela forcera également la hauteur complète de la première barre du visualiseur et affichera une grille par-dessus."
+
+#: ../contents/ui/configVisualizer.qml
+msgid "height"
+msgstr "hauteur"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "width"
+msgstr "largeur"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Style:"
+msgstr "Style :"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bars"
+msgstr "Barres"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Wave"
+msgstr "Vague"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Blocks"
+msgstr "Blocs"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Fill wave"
+msgstr "Remplir la vague"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Draw inactive blocks"
+msgstr "Dessiner les blocs inactifs"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Circle mode:"
+msgstr "Mode cercle :"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Circle size:"
+msgstr "Taille du cercle :"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Top"
+msgstr "Haut"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bottom"
+msgstr "Bas"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Left"
+msgstr "Gauche"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Right"
+msgstr "Droite"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Fill panel %1:"
+msgstr "Remplir la %1 du panel :"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Fixed %1:"
+msgstr "%1 fixe :"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Fill panel thickness:"
+msgstr "Épaisseur de remplissage du panel :"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Centered bars:"
+msgstr "Barres centrées :"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Rounded bars:"
+msgstr "Barres arrondies :"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Line width:"
+msgstr "Largeur de ligne :"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bar width:"
+msgstr "Largeur de barre :"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bar gap:"
+msgstr "Espacement des barres :"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Block height:"
+msgstr "Hauteur de bloc :"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Block gap:"
+msgstr "Espacement des blocs :"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Wave Color"
+msgstr "Couleur de la vague"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Bar Color"
+msgstr "Couleur de la barre"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Inactive block color"
+msgstr "Couleur des blocs inactifs"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Wave Fill Color"
+msgstr "Couleur de remplissage de la vague"
+
+#: ../contents/ui/main.qml
+msgid "Show support information"
+msgstr "Afficher les informations de support"
