@@ -688,7 +688,7 @@ msgstr "Справа"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Fill panel %1:"
-msgstr "Заполнить панель (%1):"
+msgstr "Заполнить панель %1:"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Fixed %1:"
