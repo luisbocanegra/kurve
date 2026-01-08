@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.4.0](https://github.com/luisbocanegra/kurve/compare/v3.3.0...v3.4.0) (2026-01-08)
+
+
+### Features
+
+* add Fench translation ([e57b6d1](https://github.com/luisbocanegra/kurve/commit/e57b6d12b91b348d7b6cf53ced8c1e449501a655))
+* update russian translation ([#148](https://github.com/luisbocanegra/kurve/issues/148)) ([2d0015e](https://github.com/luisbocanegra/kurve/commit/2d0015e300a53d9b80380811a305853cbaee1878))
+
 ## [3.3.0](https://github.com/luisbocanegra/kurve/compare/v3.2.0...v3.3.0) (2025-12-16)
 
 
