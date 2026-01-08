@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
 "POT-Creation-Date: 2026-01-03 19:22+0000\n"
-"PO-Revision-Date: 2025-11-15 03:51+0200\n"
-"Last-Translator: Mykjailo Aleksieiev <mishanya.bigimot@gmail.com>\n"
+"PO-Revision-Date: 2026-01-08 11:33+0200\n"
+"Last-Translator: Mykhailo Aleksieiev <mishanya.bigimot@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -333,15 +333,15 @@ msgstr ""
 
 #: ../contents/ui/configCava.qml
 msgid "Pause on:"
-msgstr ""
+msgstr "Останавливать при:"
 
 #: ../contents/ui/configCava.qml
 msgid "Full screen window"
-msgstr ""
+msgstr "Полноэкранном окне"
 
 #: ../contents/ui/configCava.qml
 msgid "Maximized window"
-msgstr ""
+msgstr "Развёрнутом окне"
 
 #: ../contents/ui/configCava.qml
 msgid "Input"
@@ -399,11 +399,11 @@ msgstr "Для fifo 'source' будет путём к fifo-файлу."
 
 #: ../contents/ui/configCava.qml
 msgid ""
-"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:"
-"EE:FF' will be squeezelite's MAC address."
+"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where "
+"'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address."
 msgstr ""
-"Для shmem 'source' будет /squeezelite-AA:BB:CC:DD:EE:FF, где AA:BB:CC:DD:EE:"
-"FF' это MAC-адрес squeezelite."
+"Для shmem 'source' будет /squeezelite-AA:BB:CC:DD:EE:FF, где "
+"'AA:BB:CC:DD:EE:FF' это MAC-адрес squeezelite."
 
 #: ../contents/ui/configCava.qml
 msgid ""
