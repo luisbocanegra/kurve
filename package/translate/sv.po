@@ -333,15 +333,15 @@ msgstr ""
 
 #: ../contents/ui/configCava.qml
 msgid "Pause on:"
-msgstr ""
+msgstr "Pausa på:"
 
 #: ../contents/ui/configCava.qml
 msgid "Full screen window"
-msgstr ""
+msgstr "Fullskärmsfönster"
 
 #: ../contents/ui/configCava.qml
 msgid "Maximized window"
-msgstr ""
+msgstr "Maximerat fönster"
 
 #: ../contents/ui/configCava.qml
 msgid "Input"
@@ -647,7 +647,7 @@ msgstr "Vågor"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Blocks"
-msgstr ""
+msgstr "Block"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Fill wave"
@@ -655,7 +655,7 @@ msgstr "Fyll vågor"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Draw inactive blocks"
-msgstr ""
+msgstr "Rita inaktiva block"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Circle mode:"
@@ -715,11 +715,11 @@ msgstr "Bandens mellanrum:"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Block height:"
-msgstr ""
+msgstr "Blockens höjd:"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Block gap:"
-msgstr ""
+msgstr "Blockens mellanrum:"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Wave Color"
@@ -731,7 +731,7 @@ msgstr "Bandfärg"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Inactive block color"
-msgstr ""
+msgstr "Inaktiv blockfärg"
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Wave Fill Color"
