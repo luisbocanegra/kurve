@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.0](https://github.com/luisbocanegra/kurve/compare/v3.4.0...v3.5.0) (2026-01-13)
+
+
+### Features
+
+* update Swedish translation ([#150](https://github.com/luisbocanegra/kurve/issues/150)) ([1241a4c](https://github.com/luisbocanegra/kurve/commit/1241a4cc2df923420c60ffafefe75482588430ec))
+
 ## [3.4.0](https://github.com/luisbocanegra/kurve/compare/v3.3.0...v3.4.0) (2026-01-08)
 
 

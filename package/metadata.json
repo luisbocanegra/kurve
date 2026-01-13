@@ -25,7 +25,7 @@
         "Name[ru]": "Kurve",
         "Name[sv]": "Kurve",
         "Name[zh_CN]": "Kurve",
-        "Version": "3.4.0",
+        "Version": "3.5.0",
         "Website": "https://github.com/luisbocanegra/kurve"
     },
     "X-Plasma-API-Minimum-Version": "6.0"
