@@ -60,19 +60,19 @@ QtObject {
     }
 
     function debug(...message) {
-        console.debug(loggingCategory, `[DEBUG]: ${_joinMessage(message)}`);
+        console.debug(loggingCategory, `${root.name} [DEBUG]: ${_joinMessage(message)}`);
     }
 
     function info(...message) {
-        console.info(loggingCategory, `[INFO]: ${_joinMessage(message)}`);
+        console.info(loggingCategory, `${root.name} [INFO]: ${_joinMessage(message)}`);
     }
 
     function warn(...message) {
-        console.warn(loggingCategory, `[WARNING]: ${_joinMessage(message)}`);
+        console.warn(loggingCategory, `${root.name} [WARNING]: ${_joinMessage(message)}`);
     }
 
     function error(...message) {
-        console.error(loggingCategory, `[ERROR]: ${_joinMessage(message)}`);
+        console.error(loggingCategory, `${root.name} [ERROR]: ${_joinMessage(message)}`);
     }
 
     function create(logLevel) {
