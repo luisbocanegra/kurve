@@ -116,8 +116,18 @@ Item {
             debugMode: Plasmoid.configuration.debugMode
             visible: !cava.hasError && !cava.idle
             fixVertical: !main.horizontal
-            Layout.preferredWidth: (main.horizontal && !Plasmoid.configuration.expanding) ? Plasmoid.configuration.length : -1
-            Layout.preferredHeight: !(main.horizontal && !Plasmoid.configuration.expanding) ? Plasmoid.configuration.length : -1
+            Layout.preferredWidth: {
+                if (circleMode) {
+                    return main.minimumDimension;
+                }
+                return (main.horizontal && !Plasmoid.configuration.expanding) ? Plasmoid.configuration.length : -1;
+            }
+            Layout.preferredHeight: {
+                if (circleMode) {
+                    return main.minimumDimension;
+                }
+                return !(main.horizontal && !Plasmoid.configuration.expanding) ? Plasmoid.configuration.length : -1;
+            }
             Layout.fillHeight: main.horizontal || Plasmoid.configuration.expanding || [Enum.Orientation.Left, Enum.Orientation.Right].includes(root.orientation) || main.onDesktop
             Layout.fillWidth: !main.horizontal || Plasmoid.configuration.expanding || [Enum.Orientation.Left, Enum.Orientation.Right].includes(root.orientation) || main.onDesktop
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter

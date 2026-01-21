@@ -133,11 +133,12 @@ KCM.SimpleKCM {
                 id: expandingCheckbox
                 visible: !(Plasmoid.location === PlasmaCore.Types.Floating)
                 Kirigami.FormData.label: i18n("Fill panel %1:", root.dimensionStr)
+                enabled: !root.cfg_circleMode
             }
             SpinBox {
                 id: lengthSpinbox
                 visible: !(Plasmoid.location === PlasmaCore.Types.Floating)
-                enabled: !expandingCheckbox.checked
+                enabled: !expandingCheckbox.checked && !root.cfg_circleMode
                 Kirigami.FormData.label: i18n("Fixed %1:", root.dimensionStr)
                 from: 1
                 to: 9999
