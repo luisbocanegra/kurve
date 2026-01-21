@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.5.0](https://github.com/luisbocanegra/kurve/compare/v3.4.0...v3.5.0) (2026-01-21)
+
+
+### Features
+
+* update Swedish translation ([#150](https://github.com/luisbocanegra/kurve/issues/150)) ([1241a4c](https://github.com/luisbocanegra/kurve/commit/1241a4cc2df923420c60ffafefe75482588430ec))
+
+
+### Bug Fixes
+
+* automatic widget length for circle mode ([80d9e87](https://github.com/luisbocanegra/kurve/commit/80d9e872d05b57f8b0ba93b607462a4e3c3f7bbe))
+
 ## [3.4.0](https://github.com/luisbocanegra/kurve/compare/v3.3.0...v3.4.0) (2026-01-08)
 
 
