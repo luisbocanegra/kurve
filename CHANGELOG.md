@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.1](https://github.com/luisbocanegra/kurve/compare/v3.5.0...v3.5.1) (2026-03-27)
+
+
+### Bug Fixes
+
+* broken DoubleSpinBox after Qt 6.11 update ([47c362e](https://github.com/luisbocanegra/kurve/commit/47c362e256fb9ad1394a286b11c6f820d02092ee))
+
 ## [3.5.0](https://github.com/luisbocanegra/kurve/compare/v3.4.0...v3.5.0) (2026-01-21)
 
 
