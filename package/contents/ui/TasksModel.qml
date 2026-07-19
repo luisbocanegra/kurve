@@ -107,30 +107,39 @@ Item {
 
         sortMode: TaskManager.TasksModel.SortVirtualDesktop
         groupMode: TaskManager.TasksModel.GroupDisabled
-        virtualDesktop: virtualDesktopInfo.currentDesktop
         activity: activityInfo.currentActivity
         screenGeometry: root.screenGeometry
-        filterByVirtualDesktop: true
         filterByScreen: root.filterByScreen
         filterByActivity: true
         filterMinimized: true
         onDataChanged: {
-            Qt.callLater(() => {
-                if (!updateTimer.running)
-                    updateTimer.start();
-            });
+            Qt.callLater(root.update);
         }
         onCountChanged: {
-            Qt.callLater(() => {
-                if (!updateTimer.running)
-                    updateTimer.start();
-            });
+            Qt.callLater(root.update);
+        }
+        Component.onCompleted: {
+            // Plasma 6.7 per-output virtual desktops
+            // https://invent.kde.org/plasma/plasma-desktop/-/merge_requests/3427
+            if (tasksModel.hasOwnProperty("filterByCurrentVirtualDesktop")) {
+                tasksModel.filterByCurrentVirtualDesktop = true;
+            } else {
+                tasksModel.virtualDesktop = Qt.binding(function () {
+                    return virtualDesktopInfo.currentDesktop;
+                });
+                tasksModel.filterByVirtualDesktop = true;
+            }
+        }
+    }
+
+    function update() {
+        if (!updateTimer.running) {
+            updateTimer.start();
         }
     }
 
     Timer {
         id: updateTimer
-
         interval: 5
         onTriggered: {
             root.updateWindowsInfo();
