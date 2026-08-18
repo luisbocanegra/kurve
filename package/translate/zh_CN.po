@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2026-01-03 19:22+0000\n"
+"POT-Creation-Date: 2026-08-18 06:05+0000\n"
 "PO-Revision-Date: 2025-11-25 00:39+0800\n"
 "Last-Translator: BCTaoTao <165790460+BCTaoTao@users.noreply.github.com>\n"
 "Language-Team: \n"
@@ -671,6 +671,10 @@ msgstr "填充面板%1："
 #: ../contents/ui/configVisualizer.qml
 msgid "Fixed %1:"
 msgstr "固定%1："
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Minimum %1:"
+msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Fill panel thickness:"
