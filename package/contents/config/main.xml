@@ -151,6 +151,10 @@
     <entry name="length" type="Int">
       <default>200</default>
     </entry>
+    <!-- minimum length when expanding is enabled -->
+    <entry name="minimumLength" type="Int">
+      <default>50</default>
+    </entry>
     <entry name="orientation" type="Int">
         <!-- ./package/contents/ui/code/enum.js[Orientation] -->
         <default>1</default>

@@ -30,6 +30,7 @@ KCM.SimpleKCM {
     // take all the available space in the panel
     property alias cfg_expanding: expandingCheckbox.checked
     property alias cfg_length: lengthSpinbox.value
+    property alias cfg_minimumLength: minimumLengthSpinbox.value
     property int cfg_orientation
 
     readonly property bool vertical: {
@@ -140,6 +141,14 @@ KCM.SimpleKCM {
                 visible: !(Plasmoid.location === PlasmaCore.Types.Floating)
                 enabled: !expandingCheckbox.checked && !root.cfg_circleMode
                 Kirigami.FormData.label: i18n("Fixed %1:", root.dimensionStr)
+                from: 1
+                to: 9999
+            }
+            SpinBox {
+                id: minimumLengthSpinbox
+                visible: !(Plasmoid.location === PlasmaCore.Types.Floating)
+                enabled: expandingCheckbox.checked && !root.cfg_circleMode
+                Kirigami.FormData.label: i18n("Minimum %1:", root.dimensionStr)
                 from: 1
                 to: 9999
             }

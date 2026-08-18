@@ -13,8 +13,8 @@ Item {
 
     Layout.preferredWidth: Plasmoid.configuration.expanding || main.onDesktop ? -1 : content.implicitWidth
     Layout.preferredHeight: Plasmoid.configuration.expanding || main.onDesktop ? -1 : content.implicitHeight
-    Layout.minimumWidth: Layout.preferredWidth
-    Layout.minimumHeight: Layout.preferredHeight
+    Layout.minimumWidth: Plasmoid.configuration.expanding ? (main.horizontal ? Plasmoid.configuration.minimumLength : -1) : Layout.preferredWidth
+    Layout.minimumHeight: Plasmoid.configuration.expanding ? (!main.horizontal ? Plasmoid.configuration.minimumLength : -1) : Layout.preferredHeight
     Layout.fillHeight: main.horizontal || Plasmoid.configuration.expanding || main.onDesktop
     Layout.fillWidth: !main.horizontal || Plasmoid.configuration.expanding || main.onDesktop
 
