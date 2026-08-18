@@ -25,6 +25,7 @@ Item {
     required property var inactiveBlockColorsCfg
     required property bool drawInactiveBlocks
     required property bool fixVertical
+    required property bool restarting
     property list<int> values
     property bool debugMode: false
 
@@ -133,8 +134,7 @@ Item {
         property bool fixAlign: barWidth % 2 === 0 && centeredBars && visualizerStyle === Enum.VisualizerStyles.Wave && !root.fixVertical
 
         onValuesChanged: {
-              if (root.values !== undefined && root.values.length > 1) {
-                console.log("The values were changed: "+ root.values.length)
+              if (root.values !== undefined && root.values.length > 1 && root.restarting) {
                 canvas.requestPaint()
                 }
               }
