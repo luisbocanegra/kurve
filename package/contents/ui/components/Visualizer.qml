@@ -67,7 +67,7 @@ Item {
             }
             return root.barGap;
         }
-        property int barCount: root.values.length
+        property int barCount:0
           
         
         property bool centeredBars: root.centeredBars
@@ -134,6 +134,9 @@ Item {
 
         onValuesChanged: {
               if (root.values !== undefined && root.values.length > 1) {
+                if(root.values.length !== barCount){
+                  barCount = root.values.length
+                }
                 canvas.requestPaint()
                 }
               }
