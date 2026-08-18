@@ -68,6 +68,8 @@ Item {
             return root.barGap;
         }
         property int barCount: root.values.length
+          
+        
         property bool centeredBars: root.centeredBars
         property bool roundedBars: root.roundedBars
         property var values: {
@@ -130,7 +132,12 @@ Item {
         height: parent.height
         property bool fixAlign: barWidth % 2 === 0 && centeredBars && visualizerStyle === Enum.VisualizerStyles.Wave && !root.fixVertical
 
-        onValuesChanged: canvas.requestPaint()
+        onValuesChanged: {
+              if (root.values !== undefined && root.values.length > 1) {
+                console.log("The values were changed: "+ root.values.length)
+                canvas.requestPaint()
+                }
+              }
 
         onPaint: {
             const ctx = getContext("2d");
