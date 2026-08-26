@@ -85,12 +85,9 @@ function buildCanvasGradient(ctx, smooth, gradientStops, orientation, height, wi
     const stop = gradientStops[i];
     let color = stop.color ?? stop;
 	let position;
-	if (smooth)
-	{
+	if (smooth) {
       position = stop.position ?? (gradientStops.length > 1 ? (i / (gradientStops.length - 1)) : 0);
-	}
-	else
-	{
+	} else {
 	  position = stop.position ?? (i / gradientStops.length);
 	}
     gradient.addColorStop(position, color);
