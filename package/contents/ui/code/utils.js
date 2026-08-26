@@ -84,8 +84,15 @@ function buildCanvasGradient(ctx, smooth, gradientStops, orientation, height, wi
   for (let i = 0; i < gradientStops.length; i++) {
     const stop = gradientStops[i];
     let color = stop.color ?? stop;
-	// If position is undefined, check if the length is greater than one. If so, use the regular calculation, otherwise 0 to avoid divide by zero error
-    let position = stop.position ?? (gradientStops.length > 1 ? (1 / (gradientStops.length - 1)) * i : 0);
+	let position;
+	if (smooth)
+	{
+      position = stop.position ?? (gradientStops.length > 1 ? (i / (gradientStops.length - 1)) : 0);
+	}
+	else
+	{
+	  position = stop.position ?? (i / gradientStops.length);
+	}
     gradient.addColorStop(position, color);
     if (!smooth && i > 0 && i < gradientStops.length) {
       let prevStop = gradientStops[i - 1];
