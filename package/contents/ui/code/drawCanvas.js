@@ -162,34 +162,41 @@ function barsCircle(ctx, canvas) {
   const canvasHeight = canvas.height;
   const maxValue = Math.min(canvasWidth, canvasHeight) / 2;
   const barCount = canvas.barCount;
-  const roundedBars = canvas.roundedBars;
-  const barWidth = canvas.barWidth;
   const values = canvas.values;
   const barRadiusOffset = canvas.radiusOffset * 2;
   const circleSize = canvas.circleModeSize;
-  ctx.lineCap = roundedBars ? "round" : "butt";
-  ctx.lineWidth = barWidth;
+  const spacing = canvas.spacing;
 
   const centerX = canvasWidth / 2;
   const centerY = canvasHeight / 2;
   const angleStep = (2 * Math.PI) / barCount;
   const innerRadius = (Math.min(canvasWidth, canvasHeight) / 2) * circleSize - barRadiusOffset;
 
+  const gapAngle = spacing / innerRadius;
+
   for (let i = 0; i < barCount; i++) {
     const value = Math.max(1, Math.min(maxValue, values[i]));
     const norm = value / maxValue;
-    const barLength = norm * (maxValue - barWidth / 2) * (1 - circleSize);
-    const angle = i * angleStep - Math.PI / 2;
+    const barLength = norm * (maxValue - 2) * (1 - circleSize);
 
-    const xStart = centerX + Math.cos(angle) * innerRadius;
-    const yStart = centerY + Math.sin(angle) * innerRadius;
-    const xEnd = centerX + Math.cos(angle) * (innerRadius + barLength);
-    const yEnd = centerY + Math.sin(angle) * (innerRadius + barLength);
+    const halfAngle = (angleStep - gapAngle) / 2;
+    const angle = (i + 0.5) * angleStep - Math.PI / 2;
+
+    const angle1 = angle - halfAngle;
+    const angle2 = angle + halfAngle;
+
+    const outerRadius = innerRadius + barLength;
+
+    // FIXME: maybe guard against this earlier
+    if (innerRadius < 0 || outerRadius < 0) {
+      return;
+    }
 
     ctx.beginPath();
-    ctx.moveTo(xStart, yStart);
-    ctx.lineTo(xEnd, yEnd);
-    ctx.stroke();
+    ctx.arc(centerX, centerY, innerRadius, angle1, angle2, false);
+    ctx.arc(centerX, centerY, outerRadius, angle2, angle1, true);
+    ctx.closePath();
+    ctx.fill();
   }
 }
 
@@ -222,56 +229,60 @@ function waveCircle(ctx, canvas) {
 
   canvas.gradientHeight = maxValue - innerRadius;
 
-  const outerPoints = new Array(barCount + 1);
-  for (let i = 0; i <= barCount; i++) {
-    const idx = i % barCount;
-    const val = Math.max(0, Math.min(maxValue, values[idx]));
-    const radial = val * (1 - circleSize);
-    const angle = idx * angleStep - Math.PI / 2;
-    outerPoints[i] = {
-      x: centerX + Math.cos(angle) * (innerRadius + radial),
-      y: centerY + Math.sin(angle) * (innerRadius + radial)
-    };
-  }
-
-  // wave line
   ctx.beginPath();
-  ctx.moveTo(outerPoints[0].x, outerPoints[0].y);
-  let prev = outerPoints[0];
-  for (let i = 1; i < outerPoints.length; i++) {
-    const cur = outerPoints[i];
-    const midX = (prev.x + cur.x) / 2;
-    const midY = (prev.y + cur.y) / 2;
-    ctx.quadraticCurveTo(prev.x, prev.y, midX, midY);
-    prev = cur;
-  }
-  // back to start
-  ctx.quadraticCurveTo(prev.x, prev.y, (prev.x + outerPoints[0].x) / 2, (prev.y + outerPoints[0].y) / 2);
-  ctx.stroke();
 
-  if (fillWave && waveFillGradient) {
-    ctx.beginPath();
-    ctx.moveTo(outerPoints[0].x, outerPoints[0].y);
-    prev = outerPoints[0];
-    for (let i = 1; i < outerPoints.length; i++) {
-      const cur = outerPoints[i];
-      const midX = (prev.x + cur.x) / 2;
-      const midY = (prev.y + cur.y) / 2;
-      ctx.quadraticCurveTo(prev.x, prev.y, midX, midY);
-      prev = cur;
+  // averaged with last to allow a more seamless connection at end
+  let val0 = Math.max(0, Math.min(maxValue, ((values[0] + values[barCount - 1]) / 2)));
+  let radial0 = val0 * (1 - circleSize);
+  let angle0 = - Math.PI / 2;
+  let startX = centerX + Math.cos(angle0) * (innerRadius + radial0);
+  let startY = centerY + Math.sin(angle0) * (innerRadius + radial0);
+
+  ctx.moveTo(startX, startY);
+
+  let prevX = startX;
+  let prevY = startY;
+
+  for (let i = 0; i < barCount; i++) {
+    let val = 0;
+
+    if (i === 0 || i === barCount - 1) {
+      val = val0;
+    } else {
+      val = Math.max(0, Math.min(maxValue, values[i]));
     }
-    ctx.quadraticCurveTo(prev.x, prev.y, (prev.x + outerPoints[0].x) / 2, (prev.y + outerPoints[0].y) / 2);
 
-    const startAngle = -Math.PI / 2;
-    const innerStartX = centerX + Math.cos(startAngle) * innerRadius;
-    const innerStartY = centerY + Math.sin(startAngle) * innerRadius;
-    ctx.lineTo(innerStartX, innerStartY);
-    ctx.arc(centerX, centerY, innerRadius, startAngle, startAngle + 2 * Math.PI, false);
+    const radial = val * (1 - circleSize);
+    const angle = (i + 0.5) * angleStep - Math.PI / 2;
+    const curX = centerX + Math.cos(angle) * (innerRadius + radial);
+    const curY = centerY + Math.sin(angle) * (innerRadius + radial);
 
-    ctx.closePath();
-    ctx.fillStyle = waveFillGradient;
-    ctx.fill();
+    const midX = (prevX + curX) / 2;
+    const midY = (prevY + curY) / 2;
+    ctx.quadraticCurveTo(prevX, prevY, midX, midY);
+
+    prevX = curX;
+    prevY = curY;
   }
+
+  // back to the beginning
+  let midX = (prevX + startX) / 2;
+  let midY = (prevY + startY) / 2;
+  ctx.quadraticCurveTo(midX, midY, startX, startY);
+
+  ctx.fillStyle = waveFillGradient;
+  ctx.fill();
+  ctx.stroke();
+  ctx.closePath();
+
+  // inner circle
+  ctx.globalCompositeOperation = "destination-out";
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, innerRadius - (barWidth / 2), 0, 2 * Math.PI);
+  ctx.fillStyle = "black";
+  ctx.fill();
+  ctx.globalCompositeOperation = "source-over";
+  ctx.closePath();
 }
 
 /**
@@ -309,48 +320,63 @@ function blocksRect(ctx, canvas) {
   }
 }
 
+/**
+ * Blocks in circle mode
+ * @param {Context2D} ctx QML Type (canvas.getContext('2d'))
+ * @param {Canvas} canvas QML Type
+ */
 function blocksCircle(ctx, canvas) {
   const canvasWidth = canvas.width;
   const canvasHeight = canvas.height;
+  const maxValue = Math.min(canvasWidth, canvasHeight) / 2;
   const barCount = canvas.barCount;
-  const blockWidth = canvas.barWidth;
+  const values = canvas.values;
+  const barRadiusOffset = canvas.radiusOffset * 2;
   const circleSize = canvas.circleModeSize;
-  const innerRadius = (Math.min(canvasWidth, canvasHeight) / 2) * circleSize;
+  const spacing = canvas.spacing;
   const blockHeight = canvas.blockHeight;
   const blockSpacing = canvas.blockSpacing;
-  const totalRows = Math.floor(((Math.min(canvasWidth, canvasHeight) / 2) - innerRadius + blockSpacing) / (blockHeight + blockSpacing));
-  const angleStep = (2 * Math.PI) / barCount;
-  const values = canvas.values || [];
 
   const centerX = canvasWidth / 2;
   const centerY = canvasHeight / 2;
+  const angleStep = (2 * Math.PI) / barCount;
+  const innerRadius = (Math.min(canvasWidth, canvasHeight) / 2) * circleSize - barRadiusOffset;
+
+  const gapAngle = spacing / innerRadius;
+
+  const maxBarLength = (maxValue - 2) * (1 - circleSize);
+  const maxRows = Math.floor(maxBarLength / (blockHeight + blockSpacing));
 
   for (let col = 0; col < barCount; col++) {
-    let value = values[col];
-    const activeRows = Math.floor((value / (Math.min(canvasWidth, canvasHeight) / 2)) * totalRows);
+    const value = Math.max(1, Math.min(maxValue, values[col]));
+    const norm = value / maxValue;
+    const barLength = norm * maxBarLength;
 
-    for (let row = 0; row < totalRows; row++) {
-      const radius = innerRadius + row * (blockHeight + blockSpacing) + blockHeight / 2;
-      const angle = col * angleStep - Math.PI / 2;
+    const halfAngle = (angleStep - gapAngle) / 2;
+    const angle = (col + 0.5) * angleStep - Math.PI / 2;
 
-      const x = centerX + Math.cos(angle) * radius - (blockHeight / 2);
-      const y = centerY + Math.sin(angle) * radius - (blockHeight / 2);
+    const angle1 = angle - halfAngle;
+    const angle2 = angle + halfAngle;
 
-      ctx.save();
-      ctx.translate(x + blockHeight / 2, y + blockHeight / 2);
-      ctx.rotate(angle + Math.PI / 2);
-      ctx.translate(-(x + blockHeight / 2), -(y + blockHeight / 2));
+    const activeRows = Math.floor(barLength / (blockHeight + blockSpacing));
+
+    for (let row = 0; row < maxRows; row++) {
+      const r1 = innerRadius + row * (blockHeight + blockSpacing);
+      const r2 = r1 + blockHeight;
+
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, r1, angle1, angle2, false);
+      ctx.arc(centerX, centerY, r2, angle2, angle1, true);
+      ctx.closePath();
 
       if (row < activeRows) {
         ctx.fillStyle = canvas.gradient;
-        ctx.fillRect(x, y, blockWidth, blockHeight);
-      }
-      else if (canvas.drawInactiveBlocks) {
+      } else if (canvas.drawInactiveBlocks) {
         ctx.fillStyle = canvas.inactiveBlockGradient;
-        ctx.fillRect(x, y, blockWidth, blockHeight);
+      } else {
+        ctx.fillStyle = "transparent";
       }
-
-      ctx.restore();
+      ctx.fill();
     }
   }
 }

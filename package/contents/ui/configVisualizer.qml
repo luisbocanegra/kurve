@@ -100,6 +100,7 @@ KCM.SimpleKCM {
                 onValueModified: {
                     cfg_circleModeSize = value / circleModeSize.multiplier;
                 }
+                enabled: root.cfg_circleMode
             }
 
             ComboBox {
@@ -162,11 +163,13 @@ KCM.SimpleKCM {
             CheckBox {
                 id: centeredBarsCheckbox
                 Kirigami.FormData.label: i18n("Centered bars:")
+                enabled: !root.cfg_circleMode
             }
 
             CheckBox {
                 id: roundedBarsCheckbox
                 Kirigami.FormData.label: i18n("Rounded bars:")
+                enabled: !root.cfg_circleMode && root.cfg_visualizerStyle === Enum.VisualizerStyles.Bars
             }
 
             SpinBox {

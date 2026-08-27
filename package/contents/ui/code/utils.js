@@ -71,6 +71,10 @@ function hexToQtColor(hex) {
 
 function buildCanvasGradient(ctx, smooth, gradientStops, orientation, height, width, circleMode = false) {
   let gradient;
+  // FIXME: maybe guard against this earlier
+  if (height < 1 || width < 1) {
+    return gradient;
+  }
   if (circleMode) {
     const centerX = width / 2;
     const centerY = height / 2;
@@ -163,4 +167,11 @@ function delay(interval, callback, parentItem) {
 
 function makeEven(n) {
   return n - (n % 2);
+}
+
+function swapChannels(arr) {
+  const mid = arr.length / 2;
+  const firstHalf = arr.slice(0, mid);
+  const secondHalf = arr.slice(mid);
+  return [...secondHalf, ...firstHalf];
 }
