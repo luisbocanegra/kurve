@@ -38,6 +38,7 @@ Item {
     property bool stereo: Plasmoid.configuration.outputChannels === "stereo"
     property bool waveSimulateWaveform: Plasmoid.configuration.waveSimulateWaveform
     property bool circleModeFill: Plasmoid.configuration.circleModeFill
+    property bool pinnedDownSides: Plasmoid.configuration.pinnedDownSides
     clip: !Plasmoid.configuration.debugMode
 
     property var logger: Logger.create(Plasmoid.configuration.debugMode ? LoggingCategory.Debug : LoggingCategory.Info)
@@ -120,10 +121,15 @@ Item {
             drawInactiveBlocks: root.drawInactiveBlocks
             waveSimulateWaveform: root.waveSimulateWaveform
             values: {
+                let values = [...cava.values];
                 if (circleMode && root.stereo) {
-                    return Utils.swapChannels(cava.values);
+                    return Utils.swapChannels(values);
                 }
-                return cava.values;
+                if (root.visualizerStyle === Enum.VisualizerStyles.Wave && root.pinnedDownSides && !root.circleMode) {
+                    values[0] = 0;
+                    values[values.length - 1] = 0;
+                }
+                return values;
             }
             debugMode: Plasmoid.configuration.debugMode
             visible: !cava.hasError && !cava.idle

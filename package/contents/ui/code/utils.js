@@ -171,7 +171,10 @@ function makeEven(n) {
 
 function swapChannels(arr) {
   const mid = arr.length / 2;
-  const firstHalf = arr.slice(0, mid);
-  const secondHalf = arr.slice(mid);
-  return [...secondHalf, ...firstHalf];
+  for (let i = 0; i < mid; i++) {
+    const temp = arr[i];
+    arr[i] = arr[mid + i];
+    arr[mid + i] = temp;
+  }
+  return arr;
 }

@@ -22,6 +22,7 @@ KCM.SimpleKCM {
     property alias cfg_fillPanel: fillPanelCheckbox.checked
     property int cfg_visualizerStyle
     property int cfg_waveMode
+    property alias cfg_pinnedDownSides: pinnedDownSides.checked
     property alias cfg_circleMode: circleMode.checked
     property alias cfg_circleModeFill: circleModeFill.checked
     property real cfg_circleModeSize
@@ -109,6 +110,12 @@ KCM.SimpleKCM {
                 id: fillWaveCheckbox
                 text: i18n("Fill wave")
                 enabled: root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave
+            }
+
+            CheckBox {
+                id: pinnedDownSides
+                text: i18n("Pin down first and last values")
+                enabled: root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave && !root.cfg_circleMode
             }
 
             CheckBox {
