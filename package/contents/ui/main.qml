@@ -131,6 +131,7 @@ PlasmoidItem {
         outputChannels: Plasmoid.configuration.outputChannels
         monoOption: Plasmoid.configuration.monoOption
         reverse: Plasmoid.configuration.reverse
+        waveform: Plasmoid.configuration.waveform
         eqEnabled: Plasmoid.configuration.eqEnabled
         eq: Plasmoid.configuration.eq
         idleCheck: main.hideWhenIdle

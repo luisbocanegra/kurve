@@ -39,6 +39,7 @@ Item {
     property bool waveSimulateWaveform: Plasmoid.configuration.waveSimulateWaveform
     property bool circleModeFill: Plasmoid.configuration.circleModeFill
     property bool pinnedDownSides: Plasmoid.configuration.pinnedDownSides
+    property bool waveform: Plasmoid.configuration.waveform
     clip: !Plasmoid.configuration.debugMode
 
     property var logger: Logger.create(Plasmoid.configuration.debugMode ? LoggingCategory.Debug : LoggingCategory.Info)
@@ -120,12 +121,13 @@ Item {
             inactiveBlockColorsCfg: root.inactiveBlockColorsCfg
             drawInactiveBlocks: root.drawInactiveBlocks
             waveSimulateWaveform: root.waveSimulateWaveform
+            waveform: root.waveform
             values: {
                 let values = [...cava.values];
                 if (circleMode && root.stereo) {
                     return Utils.swapChannels(values);
                 }
-                if (root.visualizerStyle === Enum.VisualizerStyles.Wave && root.pinnedDownSides && !root.circleMode) {
+                if (root.visualizerStyle === Enum.VisualizerStyles.Wave && root.pinnedDownSides && !root.circleMode && !root.waveform) {
                     values[0] = 0;
                     values[values.length - 1] = 0;
                 }
