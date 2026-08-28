@@ -23,6 +23,7 @@ KCM.SimpleKCM {
     property int cfg_visualizerStyle
     property int cfg_waveMode
     property alias cfg_circleMode: circleMode.checked
+    property alias cfg_circleModeFill: circleModeFill.checked
     property real cfg_circleModeSize
     property string cfg_barColors
     property string cfg_waveFillColors
@@ -131,6 +132,12 @@ KCM.SimpleKCM {
                     cfg_circleModeSize = value / circleModeSize.multiplier;
                 }
                 enabled: root.cfg_circleMode
+            }
+
+            CheckBox {
+                id: circleModeFill
+                Kirigami.FormData.label: i18n("Fill circle:")
+                enabled: root.cfg_circleMode && root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave && root.cfg_fillWave
             }
 
             ComboBox {

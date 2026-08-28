@@ -37,6 +37,7 @@ Item {
     property bool disableLeftClick: Plasmoid.configuration.disableLeftClick
     property bool stereo: Plasmoid.configuration.outputChannels === "stereo"
     property bool waveSimulateWaveform: Plasmoid.configuration.waveSimulateWaveform
+    property bool circleModeFill: Plasmoid.configuration.circleModeFill
     clip: !Plasmoid.configuration.debugMode
 
     property var logger: Logger.create(Plasmoid.configuration.debugMode ? LoggingCategory.Debug : LoggingCategory.Info)
@@ -104,6 +105,7 @@ Item {
             visualizerStyle: root.visualizerStyle
             circleMode: root.circleMode
             circleModeSize: root.circleModeSize
+            circleModeFill: root.circleModeFill
             barWidth: root.barWidth
             blockHeight: root.blockHeight
             blockSpacing: root.blockSpacing
