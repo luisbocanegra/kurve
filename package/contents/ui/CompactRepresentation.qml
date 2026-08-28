@@ -36,6 +36,7 @@ Item {
     property int orientation: Plasmoid.configuration.orientation
     property bool disableLeftClick: Plasmoid.configuration.disableLeftClick
     property bool stereo: Plasmoid.configuration.outputChannels === "stereo"
+    property bool waveSimulateWaveform: Plasmoid.configuration.waveSimulateWaveform
     clip: !Plasmoid.configuration.debugMode
 
     property var logger: Logger.create(Plasmoid.configuration.debugMode ? LoggingCategory.Debug : LoggingCategory.Info)
@@ -115,6 +116,7 @@ Item {
             waveFillColorsCfg: root.waveFillColorsCfg
             inactiveBlockColorsCfg: root.inactiveBlockColorsCfg
             drawInactiveBlocks: root.drawInactiveBlocks
+            waveSimulateWaveform: root.waveSimulateWaveform
             values: {
                 if (circleMode && root.stereo) {
                     return Utils.swapChannels(cava.values);

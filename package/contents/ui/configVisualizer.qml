@@ -16,6 +16,7 @@ KCM.SimpleKCM {
     property alias cfg_blockHeight: blockHeightSpinbox.value
     property alias cfg_blockSpacing: blockSpacing.value
     property alias cfg_centeredBars: centeredBarsCheckbox.checked
+    property alias cfg_waveSimulateWaveform: waveSimulateWaveform.checked
     property alias cfg_roundedBars: roundedBarsCheckbox.checked
     // fill panel thickness
     property alias cfg_fillPanel: fillPanelCheckbox.checked
@@ -193,6 +194,17 @@ KCM.SimpleKCM {
                 id: centeredBarsCheckbox
                 enabled: !root.cfg_circleMode
                 Kirigami.FormData.label: root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave ? i18n("Centered wave:") : i18n("Centered bars:")
+            }
+
+            RowLayout {
+                Kirigami.FormData.label: i18n("Simulate a waveform:")
+                enabled: !root.cfg_circleMode && root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave && root.cfg_centeredBars
+                CheckBox {
+                    id: waveSimulateWaveform
+                }
+                Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("Simulates a waveform by alternating values up and down.")
+                }
             }
 
             CheckBox {
