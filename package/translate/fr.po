@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2026-08-18 06:05+0000\n"
+"POT-Creation-Date: 2026-08-28 04:08+0000\n"
 "PO-Revision-Date: 2025-12-31 HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: French <LL@li.org>\n"
@@ -574,6 +574,22 @@ msgid "Blocks"
 msgstr "Blocs"
 
 #: ../contents/ui/configVisualizer.qml
+msgid "Shape:"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Curve"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Square"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Triangle"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
 msgid "Fill wave"
 msgstr "Remplir la vague"
 
@@ -620,6 +636,10 @@ msgstr ""
 #: ../contents/ui/configVisualizer.qml
 msgid "Fill panel thickness:"
 msgstr "Épaisseur de remplissage du panel :"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Centered wave:"
+msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Centered bars:"
