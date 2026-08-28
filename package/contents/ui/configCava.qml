@@ -11,7 +11,7 @@ KCM.SimpleKCM {
     // general
     property alias cfg_barCount: barCountSpinbox.value
     property alias cfg_framerate: framerateSpinbox.value
-    property alias cfg_autoSensitivity: autoSensitivityCheckbox.checked
+    property alias cfg_autoSensitivity: autoSensitivity.value
     property alias cfg_sensitivityEnabled: sensitivityEnabled.checked
     property alias cfg_sensitivity: sensitivitySpinbox.value
     property alias cfg_lowerCutoffFreq: lowerCutoffFreqSpinbox.value
@@ -95,11 +95,14 @@ KCM.SimpleKCM {
             }
             RowLayout {
                 Kirigami.FormData.label: i18n("Automatic sensitivity:")
-                CheckBox {
-                    id: autoSensitivityCheckbox
+                SpinBox {
+                    id: autoSensitivity
+                    from: 0
+                    to: 10
+                    stepSize: 1
                 }
                 Kirigami.ContextualHelpButton {
-                    toolTipText: i18n("Attempt to decrease sensitivity if the bars peak.")
+                    toolTipText: i18n("will attempt to decrease sensitivity if the bars peak and increase slowly as ong as the bars don't peak. 0 = off, 1 = normal, 2..n = more aggressive<br>Increase to make sensitivity increase even faster.")
                 }
             }
 

@@ -22,8 +22,8 @@
     <entry name="waves" type="Bool">
       <default>false</default>
     </entry>
-    <entry name="autoSensitivity" type="Bool">
-      <default>true</default>
+    <entry name="autoSensitivity" type="Int">
+      <default>1</default>
     </entry>
     <entry name="sensitivityEnabled" type="Bool">
       <default>false</default>

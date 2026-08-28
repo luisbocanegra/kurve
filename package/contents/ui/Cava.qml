@@ -8,7 +8,7 @@ Item {
     property int noiseReduction
     property int monstercat // boolean
     property int waves // boolean
-    property int autoSensitivity // boolean
+    property int autoSensitivity
     property bool sensitivityEnabled
     property int sensitivity
     property int lowerCutoffFreq
