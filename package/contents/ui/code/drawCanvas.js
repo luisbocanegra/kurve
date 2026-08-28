@@ -224,6 +224,7 @@ function waveCircle(ctx, canvas) {
   const fillWave = canvas.fillWave;
   const waveFillGradient = canvas.waveFillGradient;
   const values = canvas.values;
+  const circleModeFill = canvas.circleModeFill;
 
   if (barCount < 2) {
     return;
@@ -286,13 +287,15 @@ function waveCircle(ctx, canvas) {
   ctx.closePath();
 
   // inner circle
-  ctx.globalCompositeOperation = "destination-out";
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, innerRadius - (barWidth / 2), 0, 2 * Math.PI);
-  ctx.fillStyle = "black";
-  ctx.fill();
-  ctx.globalCompositeOperation = "source-over";
-  ctx.closePath();
+  if (!circleModeFill) {
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, innerRadius - (barWidth / 2), 0, 2 * Math.PI);
+    ctx.fillStyle = "black";
+    ctx.fill();
+    ctx.globalCompositeOperation = "source-over";
+    ctx.closePath();
+  }
 }
 
 /**
@@ -471,11 +474,13 @@ function triangleSquareCircle(ctx, canvas) {
   }
 
   // inner circle
-  ctx.globalCompositeOperation = "destination-out";
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, innerRadius - (barWidth / 2), 0, 2 * Math.PI);
-  ctx.fillStyle = "black";
-  ctx.fill();
-  ctx.globalCompositeOperation = "source-over";
-  ctx.closePath();
+  if (!circleModeFill) {
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, innerRadius - (barWidth / 2), 0, 2 * Math.PI);
+    ctx.fillStyle = "black";
+    ctx.fill();
+    ctx.globalCompositeOperation = "source-over";
+    ctx.closePath();
+  }
 }
