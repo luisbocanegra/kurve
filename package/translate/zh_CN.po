@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2026-08-28 08:12+0000\n"
+"POT-Creation-Date: 2026-08-28 21:55+0000\n"
 "PO-Revision-Date: 2025-11-25 00:39+0800\n"
 "Last-Translator: BCTaoTao <165790460+BCTaoTao@users.noreply.github.com>\n"
 "Language-Team: \n"
@@ -276,8 +276,11 @@ msgid "Automatic sensitivity:"
 msgstr "自动灵敏度："
 
 #: ../contents/ui/configCava.qml
-msgid "Attempt to decrease sensitivity if the bars peak."
-msgstr "当频谱柱达到峰值时，尝试降低灵敏度。"
+msgid ""
+"will attempt to decrease sensitivity if the bars peak and increase slowly as "
+"ong as the bars don't peak. 0 = off, 1 = normal, 2..n = more "
+"aggressive<br>Increase to make sensitivity increase even faster."
+msgstr ""
 
 #: ../contents/ui/configCava.qml
 msgid "Sensitivity:"
@@ -507,6 +510,16 @@ msgid "Display frequencies the other way around"
 msgstr "以相反顺序显示频率"
 
 #: ../contents/ui/configCava.qml
+msgid "Waveform:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid ""
+"Show waveform instead of frequency spectrum. Takes precedence over the "
+"simulate waveform option."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
 msgid "Smoothing"
 msgstr "平滑"
 
@@ -653,6 +666,10 @@ msgid "Fill wave"
 msgstr "填充波形"
 
 #: ../contents/ui/configVisualizer.qml
+msgid "Pin down first and last values"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
 msgid "Draw inactive blocks"
 msgstr "绘制非活动块"
 
@@ -663,6 +680,10 @@ msgstr "环形模式"
 #: ../contents/ui/configVisualizer.qml
 msgid "Circle size:"
 msgstr "内环大小"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Fill circle:"
+msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Top"
@@ -705,11 +726,17 @@ msgid "Centered bars:"
 msgstr "居中柱："
 
 #: ../contents/ui/configVisualizer.qml
+msgid "This option is ignored if CAVA waveform option is enabled."
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
 msgid "Simulate a waveform:"
 msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
-msgid "Simulates a waveform by alternating values up and down."
+msgid ""
+"Simulates a waveform by alternating values up and down. This option is "
+"ignored if CAVA waveform option is enabled."
 msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
@@ -755,3 +782,6 @@ msgstr "波形填充颜色"
 #: ../contents/ui/main.qml
 msgid "Show support information"
 msgstr "显示支持信息"
+
+#~ msgid "Attempt to decrease sensitivity if the bars peak."
+#~ msgstr "当频谱柱达到峰值时，尝试降低灵敏度。"

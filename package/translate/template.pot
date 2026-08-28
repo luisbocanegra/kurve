@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2026-08-28 08:12+0000\n"
+"POT-Creation-Date: 2026-08-28 21:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -266,7 +266,9 @@ msgid "Automatic sensitivity:"
 msgstr ""
 
 #: ../contents/ui/configCava.qml
-msgid "Attempt to decrease sensitivity if the bars peak."
+msgid ""
+"will attempt to decrease sensitivity if the bars peak and increase slowly as ong as the bars don't peak. 0 = off, 1 = normal, 2..n = more aggressive<br>Increase to make sensitivity increase even "
+"faster."
 msgstr ""
 
 #: ../contents/ui/configCava.qml
@@ -450,6 +452,14 @@ msgid "Display frequencies the other way around"
 msgstr ""
 
 #: ../contents/ui/configCava.qml
+msgid "Waveform:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Show waveform instead of frequency spectrum. Takes precedence over the simulate waveform option."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
 msgid "Smoothing"
 msgstr ""
 
@@ -584,6 +594,10 @@ msgid "Fill wave"
 msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
+msgid "Pin down first and last values"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
 msgid "Draw inactive blocks"
 msgstr ""
 
@@ -593,6 +607,10 @@ msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Circle size:"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Fill circle:"
 msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
@@ -636,11 +654,15 @@ msgid "Centered bars:"
 msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
+msgid "This option is ignored if CAVA waveform option is enabled."
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
 msgid "Simulate a waveform:"
 msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
-msgid "Simulates a waveform by alternating values up and down."
+msgid "Simulates a waveform by alternating values up and down. This option is ignored if CAVA waveform option is enabled."
 msgstr ""
 
 #: ../contents/ui/configVisualizer.qml

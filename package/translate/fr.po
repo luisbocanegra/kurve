@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2026-08-28 08:12+0000\n"
+"POT-Creation-Date: 2026-08-28 21:55+0000\n"
 "PO-Revision-Date: 2025-12-31 HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: French <LL@li.org>\n"
@@ -266,8 +266,8 @@ msgid "Automatic sensitivity:"
 msgstr "Sensibilité automatique :"
 
 #: ../contents/ui/configCava.qml
-msgid "Attempt to decrease sensitivity if the bars peak."
-msgstr "Tenter de diminuer la sensibilité si les barres atteignent le maximum."
+msgid "will attempt to decrease sensitivity if the bars peak and increase slowly as ong as the bars don't peak. 0 = off, 1 = normal, 2..n = more aggressive<br>Increase to make sensitivity increase even faster."
+msgstr ""
 
 #: ../contents/ui/configCava.qml
 msgid "Sensitivity:"
@@ -458,6 +458,14 @@ msgid "Display frequencies the other way around"
 msgstr "Afficher les fréquences dans l'autre sens"
 
 #: ../contents/ui/configCava.qml
+msgid "Waveform:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml
+msgid "Show waveform instead of frequency spectrum. Takes precedence over the simulate waveform option."
+msgstr ""
+
+#: ../contents/ui/configCava.qml
 msgid "Smoothing"
 msgstr "Lissage"
 
@@ -594,6 +602,10 @@ msgid "Fill wave"
 msgstr "Remplir la vague"
 
 #: ../contents/ui/configVisualizer.qml
+msgid "Pin down first and last values"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
 msgid "Draw inactive blocks"
 msgstr "Dessiner les blocs inactifs"
 
@@ -604,6 +616,10 @@ msgstr "Mode cercle :"
 #: ../contents/ui/configVisualizer.qml
 msgid "Circle size:"
 msgstr "Taille du cercle :"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Fill circle:"
+msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Top"
@@ -646,11 +662,15 @@ msgid "Centered bars:"
 msgstr "Barres centrées :"
 
 #: ../contents/ui/configVisualizer.qml
+msgid "This option is ignored if CAVA waveform option is enabled."
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
 msgid "Simulate a waveform:"
 msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
-msgid "Simulates a waveform by alternating values up and down."
+msgid "Simulates a waveform by alternating values up and down. This option is ignored if CAVA waveform option is enabled."
 msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
@@ -696,3 +716,6 @@ msgstr "Couleur de remplissage de la vague"
 #: ../contents/ui/main.qml
 msgid "Show support information"
 msgstr "Afficher les informations de support"
+
+#~ msgid "Attempt to decrease sensitivity if the bars peak."
+#~ msgstr "Tenter de diminuer la sensibilité si les barres atteignent le maximum."
