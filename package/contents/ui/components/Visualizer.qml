@@ -26,6 +26,7 @@ Item {
     required property var inactiveBlockColorsCfg
     required property bool drawInactiveBlocks
     required property bool fixVertical
+    required property bool waveSimulateWaveform
     property list<int> values
     property bool debugMode: false
 
@@ -81,6 +82,7 @@ Item {
             return root.values;
         }
         property bool fillWave: root.fillWave
+        property bool waveSimulateWaveform: root.waveSimulateWaveform
 
         property real radiusOffset: barWidth / 2
         property int gradientHeight: canvas.height

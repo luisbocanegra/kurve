@@ -91,19 +91,18 @@ function waveRect(ctx, canvas) {
   const canvasHeight = canvas.height;
   const maxValue = canvasHeight;
   const barCount = canvas.barCount;
-  const roundedBars = canvas.roundedBars;
   const barWidth = canvas.barWidth;
   const centeredBars = canvas.centeredBars;
   const fillWave = canvas.fillWave;
   const waveFillGradient = canvas.waveFillGradient;
   const values = canvas.values;
   const waveMode = canvas.waveMode;
+  const waveSimulateWaveform = canvas.waveSimulateWaveform;
 
   if (barCount < 2) {
     return;
   }
 
-  ctx.lineCap = roundedBars ? "round" : "butt";
   ctx.lineWidth = barWidth;
 
   const step = canvasWidth / (barCount - 1);
@@ -116,21 +115,24 @@ function waveRect(ctx, canvas) {
 
   ctx.beginPath();
   ctx.moveTo(prevX - barWidth, prevY);
-
-  for (let i = 1; i < barCount; i++) {
-    const norm = Math.max(0, Math.min(maxValue, values[i])) / maxValue;
-
+  for (let i = 0; i < barCount; i++) {
+    let norm = Math.max(0, Math.min(maxValue, values[i])) / maxValue;
+    if (centeredBars && waveSimulateWaveform) {
+      if (i % 2 === 0 || i === barCount - 1) {
+        norm = -norm;
+      }
+    }
     const x = i * step;
     const y = yBottom - norm * yBottom;
     const midX = (prevX + x) / 2;
     const midY = (prevY + y) / 2;
 
-    // to the line end for the last point
-    const rightOffset = (i === barCount - 1) ? barWidth : 0;
+    // hide the line end for the last point
+    const rightOffset = (i === barCount - 1) ? barWidth * 2 : 0;
 
     switch (waveMode) {
       case Enum.WaveMode.Curve:
-        ctx.quadraticCurveTo(prevX, prevY, midX + rightOffset, midY);
+        ctx.quadraticCurveTo(prevX + rightOffset, prevY, midX + rightOffset, midY);
         break;
       case Enum.WaveMode.Square:
         ctx.lineTo(x + rightOffset, prevY); // horizontal
@@ -150,46 +152,8 @@ function waveRect(ctx, canvas) {
   ctx.stroke();
 
   if (fillWave && waveFillGradient) {
-    const yBottom = centeredBars ? (canvasHeight / 2 + barWidth / 2) : canvasHeight;
-    ctx.beginPath();
-    ctx.moveTo(0, yBottom);
-
-    prevX = 0;
-    prevY = yBottom - Math.max(0, Math.min(maxValue, values[0])) / maxValue * yBottom;
-    ctx.lineTo(prevX - barWidth, prevY);
-
-    for (let i = 1; i < barCount; i++) {
-      let norm = Math.max(0, Math.min(maxValue, values[i])) / maxValue;
-      const x = i * step;
-      const y = yBottom - norm * yBottom;
-      const midX = (prevX + x) / 2;
-      const midY = (prevY + y) / 2;
-
-      // match the end of the line
-      const rightOffset = (i === barCount - 1) ? barWidth : 0;
-
-      switch (waveMode) {
-        case Enum.WaveMode.Curve:
-          ctx.quadraticCurveTo(prevX, prevY, midX + rightOffset, midY);
-          break;
-        case Enum.WaveMode.Square:
-          ctx.lineTo(x + rightOffset, prevY);
-          ctx.lineTo(x + rightOffset, y);
-          break;
-        case Enum.WaveMode.Triangle:
-          ctx.lineTo(x + rightOffset, y);
-          break;
-        default:
-          break;
-      }
-
-      prevX = x;
-      prevY = y;
-      if (i === barCount - 1) {
-        ctx.lineTo(midX + rightOffset, yBottom);
-      }
-    }
-
+    ctx.lineTo(prevX, yBottom);
+    ctx.lineTo(0, yBottom);
     ctx.closePath();
     ctx.fillStyle = waveFillGradient;
     ctx.fill();
@@ -425,82 +389,6 @@ function blocksCircle(ctx, canvas) {
       ctx.fill();
     }
   }
-}
-
-/**
- * Square waveform that forms a circle
- * @param {Context2D} ctx QML Type (canvas.getContext('2d'))
- * @param {Canvas} canvas QML Type
- */
-function squareCircle(ctx, canvas) {
-  const canvasWidth = canvas.width;
-  const canvasHeight = canvas.height;
-  const barCount = canvas.barCount;
-  const barWidth = canvas.barWidth;
-  const fillWave = canvas.fillWave;
-  const waveFillGradient = canvas.waveFillGradient;
-  const values = canvas.values;
-
-  if (barCount < 2) {
-    return;
-  }
-
-  const centerX = canvasWidth / 2;
-  const centerY = canvasHeight / 2;
-  const innerRadius = Math.min(canvasWidth, canvasHeight) / 2 * canvas.circleModeSize;
-  const angleStep = (2 * Math.PI) / barCount;
-
-  ctx.lineWidth = barWidth;
-
-  const maxRadius = Math.min(canvasWidth, canvasHeight) / 2;
-  const maxValue = maxRadius - innerRadius;
-
-  canvas.gradientHeight = maxValue;
-
-  const valueAt = (index) => Math.max(0, Math.min(maxValue, values[index]));
-  const radiusAt = (index) => innerRadius + valueAt(index);
-  const pointAt = (index, radius) => {
-    const angle = index * angleStep - Math.PI / 2;
-    return {
-      x: centerX + Math.cos(angle) * radius,
-      y: centerY + Math.sin(angle) * radius
-    };
-  };
-
-  const firstRadius = (radiusAt(0) + radiusAt(barCount - 1)) / 2;
-  const first = pointAt(0, firstRadius);
-  ctx.beginPath();
-  ctx.moveTo(first.x, first.y);
-
-  let previousRadius = firstRadius;
-  for (let i = 1; i <= barCount; i++) {
-    const index = i === barCount ? 0 : i;
-    const radius = i === barCount ? firstRadius : radiusAt(index);
-
-    const along = pointAt(index, previousRadius);
-    const atRadius = pointAt(index, radius);
-    ctx.lineTo(along.x, along.y);
-    ctx.lineTo(atRadius.x, atRadius.y);
-
-    previousRadius = radius;
-  }
-
-  ctx.closePath();
-  ctx.stroke();
-
-  if (fillWave && waveFillGradient) {
-    ctx.fillStyle = waveFillGradient;
-    ctx.fill();
-  }
-
-  // inner circle
-  ctx.globalCompositeOperation = "destination-out";
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, innerRadius - (barWidth / 2), 0, 2 * Math.PI);
-  ctx.fillStyle = "black";
-  ctx.fill();
-  ctx.globalCompositeOperation = "source-over";
-  ctx.closePath();
 }
 
 /**
