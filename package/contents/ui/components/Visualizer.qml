@@ -18,6 +18,7 @@ Item {
     required property int blockSpacing
     required property int barGap
     required property bool centeredBars
+    required property int waveMode
     required property bool roundedBars
     required property bool fillWave
     required property var barColorsCfg
@@ -69,6 +70,7 @@ Item {
         }
         property int barCount: root.values.length
         property bool centeredBars: root.centeredBars
+        property int waveMode: root.waveMode
         property bool roundedBars: root.roundedBars
         property var values: {
             if (root.debugMode) {

@@ -27,6 +27,7 @@ Item {
     property int monstercat: Plasmoid.configuration.monstercat
     property int waves: Plasmoid.configuration.waves
     property bool centeredBars: Plasmoid.configuration.centeredBars
+    property int waveMode: Plasmoid.configuration.waveMode
     property bool roundedBars: Plasmoid.configuration.roundedBars
     property int visualizerStyle: Plasmoid.configuration.visualizerStyle
     property bool circleMode: Plasmoid.configuration.circleMode
@@ -107,6 +108,7 @@ Item {
             blockSpacing: root.blockSpacing
             barGap: root.barGap
             centeredBars: root.centeredBars
+            waveMode: root.waveMode
             roundedBars: root.roundedBars
             fillWave: root.fillWave
             barColorsCfg: root.barColorsCfg

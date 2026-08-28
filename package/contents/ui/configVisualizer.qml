@@ -20,6 +20,7 @@ KCM.SimpleKCM {
     // fill panel thickness
     property alias cfg_fillPanel: fillPanelCheckbox.checked
     property int cfg_visualizerStyle
+    property int cfg_waveMode
     property alias cfg_circleMode: circleMode.checked
     property real cfg_circleModeSize
     property string cfg_barColors
@@ -72,6 +73,34 @@ KCM.SimpleKCM {
                 Component.onCompleted: {
                     currentIndex = indexOfValue(root.cfg_visualizerStyle);
                 }
+            }
+
+            ComboBox {
+                id: waveMode
+                Kirigami.FormData.label: i18n("Shape:")
+                textRole: "label"
+                valueRole: "value"
+                model: [
+                    {
+                        "label": i18n("Curve"),
+                        "value": Enum.WaveMode.Curve
+                    },
+                    {
+                        "label": i18n("Square"),
+                        "value": Enum.WaveMode.Square
+                    },
+                    {
+                        "label": i18n("Triangle"),
+                        "value": Enum.WaveMode.Triangle
+                    },
+                ]
+                onActivated: {
+                    root.cfg_waveMode = currentValue;
+                }
+                Component.onCompleted: {
+                    currentIndex = indexOfValue(root.cfg_waveMode);
+                }
+                enabled: root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave
             }
 
             CheckBox {
@@ -162,8 +191,8 @@ KCM.SimpleKCM {
 
             CheckBox {
                 id: centeredBarsCheckbox
-                Kirigami.FormData.label: i18n("Centered bars:")
                 enabled: !root.cfg_circleMode
+                Kirigami.FormData.label: root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave ? i18n("Centered wave:") : i18n("Centered bars:")
             }
 
             CheckBox {
