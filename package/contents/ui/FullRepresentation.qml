@@ -34,6 +34,19 @@ ColumnLayout {
             font.bold: true
             color: Kirigami.Theme.negativeTextColor
         }
+
+        PlasmaComponents.Label {
+            Layout.leftMargin: Kirigami.Units.gridUnit
+            Layout.rightMargin: Kirigami.Units.gridUnit
+            Layout.fillWidth: true
+            text: i18n('This widget requires additional dependencies to work. See <a href="%1">install instructions</a>.', "https://github.com/luisbocanegra/kurve#installation")
+            textFormat: Text.RichText
+            wrapMode: Text.Wrap
+            horizontalAlignment: TextEdit.AlignHCenter
+            visible: cava.hasError
+            onLinkActivated: link => Qt.openUrlExternally(link)
+        }
+
         PlasmaComponents.Button {
             text: cava.running ? i18n("Stop CAVA") : i18n("Start CAVA")
             onClicked: {
@@ -83,7 +96,7 @@ ColumnLayout {
                     } else {
                         msg += `❌ CAVA not found\n`;
                     }
-                    msg += `Using ProcessMonitorFallback: ${cava.usingFallback}\n`;
+                    msg += `Using C++ plugin: ${!cava.usingFallback}\n`;
                     msg += `Widget install location: ${Qt.resolvedUrl("../../").toString().substring(7)}\n`;
                     msg += `\nCava command:\n${cava.cavaCommand}\n`;
                     return msg;
