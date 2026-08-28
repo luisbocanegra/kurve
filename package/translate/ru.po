@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2026-08-28 04:08+0000\n"
+"POT-Creation-Date: 2026-08-28 08:12+0000\n"
 "PO-Revision-Date: 2026-01-08 11:33+0200\n"
 "Last-Translator: Mykhailo Aleksieiev <mishanya.bigimot@gmail.com>\n"
 "Language-Team: \n"
@@ -725,6 +725,14 @@ msgstr ""
 #: ../contents/ui/configVisualizer.qml
 msgid "Centered bars:"
 msgstr "Центрированные столбики:"
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Simulate a waveform:"
+msgstr ""
+
+#: ../contents/ui/configVisualizer.qml
+msgid "Simulates a waveform by alternating values up and down."
+msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Rounded bars:"
