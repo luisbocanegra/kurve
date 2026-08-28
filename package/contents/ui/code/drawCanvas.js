@@ -105,8 +105,19 @@ function waveRect(ctx, canvas) {
 
   ctx.lineWidth = barWidth;
 
-  const step = canvasWidth / (barCount - 1);
+  let step = (canvasWidth / (barCount - 1));
+  if (waveMode === Enum.WaveMode.Square) {
+    step -= barWidth / barCount;
+  }
   const yBottom = centeredBars ? (canvasHeight / 2) : (canvasHeight - barWidth / 2);
+  let fillYBottom = 0;
+  if (centeredBars && !waveSimulateWaveform) {
+    fillYBottom = yBottom;
+  } else if (centeredBars && waveSimulateWaveform) {
+    fillYBottom = canvasHeight / 2;
+  } else {
+    fillYBottom = canvasHeight;
+  }
 
   canvas.gradientHeight = yBottom;
 
@@ -114,7 +125,7 @@ function waveRect(ctx, canvas) {
   let prevY = yBottom - Math.max(0, Math.min(maxValue, values[0])) / maxValue * yBottom;
 
   ctx.beginPath();
-  ctx.moveTo(prevX - barWidth, prevY);
+  ctx.moveTo(prevX, prevY);
   for (let i = 0; i < barCount; i++) {
     let norm = Math.max(0, Math.min(maxValue, values[i])) / maxValue;
     if (centeredBars && waveSimulateWaveform) {
@@ -127,19 +138,16 @@ function waveRect(ctx, canvas) {
     const midX = (prevX + x) / 2;
     const midY = (prevY + y) / 2;
 
-    // hide the line end for the last point
-    const rightOffset = (i === barCount - 1) ? barWidth * 2 : 0;
-
     switch (waveMode) {
       case Enum.WaveMode.Curve:
-        ctx.quadraticCurveTo(prevX + rightOffset, prevY, midX + rightOffset, midY);
+        ctx.quadraticCurveTo(prevX, prevY, midX, midY);
         break;
       case Enum.WaveMode.Square:
-        ctx.lineTo(x + rightOffset, prevY); // horizontal
-        ctx.lineTo(x + rightOffset, y); // vertical
+        ctx.lineTo(x, prevY); // horizontal
+        ctx.lineTo(x, y); // vertical
         break;
       case Enum.WaveMode.Triangle:
-        ctx.lineTo(x + rightOffset, y);
+        ctx.lineTo(x, y);
         break;
       default:
         break;
@@ -149,11 +157,16 @@ function waveRect(ctx, canvas) {
     prevY = y;
   }
 
+  if (waveMode === Enum.WaveMode.Curve) {
+    ctx.quadraticCurveTo(prevX, prevY, prevX + x, prevY + y);
+  }
+
+
   ctx.stroke();
 
   if (fillWave && waveFillGradient) {
-    ctx.lineTo(prevX, yBottom);
-    ctx.lineTo(0, yBottom);
+    ctx.lineTo(prevX, fillYBottom);
+    ctx.lineTo(0, fillYBottom);
     ctx.closePath();
     ctx.fillStyle = waveFillGradient;
     ctx.fill();
