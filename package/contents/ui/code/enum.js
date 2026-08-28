@@ -19,3 +19,9 @@ const ColorSourceType = {
   // 4-6 unused
   Hue: 7,
 };
+
+const WaveMode = {
+  Curve: 0,
+  Square: 1,
+  Triangle: 2
+};

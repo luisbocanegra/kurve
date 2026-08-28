@@ -137,6 +137,10 @@
     <entry name="centeredBars" type="Bool">
       <default>false</default>
     </entry>
+    <!-- ./package/contents/ui/code/enum.js[WaveMode] -->
+    <entry name="waveMode" type="Int">
+      <default>0</default>
+    </entry>
     <entry name="roundedBars" type="Bool">
       <default>false</default>
     </entry>
