@@ -92,12 +92,12 @@ function waveRect(ctx, canvas) {
   const maxValue = canvasHeight;
   const barCount = canvas.barCount;
   const barWidth = canvas.barWidth;
-  const centeredBars = canvas.centeredBars;
+  const centeredBars = canvas.centeredBars && !canvas.waveform;
   const fillWave = canvas.fillWave;
   const waveFillGradient = canvas.waveFillGradient;
   const values = canvas.values;
   const waveMode = canvas.waveMode;
-  const waveSimulateWaveform = canvas.waveSimulateWaveform;
+  const waveSimulateWaveform = canvas.waveSimulateWaveform && !canvas.waveform;
 
   if (barCount < 2) {
     return;

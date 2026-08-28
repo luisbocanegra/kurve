@@ -25,6 +25,7 @@ Item {
     property string outputChannels
     property string monoOption
     property int reverse // boolean
+    property int waveform // boolean
     property bool eqEnabled
     property list<real> eq
     property list<int> values
@@ -76,6 +77,7 @@ method=raw
 raw_target=/dev/stdout
 data_format=ascii
 ascii_max_range=${asciiMaxRange}
+waveform=${root.waveform}
 [smoothing]
 noise_reduction=${root.noiseReduction}
 monstercat=${root.monstercat}

@@ -35,6 +35,7 @@ KCM.SimpleKCM {
     property string cfg_outputChannels
     property string cfg_monoOption
     property alias cfg_reverse: reverseCheckbox.checked
+    property alias cfg_waveform: waveform.checked
     // eq
     property alias cfg_eqEnabled: eqEnabled.checked
     property var cfg_eq
@@ -462,6 +463,16 @@ KCM.SimpleKCM {
                 }
                 Kirigami.ContextualHelpButton {
                     toolTipText: i18n("Display frequencies the other way around")
+                }
+            }
+
+            RowLayout {
+                Kirigami.FormData.label: i18n("Waveform:")
+                CheckBox {
+                    id: waveform
+                }
+                Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("Show waveform instead of frequency spectrum. Takes precedence over the simulate waveform option.")
                 }
             }
 

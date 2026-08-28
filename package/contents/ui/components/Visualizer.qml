@@ -28,6 +28,7 @@ Item {
     required property bool fixVertical
     required property bool waveSimulateWaveform
     required property bool circleModeFill
+    required property bool waveform
     property list<int> values
     property bool debugMode: false
 
@@ -85,6 +86,7 @@ Item {
         property bool fillWave: root.fillWave
         property bool waveSimulateWaveform: root.waveSimulateWaveform
         property bool circleModeFill: root.circleModeFill
+        property bool waveform: root.waveform
 
         property real radiusOffset: barWidth / 2
         property int gradientHeight: canvas.height

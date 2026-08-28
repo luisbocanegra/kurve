@@ -204,10 +204,15 @@ KCM.SimpleKCM {
                 Kirigami.FormData.label: i18n("Fill panel thickness:")
             }
 
-            CheckBox {
-                id: centeredBarsCheckbox
-                enabled: !root.cfg_circleMode
+            RowLayout {
                 Kirigami.FormData.label: root.cfg_visualizerStyle === Enum.VisualizerStyles.Wave ? i18n("Centered wave:") : i18n("Centered bars:")
+                CheckBox {
+                    id: centeredBarsCheckbox
+                    enabled: !root.cfg_circleMode
+                }
+                Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("This option is ignored if CAVA waveform option is enabled.")
+                }
             }
 
             RowLayout {
@@ -217,7 +222,7 @@ KCM.SimpleKCM {
                     id: waveSimulateWaveform
                 }
                 Kirigami.ContextualHelpButton {
-                    toolTipText: i18n("Simulates a waveform by alternating values up and down.")
+                    toolTipText: i18n("Simulates a waveform by alternating values up and down. This option is ignored if CAVA waveform option is enabled.")
                 }
             }
 
