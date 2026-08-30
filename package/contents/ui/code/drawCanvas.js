@@ -322,25 +322,58 @@ function blocksRect(ctx, canvas) {
   const blockWidth = canvas.barWidth;
   const blockHeight = canvas.blockHeight;
   const blockSpacing = canvas.blockSpacing;
-  const totalRows = Math.floor((canvasHeight + blockSpacing) / (blockHeight + blockSpacing));
+  const rowStep = blockHeight + blockSpacing;
+  let totalRows = Math.floor((canvasHeight + blockSpacing) / rowStep);
+  const centeredBars = canvas.centeredBars;
   const columnSpacing = canvas.spacing;
   const values = canvas.values || [];
 
+  // ensure odd row count for symmetry
+  if (centeredBars) {
+    if (totalRows > 1 && totalRows % 2 === 0) {
+      totalRows--;
+    }
+  }
+  const yOffset = canvasHeight - totalRows * rowStep;
+
+
   for (let col = 0; col < barCount; col++) {
     let value = values[col];
+    const centerY = canvasHeight / 2;
     const activeRows = Math.floor((value / canvasHeight) * totalRows);
+    const x = col * (blockWidth + columnSpacing);
 
-    for (let row = 0; row < totalRows; row++) {
-      const x = col * (blockWidth + columnSpacing);
-      const y = canvasHeight - (row + 1) * blockHeight - row * blockSpacing;
+    let barHeight = (value / canvasHeight) * (canvasHeight / 2);
+    let yBottom = centerY - barHeight;
+    let yTop = yBottom + (barHeight * 2);
 
-      if (row < activeRows) {
-        ctx.fillStyle = canvas.gradient;
-        ctx.fillRect(x, y, blockWidth, blockHeight);
+    if (centeredBars) {
+      for (let row = 0; row < totalRows; row++) {
+        let y = canvasHeight - ((row + 1) * blockHeight) - (row * blockSpacing);
+        y -= (yOffset / 2) + (blockHeight / 2);
+        y = Math.round(y);
+
+        if (y > yBottom && y < yTop) {
+          if (ctx.fillStyle !== canvas.gradient) ctx.fillStyle = canvas.gradient;
+          ctx.fillRect(x, y, blockWidth, blockHeight);
+        }
+        else if (canvas.drawInactiveBlocks) {
+          if (ctx.fillStyle !== canvas.inactiveBlockGradient) ctx.fillStyle = canvas.inactiveBlockGradient;
+          ctx.fillRect(x, y, blockWidth, blockHeight);
+        }
       }
-      else if (canvas.drawInactiveBlocks) {
-        ctx.fillStyle = canvas.inactiveBlockGradient;
-        ctx.fillRect(x, y, blockWidth, blockHeight);
+    } else {
+      for (let row = 0; row < totalRows; row++) {
+        let y = canvasHeight - ((row + 1) * blockHeight) - (row * blockSpacing);
+        y = Math.round(y);
+        if (row < activeRows) {
+          if (ctx.fillStyle !== canvas.gradient) ctx.fillStyle = canvas.gradient;
+          ctx.fillRect(x, y, blockWidth, blockHeight);
+        }
+        else if (canvas.drawInactiveBlocks) {
+          if (ctx.fillStyle !== canvas.inactiveBlockGradient) ctx.fillStyle = canvas.inactiveBlockGradient;
+          ctx.fillRect(x, y, blockWidth, blockHeight);
+        }
       }
     }
   }
