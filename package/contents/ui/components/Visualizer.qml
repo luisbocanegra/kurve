@@ -49,7 +49,7 @@ Item {
     }
     Rectangle {
         color: Kirigami.Theme.highlightColor
-        opacity: 0.2
+        opacity: 0.1
         visible: root.debugMode
         width: canvas.width
         height: canvas.height
