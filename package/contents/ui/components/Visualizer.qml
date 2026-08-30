@@ -149,22 +149,28 @@ Item {
             if (root.fixVertical) {
                 ctx.translate(0.0, -0.5);
             }
-            if (gradient) {
-                ctx.strokeStyle = gradient;
-                ctx.fillStyle = gradient;
-            }
             switch (visualizerStyle) {
             case Enum.VisualizerStyles.Bars:
+                if (circleMode) {
+                    ctx.fillStyle = gradient;
+                } else {
+                    ctx.strokeStyle = gradient;
+                }
                 DrawCanvas.bars(ctx, canvas, circleMode);
                 break;
             case Enum.VisualizerStyles.Wave:
+                ctx.fillStyle = waveFillGradient;
+                ctx.strokeStyle = gradient;
                 DrawCanvas.wave(ctx, canvas, circleMode);
                 break;
             case Enum.VisualizerStyles.Blocks:
+                // fill is done per block
                 DrawCanvas.blocks(ctx, canvas, circleMode);
                 break;
             default:
-                DrawCanvas.bars(ctx, canvas, circleMode);
+                ctx.fillStyle = waveFillGradient;
+                ctx.strokeStyle = gradient;
+                DrawCanvas.wave(ctx, canvas, circleMode);
                 break;
             }
             if (fixAlign) {
