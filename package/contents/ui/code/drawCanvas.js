@@ -50,24 +50,25 @@ function barsRect(ctx, canvas) {
   const centerY = canvasHeight / 2;
   for (let i = 0; i < barCount; i++) {
     const value = Math.max(1, Math.min(maxValue, values[i]));
+    const norm = value / maxValue;
 
     let barHeight;
     let yBottom;
     let yTop;
     if (centeredBars) {
       if (roundedBars) {
-        barHeight = (value / maxValue) * ((canvasHeight - barWidth) / 2);
+        barHeight = norm * ((canvasHeight - barWidth) / 2);
       } else {
-        barHeight = (value / maxValue) * (canvasHeight / 2);
+        barHeight = norm * (centerY);
       }
       yBottom = centerY - barHeight;
       yTop = yBottom + (barHeight * 2);
     } else {
       if (roundedBars) {
-        barHeight = (value / maxValue) * (canvasHeight - barWidth);
+        barHeight = norm * (canvasHeight - barWidth);
         yBottom = canvasHeight - radiusOffset;
       } else {
-        barHeight = (value / maxValue) * canvasHeight;
+        barHeight = norm * canvasHeight;
         yBottom = canvasHeight;
       }
       yTop = yBottom - barHeight;
@@ -94,10 +95,10 @@ function waveRect(ctx, canvas) {
   const barWidth = canvas.barWidth;
   const centeredBars = canvas.centeredBars && !canvas.waveform;
   const fillWave = canvas.fillWave;
-  const waveFillGradient = canvas.waveFillGradient;
   const values = canvas.values;
   const waveMode = canvas.waveMode;
   const waveSimulateWaveform = canvas.waveSimulateWaveform && !canvas.waveform;
+  const invMax = 1 / maxValue;
 
   if (barCount < 2) {
     return;
@@ -105,34 +106,30 @@ function waveRect(ctx, canvas) {
 
   ctx.lineWidth = barWidth;
 
-  let step = (canvasWidth / (barCount - 1));
+  let step = canvasWidth / (barCount - 1);
   if (waveMode === Enum.WaveMode.Square) {
     step -= barWidth / barCount;
   }
-  const yBottom = centeredBars ? (canvasHeight / 2) : (canvasHeight - barWidth / 2);
-  let fillYBottom = 0;
-  if (centeredBars && !waveSimulateWaveform) {
-    fillYBottom = yBottom;
-  } else if (centeredBars && waveSimulateWaveform) {
-    fillYBottom = canvasHeight / 2;
-  } else {
-    fillYBottom = canvasHeight;
-  }
+
+  const yBottom = centeredBars && !waveform ? canvasHeight / 2 : canvasHeight - barWidth / 2;
+  const fillYBottom = centeredBars
+    ? (waveSimulateWaveform && !waveform ? canvasHeight / 2 : yBottom)
+    : canvasHeight;
 
   canvas.gradientHeight = yBottom;
 
   let prevX = 0;
-  let prevY = yBottom - Math.max(0, Math.min(maxValue, values[0])) / maxValue * yBottom;
+  let prevY = yBottom - values[0] * invMax * yBottom;
 
   ctx.beginPath();
   ctx.moveTo(prevX, prevY);
-  for (let i = 0; i < barCount; i++) {
-    let norm = Math.max(0, Math.min(maxValue, values[i])) / maxValue;
-    if (centeredBars && waveSimulateWaveform) {
-      if (i % 2 === 0 || i === barCount - 1) {
-        norm = -norm;
-      }
+
+  for (let i = 1; i < barCount; i++) {
+    let norm = values[i] * invMax;
+    if (centeredBars && waveSimulateWaveform && !waveform) {
+      norm *= (i % 2 === 0 || i === barCount - 1) ? -1 : 1;
     }
+
     const x = i * step;
     const y = yBottom - norm * yBottom;
     const midX = (prevX + x) / 2;
@@ -143,13 +140,11 @@ function waveRect(ctx, canvas) {
         ctx.quadraticCurveTo(prevX, prevY, midX, midY);
         break;
       case Enum.WaveMode.Square:
-        ctx.lineTo(x, prevY); // horizontal
-        ctx.lineTo(x, y); // vertical
+        ctx.lineTo(x, prevY);
+        ctx.lineTo(x, y);
         break;
       case Enum.WaveMode.Triangle:
         ctx.lineTo(x, y);
-        break;
-      default:
         break;
     }
 
@@ -164,11 +159,10 @@ function waveRect(ctx, canvas) {
 
   ctx.stroke();
 
-  if (fillWave && waveFillGradient) {
+  if (fillWave) {
     ctx.lineTo(prevX, fillYBottom);
     ctx.lineTo(0, fillYBottom);
     ctx.closePath();
-    ctx.fillStyle = waveFillGradient;
     ctx.fill();
   }
 }
@@ -235,7 +229,6 @@ function waveCircle(ctx, canvas) {
   const innerRadius = (Math.min(canvasWidth, canvasHeight) / 2) * circleSize;
   const barWidth = canvas.barWidth;
   const fillWave = canvas.fillWave;
-  const waveFillGradient = canvas.waveFillGradient;
   const values = canvas.values;
   const circleModeFill = canvas.circleModeFill;
 
@@ -292,8 +285,7 @@ function waveCircle(ctx, canvas) {
   let midY = (prevY + startY) / 2;
   ctx.quadraticCurveTo(midX, midY, startX, startY);
 
-  if (fillWave && waveFillGradient) {
-    ctx.fillStyle = waveFillGradient;
+  if (fillWave) {
     ctx.fill();
   }
   ctx.stroke();
@@ -304,7 +296,7 @@ function waveCircle(ctx, canvas) {
     ctx.globalCompositeOperation = "destination-out";
     ctx.beginPath();
     ctx.arc(centerX, centerY, innerRadius - (barWidth / 2), 0, 2 * Math.PI);
-    ctx.fillStyle = "black";
+    if (ctx.fillStyle !== "black") ctx.fillStyle = "black";
     ctx.fill();
     ctx.globalCompositeOperation = "source-over";
     ctx.closePath();
@@ -324,53 +316,43 @@ function blocksRect(ctx, canvas) {
   const blockSpacing = canvas.blockSpacing;
   const rowStep = blockHeight + blockSpacing;
   let totalRows = Math.floor((canvasHeight + blockSpacing) / rowStep);
-  const centeredBars = canvas.centeredBars;
+  const centeredBars = !!canvas.centeredBars;
   const columnSpacing = canvas.spacing;
   const values = canvas.values || [];
 
   // ensure odd row count for symmetry
-  if (centeredBars) {
-    if (totalRows > 1 && totalRows % 2 === 0) {
-      totalRows--;
-    }
+  if (totalRows > 1 && totalRows % 2 === 0) {
+    totalRows--;
   }
-  const yOffset = canvasHeight - totalRows * rowStep;
 
+  const centerY = canvasHeight / 2;
 
   for (let col = 0; col < barCount; col++) {
-    let value = values[col];
-    const centerY = canvasHeight / 2;
+    const value = values[col];
     const activeRows = Math.floor((value / canvasHeight) * totalRows);
     const x = col * (blockWidth + columnSpacing);
 
-    let barHeight = (value / canvasHeight) * (canvasHeight / 2);
-    let yBottom = centerY - barHeight;
-    let yTop = yBottom + (barHeight * 2);
-
     if (centeredBars) {
-      for (let row = 0; row < totalRows; row++) {
-        let y = canvasHeight - ((row + 1) * blockHeight) - (row * blockSpacing);
-        y -= (yOffset / 2) + (blockHeight / 2);
-        y = Math.round(y);
+      const halfRows = Math.floor(totalRows / 2);
+      for (let row = -halfRows; row <= halfRows; row++) {
+        const y = centerY + row * rowStep - blockHeight / 2;
 
-        if (y > yBottom && y < yTop) {
+        // active rows are symmetric around center
+        if (Math.abs(row) < Math.ceil(activeRows / 2)) {
           if (ctx.fillStyle !== canvas.gradient) ctx.fillStyle = canvas.gradient;
           ctx.fillRect(x, y, blockWidth, blockHeight);
-        }
-        else if (canvas.drawInactiveBlocks) {
+        } else if (canvas.drawInactiveBlocks) {
           if (ctx.fillStyle !== canvas.inactiveBlockGradient) ctx.fillStyle = canvas.inactiveBlockGradient;
           ctx.fillRect(x, y, blockWidth, blockHeight);
         }
       }
     } else {
       for (let row = 0; row < totalRows; row++) {
-        let y = canvasHeight - ((row + 1) * blockHeight) - (row * blockSpacing);
-        y = Math.round(y);
+        const y = canvasHeight - (row + 1) * blockHeight - row * blockSpacing;
         if (row < activeRows) {
           if (ctx.fillStyle !== canvas.gradient) ctx.fillStyle = canvas.gradient;
           ctx.fillRect(x, y, blockWidth, blockHeight);
-        }
-        else if (canvas.drawInactiveBlocks) {
+        } else if (canvas.drawInactiveBlocks) {
           if (ctx.fillStyle !== canvas.inactiveBlockGradient) ctx.fillStyle = canvas.inactiveBlockGradient;
           ctx.fillRect(x, y, blockWidth, blockHeight);
         }
@@ -429,11 +411,11 @@ function blocksCircle(ctx, canvas) {
       ctx.closePath();
 
       if (row < activeRows) {
-        ctx.fillStyle = canvas.gradient;
+        if (ctx.fillStyle !== canvas.gradient) ctx.fillStyle = canvas.gradient;
       } else if (canvas.drawInactiveBlocks) {
-        ctx.fillStyle = canvas.inactiveBlockGradient;
+        if (ctx.fillStyle !== canvas.inactiveBlockGradient) ctx.fillStyle = canvas.inactiveBlockGradient;
       } else {
-        ctx.fillStyle = "transparent";
+        if (ctx.fillStyle !== "transparent") ctx.fillStyle = "transparent";
       }
       ctx.fill();
     }
@@ -451,7 +433,6 @@ function triangleSquareCircle(ctx, canvas) {
   const barCount = canvas.barCount;
   const barWidth = canvas.barWidth;
   const fillWave = canvas.fillWave;
-  const waveFillGradient = canvas.waveFillGradient;
   const values = canvas.values;
   const waveMode = canvas.waveMode;
 
@@ -514,8 +495,7 @@ function triangleSquareCircle(ctx, canvas) {
   ctx.closePath();
   ctx.stroke();
 
-  if (fillWave && waveFillGradient) {
-    ctx.fillStyle = waveFillGradient;
+  if (fillWave) {
     ctx.fill();
   }
 
@@ -524,7 +504,7 @@ function triangleSquareCircle(ctx, canvas) {
     ctx.globalCompositeOperation = "destination-out";
     ctx.beginPath();
     ctx.arc(centerX, centerY, innerRadius - (barWidth / 2), 0, 2 * Math.PI);
-    ctx.fillStyle = "black";
+    if (ctx.fillStyle !== "black") ctx.fillStyle = "black";
     ctx.fill();
     ctx.globalCompositeOperation = "source-over";
     ctx.closePath();
