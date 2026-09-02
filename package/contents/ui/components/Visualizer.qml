@@ -130,8 +130,10 @@ Item {
         property bool drawInactiveBlocks: root.drawInactiveBlocks
 
         width: {
-            if (visualizerStyle === Enum.VisualizerStyles.Wave) {
-                return barWidth + ((barCount - 1) * spacing);
+            if (visualizerStyle === Enum.VisualizerStyles.Wave && waveMode === Enum.WaveMode.Square) {
+                return barCount * spacing;
+            } else if (visualizerStyle === Enum.VisualizerStyles.Wave && (waveMode === Enum.WaveMode.Curve || waveMode === Enum.WaveMode.Triangle)) {
+                return (barCount - 1) * spacing;
             }
             return barCount * barWidth + ((barCount - 1) * spacing);
         }
