@@ -98,18 +98,13 @@ function waveRect(ctx, canvas) {
   const values = canvas.values;
   const waveMode = canvas.waveMode;
   const waveSimulateWaveform = canvas.waveSimulateWaveform && !canvas.waveform;
-  const invMax = 1 / maxValue;
+  const spacing = canvas.spacing;
 
   if (barCount < 2) {
     return;
   }
 
   ctx.lineWidth = barWidth;
-
-  let step = canvasWidth / (barCount - 1);
-  if (waveMode === Enum.WaveMode.Square) {
-    step -= barWidth / barCount;
-  }
 
   const yBottom = centeredBars && !waveform ? canvasHeight / 2 : canvasHeight - barWidth / 2;
   const fillYBottom = centeredBars
@@ -118,49 +113,59 @@ function waveRect(ctx, canvas) {
 
   canvas.gradientHeight = yBottom;
 
-  let prevX = 0;
-  let prevY = yBottom - values[0] * invMax * yBottom;
-
   ctx.beginPath();
-  ctx.moveTo(prevX, prevY);
-
-  for (let i = 1; i < barCount; i++) {
-    let norm = values[i] * invMax;
+  let prevX = 0;
+  let prevY = 0;
+  for (let i = 0; i < barCount; i++) {
+    let norm = values[i] / maxValue;
     if (centeredBars && waveSimulateWaveform && !waveform) {
       norm *= (i % 2 === 0 || i === barCount - 1) ? -1 : 1;
     }
 
-    const x = i * step;
+    const x = i * spacing;
     const y = yBottom - norm * yBottom;
-    const midX = (prevX + x) / 2;
-    const midY = (prevY + y) / 2;
+    let midX = 0;
+    let midY = 0;
 
-    switch (waveMode) {
-      case Enum.WaveMode.Curve:
-        ctx.quadraticCurveTo(prevX, prevY, midX, midY);
-        break;
-      case Enum.WaveMode.Square:
-        ctx.lineTo(x, prevY);
-        ctx.lineTo(x, y);
-        break;
-      case Enum.WaveMode.Triangle:
-        ctx.lineTo(x, y);
-        break;
+    if (i === 0) {
+      prevY = y;
+      prevX = x;
+      ctx.moveTo(prevX, y);
+    } else {
+      if (i === barCount - 1) {
+        midX = x;
+        midY = y;
+      } else {
+        midX = (prevX + x) / 2;
+        midY = (prevY + y) / 2;
+      }
+
+      switch (waveMode) {
+        case Enum.WaveMode.Curve:
+          ctx.quadraticCurveTo(prevX, prevY, midX, midY);
+          break;
+        case Enum.WaveMode.Square:
+          ctx.lineTo(x, prevY);
+          ctx.lineTo(x, y);
+          break;
+        case Enum.WaveMode.Triangle:
+          ctx.lineTo(x, y);
+          break;
+      }
     }
-
     prevX = x;
     prevY = y;
   }
 
-  if (waveMode === Enum.WaveMode.Curve) {
-    ctx.quadraticCurveTo(prevX, prevY, prevX + x, prevY + y);
+  if (waveMode === Enum.WaveMode.Square) {
+    ctx.lineTo(canvasWidth, prevY);
   }
 
 
   ctx.stroke();
 
   if (fillWave) {
-    ctx.lineTo(prevX, fillYBottom);
+    ctx.lineTo(canvasWidth, fillYBottom);
     ctx.lineTo(0, fillYBottom);
     ctx.closePath();
     ctx.fill();
