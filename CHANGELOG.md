@@ -1,5 +1,30 @@
 # Changelog
 
+## [3.6.0](https://github.com/luisbocanegra/kurve/compare/v3.5.1...v3.6.0) (2026-09-03)
+
+
+### Features
+
+* add configurable minimum width for the fill width mode ([bad47d3](https://github.com/luisbocanegra/kurve/commit/bad47d3b91804a486fca9b07ac8120e92f44bf31))
+* add option to enable cava waveform mode ([ef90288](https://github.com/luisbocanegra/kurve/commit/ef9028846524c7f63f4a91fd9eea551464e4abb4))
+* add option to fill inner circle in wave mode ([673ad70](https://github.com/luisbocanegra/kurve/commit/673ad70e3baffd5a650ca6e8017c345339cecb2e))
+* add option to pin down first and last values for wave rect style ([abb26b2](https://github.com/luisbocanegra/kurve/commit/abb26b297a18adec1a680b16af5555fe8a14130b))
+* add option to simulate a waveform when using wave style ([aba5eb2](https://github.com/luisbocanegra/kurve/commit/aba5eb2ac80662a0377c7dd316d459e77c23f17d))
+* add square and triangle shapes for the wave style ([bdb6459](https://github.com/luisbocanegra/kurve/commit/bdb645994bcc23389020fc0ba2839ad212e322c1))
+* cava 1.0.0 sensitivity increase ([34ee460](https://github.com/luisbocanegra/kurve/commit/34ee460eeabcb0e054c82e3a0adde2e19710c3a2))
+* show link to install instructions when there is an error ([9e5262f](https://github.com/luisbocanegra/kurve/commit/9e5262fa043fef3636f46df635b8c8041305d68e))
+* support centerd bars for the blocks style in rectangular mode ([c79abde](https://github.com/luisbocanegra/kurve/commit/c79abde9c24c76e227d8e2f5d25b295fa73df758))
+
+
+### Bug Fixes
+
+* circle mode stereo channels, spacing and starting angle ([e35e45c](https://github.com/luisbocanegra/kurve/commit/e35e45c0c7044fecb89d6dfcf3001017dfb7afa1))
+* drawing overflowing ([187499c](https://github.com/luisbocanegra/kurve/commit/187499c6a01cfe147bec003a32b4bac3ee1d26e4))
+* make square shape start and end with horizontal line ([7b6fe89](https://github.com/luisbocanegra/kurve/commit/7b6fe893578111548508cfdf5757d18064b7fef3))
+* off-centered gradient stops ([#176](https://github.com/luisbocanegra/kurve/issues/176)) ([5ca6445](https://github.com/luisbocanegra/kurve/commit/5ca6445e44126021803174f64a5595b132b0e018))
+* support Plasma 6.7 per-output virtual desktops ([385d05b](https://github.com/luisbocanegra/kurve/commit/385d05b3d5c3f74ef9ee9075a18f1b8842bf0f13))
+* wave rect fill height ([021d218](https://github.com/luisbocanegra/kurve/commit/021d218070d9c5de7d698f9b9c2e98a0f86ba5bd))
+
 ## [3.5.1](https://github.com/luisbocanegra/kurve/compare/v3.5.0...v3.5.1) (2026-03-27)
 
 
