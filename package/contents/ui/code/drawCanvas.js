@@ -123,7 +123,7 @@ function waveRect(ctx, canvas) {
     }
 
     const x = i * spacing;
-    const y = yBottom - norm * yBottom;
+    const y = yBottom - norm * (yBottom - barWidth);
     let midX = 0;
     let midY = 0;
 
@@ -183,21 +183,20 @@ function barsCircle(ctx, canvas) {
   const maxValue = Math.min(canvasWidth, canvasHeight) / 2;
   const barCount = canvas.barCount;
   const values = canvas.values;
-  const barRadiusOffset = canvas.radiusOffset * 2;
   const circleSize = canvas.circleModeSize;
   const spacing = canvas.spacing;
 
   const centerX = canvasWidth / 2;
   const centerY = canvasHeight / 2;
   const angleStep = (2 * Math.PI) / barCount;
-  const innerRadius = (Math.min(canvasWidth, canvasHeight) / 2) * circleSize - barRadiusOffset;
+  const innerRadius = maxValue * circleSize;
 
   const gapAngle = spacing / innerRadius;
-
+  const maxBarLength = maxValue * (1 - circleSize);
   for (let i = 0; i < barCount; i++) {
     const value = Math.max(1, Math.min(maxValue, values[i]));
     const norm = value / maxValue;
-    const barLength = norm * (maxValue - 2) * (1 - circleSize);
+    const barLength = norm * maxBarLength;
 
     const halfAngle = (angleStep - gapAngle) / 2;
     const angle = (i + 0.5) * angleStep - Math.PI / 2;
@@ -228,11 +227,12 @@ function barsCircle(ctx, canvas) {
 function waveCircle(ctx, canvas) {
   const canvasWidth = canvas.width;
   const canvasHeight = canvas.height;
-  const maxValue = Math.min(canvasWidth, canvasHeight) / 2;
+  const barWidth = canvas.barWidth;
+  const half = Math.min(canvasWidth, canvasHeight) / 2;
+  const maxValue = half - barWidth;
   const barCount = canvas.barCount;
   const circleSize = canvas.circleModeSize;
-  const innerRadius = (Math.min(canvasWidth, canvasHeight) / 2) * circleSize;
-  const barWidth = canvas.barWidth;
+  const innerRadius = half * circleSize;
   const fillWave = canvas.fillWave;
   const values = canvas.values;
   const circleModeFill = canvas.circleModeFill;
@@ -377,7 +377,6 @@ function blocksCircle(ctx, canvas) {
   const maxValue = Math.min(canvasWidth, canvasHeight) / 2;
   const barCount = canvas.barCount;
   const values = canvas.values;
-  const barRadiusOffset = canvas.radiusOffset * 2;
   const circleSize = canvas.circleModeSize;
   const spacing = canvas.spacing;
   const blockHeight = canvas.blockHeight;
@@ -386,12 +385,12 @@ function blocksCircle(ctx, canvas) {
   const centerX = canvasWidth / 2;
   const centerY = canvasHeight / 2;
   const angleStep = (2 * Math.PI) / barCount;
-  const innerRadius = (Math.min(canvasWidth, canvasHeight) / 2) * circleSize - barRadiusOffset;
+  const innerRadius = maxValue * circleSize;
 
   const gapAngle = spacing / innerRadius;
 
-  const maxBarLength = (maxValue - 2) * (1 - circleSize);
-  const maxRows = Math.floor(maxBarLength / (blockHeight + blockSpacing));
+  const maxBarLength = maxValue * (1 - circleSize);
+  const maxRows = Math.floor((maxBarLength + blockSpacing) / (blockHeight + blockSpacing));
 
   for (let col = 0; col < barCount; col++) {
     const value = Math.max(1, Math.min(maxValue, values[col]));
@@ -404,7 +403,7 @@ function blocksCircle(ctx, canvas) {
     const angle1 = angle - halfAngle;
     const angle2 = angle + halfAngle;
 
-    const activeRows = Math.floor(barLength / (blockHeight + blockSpacing));
+    const activeRows = Math.floor((barLength + blockSpacing) / (blockHeight + blockSpacing));
 
     for (let row = 0; row < maxRows; row++) {
       const r1 = innerRadius + row * (blockHeight + blockSpacing);
@@ -447,14 +446,12 @@ function triangleSquareCircle(ctx, canvas) {
 
   const centerX = canvasWidth / 2;
   const centerY = canvasHeight / 2;
-  const innerRadius = Math.min(canvasWidth, canvasHeight) / 2 * canvas.circleModeSize;
+  const maxRadius = Math.min(canvasWidth, canvasHeight) / 2;
+  const innerRadius = maxRadius * canvas.circleModeSize;
   const angleStep = (2 * Math.PI) / barCount;
+  const maxValue = maxRadius - innerRadius - barWidth;
 
   ctx.lineWidth = barWidth;
-
-  const maxRadius = Math.min(canvasWidth, canvasHeight) / 2;
-  const maxValue = maxRadius - innerRadius;
-
   canvas.gradientHeight = maxValue;
 
   const valueAt = (index) => Math.max(0, Math.min(maxValue, values[index]));
@@ -467,7 +464,7 @@ function triangleSquareCircle(ctx, canvas) {
     };
   };
 
-  const firstRadius = (radiusAt(0) + radiusAt(barCount - 1)) / 2;
+  const firstRadius = radiusAt(0);
   const first = pointAt(0, firstRadius);
   ctx.beginPath();
   ctx.moveTo(first.x, first.y);
