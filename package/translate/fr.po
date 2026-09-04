@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/plasma-audio-visualizer\n"
-"POT-Creation-Date: 2026-09-04 10:13-0600\n"
+"POT-Creation-Date: 2026-09-04 17:33+0000\n"
 "PO-Revision-Date: 2025-12-31 HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: French <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../metadata.json
-msgid "Audio Visualizer"
+msgid "Plasma Audio Visualizer"
 msgstr ""
 
 #: ../metadata.json
@@ -32,6 +32,22 @@ msgstr "Visualiseur"
 #: ../contents/config/config.qml ../contents/ui/configCava.qml
 msgid "General"
 msgstr "Général"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Oh no! Something went wrong"
+msgstr "Oh non ! Quelque chose s'est mal passé"
+
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml ../contents/ui/main.qml
+msgid "Stop CAVA"
+msgstr "Arrêter CAVA"
+
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml ../contents/ui/main.qml
+msgid "Start CAVA"
+msgstr "Démarrer CAVA"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Copy to clipboard"
+msgstr "Copier dans le presse-papiers"
 
 #: ../contents/ui/components/ColorPickerGradientList.qml ../contents/ui/components/ColorPickerList.qml ../contents/ui/components/FormColors.qml
 msgid "Widget background"
@@ -232,14 +248,6 @@ msgstr "Saturation :"
 #: ../contents/ui/components/FormColors.qml
 msgid "Lightness:"
 msgstr "Luminosité :"
-
-#: ../contents/ui/configCava.qml ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
-msgid "Start CAVA"
-msgstr "Démarrer CAVA"
-
-#: ../contents/ui/configCava.qml ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
-msgid "Stop CAVA"
-msgstr "Arrêter CAVA"
 
 #: ../contents/ui/configCava.qml
 msgid "Framerate:"
@@ -704,14 +712,6 @@ msgstr "Couleur des blocs inactifs"
 #: ../contents/ui/configVisualizer.qml
 msgid "Wave Fill Color"
 msgstr "Couleur de remplissage de la vague"
-
-#: ../contents/ui/FullRepresentation.qml
-msgid "Oh no! Something went wrong"
-msgstr "Oh non ! Quelque chose s'est mal passé"
-
-#: ../contents/ui/FullRepresentation.qml
-msgid "Copy to clipboard"
-msgstr "Copier dans le presse-papiers"
 
 #: ../contents/ui/main.qml
 msgid "Show support information"

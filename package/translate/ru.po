@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: visualizer\n"
 "Report-Msgid-Bugs-To: https://github.com/luisbocanegra/plasma-audio-"
 "visualizer\n"
-"POT-Creation-Date: 2026-09-04 10:13-0600\n"
+"POT-Creation-Date: 2026-09-04 17:33+0000\n"
 "PO-Revision-Date: 2026-01-08 11:33+0200\n"
 "Last-Translator: Mykhailo Aleksieiev <mishanya.bigimot@gmail.com>\n"
 "Language-Team: \n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Poedit 3.8\n"
 
 #: ../metadata.json
-msgid "Audio Visualizer"
+msgid "Plasma Audio Visualizer"
 msgstr ""
 
 #: ../metadata.json
@@ -34,6 +34,24 @@ msgstr "Визуализатор"
 #: ../contents/config/config.qml ../contents/ui/configCava.qml
 msgid "General"
 msgstr "Основное"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Oh no! Something went wrong"
+msgstr "О нет! Что-то пошло не так"
+
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml
+#: ../contents/ui/main.qml
+msgid "Stop CAVA"
+msgstr "Остановить CAVA"
+
+#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml
+#: ../contents/ui/main.qml
+msgid "Start CAVA"
+msgstr "Запустить CAVA"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Copy to clipboard"
+msgstr "Скопировать в буфер обмена"
 
 #: ../contents/ui/components/ColorPickerGradientList.qml
 #: ../contents/ui/components/ColorPickerList.qml
@@ -245,16 +263,6 @@ msgstr "Насыщенность:"
 msgid "Lightness:"
 msgstr "Яркость:"
 
-#: ../contents/ui/configCava.qml ../contents/ui/FullRepresentation.qml
-#: ../contents/ui/main.qml
-msgid "Start CAVA"
-msgstr "Запустить CAVA"
-
-#: ../contents/ui/configCava.qml ../contents/ui/FullRepresentation.qml
-#: ../contents/ui/main.qml
-msgid "Stop CAVA"
-msgstr "Остановить CAVA"
-
 #: ../contents/ui/configCava.qml
 msgid "Framerate:"
 msgstr "Частота кадров:"
@@ -394,11 +402,11 @@ msgstr "Для fifo 'source' будет путём к fifo-файлу."
 
 #: ../contents/ui/configCava.qml
 msgid ""
-"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where "
-"'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address."
+"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:"
+"EE:FF' will be squeezelite's MAC address."
 msgstr ""
-"Для shmem 'source' будет /squeezelite-AA:BB:CC:DD:EE:FF, где "
-"'AA:BB:CC:DD:EE:FF' это MAC-адрес squeezelite."
+"Для shmem 'source' будет /squeezelite-AA:BB:CC:DD:EE:FF, где 'AA:BB:CC:DD:EE:"
+"FF' это MAC-адрес squeezelite."
 
 #: ../contents/ui/configCava.qml
 msgid ""
@@ -792,14 +800,6 @@ msgstr "Цвет неактивного блока"
 #: ../contents/ui/configVisualizer.qml
 msgid "Wave Fill Color"
 msgstr "Цвет заливки волны"
-
-#: ../contents/ui/FullRepresentation.qml
-msgid "Oh no! Something went wrong"
-msgstr "О нет! Что-то пошло не так"
-
-#: ../contents/ui/FullRepresentation.qml
-msgid "Copy to clipboard"
-msgstr "Скопировать в буфер обмена"
 
 #: ../contents/ui/main.qml
 msgid "Show support information"
