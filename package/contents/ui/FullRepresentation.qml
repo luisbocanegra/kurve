@@ -39,7 +39,7 @@ ColumnLayout {
             Layout.leftMargin: Kirigami.Units.gridUnit
             Layout.rightMargin: Kirigami.Units.gridUnit
             Layout.fillWidth: true
-            text: i18n('This widget requires additional dependencies to work. See <a href="%1">install instructions</a>.', "https://github.com/luisbocanegra/kurve#installation")
+            text: i18n('This widget requires additional dependencies to work. See <a href="%1">install instructions</a>.', "https://github.com/luisbocanegra/plasma-audio-visualizer#installation")
             textFormat: Text.RichText
             wrapMode: Text.Wrap
             horizontalAlignment: TextEdit.AlignHCenter

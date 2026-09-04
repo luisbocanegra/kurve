@@ -7,8 +7,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
-"Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2026-08-28 21:55+0000\n"
+"Report-Msgid-Bugs-To: https://github.com/luisbocanegra/plasma-audio-"
+"visualizer\n"
+"POT-Creation-Date: 2026-09-04 10:13-0600\n"
 "PO-Revision-Date: 2025-11-12 10:33+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -19,8 +20,8 @@ msgstr ""
 "X-Generator: Poedit 3.8\n"
 
 #: ../metadata.json
-msgid "Kurve"
-msgstr "Kurve"
+msgid "Audio Visualizer"
+msgstr ""
 
 #: ../metadata.json
 msgid "Audio visualizer powered by CAVA"
@@ -33,24 +34,6 @@ msgstr "Visualisatie"
 #: ../contents/config/config.qml ../contents/ui/configCava.qml
 msgid "General"
 msgstr "Algemeen"
-
-#: ../contents/ui/FullRepresentation.qml
-msgid "Oh no! Something went wrong"
-msgstr "Oeps, er is iets misgegaan…"
-
-#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml
-#: ../contents/ui/main.qml
-msgid "Stop CAVA"
-msgstr "CAVA stoppen"
-
-#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml
-#: ../contents/ui/main.qml
-msgid "Start CAVA"
-msgstr "CAVA starten"
-
-#: ../contents/ui/FullRepresentation.qml
-msgid "Copy to clipboard"
-msgstr "Kopiëren naar klembord"
 
 #: ../contents/ui/components/ColorPickerGradientList.qml
 #: ../contents/ui/components/ColorPickerList.qml
@@ -261,6 +244,16 @@ msgstr "Verzadiging:"
 msgid "Lightness:"
 msgstr "Helderheid:"
 
+#: ../contents/ui/configCava.qml ../contents/ui/FullRepresentation.qml
+#: ../contents/ui/main.qml
+msgid "Start CAVA"
+msgstr "CAVA starten"
+
+#: ../contents/ui/configCava.qml ../contents/ui/FullRepresentation.qml
+#: ../contents/ui/main.qml
+msgid "Stop CAVA"
+msgstr "CAVA stoppen"
+
 #: ../contents/ui/configCava.qml
 msgid "Framerate:"
 msgstr "Framesnelheid:"
@@ -403,11 +396,11 @@ msgstr "Voor fifo zal ‘source’ de locatie van het fifo-bestand zijn."
 
 #: ../contents/ui/configCava.qml
 msgid ""
-"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:"
-"EE:FF' will be squeezelite's MAC address."
+"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where "
+"'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address."
 msgstr ""
-"Voor shmem zal ‘source’ /squeezelite-AA:BB:CC:DD:EE:FF zijn, waar ‘AA:BB:CC:"
-"DD:EE:FF’ staat voor squeezelites MAC-adres."
+"Voor shmem zal ‘source’ /squeezelite-AA:BB:CC:DD:EE:FF zijn, waar "
+"‘AA:BB:CC:DD:EE:FF’ staat voor squeezelites MAC-adres."
 
 #: ../contents/ui/configCava.qml
 msgid ""
@@ -798,6 +791,14 @@ msgstr ""
 #: ../contents/ui/configVisualizer.qml
 msgid "Wave Fill Color"
 msgstr "Opgevulde golfkleur"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Oh no! Something went wrong"
+msgstr "Oeps, er is iets misgegaan…"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Copy to clipboard"
+msgstr "Kopiëren naar klembord"
 
 #: ../contents/ui/main.qml
 msgid "Show support information"

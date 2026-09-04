@@ -1,13 +1,13 @@
 <div align="center">
 
-# Kurve
+# Plasma Audio Visualizer
 
-[![AUR version](https://img.shields.io/aur/version/plasma6-applets-kurve?logo=archlinux&label=AUR&color=1f425f&labelColor=2d333b)](https://aur.archlinux.org/packages/plasma6-applets-kurve)
+[![AUR version](https://img.shields.io/aur/version/plasma6-applets-audio-visualizer?logo=archlinux&label=AUR&color=1f425f&labelColor=2d333b)](https://aur.archlinux.org/packages/plasma6-applets-audio-visualizer)
 [![Store version](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Fapi.opendesktop.org%2Focs%2Fv1%2Fcontent%2Fdata%2F2299506&query=%2Focs%2Fdata%2Fcontent%2Fversion%2Ftext()&color=1f425f&labelColor=2d333b&logo=kde&label=KDE%20Store)](https://store.kde.org/p/2299506)
-[![OBS Fedora 43](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Fapi.opensuse.org%2Fpublic%2Fbuild%2Fhome%3Aluisbocanegra%2FFedora_43%2Fx86_64%2Fkurve%2F_buildinfo&query=%2Fbuildinfo%2Fversrel%2Ftext()&logo=fedora&label=Fedora%2043&color=1f425f&labelColor=2d333b)](https://software.opensuse.org//download.html?project=home%3Aluisbocanegra&package=kurve)
-[![OBS Fedora Rawhide](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Fapi.opensuse.org%2Fpublic%2Fbuild%2Fhome%3Aluisbocanegra%2FFedora_Rawhide%2Fx86_64%2Fkurve%2F_buildinfo&query=%2Fbuildinfo%2Fversrel%2Ftext()&logo=fedora&label=Fedora%20Rawhide&color=1f425f&labelColor=2d333b)](https://software.opensuse.org//download.html?project=home%3Aluisbocanegra&package=kurve)
-[![OBS openSUSE Tumbleweed](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Fapi.opensuse.org%2Fpublic%2Fbuild%2Fhome%3Aluisbocanegra%2FopenSUSE_Tumbleweed%2Fx86_64%2Fkurve%2F_buildinfo&query=%2Fbuildinfo%2Fversrel%2Ftext()&logo=opensuse&label=openSUSE%20Tumbleweed&color=1f425f&labelColor=2d333b)](https://software.opensuse.org//download.html?project=home%3Aluisbocanegra&package=kurve)
-[![OBS openSUSE Slowroll](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Fapi.opensuse.org%2Fpublic%2Fbuild%2Fhome%3Aluisbocanegra%2FopenSUSE_Slowroll%2Fx86_64%2Fkurve%2F_buildinfo&query=%2Fbuildinfo%2Fversrel%2Ftext()&logo=opensuse&label=openSUSE%20Slowroll&color=1f425f&labelColor=2d333b)](https://software.opensuse.org//download.html?project=home%3Aluisbocanegra&package=kurve)
+[![OBS Fedora 43](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Fapi.opensuse.org%2Fpublic%2Fbuild%2Fhome%3Aluisbocanegra%2FFedora_43%2Fx86_64%2Fplasma-audio-visualizer%2F_buildinfo&query=%2Fbuildinfo%2Fversrel%2Ftext()&logo=fedora&label=Fedora%2043&color=1f425f&labelColor=2d333b)](https://software.opensuse.org//download.html?project=home%3Aluisbocanegra&package=plasma-audio-visualizer)
+[![OBS Fedora Rawhide](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Fapi.opensuse.org%2Fpublic%2Fbuild%2Fhome%3Aluisbocanegra%2FFedora_Rawhide%2Fx86_64%2Fplasma-audio-visualizer%2F_buildinfo&query=%2Fbuildinfo%2Fversrel%2Ftext()&logo=fedora&label=Fedora%20Rawhide&color=1f425f&labelColor=2d333b)](https://software.opensuse.org//download.html?project=home%3Aluisbocanegra&package=plasma-audio-visualizer)
+[![OBS openSUSE Tumbleweed](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Fapi.opensuse.org%2Fpublic%2Fbuild%2Fhome%3Aluisbocanegra%2FopenSUSE_Tumbleweed%2Fx86_64%2Fplasma-audio-visualizer%2F_buildinfo&query=%2Fbuildinfo%2Fversrel%2Ftext()&logo=opensuse&label=openSUSE%20Tumbleweed&color=1f425f&labelColor=2d333b)](https://software.opensuse.org//download.html?project=home%3Aluisbocanegra&package=plasma-audio-visualizer)
+[![OBS openSUSE Slowroll](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Fapi.opensuse.org%2Fpublic%2Fbuild%2Fhome%3Aluisbocanegra%2FopenSUSE_Slowroll%2Fx86_64%2Fplasma-audio-visualizer%2F_buildinfo&query=%2Fbuildinfo%2Fversrel%2Ftext()&logo=opensuse&label=openSUSE%20Slowroll&color=1f425f&labelColor=2d333b)](https://software.opensuse.org//download.html?project=home%3Aluisbocanegra&package=plasma-audio-visualizer)
 
 Audio visualizer widget powered by [CAVA](https://github.com/karlstav/cava) for the KDE Plasma Desktop
 
@@ -22,14 +22,14 @@ Audio visualizer widget powered by [CAVA](https://github.com/karlstav/cava) for 
 ### Arch Linux (AUR)
 
 ```sh
-yay -S plasma6-applets-kurve
+yay -S plasma6-applets-audio-visualizer
 ```
 
 ### openSUSE Build Service packages (Fedora, openSUSE)
 
-Maintained with @pallaswept and me at <https://build.opensuse.org/package/show/home:luisbocanegra/kurve>
+Maintained with @pallaswept and me at <https://build.opensuse.org/package/show/home:luisbocanegra/plasma-audio-visualizer>
 
-Install instructions: <https://software.opensuse.org//download.html?project=home%3Aluisbocanegra&package=kurve>
+Install instructions: <https://software.opensuse.org//download.html?project=home%3Aluisbocanegra&package=plasma-audio-visualizer>
 
 ### KDE Store
 
@@ -53,11 +53,11 @@ Install instructions: <https://software.opensuse.org//download.html?project=home
     **Method 1: Directly from Plasma**
 
    1. **Right click on the Panel or Desktop** > **Add or manage widgets** > **Get new** > **Download new...**
-   2. **Search** for "**Kurve**", install and add it to your Panel or Desktop.
+   2. **Search** for "**Audio Visualizer**" by luis-bocanegra, install and add it to your Panel or Desktop/Panel.
 
     **Method 2: From local plasmoid file**
 
-   1. Go to the Kurve product page in the KDE Store: <https://store.kde.org/p/2299506>
+   1. Go to the product page in the KDE Store: <https://store.kde.org/p/2299506>
    2. Download the *.plasmoid file
    3. Install with the following command:
 
@@ -87,8 +87,8 @@ Install instructions: <https://software.opensuse.org//download.html?project=home
 2. Clone and install
 
     ```sh
-    git clone https://github.com/luisbocanegra/kurve.git
-    cd kurve
+    git clone https://github.com/luisbocanegra/plasma-audio-visualizer.git
+    cd plasma-audio-visualizer
     ./install.sh
     ```
 

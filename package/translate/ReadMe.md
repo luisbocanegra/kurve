@@ -5,16 +5,16 @@
 |  Locale  |  Lines  | % Done|
 |----------|---------|-------|
 | Template |     169 |       |
-| fr       | 155/169 |   91% |
-| nl       | 147/169 |   86% |
-| ru       | 155/169 |   91% |
-| sv       | 155/169 |   91% |
-| zh_CN    | 155/169 |   91% |
+| fr       | 154/169 |   91% |
+| nl       | 146/169 |   86% |
+| ru       | 154/169 |   91% |
+| sv       | 154/169 |   91% |
+| zh_CN    | 154/169 |   91% |
 
 
 ## New Translations
 
-* Fill out [`template.pot`](template.pot) with your translations then open a [new issue](https://github.com/luisbocanegra/kurve/issues/new), name the file `spanish.txt`, attach the txt file to the issue (drag and drop).
+* Fill out [`template.pot`](template.pot) with your translations then open a [new issue](https://github.com/luisbocanegra/plasma-audio-visualizer/issues/new), name the file `spanish.txt`, attach the txt file to the issue (drag and drop).
 
 Or if you know how to make a pull request
 

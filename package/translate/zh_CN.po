@@ -7,8 +7,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
-"Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2026-08-28 21:55+0000\n"
+"Report-Msgid-Bugs-To: https://github.com/luisbocanegra/plasma-audio-"
+"visualizer\n"
+"POT-Creation-Date: 2026-09-04 10:13-0600\n"
 "PO-Revision-Date: 2025-11-25 00:39+0800\n"
 "Last-Translator: BCTaoTao <165790460+BCTaoTao@users.noreply.github.com>\n"
 "Language-Team: \n"
@@ -19,8 +20,8 @@ msgstr ""
 "X-Generator: Poedit 3.6\n"
 
 #: ../metadata.json
-msgid "Kurve"
-msgstr "Kurve"
+msgid "Audio Visualizer"
+msgstr ""
 
 #: ../metadata.json
 msgid "Audio visualizer powered by CAVA"
@@ -33,24 +34,6 @@ msgstr "可视化器"
 #: ../contents/config/config.qml ../contents/ui/configCava.qml
 msgid "General"
 msgstr "常规"
-
-#: ../contents/ui/FullRepresentation.qml
-msgid "Oh no! Something went wrong"
-msgstr "糟糕！出错了"
-
-#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml
-#: ../contents/ui/main.qml
-msgid "Stop CAVA"
-msgstr "停止 CAVA"
-
-#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml
-#: ../contents/ui/main.qml
-msgid "Start CAVA"
-msgstr "启动 CAVA"
-
-#: ../contents/ui/FullRepresentation.qml
-msgid "Copy to clipboard"
-msgstr "复制到剪贴板"
 
 #: ../contents/ui/components/ColorPickerGradientList.qml
 #: ../contents/ui/components/ColorPickerList.qml
@@ -259,6 +242,16 @@ msgstr "饱和度："
 msgid "Lightness:"
 msgstr "亮度："
 
+#: ../contents/ui/configCava.qml ../contents/ui/FullRepresentation.qml
+#: ../contents/ui/main.qml
+msgid "Start CAVA"
+msgstr "启动 CAVA"
+
+#: ../contents/ui/configCava.qml ../contents/ui/FullRepresentation.qml
+#: ../contents/ui/main.qml
+msgid "Stop CAVA"
+msgstr "停止 CAVA"
+
 #: ../contents/ui/configCava.qml
 msgid "Framerate:"
 msgstr "帧率："
@@ -393,11 +386,11 @@ msgstr "对于FIFO，'source'为FIFO文件路径。"
 
 #: ../contents/ui/configCava.qml
 msgid ""
-"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:"
-"EE:FF' will be squeezelite's MAC address."
+"For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where "
+"'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address."
 msgstr ""
-"对于shmem，'source'为/squeezelite-AA:BB:CC:DD:EE:FF，其中'AA:BB:CC:DD:EE:"
-"FF'为squeezelite的MAC地址。"
+"对于shmem，'source'为/squeezelite-AA:BB:CC:DD:EE:FF，其"
+"中'AA:BB:CC:DD:EE:FF'为squeezelite的MAC地址。"
 
 #: ../contents/ui/configCava.qml
 msgid ""
@@ -778,6 +771,14 @@ msgstr "非活动块颜色"
 #: ../contents/ui/configVisualizer.qml
 msgid "Wave Fill Color"
 msgstr "波形填充颜色"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Oh no! Something went wrong"
+msgstr "糟糕！出错了"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Copy to clipboard"
+msgstr "复制到剪贴板"
 
 #: ../contents/ui/main.qml
 msgid "Show support information"

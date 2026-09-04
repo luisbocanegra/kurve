@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: visualizer\n"
-"Report-Msgid-Bugs-To: https://github.com/luisbocanegra/kurve\n"
-"POT-Creation-Date: 2026-08-28 21:55+0000\n"
+"Report-Msgid-Bugs-To: https://github.com/luisbocanegra/plasma-audio-visualizer\n"
+"POT-Creation-Date: 2026-09-04 10:13-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../metadata.json
-msgid "Kurve"
+msgid "Audio Visualizer"
 msgstr ""
 
 #: ../metadata.json
@@ -31,22 +31,6 @@ msgstr ""
 
 #: ../contents/config/config.qml ../contents/ui/configCava.qml
 msgid "General"
-msgstr ""
-
-#: ../contents/ui/FullRepresentation.qml
-msgid "Oh no! Something went wrong"
-msgstr ""
-
-#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml ../contents/ui/main.qml
-msgid "Stop CAVA"
-msgstr ""
-
-#: ../contents/ui/FullRepresentation.qml ../contents/ui/configCava.qml ../contents/ui/main.qml
-msgid "Start CAVA"
-msgstr ""
-
-#: ../contents/ui/FullRepresentation.qml
-msgid "Copy to clipboard"
 msgstr ""
 
 #: ../contents/ui/components/ColorPickerGradientList.qml ../contents/ui/components/ColorPickerList.qml ../contents/ui/components/FormColors.qml
@@ -247,6 +231,14 @@ msgstr ""
 
 #: ../contents/ui/components/FormColors.qml
 msgid "Lightness:"
+msgstr ""
+
+#: ../contents/ui/configCava.qml ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
+msgid "Start CAVA"
+msgstr ""
+
+#: ../contents/ui/configCava.qml ../contents/ui/FullRepresentation.qml ../contents/ui/main.qml
+msgid "Stop CAVA"
 msgstr ""
 
 #: ../contents/ui/configCava.qml
@@ -703,6 +695,14 @@ msgstr ""
 
 #: ../contents/ui/configVisualizer.qml
 msgid "Wave Fill Color"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Oh no! Something went wrong"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Copy to clipboard"
 msgstr ""
 
 #: ../contents/ui/main.qml
