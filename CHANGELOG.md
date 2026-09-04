@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.1](https://github.com/luisbocanegra/plasma-audio-visualizer/compare/v3.6.0...v3.6.1) (2026-09-04)
+
+
+### Miscellaneous Chores
+
+* project rename ([341db72](https://github.com/luisbocanegra/plasma-audio-visualizer/commit/341db72c8a5eaa9595f8a945a1af8b1a778969e6))
+
 ## [3.6.0](https://github.com/luisbocanegra/plasma-audio-visualizer/compare/v3.5.1...v3.6.0) (2026-09-03)
 
 
