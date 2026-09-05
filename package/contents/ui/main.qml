@@ -66,7 +66,7 @@ PlasmoidItem {
             if (Plasmoid.status === PlasmaCore.Types.RequiresAttentionStatus) {
                 return;
             }
-            Plasmoid.status = (hideWhenIdle && cava.idle || !cava.running) && !Plasmoid.expanded && !editMode && !cava.hasError ? PlasmaCore.Types.HiddenStatus : PlasmaCore.Types.ActiveStatus;
+            Plasmoid.status = (hideWhenIdle && cava.idle || (!cava.running && !cava.restarting)) && !Plasmoid.expanded && !editMode && !cava.hasError ? PlasmaCore.Types.HiddenStatus : PlasmaCore.Types.ActiveStatus;
             logger.debug("Plasmoid.status:", Plasmoid.status);
         }, main);
     }

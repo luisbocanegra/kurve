@@ -39,6 +39,7 @@ Item {
     readonly property list<string> loadingErrors: process.loadingErrors
     readonly property bool loadingFailed: process.loadingFailed
     readonly property bool usingFallback: process.usingFallback
+    property bool restarting: false
     readonly property bool running: process.running
     readonly property string cavaCommand: process.command
     readonly property string cavaConfig: {
@@ -105,6 +106,7 @@ waves=${root.waves}
     }
     onCavaConfigChanged: {
         if (barCount > 0 && cavaConfig != "") {
+            root.restarting = true;
             process.command = `exec cava -p /dev/stdin <<-EOF
 ${cavaConfig}
 EOF
@@ -113,6 +115,11 @@ EOF
     }
     ProcessMonitor {
         id: process
+        onRunningChanged: {
+            if (process.running) {
+                root.restarting = false;
+            }
+        }
         onStdoutChanged: {
             let output = process.stdout.trim();
             if (output.endsWith(';')) {
